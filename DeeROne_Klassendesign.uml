@@ -31,15 +31,15 @@
     <searchpath href="PROJECT_DIR" />
     <members>
       <member type="profile"
-              name="DeeROne.zargo_profile.profile" />
+              name="DeeROne_Klassendesign_profile.profile" />
       <member type="xmi"
-              name="DeeROne.zargo.xmi" />
+              name="DeeROne_Klassendesign.xmi" />
       <member type="pgml"
-              name="DeeROne.zargo_Klassendiagramm5.pgml"
+              name="DeeROne_Klassendesign_Klassendiagramm5.pgml"
               diagramclass="org.argouml.uml.diagram.static_structure.ui.UMLClassDiagram"
               diagramname="Klassendiagramm 5" />
       <member type="todo"
-              name="DeeROne.zargo.todo" />
+              name="DeeROne_Klassendesign.todo" />
     </members>
     <historyfile name="" />
   </argo>
@@ -57,7 +57,7 @@
 			Java
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon May 12 21:35:46 CEST 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon May 12 21:51:55 CEST 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -771,6 +771,16 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
               name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
               ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DC9'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Überprüfung, ob ortA, ortB aus den Ortsklassen Nebenort, Hauptort oder Umschlagpunkt stammen.
+(Ort.ortArt)</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7F'
                   name = 'return' isSpecification = 'false' kind = 'return'>
@@ -880,6 +890,16 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
               name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
               ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DCC'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Überprüfung, ob ortA, ortB aus den Ortsklassen Hauptort, Umschlagpunkt oder Nebenort stammen.
+(Ort.ortArt)</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B81'
                   name = 'return' isSpecification = 'false' kind = 'return'>
@@ -925,7 +945,7 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
           </UML:Generalization.parent>
         </UML:Generalization>
         <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD'
-          name = 'HauptlastKorridor' visibility = 'public' isSpecification = 'false'
+          name = 'HochlastKorridor' visibility = 'public' isSpecification = 'false'
           isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
           <UML:GeneralizableElement.generalization>
             <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABE'/>
@@ -989,6 +1009,16 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
               name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
               ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DCB'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Überprüfung, ob ortA, ortB aus den Ortsklassen Hauptort oder Umschlagpunkt stammen.
+(Ort.ortArt)</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7B'
                   name = 'return' isSpecification = 'false' kind = 'return'>
@@ -1098,6 +1128,16 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
               name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
               ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DCA'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Überprüfung, ob ortA, ortB eine Ortsart besitzen (hier hinreichend.)
+(Ort.ortArt)</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7D'
                   name = 'return' isSpecification = 'false' kind = 'return'>
@@ -2771,7 +2811,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </path>
   </group>
   <group name="Fig6"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1192, 88, 165, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1104, 40, 165, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
        fill="1"
        fillcolor="white"
@@ -2782,8 +2822,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </private>
     
     <rectangle name="Fig6.0"
-      x="1192"
-      y="88"
+      x="1104"
+      y="40"
       width="165"
       height="143"
       fill="1"
@@ -2792,8 +2832,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <text name="Fig6.1"
-      x="1193"
-      y="89"
+      x="1105"
+      y="41"
       width="163"
       height="23"
       fill="0"
@@ -2808,7 +2848,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Simulator</text>
     <group name="Fig6.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1193, 89, 163, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1105, 41, 163, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -2820,8 +2860,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig6.2.0"
-        x="1193"
-        y="89"
+        x="1105"
+        y="41"
         width="163"
         height="0"
         fill="0"
@@ -2831,8 +2871,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
     <rectangle name="Fig6.3"
-      x="1192"
-      y="112"
+      x="1104"
+      y="64"
       width="165"
       height="1"
       fill="1"
@@ -2841,7 +2881,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig6.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1193, 113, 163, 66]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1105, 65, 163, 66]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -2852,8 +2892,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig6.4.0"
-        x="1193"
-        y="113"
+        x="1105"
+        y="65"
         width="163"
         height="66"
         fill="0"
@@ -2862,8 +2902,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig6.4.1"
-        x="1193"
-        y="113"
+        x="1105"
+        y="65"
         width="163"
         height="17"
         fill="0"
@@ -2878,8 +2918,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >nutzkosten : double</text>
       <text name="Fig6.4.2"
-        x="1193"
-        y="130"
+        x="1105"
+        y="82"
         width="163"
         height="23"
         fill="0"
@@ -2895,8 +2935,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >routen : ArrayList&lt;Flugroute&gt;</text>
     </group>
     <rectangle name="Fig6.5"
-      x="1192"
-      y="179"
+      x="1104"
+      y="131"
       width="165"
       height="1"
       fill="1"
@@ -2905,7 +2945,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig6.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1193, 180, 163, 49]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1105, 132, 163, 49]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -2916,8 +2956,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig6.6.0"
-        x="1193"
-        y="180"
+        x="1105"
+        y="132"
         width="163"
         height="49"
         fill="0"
@@ -2926,8 +2966,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig6.6.1"
-        x="1193"
-        y="180"
+        x="1105"
+        y="132"
         width="163"
         height="23"
         fill="0"
@@ -3133,7 +3173,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
   </group>
   <group name="Fig8"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1080, 248, 229, 160]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1080, 248, 233, 160]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
        fill="1"
        fillcolor="white"
@@ -3146,7 +3186,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <rectangle name="Fig8.0"
       x="1080"
       y="248"
-      width="229"
+      width="233"
       height="160"
       fill="1"
       fillcolor="white"
@@ -3156,8 +3196,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <text name="Fig8.1"
       x="1081"
       y="249"
-      width="227"
-      height="22"
+      width="231"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -3170,7 +3210,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Flugroute</text>
     <group name="Fig8.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1081, 249, 227, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1081, 249, 231, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3184,7 +3224,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig8.2.0"
         x="1081"
         y="249"
-        width="227"
+        width="231"
         height="0"
         fill="0"
         fillcolor="white"
@@ -3194,8 +3234,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig8.3"
       x="1080"
-      y="271"
-      width="229"
+      y="272"
+      width="233"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3203,7 +3243,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig8.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1081, 272, 227, 74]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1081, 273, 231, 76]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3215,9 +3255,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig8.4.0"
         x="1081"
-        y="272"
-        width="227"
-        height="74"
+        y="273"
+        width="231"
+        height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3225,9 +3265,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig8.4.1"
         x="1081"
-        y="272"
-        width="227"
-        height="16"
+        y="273"
+        width="231"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3241,9 +3281,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >ziel : Ort</text>
       <text name="Fig8.4.2"
         x="1081"
-        y="288"
-        width="227"
-        height="16"
+        y="290"
+        width="231"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3257,9 +3297,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >herkunft : Ort</text>
       <text name="Fig8.4.3"
         x="1081"
-        y="304"
-        width="227"
-        height="16"
+        y="307"
+        width="231"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3273,9 +3313,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >reiseListe : ArrayList&lt;Flugkorridor&gt;</text>
       <text name="Fig8.4.4"
         x="1081"
-        y="320"
-        width="227"
-        height="22"
+        y="324"
+        width="231"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3290,8 +3330,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig8.5"
       x="1080"
-      y="346"
-      width="229"
+      y="348"
+      width="233"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3299,7 +3339,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig8.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1081, 347, 227, 59]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1081, 349, 231, 59]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3311,8 +3351,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig8.6.0"
         x="1081"
-        y="347"
-        width="227"
+        y="349"
+        width="231"
         height="59"
         fill="0"
         fillcolor="white"
@@ -3321,9 +3361,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig8.6.1"
         x="1081"
-        y="347"
-        width="227"
-        height="16"
+        y="349"
+        width="231"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3337,9 +3377,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >ermittleBesteRoute()</text>
       <text name="Fig8.6.2"
         x="1081"
-        y="363"
-        width="227"
-        height="16"
+        y="366"
+        width="231"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3353,8 +3393,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >ermittleRoutennutzkosten() : double</text>
       <text name="Fig8.6.3"
         x="1081"
-        y="379"
-        width="227"
+        y="383"
+        width="231"
         height="23"
         fill="0"
         fillcolor="white"
@@ -3519,7 +3559,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       x="593"
       y="193"
       width="205"
-      height="22"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -3556,7 +3596,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig10.3"
       x="592"
-      y="215"
+      y="216"
       width="207"
       height="1"
       fill="1"
@@ -3565,7 +3605,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig10.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[593, 216, 205, 74]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[593, 217, 205, 76]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
          fill="0"
          fillcolor="white"
@@ -3577,9 +3617,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig10.4.0"
         x="593"
-        y="216"
+        y="217"
         width="205"
-        height="74"
+        height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3587,7 +3627,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig10.4.1"
         x="593"
-        y="216"
+        y="217"
         width="205"
         height="17"
         fill="0"
@@ -3603,9 +3643,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >passagierAufkommen : int</text>
       <text name="Fig10.4.2"
         x="593"
-        y="233"
+        y="234"
         width="205"
-        height="16"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3619,9 +3659,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >umschlagVolumen : double</text>
       <text name="Fig10.4.3"
         x="593"
-        y="249"
+        y="251"
         width="205"
-        height="16"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3635,9 +3675,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >relevanzGrad : double</text>
       <text name="Fig10.4.4"
         x="593"
-        y="265"
+        y="268"
         width="205"
-        height="22"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3652,7 +3692,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig10.5"
       x="592"
-      y="290"
+      y="292"
       width="207"
       height="1"
       fill="1"
@@ -3661,7 +3701,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig10.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[593, 291, 205, 25]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[593, 293, 205, 25]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
          fill="0"
          fillcolor="white"
@@ -3673,7 +3713,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig10.6.0"
         x="593"
-        y="291"
+        y="293"
         width="205"
         height="25"
         fill="0"
@@ -3683,9 +3723,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig10.6.1"
         x="593"
-        y="291"
+        y="293"
         width="205"
-        height="22"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4238,7 +4278,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       bold="false"
       textsize="12"
       justification="Center"
-    >HauptlastKorridor</text>
+    >HochlastKorridor</text>
     <group name="Fig16.2"
          description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1, 505, 221, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD"
@@ -4675,7 +4715,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </path>
   </group>
   <group name="Fig20"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[824, 40, 241, 248]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[824, 40, 243, 248]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
        fill="1"
        fillcolor="white"
@@ -4688,7 +4728,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <rectangle name="Fig20.0"
       x="824"
       y="40"
-      width="241"
+      width="243"
       height="248"
       fill="1"
       fillcolor="white"
@@ -4698,8 +4738,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <text name="Fig20.1"
       x="825"
       y="41"
-      width="239"
-      height="22"
+      width="241"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -4712,7 +4752,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Karte</text>
     <group name="Fig20.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[825, 41, 216, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[825, 41, 241, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
          fill="0"
          fillcolor="white"
@@ -4726,7 +4766,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig20.2.0"
         x="825"
         y="41"
-        width="216"
+        width="241"
         height="0"
         fill="0"
         fillcolor="white"
@@ -4736,8 +4776,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig20.3"
       x="824"
-      y="63"
-      width="241"
+      y="64"
+      width="243"
       height="1"
       fill="1"
       fillcolor="black"
@@ -4745,7 +4785,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig20.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[825, 64, 239, 111]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[825, 65, 241, 110]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
          fill="0"
          fillcolor="white"
@@ -4757,9 +4797,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig20.4.0"
         x="825"
-        y="64"
-        width="239"
-        height="111"
+        y="65"
+        width="241"
+        height="110"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4767,9 +4807,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig20.4.1"
         x="825"
-        y="64"
-        width="239"
-        height="16"
+        y="65"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4783,9 +4823,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >budget : int</text>
       <text name="Fig20.4.2"
         x="825"
-        y="80"
-        width="239"
-        height="16"
+        y="82"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4799,9 +4839,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >orte : ArrayList&lt;Ort&gt;</text>
       <text name="Fig20.4.3"
         x="825"
-        y="96"
-        width="239"
-        height="16"
+        y="99"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4815,9 +4855,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >korridore : ArrayList&lt;Korridor&gt;</text>
       <text name="Fig20.4.4"
         x="825"
-        y="112"
-        width="239"
-        height="16"
+        y="116"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4831,9 +4871,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >kartenGroesseX : int</text>
       <text name="Fig20.4.5"
         x="825"
-        y="128"
-        width="239"
-        height="16"
+        y="133"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4847,9 +4887,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >kartenGroesseY : int</text>
       <text name="Fig20.4.6"
         x="825"
-        y="144"
-        width="239"
-        height="22"
+        y="150"
+        width="241"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4865,7 +4905,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <rectangle name="Fig20.5"
       x="824"
       y="175"
-      width="241"
+      width="243"
       height="1"
       fill="1"
       fillcolor="black"
@@ -4873,7 +4913,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig20.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[825, 176, 239, 111]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[825, 176, 241, 110]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
          fill="0"
          fillcolor="white"
@@ -4886,8 +4926,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig20.6.0"
         x="825"
         y="176"
-        width="239"
-        height="111"
+        width="241"
+        height="110"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4896,8 +4936,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <text name="Fig20.6.1"
         x="825"
         y="176"
-        width="239"
-        height="16"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4911,9 +4951,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >ermittleOrtsdistanz() : double</text>
       <text name="Fig20.6.2"
         x="825"
-        y="192"
-        width="239"
-        height="16"
+        y="193"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4927,9 +4967,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >erzeugeNetz()</text>
       <text name="Fig20.6.3"
         x="825"
-        y="208"
-        width="239"
-        height="16"
+        y="210"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4943,9 +4983,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >sucheOrtMitHoechstenRelevanzGrad() : Ort</text>
       <text name="Fig20.6.4"
         x="825"
-        y="224"
-        width="239"
-        height="16"
+        y="227"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4959,9 +4999,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >erzeugeKorridor()</text>
       <text name="Fig20.6.5"
         x="825"
-        y="240"
-        width="239"
-        height="16"
+        y="244"
+        width="241"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4975,9 +5015,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >ermittleGesamteBaukosten() : int</text>
       <text name="Fig20.6.6"
         x="825"
-        y="256"
-        width="239"
-        height="22"
+        y="261"
+        width="241"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5982,7 +6022,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </path>
   </group>
   <group name="Fig29"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1320, 248, 211, 168]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1320, 248, 214, 168]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B88"
        fill="1"
        fillcolor="white"
@@ -5995,7 +6035,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <rectangle name="Fig29.0"
       x="1320"
       y="248"
-      width="211"
+      width="214"
       height="168"
       fill="1"
       fillcolor="white"
@@ -6005,8 +6045,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <text name="Fig29.1"
       x="1321"
       y="249"
-      width="209"
-      height="22"
+      width="212"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -6019,7 +6059,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Benutzerinterface</text>
     <group name="Fig29.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1321, 249, 126, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1321, 249, 212, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B88"
          fill="0"
          fillcolor="white"
@@ -6033,7 +6073,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig29.2.0"
         x="1321"
         y="249"
-        width="126"
+        width="212"
         height="0"
         fill="0"
         fillcolor="white"
@@ -6043,8 +6083,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig29.3"
       x="1320"
-      y="271"
-      width="211"
+      y="272"
+      width="214"
       height="1"
       fill="1"
       fillcolor="black"
@@ -6052,7 +6092,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig29.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1321, 272, 209, 39]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1321, 273, 212, 36]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B88"
          fill="0"
          fillcolor="white"
@@ -6064,9 +6104,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig29.4.0"
         x="1321"
-        y="272"
-        width="209"
-        height="39"
+        y="273"
+        width="212"
+        height="36"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6074,9 +6114,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig29.4.1"
         x="1321"
-        y="272"
-        width="209"
-        height="22"
+        y="273"
+        width="212"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6091,8 +6131,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig29.5"
       x="1320"
-      y="311"
-      width="211"
+      y="309"
+      width="214"
       height="1"
       fill="1"
       fillcolor="black"
@@ -6100,7 +6140,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig29.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1321, 312, 209, 103]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1321, 310, 212, 104]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B88"
          fill="0"
          fillcolor="white"
@@ -6112,9 +6152,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig29.6.0"
         x="1321"
-        y="312"
-        width="209"
-        height="103"
+        y="310"
+        width="212"
+        height="104"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6122,9 +6162,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig29.6.1"
         x="1321"
-        y="312"
-        width="209"
-        height="16"
+        y="310"
+        width="212"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6138,9 +6178,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >abfrageBudget() : int</text>
       <text name="Fig29.6.2"
         x="1321"
-        y="328"
-        width="209"
-        height="16"
+        y="327"
+        width="212"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6155,8 +6195,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <text name="Fig29.6.3"
         x="1321"
         y="344"
-        width="209"
-        height="16"
+        width="212"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6170,9 +6210,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >testDateiEinlesen()</text>
       <text name="Fig29.6.4"
         x="1321"
-        y="360"
-        width="209"
-        height="16"
+        y="361"
+        width="212"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6186,9 +6226,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >zeigeNutzkosten() : String</text>
       <text name="Fig29.6.5"
         x="1321"
-        y="376"
-        width="209"
-        height="22"
+        y="378"
+        width="212"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6556,7 +6596,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
                         offset="-10" />
     </private>
     <path name="Fig33.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
