@@ -57,7 +57,7 @@
 			Java
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon May 12 22:45:43 CEST 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon May 12 23:14:04 CEST 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -65,7 +65,7 @@
     <XMI.metamodel xmi.name="UML" xmi.version="1.4"/></XMI.header>
   <XMI.content>
     <UML:Model xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:0000000000000865'
-      name = 'unbenanntesModell' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+      name = 'deerone' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
       isAbstract = 'false'>
       <UML:Namespace.ownedElement>
         <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'
@@ -117,6 +117,22 @@
                 <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DCD'
+              name = 'Ort' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+              isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DCE'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B'
@@ -145,6 +161,16 @@
               name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
               ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DEF'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>unterscheidet: E &lt; 101 =&gt; 0
+E &gt; 100  =&gt; teilt Einwohner durch 25000</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A95'
                   name = 'return' isSpecification = 'false' kind = 'return'>
@@ -184,6 +210,22 @@
                 <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD2'
+              name = 'Nebenort' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+              isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD3'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D'
@@ -209,6 +251,15 @@
               name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
               ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DF0'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>teilt Umschlagvolumen durch 200000</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A93'
                   name = 'return' isSpecification = 'false' kind = 'return'>
@@ -248,6 +299,22 @@
                 <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD4'
+              name = 'Umschlagpunkt' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+              isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD5'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Generalization xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087E'
@@ -285,6 +352,15 @@
               name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
               ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DEE'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>teilt die Einwohner durch 15000</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A97'
                   name = 'return' isSpecification = 'false' kind = 'return'>
@@ -324,6 +400,22 @@
                 <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD6'
+              name = 'Hauptort' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+              isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD7'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Generalization xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:0000000000000880'
@@ -402,6 +494,22 @@
                 <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC6'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD8'
+              name = 'Simulator' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+              isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD9'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Class xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76'
@@ -471,6 +579,22 @@
                   name = 'return' isSpecification = 'false' kind = 'return'>
                   <UML:Parameter.type>
                     <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDA'
+              name = 'Korridor' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+              isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDB'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
                   </UML:Parameter.type>
                 </UML:Parameter>
               </UML:BehavioralFeature.parameter>
@@ -626,11 +750,24 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
                 </UML:Parameter>
               </UML:BehavioralFeature.parameter>
             </UML:Operation>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDC'
+              name = 'Flugroute' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+              isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDD'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
-        <UML:Class xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78'
-          name = 'DateiSchreiber' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
         <UML:Class xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88'
           name = 'Auslandsverbindung' visibility = 'public' isSpecification = 'false'
           isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
@@ -672,6 +809,15 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
               name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
               ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
               isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DF1'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>relevanzGrad=(umschlagVolumen+3*passagierAufkommen)/1000000</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A91'
                   name = 'return' isSpecification = 'false' kind = 'return'>
@@ -711,6 +857,22 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
                 <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDE'
+              name = 'Auslandsverbindung' visibility = 'public' isSpecification = 'false'
+              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDF'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A89'
@@ -830,6 +992,22 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
                 <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE0'
+              name = 'EinfacherKorridor' visibility = 'public' isSpecification = 'false'
+              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE1'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABA'
@@ -949,6 +1127,22 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
                 <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE2'
+              name = 'StandardKorridor' visibility = 'public' isSpecification = 'false'
+              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE3'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABC'
@@ -1068,6 +1262,22 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
                 <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE4'
+              name = 'HochlastKorridor' visibility = 'public' isSpecification = 'false'
+              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE5'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABE'
@@ -1187,6 +1397,22 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
                 <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
+            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE6'
+              name = 'SicherheitsKorridor' visibility = 'public' isSpecification = 'false'
+              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.stereotype>
+                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+              </UML:ModelElement.stereotype>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE7'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC0'
@@ -1212,21 +1438,6 @@ Sucht sich bei Initialisierung ihren eigenen Weg, füllt dann nach und nach die 
             </UML:Multiplicity>
           </UML:TagDefinition.multiplicity>
         </UML:TagDefinition>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B00'
-          name = 'Netze' visibility = 'public' isSpecification = 'false' isRoot = 'false'
-          isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:Classifier.feature>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B03'
-              name = 'newOperation' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
-              isAbstract = 'false'>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B04'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B10'
           name = 'ArrayList&lt;Flugkorridor&gt;' visibility = 'public' isSpecification = 'false'
           isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
@@ -1449,155 +1660,6 @@ später: Geld sparen!</UML:TaggedValue.dataValue>
         <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B31'
           name = 'ArrayList&lt;Korridor&gt;' visibility = 'public' isSpecification = 'false'
           isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43'
-          name = 'DateiPruefer' visibility = 'public' isSpecification = 'false' isRoot = 'false'
-          isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4D'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>DateiPruefer haben nur die Funktion, die Korrektheit einer Datei zu überprüfung.
-Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zusätzlich soll die Möglichkeit gegeben sein, eine andere Datei einzulesen.</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B53'
-              name = 'kommentarMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B54'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B55'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B44'
-          name = 'DateiLeser' visibility = 'public' isSpecification = 'false' isRoot = 'false'
-          isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:Classifier.feature>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCD'
-              name = 'leseDatei' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
-              isAbstract = 'false'>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCE'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-          </UML:Classifier.feature>
-        </UML:Class>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47'
-          name = 'KartenDateiPruefer' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B57'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue></UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B48'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B58'
-              name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B59'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B5A'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B61'
-              name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B62'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B63'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B64'
-              name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B65'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B66'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B67'
-              name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B68'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B69'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6A'
-              name = 'pruefeKartenDatei' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B83'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>Prüft auf Beginn und Ende der Datei und Datensätze sowie auf Zulässigkeit aller Koordinatenangaben und Einhaltung des Markups.</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B87'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>E</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B84'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6B'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B48'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -1607,84 +1669,6 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus�
             <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43'/>
           </UML:Generalization.parent>
         </UML:Generalization>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49'
-          name = 'TestDateiPruefer' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4A'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6C'
-              name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6D'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6E'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6F'
-              name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B70'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B71'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B72'
-              name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B73'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B74'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B75'
-              name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B76'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B77'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B78'
-              name = 'pruefeTestDatei' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B79'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4A'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -1694,84 +1678,6 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus�
             <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43'/>
           </UML:Generalization.parent>
         </UML:Generalization>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4B'
-          name = 'NetzDateiSchreiber' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4C'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC9'
-              name = 'schreibeNetzDatei' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCA'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB0'
-              name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB1'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB2'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB3'
-              name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB4'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB5'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB6'
-              name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB7'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB8'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB9'
-              name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BBA'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BBB'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4C'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -1898,84 +1804,6 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC6'
           name = 'ArrayList&lt;Flugroute&gt;' visibility = 'public' isSpecification = 'false'
           isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7'
-          name = 'SimulationsDateiSchreiber' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC8'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCB'
-              name = 'schreibeSimulationsDatei' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCC'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA4'
-              name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA5'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA6'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA7'
-              name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA8'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA9'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAA'
-              name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAB'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAC'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAD'
-              name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAE'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAF'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC8'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -1985,27 +1813,6 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
             <UML:Class xmi.idref = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78'/>
           </UML:Generalization.parent>
         </UML:Generalization>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BD2'
-          name = 'Relation' visibility = 'public' isSpecification = 'false' isRoot = 'false'
-          isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BD3'
-              name = 'ziel' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BD4'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BD5'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Comment xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA3'
           isSpecification = 'false' body = 'Wer erstellt die Instanzen&#10;der Klassen?&#10;Wo wird in Zukunft der Optimierer Platz finden?'/>
         <UML:Generalization xmi.id = '-64--88--78-22-347c6cd5:145f1cbd2f1:-8000:0000000000000DD9'
@@ -2017,6 +1824,435 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
             <UML:Class xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'/>
           </UML:Generalization.parent>
         </UML:Generalization>
+        <UML:Package xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE8'
+          name = 'dateiHandler' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+          isAbstract = 'false'>
+          <UML:Namespace.ownedElement>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B44'
+              name = 'DateiLeser' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:Classifier.feature>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCD'
+                  name = 'leseDatei' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCE'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49'
+              name = 'TestDateiPruefer' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4A'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6C'
+                  name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6D'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6E'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6F'
+                  name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B70'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B71'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B72'
+                  name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B73'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B74'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B75'
+                  name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B76'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B77'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B78'
+                  name = 'pruefeTestDatei' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B79'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47'
+              name = 'KartenDateiPruefer' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B57'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue></UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B48'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B58'
+                  name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B59'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B5A'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B61'
+                  name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B62'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B63'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B64'
+                  name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B65'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B66'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B67'
+                  name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B68'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B69'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6A'
+                  name = 'pruefeKartenDatei' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B83'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Prüft auf Beginn und Ende der Datei und Datensätze sowie auf Zulässigkeit aller Koordinatenangaben und Einhaltung des Markups.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B87'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>E</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B84'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6B'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7'
+              name = 'SimulationsDateiSchreiber' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC8'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCB'
+                  name = 'schreibeSimulationsDatei' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCC'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA4'
+                  name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA5'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA6'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA7'
+                  name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA8'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA9'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAA'
+                  name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAB'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAC'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAD'
+                  name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAE'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAF'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4B'
+              name = 'NetzDateiSchreiber' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4C'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC9'
+                  name = 'schreibeNetzDatei' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BCA'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB0'
+                  name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB1'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB2'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB3'
+                  name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB4'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB5'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB6'
+                  name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB7'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB8'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB9'
+                  name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BBA'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BBB'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43'
+              name = 'DateiPruefer' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4D'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>DateiPruefer haben nur die Funktion, die Korrektheit einer Datei zu überprüfung.
+Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zusätzlich soll die Möglichkeit gegeben sein, eine andere Datei einzulesen.</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B53'
+                  name = 'kommentarMarker' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B54'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B55'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DF2'
+                  name = 'zeigeErfolgsmeldung' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DF3'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78'
+              name = 'DateiSchreiber' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:Classifier.feature>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DEC'
+                  name = 'zeigeErfolgsmeldung' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DED'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
       </UML:Namespace.ownedElement>
     </UML:Model>
   </XMI.content>
@@ -2095,7 +2331,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig0.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[153, 41, 182, 60]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[153, 41, 182, 59]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A"
          fill="0"
          fillcolor="white"
@@ -2109,7 +2345,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         x="153"
         y="41"
         width="182"
-        height="60"
+        height="59"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2166,7 +2402,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig0.5"
       x="152"
-      y="101"
+      y="99"
       width="184"
       height="1"
       fill="1"
@@ -2175,7 +2411,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig0.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[153, 102, 182, 22]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[153, 100, 182, 25]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A"
          fill="0"
          fillcolor="white"
@@ -2187,18 +2423,34 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig0.6.0"
         x="153"
-        y="102"
+        y="100"
         width="182"
-        height="22"
+        height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
+      <text name="Fig0.6.1"
+        x="153"
+        y="100"
+        width="182"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public Ort()</text>
     </group>
   </group>
   <group name="Fig1"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[24, 272, 222, 104]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[24, 304, 222, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D"
        fill="1"
        fillcolor="white"
@@ -2210,9 +2462,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     
     <rectangle name="Fig1.0"
       x="24"
-      y="272"
+      y="304"
       width="222"
-      height="104"
+      height="126"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -2220,9 +2472,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     />
     <text name="Fig1.1"
       x="25"
-      y="273"
+      y="305"
       width="220"
-      height="22"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -2235,7 +2487,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Umschlagpunkt</text>
     <group name="Fig1.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[41, 273, 187, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[25, 305, 220, 0]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D"
          fill="0"
          fillcolor="white"
@@ -2247,9 +2499,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig1.2.0"
-        x="41"
-        y="273"
-        width="187"
+        x="25"
+        y="305"
+        width="220"
         height="0"
         fill="0"
         fillcolor="white"
@@ -2259,7 +2511,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig1.3"
       x="24"
-      y="295"
+      y="328"
       width="222"
       height="1"
       fill="1"
@@ -2268,7 +2520,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig1.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[25, 296, 220, 56]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[25, 329, 220, 59]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D"
          fill="0"
          fillcolor="white"
@@ -2280,9 +2532,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig1.4.0"
         x="25"
-        y="296"
+        y="329"
         width="220"
-        height="56"
+        height="59"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2290,9 +2542,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig1.4.1"
         x="25"
-        y="296"
+        y="329"
         width="220"
-        height="16"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2306,9 +2558,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public umschlagVolumen</text>
       <text name="Fig1.4.2"
         x="25"
-        y="312"
+        y="346"
         width="220"
-        height="16"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2322,9 +2574,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public double relevanzGrad</text>
       <text name="Fig1.4.3"
         x="25"
-        y="328"
+        y="363"
         width="220"
-        height="22"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2339,7 +2591,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig1.5"
       x="24"
-      y="351"
+      y="387"
       width="222"
       height="1"
       fill="1"
@@ -2348,7 +2600,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig1.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[25, 352, 220, 24]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[25, 388, 220, 42]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D"
          fill="0"
          fillcolor="white"
@@ -2360,9 +2612,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig1.6.0"
         x="25"
-        y="352"
+        y="388"
         width="220"
-        height="24"
+        height="42"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2370,9 +2622,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig1.6.1"
         x="25"
-        y="352"
+        y="388"
         width="220"
-        height="22"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2384,6 +2636,22 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         textsize="12"
         justification="Left"
       >public double berechneRelevanzGrad()</text>
+      <text name="Fig1.6.2"
+        x="25"
+        y="405"
+        width="220"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public Umschlagpunkt()</text>
     </group>
   </group>
   <group name="Fig2"
@@ -2412,7 +2680,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     >
       <moveto x="120"
-              y="272" />
+              y="304" />
       <lineto x="120"
               y="24" />
       <lineto x="152"
@@ -2420,7 +2688,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </path>
   </group>
   <group name="Fig3"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[24, 160, 222, 104]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[24, 160, 222, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F"
        fill="1"
        fillcolor="white"
@@ -2434,7 +2702,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       x="24"
       y="160"
       width="222"
-      height="104"
+      height="126"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -2444,7 +2712,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       x="25"
       y="161"
       width="220"
-      height="22"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -2457,7 +2725,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Hauptort</text>
     <group name="Fig3.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[41, 161, 178, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[25, 161, 220, 0]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F"
          fill="0"
          fillcolor="white"
@@ -2469,9 +2737,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig3.2.0"
-        x="41"
+        x="25"
         y="161"
-        width="178"
+        width="220"
         height="0"
         fill="0"
         fillcolor="white"
@@ -2481,7 +2749,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig3.3"
       x="24"
-      y="183"
+      y="184"
       width="222"
       height="1"
       fill="1"
@@ -2490,7 +2758,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig3.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[25, 184, 220, 56]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[25, 185, 220, 59]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F"
          fill="0"
          fillcolor="white"
@@ -2502,9 +2770,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig3.4.0"
         x="25"
-        y="184"
+        y="185"
         width="220"
-        height="56"
+        height="59"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2512,9 +2780,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig3.4.1"
         x="25"
-        y="184"
+        y="185"
         width="220"
-        height="16"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2528,9 +2796,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public int anzahlEinwohner</text>
       <text name="Fig3.4.2"
         x="25"
-        y="200"
+        y="202"
         width="220"
-        height="16"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2544,9 +2812,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public double relevanzGrad</text>
       <text name="Fig3.4.3"
         x="25"
-        y="216"
+        y="219"
         width="220"
-        height="22"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2561,7 +2829,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig3.5"
       x="24"
-      y="239"
+      y="243"
       width="222"
       height="1"
       fill="1"
@@ -2570,7 +2838,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig3.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[25, 240, 220, 24]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[25, 244, 220, 42]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F"
          fill="0"
          fillcolor="white"
@@ -2582,9 +2850,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig3.6.0"
         x="25"
-        y="240"
+        y="244"
         width="220"
-        height="24"
+        height="42"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2592,9 +2860,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig3.6.1"
         x="25"
-        y="240"
+        y="244"
         width="220"
-        height="22"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2606,6 +2874,22 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         textsize="12"
         justification="Left"
       >public double berechneRelevanzGrad()</text>
+      <text name="Fig3.6.2"
+        x="25"
+        y="261"
+        width="220"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public Hauptort()</text>
     </group>
   </group>
   <group name="Fig4"
@@ -2677,7 +2961,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Simulator</text>
     <group name="Fig5.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1689, 9, 163, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1689, 9, 193, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -2691,7 +2975,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig5.2.0"
         x="1689"
         y="9"
-        width="163"
+        width="193"
         height="0"
         fill="0"
         fillcolor="white"
@@ -2710,7 +2994,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig5.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1689, 33, 193, 66]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1689, 33, 193, 58]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -2724,7 +3008,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         x="1689"
         y="33"
         width="193"
-        height="66"
+        height="58"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2765,7 +3049,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig5.5"
       x="1688"
-      y="99"
+      y="91"
       width="195"
       height="1"
       fill="1"
@@ -2774,7 +3058,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig5.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1689, 100, 193, 49]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1689, 92, 193, 58]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -2786,9 +3070,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig5.6.0"
         x="1689"
-        y="100"
+        y="92"
         width="193"
-        height="49"
+        height="58"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2796,7 +3080,23 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig5.6.1"
         x="1689"
-        y="100"
+        y="92"
+        width="193"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public void simuliere()</text>
+      <text name="Fig5.6.2"
+        x="1689"
+        y="109"
         width="193"
         height="23"
         fill="0"
@@ -2809,7 +3109,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >public void simuliere()</text>
+      >public Simulator()</text>
     </group>
   </group>
   <group name="Fig6"
@@ -2850,7 +3150,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Korridor</text>
     <group name="Fig6.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[657, 9, 151, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[657, 9, 174, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76"
          fill="0"
          fillcolor="white"
@@ -2864,7 +3164,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig6.2.0"
         x="657"
         y="9"
-        width="151"
+        width="174"
         height="0"
         fill="0"
         fillcolor="white"
@@ -2883,7 +3183,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig6.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[657, 33, 174, 66]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[657, 33, 174, 59]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76"
          fill="0"
          fillcolor="white"
@@ -2897,7 +3197,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         x="657"
         y="33"
         width="174"
-        height="66"
+        height="59"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2954,7 +3254,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig6.5"
       x="656"
-      y="99"
+      y="91"
       width="176"
       height="1"
       fill="1"
@@ -2963,7 +3263,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig6.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[657, 100, 174, 32]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[657, 92, 174, 42]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76"
          fill="0"
          fillcolor="white"
@@ -2975,9 +3275,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig6.6.0"
         x="657"
-        y="100"
+        y="92"
         width="174"
-        height="32"
+        height="42"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2985,7 +3285,23 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig6.6.1"
         x="657"
-        y="100"
+        y="92"
+        width="174"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public double ermittleLaenge()</text>
+      <text name="Fig6.6.2"
+        x="657"
+        y="109"
         width="174"
         height="23"
         fill="0"
@@ -2998,11 +3314,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >public double ermittleLaenge()</text>
+      >public Korridor()</text>
     </group>
   </group>
   <group name="Fig7"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1048, 8, 263, 160]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1048, 8, 263, 177]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
        fill="1"
        fillcolor="white"
@@ -3016,7 +3332,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       x="1048"
       y="8"
       width="263"
-      height="160"
+      height="177"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -3039,7 +3355,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Flugroute</text>
     <group name="Fig7.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1049, 9, 231, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1049, 9, 261, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3053,7 +3369,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig7.2.0"
         x="1049"
         y="9"
-        width="231"
+        width="261"
         height="0"
         fill="0"
         fillcolor="white"
@@ -3168,7 +3484,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig7.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1049, 109, 261, 59]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1049, 109, 261, 76]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3182,7 +3498,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         x="1049"
         y="109"
         width="261"
-        height="59"
+        height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3224,7 +3540,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         x="1049"
         y="143"
         width="261"
-        height="23"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3236,10 +3552,26 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         textsize="12"
         justification="Left"
       >public String erzeugeTextausgabeReiseroute()</text>
+      <text name="Fig7.6.4"
+        x="1049"
+        y="160"
+        width="261"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public Flugroute()</text>
     </group>
   </group>
   <group name="Fig8"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[3192, 8, 96, 68]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[3168, 8, 213, 71]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78"
        fill="1"
        fillcolor="white"
@@ -3250,19 +3582,19 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </private>
     
     <rectangle name="Fig8.0"
-      x="3192"
+      x="3168"
       y="8"
-      width="96"
-      height="68"
+      width="213"
+      height="71"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
     <text name="Fig8.1"
-      x="3193"
+      x="3169"
       y="9"
-      width="94"
+      width="211"
       height="23"
       fill="0"
       fillcolor="white"
@@ -3276,7 +3608,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >DateiSchreiber</text>
     <group name="Fig8.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[3193, 9, 94, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[3169, 9, 94, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78"
          fill="0"
          fillcolor="white"
@@ -3288,7 +3620,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig8.2.0"
-        x="3193"
+        x="3169"
         y="9"
         width="94"
         height="0"
@@ -3299,9 +3631,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
     <rectangle name="Fig8.3"
-      x="3192"
+      x="3168"
       y="32"
-      width="96"
+      width="213"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3309,7 +3641,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig8.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[3193, 33, 94, 21]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[3169, 33, 211, 21]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78"
          fill="0"
          fillcolor="white"
@@ -3320,9 +3652,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig8.4.0"
-        x="3193"
+        x="3169"
         y="33"
-        width="94"
+        width="211"
         height="21"
         fill="0"
         fillcolor="white"
@@ -3331,9 +3663,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
     <rectangle name="Fig8.5"
-      x="3192"
+      x="3168"
       y="53"
-      width="96"
+      width="213"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3341,7 +3673,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig8.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[3193, 54, 94, 21]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[3169, 54, 211, 25]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78"
          fill="0"
          fillcolor="white"
@@ -3352,19 +3684,35 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig8.6.0"
-        x="3193"
+        x="3169"
         y="54"
-        width="94"
-        height="21"
+        width="211"
+        height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
+      <text name="Fig8.6.1"
+        x="3169"
+        y="54"
+        width="211"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public String zeigeErfolgsmeldung()</text>
     </group>
   </group>
   <group name="Fig9"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[256, 272, 216, 128]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[256, 304, 222, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
        fill="1"
        fillcolor="white"
@@ -3376,9 +3724,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     
     <rectangle name="Fig9.0"
       x="256"
-      y="272"
-      width="216"
-      height="128"
+      y="304"
+      width="222"
+      height="143"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -3386,9 +3734,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     />
     <text name="Fig9.1"
       x="257"
-      y="273"
-      width="214"
-      height="22"
+      y="305"
+      width="220"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -3401,7 +3749,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Auslandsverbindung</text>
     <group name="Fig9.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[257, 273, 205, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[257, 305, 220, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
          fill="0"
          fillcolor="white"
@@ -3414,8 +3762,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig9.2.0"
         x="257"
-        y="273"
-        width="205"
+        y="305"
+        width="220"
         height="0"
         fill="0"
         fillcolor="white"
@@ -3425,8 +3773,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig9.3"
       x="256"
-      y="295"
-      width="216"
+      y="328"
+      width="222"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3434,7 +3782,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig9.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[257, 296, 214, 75]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[257, 329, 220, 76]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
          fill="0"
          fillcolor="white"
@@ -3446,9 +3794,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig9.4.0"
         x="257"
-        y="296"
-        width="214"
-        height="75"
+        y="329"
+        width="220"
+        height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3456,9 +3804,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig9.4.1"
         x="257"
-        y="296"
-        width="214"
-        height="16"
+        y="329"
+        width="220"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3472,9 +3820,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public int passagierAufkommen</text>
       <text name="Fig9.4.2"
         x="257"
-        y="312"
-        width="214"
-        height="16"
+        y="346"
+        width="220"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3488,9 +3836,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public double umschlagVolumen</text>
       <text name="Fig9.4.3"
         x="257"
-        y="328"
-        width="214"
-        height="16"
+        y="363"
+        width="220"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3504,9 +3852,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public double relevanzGrad</text>
       <text name="Fig9.4.4"
         x="257"
-        y="344"
-        width="214"
-        height="22"
+        y="380"
+        width="220"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3521,8 +3869,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig9.5"
       x="256"
-      y="371"
-      width="216"
+      y="404"
+      width="222"
       height="1"
       fill="1"
       fillcolor="black"
@@ -3530,7 +3878,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig9.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[257, 372, 214, 27]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[257, 405, 220, 42]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
          fill="0"
          fillcolor="white"
@@ -3542,9 +3890,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig9.6.0"
         x="257"
-        y="372"
-        width="214"
-        height="27"
+        y="405"
+        width="220"
+        height="42"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3552,9 +3900,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig9.6.1"
         x="257"
-        y="372"
-        width="214"
-        height="22"
+        y="405"
+        width="220"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3566,6 +3914,22 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         textsize="12"
         justification="Left"
       >public double berechneRelevanzGrad()</text>
+      <text name="Fig9.6.2"
+        x="257"
+        y="422"
+        width="220"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public Auslandsverbindung()</text>
     </group>
   </group>
   <group name="Fig10"
@@ -3594,7 +3958,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     >
       <moveto x="376"
-              y="272" />
+              y="304" />
       <lineto x="376"
               y="24" />
       <lineto x="335"
@@ -3602,7 +3966,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </path>
   </group>
   <group name="Fig11"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[752, 296, 244, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[752, 312, 244, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9"
        fill="1"
        fillcolor="white"
@@ -3614,7 +3978,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     
     <rectangle name="Fig11.0"
       x="752"
-      y="296"
+      y="312"
       width="244"
       height="143"
       fill="1"
@@ -3624,7 +3988,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     />
     <text name="Fig11.1"
       x="753"
-      y="297"
+      y="313"
       width="242"
       height="23"
       fill="0"
@@ -3639,7 +4003,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >EinfacherKorridor</text>
     <group name="Fig11.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[753, 297, 221, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[753, 313, 242, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9"
          fill="0"
          fillcolor="white"
@@ -3652,8 +4016,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig11.2.0"
         x="753"
-        y="297"
-        width="221"
+        y="313"
+        width="242"
         height="0"
         fill="0"
         fillcolor="white"
@@ -3663,7 +4027,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig11.3"
       x="752"
-      y="320"
+      y="336"
       width="244"
       height="1"
       fill="1"
@@ -3672,7 +4036,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig11.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[753, 321, 242, 83]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[753, 337, 242, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9"
          fill="0"
          fillcolor="white"
@@ -3684,9 +4048,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig11.4.0"
         x="753"
-        y="321"
+        y="337"
         width="242"
-        height="83"
+        height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3694,7 +4058,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig11.4.1"
         x="753"
-        y="321"
+        y="337"
         width="242"
         height="17"
         fill="0"
@@ -3710,7 +4074,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public ArrayList&lt;String&gt; zulaessigeOrtarten</text>
       <text name="Fig11.4.2"
         x="753"
-        y="338"
+        y="354"
         width="242"
         height="17"
         fill="0"
@@ -3726,7 +4090,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final int bauKosten</text>
       <text name="Fig11.4.3"
         x="753"
-        y="355"
+        y="371"
         width="242"
         height="17"
         fill="0"
@@ -3742,7 +4106,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final double nutzungsKosten</text>
       <text name="Fig11.4.4"
         x="753"
-        y="372"
+        y="388"
         width="242"
         height="23"
         fill="0"
@@ -3759,7 +4123,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig11.5"
       x="752"
-      y="404"
+      y="412"
       width="244"
       height="1"
       fill="1"
@@ -3768,7 +4132,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig11.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[753, 405, 242, 32]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[753, 413, 242, 42]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9"
          fill="0"
          fillcolor="white"
@@ -3780,9 +4144,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig11.6.0"
         x="753"
-        y="405"
+        y="413"
         width="242"
-        height="32"
+        height="42"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3790,7 +4154,23 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig11.6.1"
         x="753"
-        y="405"
+        y="413"
+        width="242"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public boolean ueberpruefeOrtart()</text>
+      <text name="Fig11.6.2"
+        x="753"
+        y="430"
         width="242"
         height="23"
         fill="0"
@@ -3803,7 +4183,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >public boolean ueberpruefeOrtart()</text>
+      >public EinfacherKorridor()</text>
     </group>
   </group>
   <group name="Fig12"
@@ -3832,7 +4212,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     >
       <moveto x="880"
-              y="296" />
+              y="312" />
       <lineto x="880"
               y="16" />
       <lineto x="831"
@@ -3840,7 +4220,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </path>
   </group>
   <group name="Fig13"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[496, 296, 244, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[496, 312, 244, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB"
        fill="1"
        fillcolor="white"
@@ -3852,9 +4232,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     
     <rectangle name="Fig13.0"
       x="496"
-      y="296"
+      y="312"
       width="244"
-      height="126"
+      height="143"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -3862,7 +4242,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     />
     <text name="Fig13.1"
       x="497"
-      y="297"
+      y="313"
       width="242"
       height="23"
       fill="0"
@@ -3877,7 +4257,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >StandardKorridor</text>
     <group name="Fig13.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[497, 297, 221, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[497, 313, 242, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB"
          fill="0"
          fillcolor="white"
@@ -3890,8 +4270,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig13.2.0"
         x="497"
-        y="297"
-        width="221"
+        y="313"
+        width="242"
         height="0"
         fill="0"
         fillcolor="white"
@@ -3901,7 +4281,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig13.3"
       x="496"
-      y="320"
+      y="336"
       width="244"
       height="1"
       fill="1"
@@ -3910,7 +4290,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig13.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[497, 321, 242, 76]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[497, 337, 242, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB"
          fill="0"
          fillcolor="white"
@@ -3922,7 +4302,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig13.4.0"
         x="497"
-        y="321"
+        y="337"
         width="242"
         height="76"
         fill="0"
@@ -3932,7 +4312,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig13.4.1"
         x="497"
-        y="321"
+        y="337"
         width="242"
         height="17"
         fill="0"
@@ -3948,7 +4328,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public ArrayList&lt;String&gt; zulaessigeOrtarten</text>
       <text name="Fig13.4.2"
         x="497"
-        y="338"
+        y="354"
         width="242"
         height="17"
         fill="0"
@@ -3964,7 +4344,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final int bauKosten</text>
       <text name="Fig13.4.3"
         x="497"
-        y="355"
+        y="371"
         width="242"
         height="17"
         fill="0"
@@ -3980,7 +4360,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final double nutzungsKosten</text>
       <text name="Fig13.4.4"
         x="497"
-        y="372"
+        y="388"
         width="242"
         height="23"
         fill="0"
@@ -3997,7 +4377,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig13.5"
       x="496"
-      y="396"
+      y="412"
       width="244"
       height="1"
       fill="1"
@@ -4006,7 +4386,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig13.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[497, 397, 242, 25]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[497, 413, 242, 42]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB"
          fill="0"
          fillcolor="white"
@@ -4018,9 +4398,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig13.6.0"
         x="497"
-        y="397"
+        y="413"
         width="242"
-        height="25"
+        height="42"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4028,7 +4408,23 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig13.6.1"
         x="497"
-        y="397"
+        y="413"
+        width="242"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public boolean ueberpruefeOrtart()</text>
+      <text name="Fig13.6.2"
+        x="497"
+        y="430"
         width="242"
         height="23"
         fill="0"
@@ -4041,7 +4437,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >public boolean ueberpruefeOrtart()</text>
+      >public StandardKorridor()</text>
     </group>
   </group>
   <group name="Fig14"
@@ -4070,7 +4466,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     >
       <moveto x="616"
-              y="296" />
+              y="312" />
       <lineto x="616"
               y="16" />
       <lineto x="656"
@@ -4078,7 +4474,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </path>
   </group>
   <group name="Fig15"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[496, 160, 244, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[496, 160, 244, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD"
        fill="1"
        fillcolor="white"
@@ -4092,7 +4488,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       x="496"
       y="160"
       width="244"
-      height="126"
+      height="143"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -4115,7 +4511,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >HochlastKorridor</text>
     <group name="Fig15.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[497, 161, 221, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[497, 161, 242, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD"
          fill="0"
          fillcolor="white"
@@ -4129,7 +4525,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig15.2.0"
         x="497"
         y="161"
-        width="221"
+        width="242"
         height="0"
         fill="0"
         fillcolor="white"
@@ -4244,7 +4640,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig15.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[497, 261, 242, 25]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[497, 261, 242, 42]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD"
          fill="0"
          fillcolor="white"
@@ -4258,7 +4654,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         x="497"
         y="261"
         width="242"
-        height="25"
+        height="42"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4267,6 +4663,22 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <text name="Fig15.6.1"
         x="497"
         y="261"
+        width="242"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public boolean ueberpruefeOrtart()</text>
+      <text name="Fig15.6.2"
+        x="497"
+        y="278"
         width="242"
         height="23"
         fill="0"
@@ -4279,7 +4691,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >public boolean ueberpruefeOrtart()</text>
+      >public HochlastKorridor()</text>
     </group>
   </group>
   <group name="Fig16"
@@ -4314,7 +4726,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </path>
   </group>
   <group name="Fig17"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[752, 160, 244, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[752, 160, 244, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABF"
        fill="1"
        fillcolor="white"
@@ -4328,7 +4740,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       x="752"
       y="160"
       width="244"
-      height="126"
+      height="143"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -4351,7 +4763,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >SicherheitsKorridor</text>
     <group name="Fig17.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[753, 161, 221, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[753, 161, 242, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABF"
          fill="0"
          fillcolor="white"
@@ -4365,7 +4777,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig17.2.0"
         x="753"
         y="161"
-        width="221"
+        width="242"
         height="0"
         fill="0"
         fillcolor="white"
@@ -4480,7 +4892,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig17.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[753, 261, 242, 25]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[753, 261, 242, 42]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABF"
          fill="0"
          fillcolor="white"
@@ -4494,7 +4906,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         x="753"
         y="261"
         width="242"
-        height="25"
+        height="42"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4503,6 +4915,22 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <text name="Fig17.6.1"
         x="753"
         y="261"
+        width="242"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public boolean ueberpruefeOrtart()</text>
+      <text name="Fig17.6.2"
+        x="753"
+        y="278"
         width="242"
         height="23"
         fill="0"
@@ -4515,7 +4943,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >public boolean ueberpruefeOrtart()</text>
+      >public SicherheitsKorridor()</text>
     </group>
   </group>
   <group name="Fig18"
@@ -4587,7 +5015,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Karte</text>
     <group name="Fig19.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1377, 9, 241, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1377, 9, 271, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
          fill="0"
          fillcolor="white"
@@ -4601,7 +5029,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig19.2.0"
         x="1377"
         y="9"
-        width="241"
+        width="271"
         height="0"
         fill="0"
         fillcolor="white"
@@ -4867,7 +5295,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
   </group>
   <group name="Fig20"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2600, 8, 200, 88]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2600, 8, 205, 88]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43"
        fill="1"
        fillcolor="white"
@@ -4880,7 +5308,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <rectangle name="Fig20.0"
       x="2600"
       y="8"
-      width="200"
+      width="205"
       height="88"
       fill="1"
       fillcolor="white"
@@ -4890,8 +5318,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <text name="Fig20.1"
       x="2601"
       y="9"
-      width="198"
-      height="22"
+      width="203"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -4904,7 +5332,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >DateiPruefer</text>
     <group name="Fig20.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2601, 9, 147, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2601, 9, 203, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43"
          fill="0"
          fillcolor="white"
@@ -4918,7 +5346,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig20.2.0"
         x="2601"
         y="9"
-        width="147"
+        width="203"
         height="0"
         fill="0"
         fillcolor="white"
@@ -4928,8 +5356,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig20.3"
       x="2600"
-      y="31"
-      width="200"
+      y="32"
+      width="205"
       height="1"
       fill="1"
       fillcolor="black"
@@ -4937,7 +5365,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig20.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2601, 32, 198, 32]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2601, 33, 203, 30]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43"
          fill="0"
          fillcolor="white"
@@ -4949,9 +5377,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig20.4.0"
         x="2601"
-        y="32"
-        width="198"
-        height="32"
+        y="33"
+        width="203"
+        height="30"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4959,9 +5387,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig20.4.1"
         x="2601"
-        y="32"
-        width="198"
-        height="22"
+        y="33"
+        width="203"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4976,8 +5404,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig20.5"
       x="2600"
-      y="64"
-      width="200"
+      y="63"
+      width="205"
       height="1"
       fill="1"
       fillcolor="black"
@@ -4985,7 +5413,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig20.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2601, 65, 198, 29]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2601, 64, 203, 30]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43"
          fill="0"
          fillcolor="white"
@@ -4997,14 +5425,30 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig20.6.0"
         x="2601"
-        y="65"
-        width="198"
-        height="29"
+        y="64"
+        width="203"
+        height="30"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
+      <text name="Fig20.6.1"
+        x="2601"
+        y="64"
+        width="203"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public String zeigeErfolgsmeldung()</text>
     </group>
   </group>
   <group name="Fig21"
@@ -5045,7 +5489,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >DateiLeser</text>
     <group name="Fig21.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2305, 9, 91, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2305, 9, 128, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B44"
          fill="0"
          fillcolor="white"
@@ -5059,7 +5503,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig21.2.0"
         x="2305"
         y="9"
-        width="91"
+        width="128"
         height="0"
         fill="0"
         fillcolor="white"
@@ -5149,7 +5593,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
   </group>
   <group name="Fig22"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2488, 134, 209, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2456, 136, 235, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47"
        fill="1"
        fillcolor="white"
@@ -5160,9 +5604,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </private>
     
     <rectangle name="Fig22.0"
-      x="2488"
-      y="134"
-      width="209"
+      x="2456"
+      y="136"
+      width="235"
       height="126"
       fill="1"
       fillcolor="white"
@@ -5170,9 +5614,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <text name="Fig22.1"
-      x="2489"
-      y="135"
-      width="207"
+      x="2457"
+      y="137"
+      width="233"
       height="23"
       fill="0"
       fillcolor="white"
@@ -5186,7 +5630,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >KartenDateiPruefer</text>
     <group name="Fig22.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2489, 135, 177, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2457, 137, 233, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47"
          fill="0"
          fillcolor="white"
@@ -5198,9 +5642,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig22.2.0"
-        x="2489"
-        y="135"
-        width="177"
+        x="2457"
+        y="137"
+        width="233"
         height="0"
         fill="0"
         fillcolor="white"
@@ -5209,9 +5653,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
     <rectangle name="Fig22.3"
-      x="2488"
-      y="158"
-      width="209"
+      x="2456"
+      y="160"
+      width="235"
       height="1"
       fill="1"
       fillcolor="black"
@@ -5219,7 +5663,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig22.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2489, 159, 207, 76]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2457, 161, 233, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47"
          fill="0"
          fillcolor="white"
@@ -5230,9 +5674,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig22.4.0"
-        x="2489"
-        y="159"
-        width="207"
+        x="2457"
+        y="161"
+        width="233"
         height="76"
         fill="0"
         fillcolor="white"
@@ -5240,9 +5684,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig22.4.1"
-        x="2489"
-        y="159"
-        width="207"
+        x="2457"
+        y="161"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5256,9 +5700,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >public final String dateiBeginnMarker</text>
       <text name="Fig22.4.2"
-        x="2489"
-        y="176"
-        width="229"
+        x="2457"
+        y="178"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5272,9 +5716,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >public final String datenSatzBeginnMarker</text>
       <text name="Fig22.4.3"
-        x="2489"
-        y="193"
-        width="207"
+        x="2457"
+        y="195"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5288,9 +5732,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >public final String dateiEndeMarker</text>
       <text name="Fig22.4.4"
-        x="2489"
-        y="210"
-        width="220"
+        x="2457"
+        y="212"
+        width="233"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5305,9 +5749,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final String datenSatzEndeMarker</text>
     </group>
     <rectangle name="Fig22.5"
-      x="2488"
-      y="234"
-      width="209"
+      x="2456"
+      y="236"
+      width="235"
       height="1"
       fill="1"
       fillcolor="black"
@@ -5315,7 +5759,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig22.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2489, 235, 207, 25]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2457, 237, 233, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47"
          fill="0"
          fillcolor="white"
@@ -5326,9 +5770,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig22.6.0"
-        x="2489"
-        y="235"
-        width="207"
+        x="2457"
+        y="237"
+        width="233"
         height="25"
         fill="0"
         fillcolor="white"
@@ -5336,9 +5780,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig22.6.1"
-        x="2489"
-        y="235"
-        width="207"
+        x="2457"
+        y="237"
+        width="233"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5350,7 +5794,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >public void pruefeKartenDatei()</text>
+      >public boolean pruefeKartenDatei()</text>
     </group>
   </group>
   <group name="Fig23"
@@ -5379,13 +5823,13 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     >
       <moveto x="2666"
-              y="134" />
+              y="136" />
       <lineto x="2666"
               y="95" />
     </path>
   </group>
   <group name="Fig24"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2705, 134, 209, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2704, 136, 235, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49"
        fill="1"
        fillcolor="white"
@@ -5396,9 +5840,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </private>
     
     <rectangle name="Fig24.0"
-      x="2705"
-      y="134"
-      width="209"
+      x="2704"
+      y="136"
+      width="235"
       height="126"
       fill="1"
       fillcolor="white"
@@ -5406,9 +5850,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <text name="Fig24.1"
-      x="2706"
-      y="135"
-      width="207"
+      x="2705"
+      y="137"
+      width="233"
       height="23"
       fill="0"
       fillcolor="white"
@@ -5422,7 +5866,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >TestDateiPruefer</text>
     <group name="Fig24.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2706, 135, 177, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2705, 137, 233, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49"
          fill="0"
          fillcolor="white"
@@ -5434,9 +5878,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig24.2.0"
-        x="2706"
-        y="135"
-        width="177"
+        x="2705"
+        y="137"
+        width="233"
         height="0"
         fill="0"
         fillcolor="white"
@@ -5445,9 +5889,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
     <rectangle name="Fig24.3"
-      x="2705"
-      y="158"
-      width="209"
+      x="2704"
+      y="160"
+      width="235"
       height="1"
       fill="1"
       fillcolor="black"
@@ -5455,7 +5899,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig24.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2706, 159, 207, 76]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2705, 161, 233, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49"
          fill="0"
          fillcolor="white"
@@ -5466,9 +5910,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig24.4.0"
-        x="2706"
-        y="159"
-        width="207"
+        x="2705"
+        y="161"
+        width="233"
         height="76"
         fill="0"
         fillcolor="white"
@@ -5476,9 +5920,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig24.4.1"
-        x="2706"
-        y="159"
-        width="207"
+        x="2705"
+        y="161"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5492,9 +5936,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >public final String dateiBeginnMarker</text>
       <text name="Fig24.4.2"
-        x="2706"
-        y="176"
-        width="229"
+        x="2705"
+        y="178"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5508,9 +5952,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >public final String datenSatzBeginnMarker</text>
       <text name="Fig24.4.3"
-        x="2706"
-        y="193"
-        width="207"
+        x="2705"
+        y="195"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5524,9 +5968,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >public final String dateiEndeMarker</text>
       <text name="Fig24.4.4"
-        x="2706"
-        y="210"
-        width="220"
+        x="2705"
+        y="212"
+        width="233"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5541,9 +5985,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final String datenSatzEndeMarker</text>
     </group>
     <rectangle name="Fig24.5"
-      x="2705"
-      y="234"
-      width="209"
+      x="2704"
+      y="236"
+      width="235"
       height="1"
       fill="1"
       fillcolor="black"
@@ -5551,7 +5995,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig24.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2706, 235, 207, 25]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2705, 237, 233, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49"
          fill="0"
          fillcolor="white"
@@ -5562,9 +6006,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig24.6.0"
-        x="2706"
-        y="235"
-        width="207"
+        x="2705"
+        y="237"
+        width="233"
         height="25"
         fill="0"
         fillcolor="white"
@@ -5572,9 +6016,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig24.6.1"
-        x="2706"
-        y="235"
-        width="207"
+        x="2705"
+        y="237"
+        width="233"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5586,7 +6030,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >public void pruefeTestDatei()</text>
+      >public boolean pruefeTestDatei()</text>
     </group>
   </group>
   <group name="Fig25"
@@ -5615,7 +6059,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     >
       <moveto x="2761"
-              y="134" />
+              y="136" />
       <lineto x="2761"
               y="95" />
     </path>
@@ -5645,7 +6089,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       x="3249"
       y="129"
       width="238"
-      height="22"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -5658,7 +6102,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >NetzDateiSchreiber</text>
     <group name="Fig26.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[3249, 129, 177, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[3249, 129, 238, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4B"
          fill="0"
          fillcolor="white"
@@ -5672,7 +6116,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig26.2.0"
         x="3249"
         y="129"
-        width="177"
+        width="238"
         height="0"
         fill="0"
         fillcolor="white"
@@ -5682,7 +6126,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig26.3"
       x="3248"
-      y="151"
+      y="152"
       width="240"
       height="1"
       fill="1"
@@ -5691,7 +6135,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig26.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[3249, 152, 238, 75]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[3249, 153, 238, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4B"
          fill="0"
          fillcolor="white"
@@ -5703,9 +6147,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig26.4.0"
         x="3249"
-        y="152"
+        y="153"
         width="238"
-        height="75"
+        height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5713,9 +6157,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig26.4.1"
         x="3249"
-        y="152"
+        y="153"
         width="238"
-        height="16"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5729,9 +6173,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final String dateiBeginnMarker</text>
       <text name="Fig26.4.2"
         x="3249"
-        y="168"
+        y="170"
         width="238"
-        height="16"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5745,9 +6189,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final String datenSatzBeginnMarker</text>
       <text name="Fig26.4.3"
         x="3249"
-        y="184"
+        y="187"
         width="238"
-        height="16"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5761,9 +6205,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final String dateiEndeMarker</text>
       <text name="Fig26.4.4"
         x="3249"
-        y="200"
+        y="204"
         width="238"
-        height="22"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5778,7 +6222,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig26.5"
       x="3248"
-      y="227"
+      y="229"
       width="240"
       height="1"
       fill="1"
@@ -5787,7 +6231,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig26.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[3249, 228, 238, 27]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[3249, 230, 238, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4B"
          fill="0"
          fillcolor="white"
@@ -5799,9 +6243,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig26.6.0"
         x="3249"
-        y="228"
+        y="230"
         width="238"
-        height="27"
+        height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5809,9 +6253,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig26.6.1"
         x="3249"
-        y="228"
+        y="230"
         width="238"
-        height="22"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5853,7 +6297,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <moveto x="3279"
               y="128" />
       <lineto x="3279"
-              y="75" />
+              y="78" />
     </path>
   </group>
   <group name="Fig28"
@@ -5894,7 +6338,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Benutzerinterface</text>
     <group name="Fig28.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1937, 9, 212, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1937, 9, 242, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B88"
          fill="0"
          fillcolor="white"
@@ -5908,7 +6352,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig28.2.0"
         x="1937"
         y="9"
-        width="212"
+        width="242"
         height="0"
         fill="0"
         fillcolor="white"
@@ -6078,7 +6522,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
   </group>
   <group name="Fig29"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[3005, 128, 231, 128]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[3005, 128, 235, 128]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7"
        fill="1"
        fillcolor="white"
@@ -6091,7 +6535,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <rectangle name="Fig29.0"
       x="3005"
       y="128"
-      width="231"
+      width="235"
       height="128"
       fill="1"
       fillcolor="white"
@@ -6101,8 +6545,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <text name="Fig29.1"
       x="3006"
       y="129"
-      width="229"
-      height="22"
+      width="233"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -6115,7 +6559,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >SimulationsDateiSchreiber</text>
     <group name="Fig29.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[3017, 129, 177, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[3006, 129, 233, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7"
          fill="0"
          fillcolor="white"
@@ -6127,9 +6571,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig29.2.0"
-        x="3017"
+        x="3006"
         y="129"
-        width="177"
+        width="233"
         height="0"
         fill="0"
         fillcolor="white"
@@ -6139,8 +6583,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig29.3"
       x="3005"
-      y="151"
-      width="231"
+      y="152"
+      width="235"
       height="1"
       fill="1"
       fillcolor="black"
@@ -6148,7 +6592,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig29.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[3006, 152, 229, 75]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[3006, 153, 233, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7"
          fill="0"
          fillcolor="white"
@@ -6160,9 +6604,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig29.4.0"
         x="3006"
-        y="152"
-        width="229"
-        height="75"
+        y="153"
+        width="233"
+        height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6170,9 +6614,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig29.4.1"
         x="3006"
-        y="152"
-        width="229"
-        height="16"
+        y="153"
+        width="233"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6186,9 +6630,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final String dateiBeginnMarker</text>
       <text name="Fig29.4.2"
         x="3006"
-        y="168"
-        width="229"
-        height="16"
+        y="170"
+        width="233"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6202,9 +6646,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final String datenSatzBeginnMarker</text>
       <text name="Fig29.4.3"
         x="3006"
-        y="184"
-        width="229"
-        height="16"
+        y="187"
+        width="233"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6218,9 +6662,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >public final String dateiEndeMarker</text>
       <text name="Fig29.4.4"
         x="3006"
-        y="200"
-        width="229"
-        height="22"
+        y="204"
+        width="233"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6235,8 +6679,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
     <rectangle name="Fig29.5"
       x="3005"
-      y="227"
-      width="231"
+      y="229"
+      width="235"
       height="1"
       fill="1"
       fillcolor="black"
@@ -6244,7 +6688,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig29.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[3006, 228, 229, 27]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[3006, 230, 233, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7"
          fill="0"
          fillcolor="white"
@@ -6256,9 +6700,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       
       <rectangle name="Fig29.6.0"
         x="3006"
-        y="228"
-        width="229"
-        height="27"
+        y="230"
+        width="233"
+        height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6266,9 +6710,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
       <text name="Fig29.6.1"
         x="3006"
-        y="228"
-        width="229"
-        height="22"
+        y="230"
+        width="233"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6310,7 +6754,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <moveto x="3219"
               y="128" />
       <lineto x="3219"
-              y="75" />
+              y="78" />
     </path>
   </group>
   <group name="Fig31"
@@ -6444,7 +6888,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     </path>
   </group>
   <group name="Fig33"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[256, 160, 216, 104]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[256, 160, 222, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
        fill="1"
        fillcolor="white"
@@ -6457,8 +6901,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     <rectangle name="Fig33.0"
       x="256"
       y="160"
-      width="216"
-      height="104"
+      width="222"
+      height="126"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -6467,8 +6911,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     <text name="Fig33.1"
       x="257"
       y="161"
-      width="214"
-      height="22"
+      width="220"
+      height="23"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -6481,7 +6925,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       justification="Center"
     >Nebenort</text>
     <group name="Fig33.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[257, 161, 178, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[257, 161, 220, 0]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
          fill="0"
          fillcolor="white"
@@ -6495,7 +6939,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <rectangle name="Fig33.2.0"
         x="257"
         y="161"
-        width="178"
+        width="220"
         height="0"
         fill="0"
         fillcolor="white"
@@ -6505,8 +6949,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     </group>
     <rectangle name="Fig33.3"
       x="256"
-      y="183"
-      width="216"
+      y="184"
+      width="222"
       height="1"
       fill="1"
       fillcolor="black"
@@ -6514,7 +6958,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       strokecolor="black"
     />
     <group name="Fig33.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[257, 184, 214, 56]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[257, 185, 220, 59]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
          fill="0"
          fillcolor="white"
@@ -6526,9 +6970,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       
       <rectangle name="Fig33.4.0"
         x="257"
-        y="184"
-        width="214"
-        height="56"
+        y="185"
+        width="220"
+        height="59"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6536,9 +6980,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       />
       <text name="Fig33.4.1"
         x="257"
-        y="184"
-        width="214"
-        height="16"
+        y="185"
+        width="220"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6552,9 +6996,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       >public int anzahlEinwohner</text>
       <text name="Fig33.4.2"
         x="257"
-        y="200"
-        width="214"
-        height="16"
+        y="202"
+        width="220"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6568,9 +7012,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       >public double relevanzGrad</text>
       <text name="Fig33.4.3"
         x="257"
-        y="216"
-        width="214"
-        height="22"
+        y="219"
+        width="220"
+        height="23"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6585,8 +7029,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     </group>
     <rectangle name="Fig33.5"
       x="256"
-      y="239"
-      width="216"
+      y="243"
+      width="222"
       height="1"
       fill="1"
       fillcolor="black"
@@ -6594,7 +7038,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       strokecolor="black"
     />
     <group name="Fig33.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[257, 240, 214, 24]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[257, 244, 220, 42]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
          fill="0"
          fillcolor="white"
@@ -6606,9 +7050,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       
       <rectangle name="Fig33.6.0"
         x="257"
-        y="240"
-        width="214"
-        height="24"
+        y="244"
+        width="220"
+        height="42"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6616,9 +7060,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       />
       <text name="Fig33.6.1"
         x="257"
-        y="240"
-        width="214"
-        height="22"
+        y="244"
+        width="220"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6630,6 +7074,22 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >public double berechneRelevanzGrad()</text>
+      <text name="Fig33.6.2"
+        x="257"
+        y="261"
+        width="220"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public Nebenort()</text>
     </group>
   </group>
 </pgml>
