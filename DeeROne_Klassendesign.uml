@@ -10,7 +10,7 @@
       </description>
     </documentation>
     <settings>
-      <notationlanguage>UML 1.4</notationlanguage>
+      <notationlanguage>Java</notationlanguage>
       <showboldnames>false</showboldnames>
       <useguillemots>false</useguillemots>
       <showassociationnames>true</showassociationnames>
@@ -57,7 +57,7 @@
 			Java
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon May 12 21:51:55 CEST 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon May 12 22:45:43 CEST 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -147,7 +147,11 @@
               isLeaf = 'false' isAbstract = 'false'>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A95'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
               </UML:BehavioralFeature.parameter>
             </UML:Operation>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9D'
@@ -167,7 +171,7 @@
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC7'
               name = 'ortArt' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
+              changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC8'>
                   <UML:Multiplicity.range>
@@ -207,7 +211,11 @@
               isLeaf = 'false' isAbstract = 'false'>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A93'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
               </UML:BehavioralFeature.parameter>
             </UML:Operation>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA0'
@@ -227,7 +235,7 @@
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACA'
               name = 'ortArt' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
+              changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACB'>
                   <UML:Multiplicity.range>
@@ -279,7 +287,11 @@
               isLeaf = 'false' isAbstract = 'false'>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A97'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
               </UML:BehavioralFeature.parameter>
             </UML:Operation>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9A'
@@ -662,7 +674,11 @@ Sucht sich bei Initialisierung ihren eigenen Weg, f√ºllt dann nach und nach die 
               isLeaf = 'false' isAbstract = 'false'>
               <UML:BehavioralFeature.parameter>
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A91'
-                  name = 'return' isSpecification = 'false' kind = 'return'/>
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
               </UML:BehavioralFeature.parameter>
             </UML:Operation>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA3'
@@ -682,7 +698,7 @@ Sucht sich bei Initialisierung ihren eigenen Weg, f√ºllt dann nach und nach die 
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACD'
               name = 'ortArt' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
+              changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACE'>
                   <UML:Multiplicity.range>
@@ -1278,7 +1294,7 @@ Sucht sich bei Initialisierung ihren eigenen Weg, f√ºllt dann nach und nach die 
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B32'
               name = 'kartenGroesseX' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B33'>
                   <UML:Multiplicity.range>
@@ -1304,7 +1320,7 @@ abgerufen durch: KartenDateiPruefer</UML:TaggedValue.dataValue>
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B35'
               name = 'kartenGroesseY' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B36'>
                   <UML:Multiplicity.range>
@@ -1449,7 +1465,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
           <UML:Classifier.feature>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B53'
               name = 'kommentarMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B54'>
                   <UML:Multiplicity.range>
@@ -1497,7 +1513,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
           <UML:Classifier.feature>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B58'
               name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B59'>
                   <UML:Multiplicity.range>
@@ -1512,7 +1528,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B61'
               name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B62'>
                   <UML:Multiplicity.range>
@@ -1527,7 +1543,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B64'
               name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B65'>
                   <UML:Multiplicity.range>
@@ -1542,7 +1558,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B67'
               name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B68'>
                   <UML:Multiplicity.range>
@@ -1600,7 +1616,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
           <UML:Classifier.feature>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6C'
               name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6D'>
                   <UML:Multiplicity.range>
@@ -1615,7 +1631,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B6F'
               name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B70'>
                   <UML:Multiplicity.range>
@@ -1630,7 +1646,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B72'
               name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B73'>
                   <UML:Multiplicity.range>
@@ -1645,7 +1661,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B75'
               name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B76'>
                   <UML:Multiplicity.range>
@@ -1696,7 +1712,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Operation>
             <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB0'
               name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB1'>
                   <UML:Multiplicity.range>
@@ -1711,7 +1727,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Attribute>
             <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB3'
               name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB4'>
                   <UML:Multiplicity.range>
@@ -1726,7 +1742,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Attribute>
             <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB6'
               name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB7'>
                   <UML:Multiplicity.range>
@@ -1741,7 +1757,7 @@ Ist ein Fehler vorhanden, sollte die Zeile, ein Zitat der Zeile ausgegeben. Zus√
             </UML:Attribute>
             <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BB9'
               name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BBA'>
                   <UML:Multiplicity.range>
@@ -1900,7 +1916,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
             </UML:Operation>
             <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA4'
               name = 'dateiBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA5'>
                   <UML:Multiplicity.range>
@@ -1915,7 +1931,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
             </UML:Attribute>
             <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA7'
               name = 'datenSatzBeginnMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA8'>
                   <UML:Multiplicity.range>
@@ -1930,7 +1946,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
             </UML:Attribute>
             <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAA'
               name = 'dateiEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAB'>
                   <UML:Multiplicity.range>
@@ -1945,7 +1961,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
             </UML:Attribute>
             <UML:Attribute xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAD'
               name = 'datenSatzEndeMarker' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
               <UML:StructuralFeature.multiplicity>
                 <UML:Multiplicity xmi.id = '127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BAE'>
                   <UML:Multiplicity.range>
@@ -2009,7 +2025,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       name="Klassendiagramm 5"
 >
   <group name="Fig0"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[256, 16, 184, 109]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[152, 16, 184, 109]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A"
        fill="1"
        fillcolor="white"
@@ -2020,7 +2036,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </private>
     
     <rectangle name="Fig0.0"
-      x="256"
+      x="152"
       y="16"
       width="184"
       height="109"
@@ -2030,7 +2046,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <text name="Fig0.1"
-      x="257"
+      x="153"
       y="17"
       width="182"
       height="23"
@@ -2046,7 +2062,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Ort</text>
     <group name="Fig0.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[257, 17, 182, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[153, 17, 182, 0]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A"
          fill="0"
          fillcolor="white"
@@ -2058,7 +2074,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig0.2.0"
-        x="257"
+        x="153"
         y="17"
         width="182"
         height="0"
@@ -2069,7 +2085,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
     <rectangle name="Fig0.3"
-      x="256"
+      x="152"
       y="40"
       width="184"
       height="1"
@@ -2079,7 +2095,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig0.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[257, 41, 182, 60]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[153, 41, 182, 60]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A"
          fill="0"
          fillcolor="white"
@@ -2090,7 +2106,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig0.4.0"
-        x="257"
+        x="153"
         y="41"
         width="182"
         height="60"
@@ -2100,7 +2116,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig0.4.1"
-        x="257"
+        x="153"
         y="41"
         width="182"
         height="17"
@@ -2114,9 +2130,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >koordX : int</text>
+      >public int koordX</text>
       <text name="Fig0.4.2"
-        x="257"
+        x="153"
         y="58"
         width="182"
         height="17"
@@ -2130,9 +2146,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >koordY : int</text>
+      >public int koordY</text>
       <text name="Fig0.4.3"
-        x="257"
+        x="153"
         y="75"
         width="182"
         height="23"
@@ -2146,10 +2162,10 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >name : String</text>
+      >public String name</text>
     </group>
     <rectangle name="Fig0.5"
-      x="256"
+      x="152"
       y="101"
       width="184"
       height="1"
@@ -2159,7 +2175,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig0.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[257, 102, 182, 22]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[153, 102, 182, 22]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A"
          fill="0"
          fillcolor="white"
@@ -2170,7 +2186,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig0.6.0"
-        x="257"
+        x="153"
         y="102"
         width="182"
         height="22"
@@ -2182,196 +2198,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
   </group>
   <group name="Fig1"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[216, 192, 180, 109]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
-       href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
-       fill="1"
-       fillcolor="white"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-    </private>
-    
-    <rectangle name="Fig1.0"
-      x="216"
-      y="192"
-      width="180"
-      height="109"
-      fill="1"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    />
-    <text name="Fig1.1"
-      x="217"
-      y="193"
-      width="178"
-      height="23"
-      fill="0"
-      fillcolor="white"
-      stroke="0"
-      strokecolor="black"
-      textcolor="black"
-      font="Dialog"
-      italic="false"
-      bold="false"
-      textsize="12"
-      justification="Center"
-    >Nebenort</text>
-    <group name="Fig1.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[217, 193, 178, 0]"
-         href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
-         fill="0"
-         fillcolor="white"
-         stroke="0"
-         strokecolor="black"
-         visibility="0"
-    >
-      <private>
-      </private>
-      
-      <rectangle name="Fig1.2.0"
-        x="217"
-        y="193"
-        width="178"
-        height="0"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-      />
-    </group>
-    <rectangle name="Fig1.3"
-      x="216"
-      y="216"
-      width="180"
-      height="1"
-      fill="1"
-      fillcolor="black"
-      stroke="1"
-      strokecolor="black"
-    />
-    <group name="Fig1.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[217, 217, 178, 59]"
-         href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
-         fill="0"
-         fillcolor="white"
-         stroke="0"
-         strokecolor="black"
-    >
-      <private>
-      </private>
-      
-      <rectangle name="Fig1.4.0"
-        x="217"
-        y="217"
-        width="178"
-        height="59"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-      />
-      <text name="Fig1.4.1"
-        x="217"
-        y="217"
-        width="178"
-        height="17"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-        textcolor="black"
-        font="Dialog"
-        italic="false"
-        bold="false"
-        textsize="12"
-        justification="Left"
-      >anzahlEinwohner : int</text>
-      <text name="Fig1.4.2"
-        x="217"
-        y="234"
-        width="178"
-        height="17"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-        textcolor="black"
-        font="Dialog"
-        italic="false"
-        bold="false"
-        textsize="12"
-        justification="Left"
-      >relevanzGrad : double</text>
-      <text name="Fig1.4.3"
-        x="217"
-        y="251"
-        width="178"
-        height="23"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-        textcolor="black"
-        font="Dialog"
-        italic="false"
-        bold="false"
-        textsize="12"
-        justification="Left"
-      >ortArt : String</text>
-    </group>
-    <rectangle name="Fig1.5"
-      x="216"
-      y="275"
-      width="180"
-      height="1"
-      fill="1"
-      fillcolor="black"
-      stroke="1"
-      strokecolor="black"
-    />
-    <group name="Fig1.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[217, 276, 178, 25]"
-         href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
-         fill="0"
-         fillcolor="white"
-         stroke="0"
-         strokecolor="black"
-    >
-      <private>
-      </private>
-      
-      <rectangle name="Fig1.6.0"
-        x="217"
-        y="276"
-        width="178"
-        height="25"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-      />
-      <text name="Fig1.6.1"
-        x="217"
-        y="276"
-        width="178"
-        height="23"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-        textcolor="black"
-        font="Dialog"
-        italic="false"
-        bold="false"
-        textsize="12"
-        justification="Left"
-      >berechneRelevanzGrad()</text>
-    </group>
-  </group>
-  <group name="Fig2"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[400, 192, 189, 109]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[24, 272, 222, 104]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D"
        fill="1"
        fillcolor="white"
@@ -2381,21 +2208,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig2.0"
-      x="400"
-      y="192"
-      width="189"
-      height="109"
+    <rectangle name="Fig1.0"
+      x="24"
+      y="272"
+      width="222"
+      height="104"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig2.1"
-      x="401"
-      y="193"
-      width="187"
-      height="23"
+    <text name="Fig1.1"
+      x="25"
+      y="273"
+      width="220"
+      height="22"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -2407,8 +2234,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >Umschlagpunkt</text>
-    <group name="Fig2.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[401, 193, 187, 0]"
+    <group name="Fig1.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[41, 273, 187, 0]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D"
          fill="0"
          fillcolor="white"
@@ -2419,9 +2246,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig2.2.0"
-        x="401"
-        y="193"
+      <rectangle name="Fig1.2.0"
+        x="41"
+        y="273"
         width="187"
         height="0"
         fill="0"
@@ -2430,18 +2257,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig2.3"
-      x="400"
-      y="216"
-      width="189"
+    <rectangle name="Fig1.3"
+      x="24"
+      y="295"
+      width="222"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig2.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[401, 217, 187, 59]"
+    <group name="Fig1.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[25, 296, 220, 56]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D"
          fill="0"
          fillcolor="white"
@@ -2451,21 +2278,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig2.4.0"
-        x="401"
-        y="217"
-        width="187"
-        height="59"
+      <rectangle name="Fig1.4.0"
+        x="25"
+        y="296"
+        width="220"
+        height="56"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig2.4.1"
-        x="401"
-        y="217"
-        width="187"
-        height="17"
+      <text name="Fig1.4.1"
+        x="25"
+        y="296"
+        width="220"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2476,12 +2303,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >umschlagVolumen</text>
-      <text name="Fig2.4.2"
-        x="401"
-        y="234"
-        width="187"
-        height="17"
+      >public umschlagVolumen</text>
+      <text name="Fig1.4.2"
+        x="25"
+        y="312"
+        width="220"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2492,12 +2319,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >relevanzGrad : double</text>
-      <text name="Fig2.4.3"
-        x="401"
-        y="251"
-        width="187"
-        height="23"
+      >public double relevanzGrad</text>
+      <text name="Fig1.4.3"
+        x="25"
+        y="328"
+        width="220"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2508,20 +2335,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ortArt : String</text>
+      >public final String ortArt</text>
     </group>
-    <rectangle name="Fig2.5"
-      x="400"
-      y="275"
-      width="189"
+    <rectangle name="Fig1.5"
+      x="24"
+      y="351"
+      width="222"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig2.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[401, 276, 187, 25]"
+    <group name="Fig1.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[25, 352, 220, 24]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D"
          fill="0"
          fillcolor="white"
@@ -2531,21 +2358,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig2.6.0"
-        x="401"
-        y="276"
-        width="187"
-        height="25"
+      <rectangle name="Fig1.6.0"
+        x="25"
+        y="352"
+        width="220"
+        height="24"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig2.6.1"
-        x="401"
-        y="276"
-        width="187"
-        height="23"
+      <text name="Fig1.6.1"
+        x="25"
+        y="352"
+        width="220"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2556,42 +2383,44 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >berechneRelevanzGrad()</text>
+      >public double berechneRelevanzGrad()</text>
     </group>
   </group>
-  <group name="Fig3"
+  <group name="Fig2"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087E"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig2"
+      sourcePortFig="Fig1"
       destPortFig="Fig0"
-      sourceFigNode="Fig2"
+      sourceFigNode="Fig1"
       destFigNode="Fig0"
-      <argouml:pathitem figname="Fig3.1"
+      <argouml:pathitem figname="Fig2.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087E"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig3.0"
+    <path name="Fig2.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="400"
-              y="192" />
-      <lineto x="400"
-              y="124" />
+      <moveto x="120"
+              y="272" />
+      <lineto x="120"
+              y="24" />
+      <lineto x="152"
+              y="24" />
     </path>
   </group>
-  <group name="Fig4"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[32, 192, 180, 109]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig3"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[24, 160, 222, 104]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F"
        fill="1"
        fillcolor="white"
@@ -2601,21 +2430,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig4.0"
-      x="32"
-      y="192"
-      width="180"
-      height="109"
+    <rectangle name="Fig3.0"
+      x="24"
+      y="160"
+      width="222"
+      height="104"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig4.1"
-      x="33"
-      y="193"
-      width="178"
-      height="23"
+    <text name="Fig3.1"
+      x="25"
+      y="161"
+      width="220"
+      height="22"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -2627,8 +2456,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >Hauptort</text>
-    <group name="Fig4.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[33, 193, 178, 0]"
+    <group name="Fig3.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[41, 161, 178, 0]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F"
          fill="0"
          fillcolor="white"
@@ -2639,9 +2468,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig4.2.0"
-        x="33"
-        y="193"
+      <rectangle name="Fig3.2.0"
+        x="41"
+        y="161"
         width="178"
         height="0"
         fill="0"
@@ -2650,18 +2479,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig4.3"
-      x="32"
-      y="216"
-      width="180"
+    <rectangle name="Fig3.3"
+      x="24"
+      y="183"
+      width="222"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig4.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[33, 217, 178, 59]"
+    <group name="Fig3.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[25, 184, 220, 56]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F"
          fill="0"
          fillcolor="white"
@@ -2671,21 +2500,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig4.4.0"
-        x="33"
-        y="217"
-        width="178"
-        height="59"
+      <rectangle name="Fig3.4.0"
+        x="25"
+        y="184"
+        width="220"
+        height="56"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig4.4.1"
-        x="33"
-        y="217"
-        width="178"
-        height="17"
+      <text name="Fig3.4.1"
+        x="25"
+        y="184"
+        width="220"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2696,12 +2525,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >anzahlEinwohner : int</text>
-      <text name="Fig4.4.2"
-        x="33"
-        y="234"
-        width="178"
-        height="17"
+      >public int anzahlEinwohner</text>
+      <text name="Fig3.4.2"
+        x="25"
+        y="200"
+        width="220"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2712,12 +2541,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >relevanzGrad : double</text>
-      <text name="Fig4.4.3"
-        x="33"
-        y="251"
-        width="178"
-        height="23"
+      >public double relevanzGrad</text>
+      <text name="Fig3.4.3"
+        x="25"
+        y="216"
+        width="220"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2728,20 +2557,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ortArt : String</text>
+      >public final String ortArt</text>
     </group>
-    <rectangle name="Fig4.5"
-      x="32"
-      y="275"
-      width="180"
+    <rectangle name="Fig3.5"
+      x="24"
+      y="239"
+      width="222"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig4.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[33, 276, 178, 25]"
+    <group name="Fig3.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[25, 240, 220, 24]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F"
          fill="0"
          fillcolor="white"
@@ -2751,21 +2580,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig4.6.0"
-        x="33"
-        y="276"
-        width="178"
-        height="25"
+      <rectangle name="Fig3.6.0"
+        x="25"
+        y="240"
+        width="220"
+        height="24"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig4.6.1"
-        x="33"
-        y="276"
-        width="178"
-        height="23"
+      <text name="Fig3.6.1"
+        x="25"
+        y="240"
+        width="220"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2776,42 +2605,42 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >berechneRelevanzGrad()</text>
+      >public double berechneRelevanzGrad()</text>
     </group>
   </group>
-  <group name="Fig5"
+  <group name="Fig4"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="-64--88--78-26--47640419:145ed35bd21:-8000:0000000000000880"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig4"
+      sourcePortFig="Fig3"
       destPortFig="Fig0"
-      sourceFigNode="Fig4"
+      sourceFigNode="Fig3"
       destFigNode="Fig0"
-      <argouml:pathitem figname="Fig5.1"
+      <argouml:pathitem figname="Fig4.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="-64--88--78-26--47640419:145ed35bd21:-8000:0000000000000880"
-                        angle="270.0"
-                        offset="-10" />
+                        angle="-102.0"
+                        offset="26" />
     </private>
-    <path name="Fig5.0"
+    <path name="Fig4.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="211"
-              y="192" />
-      <lineto x="256"
+      <moveto x="224"
+              y="160" />
+      <lineto x="224"
               y="124" />
     </path>
   </group>
-  <group name="Fig6"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1104, 40, 165, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig5"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1688, 8, 195, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
        fill="1"
        fillcolor="white"
@@ -2821,20 +2650,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig6.0"
-      x="1104"
-      y="40"
-      width="165"
+    <rectangle name="Fig5.0"
+      x="1688"
+      y="8"
+      width="195"
       height="143"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig6.1"
-      x="1105"
-      y="41"
-      width="163"
+    <text name="Fig5.1"
+      x="1689"
+      y="9"
+      width="193"
       height="23"
       fill="0"
       fillcolor="white"
@@ -2847,8 +2676,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >Simulator</text>
-    <group name="Fig6.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1105, 41, 163, 0]"
+    <group name="Fig5.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1689, 9, 163, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -2859,9 +2688,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig6.2.0"
-        x="1105"
-        y="41"
+      <rectangle name="Fig5.2.0"
+        x="1689"
+        y="9"
         width="163"
         height="0"
         fill="0"
@@ -2870,18 +2699,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig6.3"
-      x="1104"
-      y="64"
-      width="165"
+    <rectangle name="Fig5.3"
+      x="1688"
+      y="32"
+      width="195"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig6.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1105, 65, 163, 66]"
+    <group name="Fig5.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1689, 33, 193, 66]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -2891,20 +2720,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig6.4.0"
-        x="1105"
-        y="65"
-        width="163"
+      <rectangle name="Fig5.4.0"
+        x="1689"
+        y="33"
+        width="193"
         height="66"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig6.4.1"
-        x="1105"
-        y="65"
-        width="163"
+      <text name="Fig5.4.1"
+        x="1689"
+        y="33"
+        width="193"
         height="17"
         fill="0"
         fillcolor="white"
@@ -2916,11 +2745,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >nutzkosten : double</text>
-      <text name="Fig6.4.2"
-        x="1105"
-        y="82"
-        width="163"
+      >public double nutzkosten</text>
+      <text name="Fig5.4.2"
+        x="1689"
+        y="50"
+        width="193"
         height="23"
         fill="0"
         fillcolor="white"
@@ -2932,20 +2761,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >routen : ArrayList&lt;Flugroute&gt;</text>
+      >public ArrayList&lt;Flugroute&gt; routen</text>
     </group>
-    <rectangle name="Fig6.5"
-      x="1104"
-      y="131"
-      width="165"
+    <rectangle name="Fig5.5"
+      x="1688"
+      y="99"
+      width="195"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig6.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1105, 132, 163, 49]"
+    <group name="Fig5.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1689, 100, 193, 49]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -2955,20 +2784,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig6.6.0"
-        x="1105"
-        y="132"
-        width="163"
+      <rectangle name="Fig5.6.0"
+        x="1689"
+        y="100"
+        width="193"
         height="49"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig6.6.1"
-        x="1105"
-        y="132"
-        width="163"
+      <text name="Fig5.6.1"
+        x="1689"
+        y="100"
+        width="193"
         height="23"
         fill="0"
         fillcolor="white"
@@ -2980,11 +2809,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >simuliere() : void</text>
+      >public void simuliere()</text>
     </group>
   </group>
-  <group name="Fig7"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[352, 312, 153, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig6"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[656, 8, 176, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76"
        fill="1"
        fillcolor="white"
@@ -2994,20 +2823,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig7.0"
-      x="352"
-      y="312"
-      width="153"
+    <rectangle name="Fig6.0"
+      x="656"
+      y="8"
+      width="176"
       height="126"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig7.1"
-      x="353"
-      y="313"
-      width="151"
+    <text name="Fig6.1"
+      x="657"
+      y="9"
+      width="174"
       height="23"
       fill="0"
       fillcolor="white"
@@ -3020,8 +2849,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >Korridor</text>
-    <group name="Fig7.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[353, 313, 151, 0]"
+    <group name="Fig6.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[657, 9, 151, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76"
          fill="0"
          fillcolor="white"
@@ -3032,9 +2861,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig7.2.0"
-        x="353"
-        y="313"
+      <rectangle name="Fig6.2.0"
+        x="657"
+        y="9"
         width="151"
         height="0"
         fill="0"
@@ -3043,18 +2872,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig7.3"
-      x="352"
-      y="336"
-      width="153"
+    <rectangle name="Fig6.3"
+      x="656"
+      y="32"
+      width="176"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig7.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[353, 337, 151, 66]"
+    <group name="Fig6.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[657, 33, 174, 66]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76"
          fill="0"
          fillcolor="white"
@@ -3064,20 +2893,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig7.4.0"
-        x="353"
-        y="337"
-        width="151"
+      <rectangle name="Fig6.4.0"
+        x="657"
+        y="33"
+        width="174"
         height="66"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig7.4.1"
-        x="353"
-        y="337"
-        width="151"
+      <text name="Fig6.4.1"
+        x="657"
+        y="33"
+        width="174"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3089,11 +2918,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ortA : Ort</text>
-      <text name="Fig7.4.2"
-        x="353"
-        y="354"
-        width="151"
+      >public Ort ortA</text>
+      <text name="Fig6.4.2"
+        x="657"
+        y="50"
+        width="174"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3105,11 +2934,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ortB : Ort</text>
-      <text name="Fig7.4.3"
-        x="353"
-        y="371"
-        width="151"
+      >public Ort ortB</text>
+      <text name="Fig6.4.3"
+        x="657"
+        y="67"
+        width="174"
         height="23"
         fill="0"
         fillcolor="white"
@@ -3121,20 +2950,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >laenge : double</text>
+      >public double laenge</text>
     </group>
-    <rectangle name="Fig7.5"
-      x="352"
-      y="403"
-      width="153"
+    <rectangle name="Fig6.5"
+      x="656"
+      y="99"
+      width="176"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig7.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[353, 404, 151, 32]"
+    <group name="Fig6.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[657, 100, 174, 32]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76"
          fill="0"
          fillcolor="white"
@@ -3144,20 +2973,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig7.6.0"
-        x="353"
-        y="404"
-        width="151"
+      <rectangle name="Fig6.6.0"
+        x="657"
+        y="100"
+        width="174"
         height="32"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig7.6.1"
-        x="353"
-        y="404"
-        width="151"
+      <text name="Fig6.6.1"
+        x="657"
+        y="100"
+        width="174"
         height="23"
         fill="0"
         fillcolor="white"
@@ -3169,11 +2998,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ermittleLaenge() : double</text>
+      >public double ermittleLaenge()</text>
     </group>
   </group>
-  <group name="Fig8"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1080, 248, 233, 160]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig7"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1048, 8, 263, 160]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
        fill="1"
        fillcolor="white"
@@ -3183,20 +3012,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig8.0"
-      x="1080"
-      y="248"
-      width="233"
+    <rectangle name="Fig7.0"
+      x="1048"
+      y="8"
+      width="263"
       height="160"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig8.1"
-      x="1081"
-      y="249"
-      width="231"
+    <text name="Fig7.1"
+      x="1049"
+      y="9"
+      width="261"
       height="23"
       fill="0"
       fillcolor="white"
@@ -3209,8 +3038,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >Flugroute</text>
-    <group name="Fig8.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1081, 249, 231, 0]"
+    <group name="Fig7.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1049, 9, 231, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3221,9 +3050,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig8.2.0"
-        x="1081"
-        y="249"
+      <rectangle name="Fig7.2.0"
+        x="1049"
+        y="9"
         width="231"
         height="0"
         fill="0"
@@ -3232,18 +3061,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig8.3"
-      x="1080"
-      y="272"
-      width="233"
+    <rectangle name="Fig7.3"
+      x="1048"
+      y="32"
+      width="263"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig8.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1081, 273, 231, 76]"
+    <group name="Fig7.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1049, 33, 261, 76]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3253,20 +3082,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig8.4.0"
-        x="1081"
-        y="273"
-        width="231"
+      <rectangle name="Fig7.4.0"
+        x="1049"
+        y="33"
+        width="261"
         height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig8.4.1"
-        x="1081"
-        y="273"
-        width="231"
+      <text name="Fig7.4.1"
+        x="1049"
+        y="33"
+        width="261"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3278,11 +3107,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ziel : Ort</text>
-      <text name="Fig8.4.2"
-        x="1081"
-        y="290"
-        width="231"
+      >public Ort ziel</text>
+      <text name="Fig7.4.2"
+        x="1049"
+        y="50"
+        width="261"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3294,11 +3123,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >herkunft : Ort</text>
-      <text name="Fig8.4.3"
-        x="1081"
-        y="307"
-        width="231"
+      >public Ort herkunft</text>
+      <text name="Fig7.4.3"
+        x="1049"
+        y="67"
+        width="261"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3310,11 +3139,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >reiseListe : ArrayList&lt;Flugkorridor&gt;</text>
-      <text name="Fig8.4.4"
-        x="1081"
-        y="324"
-        width="231"
+      >public ArrayList&lt;Flugkorridor&gt; reiseListe</text>
+      <text name="Fig7.4.4"
+        x="1049"
+        y="84"
+        width="261"
         height="23"
         fill="0"
         fillcolor="white"
@@ -3326,20 +3155,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >faktor : int</text>
+      >public int faktor</text>
     </group>
-    <rectangle name="Fig8.5"
-      x="1080"
-      y="348"
-      width="233"
+    <rectangle name="Fig7.5"
+      x="1048"
+      y="108"
+      width="263"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig8.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1081, 349, 231, 59]"
+    <group name="Fig7.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1049, 109, 261, 59]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3349,20 +3178,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig8.6.0"
-        x="1081"
-        y="349"
-        width="231"
+      <rectangle name="Fig7.6.0"
+        x="1049"
+        y="109"
+        width="261"
         height="59"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig8.6.1"
-        x="1081"
-        y="349"
-        width="231"
+      <text name="Fig7.6.1"
+        x="1049"
+        y="109"
+        width="261"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3374,11 +3203,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ermittleBesteRoute()</text>
-      <text name="Fig8.6.2"
-        x="1081"
-        y="366"
-        width="231"
+      >public void ermittleBesteRoute()</text>
+      <text name="Fig7.6.2"
+        x="1049"
+        y="126"
+        width="261"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3390,11 +3219,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ermittleRoutennutzkosten() : double</text>
-      <text name="Fig8.6.3"
-        x="1081"
-        y="383"
-        width="231"
+      >public double ermittleRoutennutzkosten()</text>
+      <text name="Fig7.6.3"
+        x="1049"
+        y="143"
+        width="261"
         height="23"
         fill="0"
         fillcolor="white"
@@ -3406,11 +3235,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >erzeugeTextausgabeReiseroute() : String</text>
+      >public String erzeugeTextausgabeReiseroute()</text>
     </group>
   </group>
-  <group name="Fig9"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1736, 328, 96, 68]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig8"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[3192, 8, 96, 68]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78"
        fill="1"
        fillcolor="white"
@@ -3420,9 +3249,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig9.0"
-      x="1736"
-      y="328"
+    <rectangle name="Fig8.0"
+      x="3192"
+      y="8"
       width="96"
       height="68"
       fill="1"
@@ -3430,9 +3259,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig9.1"
-      x="1737"
-      y="329"
+    <text name="Fig8.1"
+      x="3193"
+      y="9"
       width="94"
       height="23"
       fill="0"
@@ -3446,8 +3275,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >DateiSchreiber</text>
-    <group name="Fig9.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1737, 329, 94, 0]"
+    <group name="Fig8.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[3193, 9, 94, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78"
          fill="0"
          fillcolor="white"
@@ -3458,9 +3287,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig9.2.0"
-        x="1737"
-        y="329"
+      <rectangle name="Fig8.2.0"
+        x="3193"
+        y="9"
         width="94"
         height="0"
         fill="0"
@@ -3469,9 +3298,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig9.3"
-      x="1736"
-      y="352"
+    <rectangle name="Fig8.3"
+      x="3192"
+      y="32"
       width="96"
       height="1"
       fill="1"
@@ -3479,8 +3308,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig9.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1737, 353, 94, 21]"
+    <group name="Fig8.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[3193, 33, 94, 21]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78"
          fill="0"
          fillcolor="white"
@@ -3490,9 +3319,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig9.4.0"
-        x="1737"
-        y="353"
+      <rectangle name="Fig8.4.0"
+        x="3193"
+        y="33"
         width="94"
         height="21"
         fill="0"
@@ -3501,9 +3330,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig9.5"
-      x="1736"
-      y="373"
+    <rectangle name="Fig8.5"
+      x="3192"
+      y="53"
       width="96"
       height="1"
       fill="1"
@@ -3511,8 +3340,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig9.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1737, 374, 94, 21]"
+    <group name="Fig8.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[3193, 54, 94, 21]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A78"
          fill="0"
          fillcolor="white"
@@ -3522,9 +3351,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig9.6.0"
-        x="1737"
-        y="374"
+      <rectangle name="Fig8.6.0"
+        x="3193"
+        y="54"
         width="94"
         height="21"
         fill="0"
@@ -3534,8 +3363,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
   </group>
-  <group name="Fig10"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[592, 192, 207, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig9"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[256, 272, 216, 128]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
        fill="1"
        fillcolor="white"
@@ -3545,21 +3374,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig10.0"
-      x="592"
-      y="192"
-      width="207"
-      height="126"
+    <rectangle name="Fig9.0"
+      x="256"
+      y="272"
+      width="216"
+      height="128"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig10.1"
-      x="593"
-      y="193"
-      width="205"
-      height="23"
+    <text name="Fig9.1"
+      x="257"
+      y="273"
+      width="214"
+      height="22"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -3571,8 +3400,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >Auslandsverbindung</text>
-    <group name="Fig10.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[593, 193, 205, 0]"
+    <group name="Fig9.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[257, 273, 205, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
          fill="0"
          fillcolor="white"
@@ -3583,9 +3412,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig10.2.0"
-        x="593"
-        y="193"
+      <rectangle name="Fig9.2.0"
+        x="257"
+        y="273"
         width="205"
         height="0"
         fill="0"
@@ -3594,18 +3423,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig10.3"
-      x="592"
-      y="216"
-      width="207"
+    <rectangle name="Fig9.3"
+      x="256"
+      y="295"
+      width="216"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig10.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[593, 217, 205, 76]"
+    <group name="Fig9.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[257, 296, 214, 75]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
          fill="0"
          fillcolor="white"
@@ -3615,21 +3444,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig10.4.0"
-        x="593"
-        y="217"
-        width="205"
-        height="76"
+      <rectangle name="Fig9.4.0"
+        x="257"
+        y="296"
+        width="214"
+        height="75"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig10.4.1"
-        x="593"
-        y="217"
-        width="205"
-        height="17"
+      <text name="Fig9.4.1"
+        x="257"
+        y="296"
+        width="214"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3640,12 +3469,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >passagierAufkommen : int</text>
-      <text name="Fig10.4.2"
-        x="593"
-        y="234"
-        width="205"
-        height="17"
+      >public int passagierAufkommen</text>
+      <text name="Fig9.4.2"
+        x="257"
+        y="312"
+        width="214"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3656,12 +3485,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >umschlagVolumen : double</text>
-      <text name="Fig10.4.3"
-        x="593"
-        y="251"
-        width="205"
-        height="17"
+      >public double umschlagVolumen</text>
+      <text name="Fig9.4.3"
+        x="257"
+        y="328"
+        width="214"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3672,12 +3501,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >relevanzGrad : double</text>
-      <text name="Fig10.4.4"
-        x="593"
-        y="268"
-        width="205"
-        height="23"
+      >public double relevanzGrad</text>
+      <text name="Fig9.4.4"
+        x="257"
+        y="344"
+        width="214"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3688,20 +3517,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ortArt : String</text>
+      >public final String ortArt</text>
     </group>
-    <rectangle name="Fig10.5"
-      x="592"
-      y="292"
-      width="207"
+    <rectangle name="Fig9.5"
+      x="256"
+      y="371"
+      width="216"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig10.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[593, 293, 205, 25]"
+    <group name="Fig9.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[257, 372, 214, 27]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88"
          fill="0"
          fillcolor="white"
@@ -3711,21 +3540,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig10.6.0"
-        x="593"
-        y="293"
-        width="205"
-        height="25"
+      <rectangle name="Fig9.6.0"
+        x="257"
+        y="372"
+        width="214"
+        height="27"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig10.6.1"
-        x="593"
-        y="293"
-        width="205"
-        height="23"
+      <text name="Fig9.6.1"
+        x="257"
+        y="372"
+        width="214"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3736,42 +3565,44 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >berechneRelevanzGrad()</text>
+      >public double berechneRelevanzGrad()</text>
     </group>
   </group>
-  <group name="Fig11"
+  <group name="Fig10"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A89"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig10"
+      sourcePortFig="Fig9"
       destPortFig="Fig0"
-      sourceFigNode="Fig10"
+      sourceFigNode="Fig9"
       destFigNode="Fig0"
-      <argouml:pathitem figname="Fig11.1"
+      <argouml:pathitem figname="Fig10.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A89"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig11.0"
+    <path name="Fig10.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="592"
-              y="192" />
-      <lineto x="439"
-              y="124" />
+      <moveto x="376"
+              y="272" />
+      <lineto x="376"
+              y="24" />
+      <lineto x="335"
+              y="24" />
     </path>
   </group>
-  <group name="Fig12"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[464, 504, 223, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig11"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[752, 296, 244, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9"
        fill="1"
        fillcolor="white"
@@ -3781,20 +3612,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig12.0"
-      x="464"
-      y="504"
-      width="223"
+    <rectangle name="Fig11.0"
+      x="752"
+      y="296"
+      width="244"
       height="143"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig12.1"
-      x="465"
-      y="505"
-      width="221"
+    <text name="Fig11.1"
+      x="753"
+      y="297"
+      width="242"
       height="23"
       fill="0"
       fillcolor="white"
@@ -3807,8 +3638,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >EinfacherKorridor</text>
-    <group name="Fig12.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[465, 505, 221, 0]"
+    <group name="Fig11.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[753, 297, 221, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9"
          fill="0"
          fillcolor="white"
@@ -3819,9 +3650,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig12.2.0"
-        x="465"
-        y="505"
+      <rectangle name="Fig11.2.0"
+        x="753"
+        y="297"
         width="221"
         height="0"
         fill="0"
@@ -3830,18 +3661,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig12.3"
-      x="464"
-      y="528"
-      width="223"
+    <rectangle name="Fig11.3"
+      x="752"
+      y="320"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig12.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[465, 529, 221, 83]"
+    <group name="Fig11.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[753, 321, 242, 83]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9"
          fill="0"
          fillcolor="white"
@@ -3851,20 +3682,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig12.4.0"
-        x="465"
-        y="529"
-        width="221"
+      <rectangle name="Fig11.4.0"
+        x="753"
+        y="321"
+        width="242"
         height="83"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig12.4.1"
-        x="465"
-        y="529"
-        width="221"
+      <text name="Fig11.4.1"
+        x="753"
+        y="321"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3876,11 +3707,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >zulaessigeOrtarten : ArrayList&lt;String&gt;</text>
-      <text name="Fig12.4.2"
-        x="465"
-        y="546"
-        width="221"
+      >public ArrayList&lt;String&gt; zulaessigeOrtarten</text>
+      <text name="Fig11.4.2"
+        x="753"
+        y="338"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3892,11 +3723,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >bauKosten : int</text>
-      <text name="Fig12.4.3"
-        x="465"
-        y="563"
-        width="221"
+      >public final int bauKosten</text>
+      <text name="Fig11.4.3"
+        x="753"
+        y="355"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -3908,11 +3739,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >nutzungsKosten : double</text>
-      <text name="Fig12.4.4"
-        x="465"
-        y="580"
-        width="221"
+      >public final double nutzungsKosten</text>
+      <text name="Fig11.4.4"
+        x="753"
+        y="372"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -3924,20 +3755,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >korridorArt : String</text>
+      >public final String korridorArt</text>
     </group>
-    <rectangle name="Fig12.5"
-      x="464"
-      y="612"
-      width="223"
+    <rectangle name="Fig11.5"
+      x="752"
+      y="404"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig12.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[465, 613, 221, 32]"
+    <group name="Fig11.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[753, 405, 242, 32]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9"
          fill="0"
          fillcolor="white"
@@ -3947,20 +3778,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig12.6.0"
-        x="465"
-        y="613"
-        width="221"
+      <rectangle name="Fig11.6.0"
+        x="753"
+        y="405"
+        width="242"
         height="32"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig12.6.1"
-        x="465"
-        y="613"
-        width="221"
+      <text name="Fig11.6.1"
+        x="753"
+        y="405"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -3972,42 +3803,44 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ueberpruefeOrtart() : boolean</text>
+      >public boolean ueberpruefeOrtart()</text>
     </group>
   </group>
-  <group name="Fig13"
+  <group name="Fig12"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABA"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig12"
-      destPortFig="Fig7"
-      sourceFigNode="Fig12"
-      destFigNode="Fig7"
-      <argouml:pathitem figname="Fig13.1"
+      sourcePortFig="Fig11"
+      destPortFig="Fig6"
+      sourceFigNode="Fig11"
+      destFigNode="Fig6"
+      <argouml:pathitem figname="Fig12.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABA"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig13.0"
+    <path name="Fig12.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="464"
-              y="504" />
-      <lineto x="464"
-              y="437" />
+      <moveto x="880"
+              y="296" />
+      <lineto x="880"
+              y="16" />
+      <lineto x="831"
+              y="16" />
     </path>
   </group>
-  <group name="Fig14"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[696, 504, 223, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig13"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[496, 296, 244, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB"
        fill="1"
        fillcolor="white"
@@ -4017,20 +3850,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig14.0"
-      x="696"
-      y="504"
-      width="223"
+    <rectangle name="Fig13.0"
+      x="496"
+      y="296"
+      width="244"
       height="126"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig14.1"
-      x="697"
-      y="505"
-      width="221"
+    <text name="Fig13.1"
+      x="497"
+      y="297"
+      width="242"
       height="23"
       fill="0"
       fillcolor="white"
@@ -4043,8 +3876,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >StandardKorridor</text>
-    <group name="Fig14.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[697, 505, 221, 0]"
+    <group name="Fig13.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[497, 297, 221, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB"
          fill="0"
          fillcolor="white"
@@ -4055,9 +3888,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig14.2.0"
-        x="697"
-        y="505"
+      <rectangle name="Fig13.2.0"
+        x="497"
+        y="297"
         width="221"
         height="0"
         fill="0"
@@ -4066,18 +3899,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig14.3"
-      x="696"
-      y="528"
-      width="223"
+    <rectangle name="Fig13.3"
+      x="496"
+      y="320"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig14.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[697, 529, 221, 76]"
+    <group name="Fig13.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[497, 321, 242, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB"
          fill="0"
          fillcolor="white"
@@ -4087,20 +3920,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig14.4.0"
-        x="697"
-        y="529"
-        width="221"
+      <rectangle name="Fig13.4.0"
+        x="497"
+        y="321"
+        width="242"
         height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig14.4.1"
-        x="697"
-        y="529"
-        width="221"
+      <text name="Fig13.4.1"
+        x="497"
+        y="321"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4112,11 +3945,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >zulaessigeOrtarten : ArrayList&lt;String&gt;</text>
-      <text name="Fig14.4.2"
-        x="697"
-        y="546"
-        width="221"
+      >public ArrayList&lt;String&gt; zulaessigeOrtarten</text>
+      <text name="Fig13.4.2"
+        x="497"
+        y="338"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4128,11 +3961,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >bauKosten : int</text>
-      <text name="Fig14.4.3"
-        x="697"
-        y="563"
-        width="221"
+      >public final int bauKosten</text>
+      <text name="Fig13.4.3"
+        x="497"
+        y="355"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4144,11 +3977,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >nutzungsKosten : double</text>
-      <text name="Fig14.4.4"
-        x="697"
-        y="580"
-        width="221"
+      >public final double nutzungsKosten</text>
+      <text name="Fig13.4.4"
+        x="497"
+        y="372"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -4160,20 +3993,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >korridorArt : String</text>
+      >public final String korridorArt</text>
     </group>
-    <rectangle name="Fig14.5"
-      x="696"
-      y="604"
-      width="223"
+    <rectangle name="Fig13.5"
+      x="496"
+      y="396"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig14.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[697, 605, 221, 25]"
+    <group name="Fig13.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[497, 397, 242, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB"
          fill="0"
          fillcolor="white"
@@ -4183,20 +4016,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig14.6.0"
-        x="697"
-        y="605"
-        width="221"
+      <rectangle name="Fig13.6.0"
+        x="497"
+        y="397"
+        width="242"
         height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig14.6.1"
-        x="697"
-        y="605"
-        width="221"
+      <text name="Fig13.6.1"
+        x="497"
+        y="397"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -4208,42 +4041,44 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ueberpruefeOrtart() : boolean</text>
+      >public boolean ueberpruefeOrtart()</text>
     </group>
   </group>
-  <group name="Fig15"
+  <group name="Fig14"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABC"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig14"
-      destPortFig="Fig7"
-      sourceFigNode="Fig14"
-      destFigNode="Fig7"
-      <argouml:pathitem figname="Fig15.1"
+      sourcePortFig="Fig13"
+      destPortFig="Fig6"
+      sourceFigNode="Fig13"
+      destFigNode="Fig6"
+      <argouml:pathitem figname="Fig14.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABC"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig15.0"
+    <path name="Fig14.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="696"
-              y="504" />
-      <lineto x="504"
-              y="437" />
+      <moveto x="616"
+              y="296" />
+      <lineto x="616"
+              y="16" />
+      <lineto x="656"
+              y="16" />
     </path>
   </group>
-  <group name="Fig16"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[0, 504, 223, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig15"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[496, 160, 244, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD"
        fill="1"
        fillcolor="white"
@@ -4253,20 +4088,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig16.0"
-      x="0"
-      y="504"
-      width="223"
+    <rectangle name="Fig15.0"
+      x="496"
+      y="160"
+      width="244"
       height="126"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig16.1"
-      x="1"
-      y="505"
-      width="221"
+    <text name="Fig15.1"
+      x="497"
+      y="161"
+      width="242"
       height="23"
       fill="0"
       fillcolor="white"
@@ -4279,8 +4114,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >HochlastKorridor</text>
-    <group name="Fig16.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1, 505, 221, 0]"
+    <group name="Fig15.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[497, 161, 221, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD"
          fill="0"
          fillcolor="white"
@@ -4291,9 +4126,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig16.2.0"
-        x="1"
-        y="505"
+      <rectangle name="Fig15.2.0"
+        x="497"
+        y="161"
         width="221"
         height="0"
         fill="0"
@@ -4302,18 +4137,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig16.3"
-      x="0"
-      y="528"
-      width="223"
+    <rectangle name="Fig15.3"
+      x="496"
+      y="184"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig16.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1, 529, 221, 76]"
+    <group name="Fig15.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[497, 185, 242, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD"
          fill="0"
          fillcolor="white"
@@ -4323,20 +4158,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig16.4.0"
-        x="1"
-        y="529"
-        width="221"
+      <rectangle name="Fig15.4.0"
+        x="497"
+        y="185"
+        width="242"
         height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig16.4.1"
-        x="1"
-        y="529"
-        width="221"
+      <text name="Fig15.4.1"
+        x="497"
+        y="185"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4348,11 +4183,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >zulaessigeOrtarten : ArrayList&lt;String&gt;</text>
-      <text name="Fig16.4.2"
-        x="1"
-        y="546"
-        width="221"
+      >public ArrayList&lt;String&gt; zulaessigeOrtarten</text>
+      <text name="Fig15.4.2"
+        x="497"
+        y="202"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4364,11 +4199,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >bauKosten : int</text>
-      <text name="Fig16.4.3"
-        x="1"
-        y="563"
-        width="221"
+      >public final int bauKosten</text>
+      <text name="Fig15.4.3"
+        x="497"
+        y="219"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4380,11 +4215,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >nutzungsKosten : double</text>
-      <text name="Fig16.4.4"
-        x="1"
-        y="580"
-        width="221"
+      >public final double nutzungsKosten</text>
+      <text name="Fig15.4.4"
+        x="497"
+        y="236"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -4396,20 +4231,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >korridorArt : String</text>
+      >public final String korridorArt</text>
     </group>
-    <rectangle name="Fig16.5"
-      x="0"
-      y="604"
-      width="223"
+    <rectangle name="Fig15.5"
+      x="496"
+      y="260"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig16.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1, 605, 221, 25]"
+    <group name="Fig15.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[497, 261, 242, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD"
          fill="0"
          fillcolor="white"
@@ -4419,20 +4254,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig16.6.0"
-        x="1"
-        y="605"
-        width="221"
+      <rectangle name="Fig15.6.0"
+        x="497"
+        y="261"
+        width="242"
         height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig16.6.1"
-        x="1"
-        y="605"
-        width="221"
+      <text name="Fig15.6.1"
+        x="497"
+        y="261"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -4444,42 +4279,42 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ueberpruefeOrtart() : boolean</text>
+      >public boolean ueberpruefeOrtart()</text>
     </group>
   </group>
-  <group name="Fig17"
+  <group name="Fig16"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABE"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig16"
-      destPortFig="Fig7"
-      sourceFigNode="Fig16"
-      destFigNode="Fig7"
-      <argouml:pathitem figname="Fig17.1"
+      sourcePortFig="Fig15"
+      destPortFig="Fig6"
+      sourceFigNode="Fig15"
+      destFigNode="Fig6"
+      <argouml:pathitem figname="Fig16.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABE"
                         angle="-135.0"
                         offset="78" />
     </private>
-    <path name="Fig17.0"
+    <path name="Fig16.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="222"
-              y="504" />
-      <lineto x="352"
-              y="437" />
+      <moveto x="704"
+              y="160" />
+      <lineto x="704"
+              y="133" />
     </path>
   </group>
-  <group name="Fig18"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[232, 504, 223, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig17"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[752, 160, 244, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABF"
        fill="1"
        fillcolor="white"
@@ -4489,20 +4324,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig18.0"
-      x="232"
-      y="504"
-      width="223"
+    <rectangle name="Fig17.0"
+      x="752"
+      y="160"
+      width="244"
       height="126"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig18.1"
-      x="233"
-      y="505"
-      width="221"
+    <text name="Fig17.1"
+      x="753"
+      y="161"
+      width="242"
       height="23"
       fill="0"
       fillcolor="white"
@@ -4515,8 +4350,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >SicherheitsKorridor</text>
-    <group name="Fig18.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[233, 505, 221, 0]"
+    <group name="Fig17.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[753, 161, 221, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABF"
          fill="0"
          fillcolor="white"
@@ -4527,9 +4362,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig18.2.0"
-        x="233"
-        y="505"
+      <rectangle name="Fig17.2.0"
+        x="753"
+        y="161"
         width="221"
         height="0"
         fill="0"
@@ -4538,18 +4373,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig18.3"
-      x="232"
-      y="528"
-      width="223"
+    <rectangle name="Fig17.3"
+      x="752"
+      y="184"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig18.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[233, 529, 221, 76]"
+    <group name="Fig17.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[753, 185, 242, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABF"
          fill="0"
          fillcolor="white"
@@ -4559,20 +4394,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig18.4.0"
-        x="233"
-        y="529"
-        width="221"
+      <rectangle name="Fig17.4.0"
+        x="753"
+        y="185"
+        width="242"
         height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig18.4.1"
-        x="233"
-        y="529"
-        width="221"
+      <text name="Fig17.4.1"
+        x="753"
+        y="185"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4584,11 +4419,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >zulaessigeOrtarten : ArrayList&lt;String&gt;</text>
-      <text name="Fig18.4.2"
-        x="233"
-        y="546"
-        width="221"
+      >public ArrayList&lt;String&gt; zulaessigeOrtarten</text>
+      <text name="Fig17.4.2"
+        x="753"
+        y="202"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4600,11 +4435,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >bauKosten : int</text>
-      <text name="Fig18.4.3"
-        x="233"
-        y="563"
-        width="221"
+      >public final int bauKosten</text>
+      <text name="Fig17.4.3"
+        x="753"
+        y="219"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4616,11 +4451,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >nutzungsKosten : double</text>
-      <text name="Fig18.4.4"
-        x="233"
-        y="580"
-        width="221"
+      >public final double nutzungsKosten</text>
+      <text name="Fig17.4.4"
+        x="753"
+        y="236"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -4632,20 +4467,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >korridorArt : String</text>
+      >public final String korridorArt</text>
     </group>
-    <rectangle name="Fig18.5"
-      x="232"
-      y="604"
-      width="223"
+    <rectangle name="Fig17.5"
+      x="752"
+      y="260"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig18.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[233, 605, 221, 25]"
+    <group name="Fig17.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[753, 261, 242, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABF"
          fill="0"
          fillcolor="white"
@@ -4655,20 +4490,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig18.6.0"
-        x="233"
-        y="605"
-        width="221"
+      <rectangle name="Fig17.6.0"
+        x="753"
+        y="261"
+        width="242"
         height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig18.6.1"
-        x="233"
-        y="605"
-        width="221"
+      <text name="Fig17.6.1"
+        x="753"
+        y="261"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -4680,42 +4515,42 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ueberpruefeOrtart() : boolean</text>
+      >public boolean ueberpruefeOrtart()</text>
     </group>
   </group>
-  <group name="Fig19"
+  <group name="Fig18"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC0"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig18"
-      destPortFig="Fig7"
-      sourceFigNode="Fig18"
-      destFigNode="Fig7"
-      <argouml:pathitem figname="Fig19.1"
+      sourcePortFig="Fig17"
+      destPortFig="Fig6"
+      sourceFigNode="Fig17"
+      destFigNode="Fig6"
+      <argouml:pathitem figname="Fig18.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC0"
-                        angle="-92.99999999999999"
-                        offset="73" />
+                        angle="105.0"
+                        offset="6" />
     </private>
-    <path name="Fig19.0"
+    <path name="Fig18.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="392"
-              y="504" />
-      <lineto x="392"
-              y="437" />
+      <moveto x="800"
+              y="160" />
+      <lineto x="800"
+              y="133" />
     </path>
   </group>
-  <group name="Fig20"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[824, 40, 243, 248]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig19"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1376, 8, 273, 262]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
        fill="1"
        fillcolor="white"
@@ -4725,20 +4560,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig20.0"
-      x="824"
-      y="40"
-      width="243"
-      height="248"
+    <rectangle name="Fig19.0"
+      x="1376"
+      y="8"
+      width="273"
+      height="262"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig20.1"
-      x="825"
-      y="41"
-      width="241"
+    <text name="Fig19.1"
+      x="1377"
+      y="9"
+      width="271"
       height="23"
       fill="0"
       fillcolor="white"
@@ -4751,8 +4586,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >Karte</text>
-    <group name="Fig20.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[825, 41, 241, 0]"
+    <group name="Fig19.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1377, 9, 241, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
          fill="0"
          fillcolor="white"
@@ -4763,9 +4598,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig20.2.0"
-        x="825"
-        y="41"
+      <rectangle name="Fig19.2.0"
+        x="1377"
+        y="9"
         width="241"
         height="0"
         fill="0"
@@ -4774,18 +4609,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig20.3"
-      x="824"
-      y="64"
-      width="243"
+    <rectangle name="Fig19.3"
+      x="1376"
+      y="32"
+      width="273"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig20.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[825, 65, 241, 110]"
+    <group name="Fig19.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1377, 33, 271, 117]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
          fill="0"
          fillcolor="white"
@@ -4795,20 +4630,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig20.4.0"
-        x="825"
-        y="65"
-        width="241"
-        height="110"
+      <rectangle name="Fig19.4.0"
+        x="1377"
+        y="33"
+        width="271"
+        height="117"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig20.4.1"
-        x="825"
-        y="65"
-        width="241"
+      <text name="Fig19.4.1"
+        x="1377"
+        y="33"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4820,11 +4655,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >budget : int</text>
-      <text name="Fig20.4.2"
-        x="825"
-        y="82"
-        width="241"
+      >public int budget</text>
+      <text name="Fig19.4.2"
+        x="1377"
+        y="50"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4836,11 +4671,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >orte : ArrayList&lt;Ort&gt;</text>
-      <text name="Fig20.4.3"
-        x="825"
-        y="99"
-        width="241"
+      >public ArrayList&lt;Ort&gt; orte</text>
+      <text name="Fig19.4.3"
+        x="1377"
+        y="67"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4852,11 +4687,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >korridore : ArrayList&lt;Korridor&gt;</text>
-      <text name="Fig20.4.4"
-        x="825"
-        y="116"
-        width="241"
+      >public ArrayList&lt;Korridor&gt; korridore</text>
+      <text name="Fig19.4.4"
+        x="1377"
+        y="84"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4868,11 +4703,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >kartenGroesseX : int</text>
-      <text name="Fig20.4.5"
-        x="825"
-        y="133"
-        width="241"
+      >public final int kartenGroesseX</text>
+      <text name="Fig19.4.5"
+        x="1377"
+        y="101"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4884,11 +4719,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >kartenGroesseY : int</text>
-      <text name="Fig20.4.6"
-        x="825"
-        y="150"
-        width="241"
+      >public final int kartenGroesseY</text>
+      <text name="Fig19.4.6"
+        x="1377"
+        y="118"
+        width="271"
         height="23"
         fill="0"
         fillcolor="white"
@@ -4900,20 +4735,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >baukosten : int</text>
+      >public int baukosten</text>
     </group>
-    <rectangle name="Fig20.5"
-      x="824"
-      y="175"
-      width="243"
+    <rectangle name="Fig19.5"
+      x="1376"
+      y="150"
+      width="273"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig20.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[825, 176, 241, 110]"
+    <group name="Fig19.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1377, 151, 271, 117]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
          fill="0"
          fillcolor="white"
@@ -4923,20 +4758,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig20.6.0"
-        x="825"
-        y="176"
-        width="241"
-        height="110"
+      <rectangle name="Fig19.6.0"
+        x="1377"
+        y="151"
+        width="271"
+        height="117"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig20.6.1"
-        x="825"
-        y="176"
-        width="241"
+      <text name="Fig19.6.1"
+        x="1377"
+        y="151"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4948,11 +4783,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ermittleOrtsdistanz() : double</text>
-      <text name="Fig20.6.2"
-        x="825"
-        y="193"
-        width="241"
+      >public double ermittleOrtsdistanz()</text>
+      <text name="Fig19.6.2"
+        x="1377"
+        y="168"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4964,11 +4799,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >erzeugeNetz()</text>
-      <text name="Fig20.6.3"
-        x="825"
-        y="210"
-        width="241"
+      >public void erzeugeNetz()</text>
+      <text name="Fig19.6.3"
+        x="1377"
+        y="185"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4980,11 +4815,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >sucheOrtMitHoechstenRelevanzGrad() : Ort</text>
-      <text name="Fig20.6.4"
-        x="825"
-        y="227"
-        width="241"
+      >public Ort sucheOrtMitHoechstenRelevanzGrad()</text>
+      <text name="Fig19.6.4"
+        x="1377"
+        y="202"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4996,11 +4831,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >erzeugeKorridor()</text>
-      <text name="Fig20.6.5"
-        x="825"
-        y="244"
-        width="241"
+      >public void erzeugeKorridor()</text>
+      <text name="Fig19.6.5"
+        x="1377"
+        y="219"
+        width="271"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5012,11 +4847,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ermittleGesamteBaukosten() : int</text>
-      <text name="Fig20.6.6"
-        x="825"
-        y="261"
-        width="241"
+      >public int ermittleGesamteBaukosten()</text>
+      <text name="Fig19.6.6"
+        x="1377"
+        y="236"
+        width="271"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5028,11 +4863,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ermittleAnzahlKorridore() : int</text>
+      >public int ermittleAnzahlKorridore()</text>
     </group>
   </group>
-  <group name="Fig21"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1696, 48, 149, 88]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig20"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2600, 8, 200, 88]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43"
        fill="1"
        fillcolor="white"
@@ -5042,21 +4877,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig21.0"
-      x="1696"
-      y="48"
-      width="149"
+    <rectangle name="Fig20.0"
+      x="2600"
+      y="8"
+      width="200"
       height="88"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig21.1"
-      x="1697"
-      y="49"
-      width="147"
-      height="23"
+    <text name="Fig20.1"
+      x="2601"
+      y="9"
+      width="198"
+      height="22"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -5068,8 +4903,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >DateiPruefer</text>
-    <group name="Fig21.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1697, 49, 147, 0]"
+    <group name="Fig20.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2601, 9, 147, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43"
          fill="0"
          fillcolor="white"
@@ -5080,9 +4915,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig21.2.0"
-        x="1697"
-        y="49"
+      <rectangle name="Fig20.2.0"
+        x="2601"
+        y="9"
         width="147"
         height="0"
         fill="0"
@@ -5091,18 +4926,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig21.3"
-      x="1696"
-      y="72"
-      width="149"
+    <rectangle name="Fig20.3"
+      x="2600"
+      y="31"
+      width="200"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig21.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1697, 73, 147, 32]"
+    <group name="Fig20.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2601, 32, 198, 32]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43"
          fill="0"
          fillcolor="white"
@@ -5112,21 +4947,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig21.4.0"
-        x="1697"
-        y="73"
-        width="147"
+      <rectangle name="Fig20.4.0"
+        x="2601"
+        y="32"
+        width="198"
         height="32"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig21.4.1"
-        x="1697"
-        y="73"
-        width="147"
-        height="23"
+      <text name="Fig20.4.1"
+        x="2601"
+        y="32"
+        width="198"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5137,20 +4972,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >kommentarMarker : String</text>
+      >public final String kommentarMarker</text>
     </group>
-    <rectangle name="Fig21.5"
-      x="1696"
-      y="105"
-      width="149"
+    <rectangle name="Fig20.5"
+      x="2600"
+      y="64"
+      width="200"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig21.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1697, 106, 147, 28]"
+    <group name="Fig20.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2601, 65, 198, 29]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B43"
          fill="0"
          fillcolor="white"
@@ -5160,11 +4995,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig21.6.0"
-        x="1697"
-        y="106"
-        width="147"
-        height="28"
+      <rectangle name="Fig20.6.0"
+        x="2601"
+        y="65"
+        width="198"
+        height="29"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5172,8 +5007,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
   </group>
-  <group name="Fig22"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1568, 48, 93, 71]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig21"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2304, 8, 130, 71]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B44"
        fill="1"
        fillcolor="white"
@@ -5183,20 +5018,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig22.0"
-      x="1568"
-      y="48"
-      width="93"
+    <rectangle name="Fig21.0"
+      x="2304"
+      y="8"
+      width="130"
       height="71"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig22.1"
-      x="1569"
-      y="49"
-      width="91"
+    <text name="Fig21.1"
+      x="2305"
+      y="9"
+      width="128"
       height="23"
       fill="0"
       fillcolor="white"
@@ -5209,8 +5044,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >DateiLeser</text>
-    <group name="Fig22.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1569, 49, 91, 0]"
+    <group name="Fig21.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2305, 9, 91, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B44"
          fill="0"
          fillcolor="white"
@@ -5221,9 +5056,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig22.2.0"
-        x="1569"
-        y="49"
+      <rectangle name="Fig21.2.0"
+        x="2305"
+        y="9"
         width="91"
         height="0"
         fill="0"
@@ -5232,18 +5067,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig22.3"
-      x="1568"
-      y="72"
-      width="93"
+    <rectangle name="Fig21.3"
+      x="2304"
+      y="32"
+      width="130"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig22.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1569, 73, 91, 21]"
+    <group name="Fig21.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2305, 33, 128, 21]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B44"
          fill="0"
          fillcolor="white"
@@ -5253,10 +5088,10 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig22.4.0"
-        x="1569"
-        y="73"
-        width="91"
+      <rectangle name="Fig21.4.0"
+        x="2305"
+        y="33"
+        width="128"
         height="21"
         fill="0"
         fillcolor="white"
@@ -5264,18 +5099,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig22.5"
-      x="1568"
-      y="93"
-      width="93"
+    <rectangle name="Fig21.5"
+      x="2304"
+      y="53"
+      width="130"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig22.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1569, 94, 91, 25]"
+    <group name="Fig21.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2305, 54, 128, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B44"
          fill="0"
          fillcolor="white"
@@ -5285,20 +5120,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig22.6.0"
-        x="1569"
-        y="94"
-        width="91"
+      <rectangle name="Fig21.6.0"
+        x="2305"
+        y="54"
+        width="128"
         height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig22.6.1"
-        x="1569"
-        y="94"
-        width="91"
+      <text name="Fig21.6.1"
+        x="2305"
+        y="54"
+        width="128"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5310,11 +5145,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >leseDatei()</text>
+      >public void leseDatei()</text>
     </group>
   </group>
-  <group name="Fig23"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1608, 160, 179, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig22"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2488, 134, 209, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47"
        fill="1"
        fillcolor="white"
@@ -5324,20 +5159,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig23.0"
-      x="1608"
-      y="160"
-      width="179"
+    <rectangle name="Fig22.0"
+      x="2488"
+      y="134"
+      width="209"
       height="126"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig23.1"
-      x="1609"
-      y="161"
-      width="177"
+    <text name="Fig22.1"
+      x="2489"
+      y="135"
+      width="207"
       height="23"
       fill="0"
       fillcolor="white"
@@ -5350,8 +5185,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >KartenDateiPruefer</text>
-    <group name="Fig23.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1609, 161, 177, 0]"
+    <group name="Fig22.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2489, 135, 177, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47"
          fill="0"
          fillcolor="white"
@@ -5362,9 +5197,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig23.2.0"
-        x="1609"
-        y="161"
+      <rectangle name="Fig22.2.0"
+        x="2489"
+        y="135"
         width="177"
         height="0"
         fill="0"
@@ -5373,18 +5208,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig23.3"
-      x="1608"
-      y="184"
-      width="179"
+    <rectangle name="Fig22.3"
+      x="2488"
+      y="158"
+      width="209"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig23.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1609, 185, 177, 76]"
+    <group name="Fig22.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2489, 159, 207, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47"
          fill="0"
          fillcolor="white"
@@ -5394,20 +5229,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig23.4.0"
-        x="1609"
-        y="185"
-        width="177"
+      <rectangle name="Fig22.4.0"
+        x="2489"
+        y="159"
+        width="207"
         height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig23.4.1"
-        x="1609"
-        y="185"
-        width="177"
+      <text name="Fig22.4.1"
+        x="2489"
+        y="159"
+        width="207"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5419,11 +5254,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >dateiBeginnMarker : String</text>
-      <text name="Fig23.4.2"
-        x="1609"
-        y="202"
-        width="177"
+      >public final String dateiBeginnMarker</text>
+      <text name="Fig22.4.2"
+        x="2489"
+        y="176"
+        width="229"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5435,11 +5270,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >datenSatzBeginnMarker : String</text>
-      <text name="Fig23.4.3"
-        x="1609"
-        y="219"
-        width="177"
+      >public final String datenSatzBeginnMarker</text>
+      <text name="Fig22.4.3"
+        x="2489"
+        y="193"
+        width="207"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5451,11 +5286,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >dateiEndeMarker : String</text>
-      <text name="Fig23.4.4"
-        x="1609"
-        y="236"
-        width="177"
+      >public final String dateiEndeMarker</text>
+      <text name="Fig22.4.4"
+        x="2489"
+        y="210"
+        width="220"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5467,20 +5302,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >datenSatzEndeMarker : String</text>
+      >public final String datenSatzEndeMarker</text>
     </group>
-    <rectangle name="Fig23.5"
-      x="1608"
-      y="260"
-      width="179"
+    <rectangle name="Fig22.5"
+      x="2488"
+      y="234"
+      width="209"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig23.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1609, 261, 177, 25]"
+    <group name="Fig22.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2489, 235, 207, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B47"
          fill="0"
          fillcolor="white"
@@ -5490,20 +5325,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig23.6.0"
-        x="1609"
-        y="261"
-        width="177"
+      <rectangle name="Fig22.6.0"
+        x="2489"
+        y="235"
+        width="207"
         height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig23.6.1"
-        x="1609"
-        y="261"
-        width="177"
+      <text name="Fig22.6.1"
+        x="2489"
+        y="235"
+        width="207"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5515,42 +5350,42 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >pruefeKartenDatei()</text>
+      >public void pruefeKartenDatei()</text>
     </group>
   </group>
-  <group name="Fig24"
+  <group name="Fig23"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B48"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig23"
-      destPortFig="Fig21"
-      sourceFigNode="Fig23"
-      destFigNode="Fig21"
-      <argouml:pathitem figname="Fig24.1"
+      sourcePortFig="Fig22"
+      destPortFig="Fig20"
+      sourceFigNode="Fig22"
+      destFigNode="Fig20"
+      <argouml:pathitem figname="Fig23.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B48"
                         angle="-74.0"
                         offset="22" />
     </private>
-    <path name="Fig24.0"
+    <path name="Fig23.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="1762"
-              y="160" />
-      <lineto x="1762"
-              y="135" />
+      <moveto x="2666"
+              y="134" />
+      <lineto x="2666"
+              y="95" />
     </path>
   </group>
-  <group name="Fig25"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1808, 160, 179, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig24"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2705, 134, 209, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49"
        fill="1"
        fillcolor="white"
@@ -5560,20 +5395,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig25.0"
-      x="1808"
-      y="160"
-      width="179"
+    <rectangle name="Fig24.0"
+      x="2705"
+      y="134"
+      width="209"
       height="126"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig25.1"
-      x="1809"
-      y="161"
-      width="177"
+    <text name="Fig24.1"
+      x="2706"
+      y="135"
+      width="207"
       height="23"
       fill="0"
       fillcolor="white"
@@ -5586,8 +5421,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >TestDateiPruefer</text>
-    <group name="Fig25.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1809, 161, 177, 0]"
+    <group name="Fig24.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2706, 135, 177, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49"
          fill="0"
          fillcolor="white"
@@ -5598,9 +5433,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig25.2.0"
-        x="1809"
-        y="161"
+      <rectangle name="Fig24.2.0"
+        x="2706"
+        y="135"
         width="177"
         height="0"
         fill="0"
@@ -5609,18 +5444,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig25.3"
-      x="1808"
-      y="184"
-      width="179"
+    <rectangle name="Fig24.3"
+      x="2705"
+      y="158"
+      width="209"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig25.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1809, 185, 177, 76]"
+    <group name="Fig24.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2706, 159, 207, 76]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49"
          fill="0"
          fillcolor="white"
@@ -5630,20 +5465,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig25.4.0"
-        x="1809"
-        y="185"
-        width="177"
+      <rectangle name="Fig24.4.0"
+        x="2706"
+        y="159"
+        width="207"
         height="76"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig25.4.1"
-        x="1809"
-        y="185"
-        width="177"
+      <text name="Fig24.4.1"
+        x="2706"
+        y="159"
+        width="207"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5655,11 +5490,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >dateiBeginnMarker : String</text>
-      <text name="Fig25.4.2"
-        x="1809"
-        y="202"
-        width="177"
+      >public final String dateiBeginnMarker</text>
+      <text name="Fig24.4.2"
+        x="2706"
+        y="176"
+        width="229"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5671,11 +5506,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >datenSatzBeginnMarker : String</text>
-      <text name="Fig25.4.3"
-        x="1809"
-        y="219"
-        width="177"
+      >public final String datenSatzBeginnMarker</text>
+      <text name="Fig24.4.3"
+        x="2706"
+        y="193"
+        width="207"
         height="17"
         fill="0"
         fillcolor="white"
@@ -5687,11 +5522,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >dateiEndeMarker : String</text>
-      <text name="Fig25.4.4"
-        x="1809"
-        y="236"
-        width="177"
+      >public final String dateiEndeMarker</text>
+      <text name="Fig24.4.4"
+        x="2706"
+        y="210"
+        width="220"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5703,20 +5538,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >datenSatzEndeMarker : String</text>
+      >public final String datenSatzEndeMarker</text>
     </group>
-    <rectangle name="Fig25.5"
-      x="1808"
-      y="260"
-      width="179"
+    <rectangle name="Fig24.5"
+      x="2705"
+      y="234"
+      width="209"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig25.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1809, 261, 177, 25]"
+    <group name="Fig24.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2706, 235, 207, 25]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B49"
          fill="0"
          fillcolor="white"
@@ -5726,20 +5561,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig25.6.0"
-        x="1809"
-        y="261"
-        width="177"
+      <rectangle name="Fig24.6.0"
+        x="2706"
+        y="235"
+        width="207"
         height="25"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig25.6.1"
-        x="1809"
-        y="261"
-        width="177"
+      <text name="Fig24.6.1"
+        x="2706"
+        y="235"
+        width="207"
         height="23"
         fill="0"
         fillcolor="white"
@@ -5751,42 +5586,42 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >pruefeTestDatei()</text>
+      >public void pruefeTestDatei()</text>
     </group>
   </group>
-  <group name="Fig26"
+  <group name="Fig25"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4A"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig25"
-      destPortFig="Fig21"
-      sourceFigNode="Fig25"
-      destFigNode="Fig21"
-      <argouml:pathitem figname="Fig26.1"
+      sourcePortFig="Fig24"
+      destPortFig="Fig20"
+      sourceFigNode="Fig24"
+      destFigNode="Fig20"
+      <argouml:pathitem figname="Fig25.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4A"
                         angle="-146.0"
                         offset="54" />
     </private>
-    <path name="Fig26.0"
+    <path name="Fig25.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="1820"
-              y="160" />
-      <lineto x="1820"
-              y="135" />
+      <moveto x="2761"
+              y="134" />
+      <lineto x="2761"
+              y="95" />
     </path>
   </group>
-  <group name="Fig27"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1794, 440, 179, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig26"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[3248, 128, 240, 128]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4B"
        fill="1"
        fillcolor="white"
@@ -5796,21 +5631,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig27.0"
-      x="1794"
-      y="440"
-      width="179"
-      height="126"
+    <rectangle name="Fig26.0"
+      x="3248"
+      y="128"
+      width="240"
+      height="128"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig27.1"
-      x="1795"
-      y="441"
-      width="177"
-      height="23"
+    <text name="Fig26.1"
+      x="3249"
+      y="129"
+      width="238"
+      height="22"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -5822,8 +5657,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >NetzDateiSchreiber</text>
-    <group name="Fig27.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1795, 441, 177, 0]"
+    <group name="Fig26.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[3249, 129, 177, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4B"
          fill="0"
          fillcolor="white"
@@ -5834,9 +5669,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig27.2.0"
-        x="1795"
-        y="441"
+      <rectangle name="Fig26.2.0"
+        x="3249"
+        y="129"
         width="177"
         height="0"
         fill="0"
@@ -5845,18 +5680,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig27.3"
-      x="1794"
-      y="464"
-      width="179"
+    <rectangle name="Fig26.3"
+      x="3248"
+      y="151"
+      width="240"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig27.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1795, 465, 177, 76]"
+    <group name="Fig26.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[3249, 152, 238, 75]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4B"
          fill="0"
          fillcolor="white"
@@ -5866,21 +5701,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig27.4.0"
-        x="1795"
-        y="465"
-        width="177"
-        height="76"
+      <rectangle name="Fig26.4.0"
+        x="3249"
+        y="152"
+        width="238"
+        height="75"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig27.4.1"
-        x="1795"
-        y="465"
-        width="177"
-        height="17"
+      <text name="Fig26.4.1"
+        x="3249"
+        y="152"
+        width="238"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5891,12 +5726,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >dateiBeginnMarker : String</text>
-      <text name="Fig27.4.2"
-        x="1795"
-        y="482"
-        width="177"
-        height="17"
+      >public final String dateiBeginnMarker</text>
+      <text name="Fig26.4.2"
+        x="3249"
+        y="168"
+        width="238"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5907,12 +5742,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >datenSatzBeginnMarker : String</text>
-      <text name="Fig27.4.3"
-        x="1795"
-        y="499"
-        width="177"
-        height="17"
+      >public final String datenSatzBeginnMarker</text>
+      <text name="Fig26.4.3"
+        x="3249"
+        y="184"
+        width="238"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5923,12 +5758,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >dateiEndeMarker : String</text>
-      <text name="Fig27.4.4"
-        x="1795"
-        y="516"
-        width="177"
-        height="23"
+      >public final String dateiEndeMarker</text>
+      <text name="Fig26.4.4"
+        x="3249"
+        y="200"
+        width="238"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5939,20 +5774,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >datenSatzEndeMarker : String</text>
+      >public final String datenSatzEndeMarker</text>
     </group>
-    <rectangle name="Fig27.5"
-      x="1794"
-      y="540"
-      width="179"
+    <rectangle name="Fig26.5"
+      x="3248"
+      y="227"
+      width="240"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig27.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1795, 541, 177, 25]"
+    <group name="Fig26.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[3249, 228, 238, 27]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4B"
          fill="0"
          fillcolor="white"
@@ -5962,21 +5797,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig27.6.0"
-        x="1795"
-        y="541"
-        width="177"
-        height="25"
+      <rectangle name="Fig26.6.0"
+        x="3249"
+        y="228"
+        width="238"
+        height="27"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig27.6.1"
-        x="1795"
-        y="541"
-        width="177"
-        height="23"
+      <text name="Fig26.6.1"
+        x="3249"
+        y="228"
+        width="238"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -5987,42 +5822,42 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >schreibeNetzDatei()</text>
+      >public void schreibeNetzDatei()</text>
     </group>
   </group>
-  <group name="Fig28"
+  <group name="Fig27"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4C"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig27"
-      destPortFig="Fig9"
-      sourceFigNode="Fig27"
-      destFigNode="Fig9"
-      <argouml:pathitem figname="Fig28.1"
+      sourcePortFig="Fig26"
+      destPortFig="Fig8"
+      sourceFigNode="Fig26"
+      destFigNode="Fig8"
+      <argouml:pathitem figname="Fig27.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B4C"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig28.0"
+    <path name="Fig27.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="1802"
-              y="440" />
-      <lineto x="1802"
-              y="395" />
+      <moveto x="3279"
+              y="128" />
+      <lineto x="3279"
+              y="75" />
     </path>
   </group>
-  <group name="Fig29"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1320, 248, 214, 168]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig28"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1936, 8, 244, 168]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B88"
        fill="1"
        fillcolor="white"
@@ -6032,20 +5867,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig29.0"
-      x="1320"
-      y="248"
-      width="214"
+    <rectangle name="Fig28.0"
+      x="1936"
+      y="8"
+      width="244"
       height="168"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig29.1"
-      x="1321"
-      y="249"
-      width="212"
+    <text name="Fig28.1"
+      x="1937"
+      y="9"
+      width="242"
       height="23"
       fill="0"
       fillcolor="white"
@@ -6058,8 +5893,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >Benutzerinterface</text>
-    <group name="Fig29.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1321, 249, 212, 0]"
+    <group name="Fig28.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1937, 9, 212, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B88"
          fill="0"
          fillcolor="white"
@@ -6070,9 +5905,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig29.2.0"
-        x="1321"
-        y="249"
+      <rectangle name="Fig28.2.0"
+        x="1937"
+        y="9"
         width="212"
         height="0"
         fill="0"
@@ -6081,18 +5916,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig29.3"
-      x="1320"
-      y="272"
-      width="214"
+    <rectangle name="Fig28.3"
+      x="1936"
+      y="32"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig29.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1321, 273, 212, 36]"
+    <group name="Fig28.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1937, 33, 242, 36]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B88"
          fill="0"
          fillcolor="white"
@@ -6102,20 +5937,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig29.4.0"
-        x="1321"
-        y="273"
-        width="212"
+      <rectangle name="Fig28.4.0"
+        x="1937"
+        y="33"
+        width="242"
         height="36"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig29.4.1"
-        x="1321"
-        y="273"
-        width="212"
+      <text name="Fig28.4.1"
+        x="1937"
+        y="33"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -6127,20 +5962,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >standardpfad : String</text>
+      >public String standardpfad</text>
     </group>
-    <rectangle name="Fig29.5"
-      x="1320"
-      y="309"
-      width="214"
+    <rectangle name="Fig28.5"
+      x="1936"
+      y="69"
+      width="244"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig29.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1321, 310, 212, 104]"
+    <group name="Fig28.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1937, 70, 242, 104]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000B88"
          fill="0"
          fillcolor="white"
@@ -6150,20 +5985,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig29.6.0"
-        x="1321"
-        y="310"
-        width="212"
+      <rectangle name="Fig28.6.0"
+        x="1937"
+        y="70"
+        width="242"
         height="104"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig29.6.1"
-        x="1321"
-        y="310"
-        width="212"
+      <text name="Fig28.6.1"
+        x="1937"
+        y="70"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6175,11 +6010,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >abfrageBudget() : int</text>
-      <text name="Fig29.6.2"
-        x="1321"
-        y="327"
-        width="212"
+      >public int abfrageBudget()</text>
+      <text name="Fig28.6.2"
+        x="1937"
+        y="87"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6191,11 +6026,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >kartenDateiEinlesen() : ArrayList&lt;Ort&gt;</text>
-      <text name="Fig29.6.3"
-        x="1321"
-        y="344"
-        width="212"
+      >public ArrayList&lt;Ort&gt; kartenDateiEinlesen()</text>
+      <text name="Fig28.6.3"
+        x="1937"
+        y="104"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6207,11 +6042,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >testDateiEinlesen()</text>
-      <text name="Fig29.6.4"
-        x="1321"
-        y="361"
-        width="212"
+      >public void testDateiEinlesen()</text>
+      <text name="Fig28.6.4"
+        x="1937"
+        y="121"
+        width="242"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6223,11 +6058,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >zeigeNutzkosten() : String</text>
-      <text name="Fig29.6.5"
-        x="1321"
-        y="378"
-        width="212"
+      >public String zeigeNutzkosten()</text>
+      <text name="Fig28.6.5"
+        x="1937"
+        y="138"
+        width="242"
         height="23"
         fill="0"
         fillcolor="white"
@@ -6239,11 +6074,11 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >zeigeBaukosten() : String</text>
+      >public String zeigeBaukosten()</text>
     </group>
   </group>
-  <group name="Fig30"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1608, 440, 179, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig29"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[3005, 128, 231, 128]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7"
        fill="1"
        fillcolor="white"
@@ -6253,21 +6088,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig30.0"
-      x="1608"
-      y="440"
-      width="179"
-      height="126"
+    <rectangle name="Fig29.0"
+      x="3005"
+      y="128"
+      width="231"
+      height="128"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig30.1"
-      x="1609"
-      y="441"
-      width="177"
-      height="23"
+    <text name="Fig29.1"
+      x="3006"
+      y="129"
+      width="229"
+      height="22"
       fill="0"
       fillcolor="white"
       stroke="0"
@@ -6279,8 +6114,8 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       textsize="12"
       justification="Center"
     >SimulationsDateiSchreiber</text>
-    <group name="Fig30.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1609, 441, 177, 0]"
+    <group name="Fig29.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[3017, 129, 177, 0]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7"
          fill="0"
          fillcolor="white"
@@ -6291,9 +6126,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig30.2.0"
-        x="1609"
-        y="441"
+      <rectangle name="Fig29.2.0"
+        x="3017"
+        y="129"
         width="177"
         height="0"
         fill="0"
@@ -6302,18 +6137,18 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig30.3"
-      x="1608"
-      y="464"
-      width="179"
+    <rectangle name="Fig29.3"
+      x="3005"
+      y="151"
+      width="231"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig30.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1609, 465, 177, 76]"
+    <group name="Fig29.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[3006, 152, 229, 75]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7"
          fill="0"
          fillcolor="white"
@@ -6323,21 +6158,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig30.4.0"
-        x="1609"
-        y="465"
-        width="177"
-        height="76"
+      <rectangle name="Fig29.4.0"
+        x="3006"
+        y="152"
+        width="229"
+        height="75"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig30.4.1"
-        x="1609"
-        y="465"
-        width="177"
-        height="17"
+      <text name="Fig29.4.1"
+        x="3006"
+        y="152"
+        width="229"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6348,12 +6183,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >dateiBeginnMarker : String</text>
-      <text name="Fig30.4.2"
-        x="1609"
-        y="482"
-        width="177"
-        height="17"
+      >public final String dateiBeginnMarker</text>
+      <text name="Fig29.4.2"
+        x="3006"
+        y="168"
+        width="229"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6364,12 +6199,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >datenSatzBeginnMarker : String</text>
-      <text name="Fig30.4.3"
-        x="1609"
-        y="499"
-        width="177"
-        height="17"
+      >public final String datenSatzBeginnMarker</text>
+      <text name="Fig29.4.3"
+        x="3006"
+        y="184"
+        width="229"
+        height="16"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6380,12 +6215,12 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >dateiEndeMarker : String</text>
-      <text name="Fig30.4.4"
-        x="1609"
-        y="516"
-        width="177"
-        height="23"
+      >public final String dateiEndeMarker</text>
+      <text name="Fig29.4.4"
+        x="3006"
+        y="200"
+        width="229"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6396,20 +6231,20 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >datenSatzEndeMarker : String</text>
+      >public final String datenSatzEndeMarker</text>
     </group>
-    <rectangle name="Fig30.5"
-      x="1608"
-      y="540"
-      width="179"
+    <rectangle name="Fig29.5"
+      x="3005"
+      y="227"
+      width="231"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig30.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1609, 541, 177, 25]"
+    <group name="Fig29.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[3006, 228, 229, 27]"
          href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC7"
          fill="0"
          fillcolor="white"
@@ -6419,21 +6254,21 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig30.6.0"
-        x="1609"
-        y="541"
-        width="177"
-        height="25"
+      <rectangle name="Fig29.6.0"
+        x="3006"
+        y="228"
+        width="229"
+        height="27"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig30.6.1"
-        x="1609"
-        y="541"
-        width="177"
-        height="23"
+      <text name="Fig29.6.1"
+        x="3006"
+        y="228"
+        width="229"
+        height="22"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6444,42 +6279,42 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >schreibeSimulationsDatei()</text>
+      >public void schreibeSimulationsDatei()</text>
     </group>
   </group>
-  <group name="Fig31"
+  <group name="Fig30"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC8"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig30"
-      destPortFig="Fig9"
-      sourceFigNode="Fig30"
-      destFigNode="Fig9"
-      <argouml:pathitem figname="Fig31.1"
+      sourcePortFig="Fig29"
+      destPortFig="Fig8"
+      sourceFigNode="Fig29"
+      destFigNode="Fig8"
+      <argouml:pathitem figname="Fig30.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-56355908:145f06c124d:-8000:0000000000000BC8"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig31.0"
+    <path name="Fig30.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="1744"
-              y="440" />
-      <lineto x="1744"
-              y="395" />
+      <moveto x="3219"
+              y="128" />
+      <lineto x="3219"
+              y="75" />
     </path>
   </group>
-  <group name="Fig32"
-       description="org.argouml.uml.diagram.static_structure.ui.FigComment[752, 376, 271, 59]pathVisible=false;stereotypeView=0;"
+  <group name="Fig31"
+       description="org.argouml.uml.diagram.static_structure.ui.FigComment[1376, 368, 271, 59]pathVisible=false;stereotypeView=0;"
        href="127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA3"
        fill="1"
        fillcolor="white"
@@ -6489,9 +6324,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     <private>
     </private>
     
-    <rectangle name="Fig32.0"
-      x="752"
-      y="376"
+    <rectangle name="Fig31.0"
+      x="1376"
+      y="368"
       width="271"
       height="59"
       fill="0"
@@ -6499,44 +6334,44 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       stroke="0"
       strokecolor="black"
     />
-    <path name="Fig32.1"
+    <path name="Fig31.1"
       description="org.tigris.gef.presentation.FigPoly"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="752"
-              y="376" />
-      <lineto x="1012"
-              y="376" />
-      <lineto x="1022"
-              y="386" />
-      <lineto x="1022"
-              y="434" />
-      <lineto x="752"
-              y="434" />
-      <lineto x="752"
-              y="376" />
+      <moveto x="1376"
+              y="368" />
+      <lineto x="1636"
+              y="368" />
+      <lineto x="1646"
+              y="378" />
+      <lineto x="1646"
+              y="426" />
+      <lineto x="1376"
+              y="426" />
+      <lineto x="1376"
+              y="368" />
     </path>
-    <path name="Fig32.2"
+    <path name="Fig31.2"
       description="org.tigris.gef.presentation.FigPoly"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="1012"
-              y="376" />
-      <lineto x="1022"
-              y="386" />
-      <lineto x="1012"
-              y="386" />
-      <lineto x="1012"
-              y="376" />
+      <moveto x="1636"
+              y="368" />
+      <lineto x="1646"
+              y="378" />
+      <lineto x="1636"
+              y="378" />
+      <lineto x="1636"
+              y="368" />
     </path>
-    <group name="Fig32.3"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[754, 378, 257, 0]"
+    <group name="Fig31.3"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1378, 370, 257, 0]"
          href="127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA3"
          fill="0"
          fillcolor="white"
@@ -6547,9 +6382,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <private>
       </private>
       
-      <rectangle name="Fig32.3.0"
-        x="754"
-        y="378"
+      <rectangle name="Fig31.3.0"
+        x="1378"
+        y="370"
         width="257"
         height="0"
         fill="0"
@@ -6558,9 +6393,9 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
     </group>
-    <text name="Fig32.4"
-      x="754"
-      y="378"
+    <text name="Fig31.4"
+      x="1378"
+      y="370"
       width="257"
       height="55"
       fill="0"
@@ -6577,36 +6412,225 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
 der Klassen?
 Wo wird in Zukunft der Optimierer Platz finden?</text>
   </group>
-  <group name="Fig33"
+  <group name="Fig32"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="-64--88--78-22-347c6cd5:145f1cbd2f1:-8000:0000000000000DD9"
        stroke="1"
        strokecolor="51 51 153"
   >
     <private>
-      sourcePortFig="Fig1.0"
+      sourcePortFig="Fig33.0"
       destPortFig="Fig0.0"
-      sourceFigNode="Fig1"
+      sourceFigNode="Fig33"
       destFigNode="Fig0"
-      <argouml:pathitem figname="Fig33.1"
+      <argouml:pathitem figname="Fig32.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="-64--88--78-22-347c6cd5:145f1cbd2f1:-8000:0000000000000DD9"
-                        angle="270.0"
-                        offset="-10" />
+                        angle="-265.0"
+                        offset="410" />
     </private>
-    <path name="Fig33.0"
+    <path name="Fig32.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="51 51 153"
     >
-      <moveto x="306"
-              y="192" />
-      <lineto x="306"
+      <moveto x="272"
+              y="160" />
+      <lineto x="272"
               y="124" />
     </path>
+  </group>
+  <group name="Fig33"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[256, 160, 216, 104]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig33.0"
+      x="256"
+      y="160"
+      width="216"
+      height="104"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    />
+    <text name="Fig33.1"
+      x="257"
+      y="161"
+      width="214"
+      height="22"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >Nebenort</text>
+    <group name="Fig33.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[257, 161, 178, 0]"
+         href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+         visibility="0"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig33.2.0"
+        x="257"
+        y="161"
+        width="178"
+        height="0"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <rectangle name="Fig33.3"
+      x="256"
+      y="183"
+      width="216"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig33.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[257, 184, 214, 56]"
+         href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig33.4.0"
+        x="257"
+        y="184"
+        width="214"
+        height="56"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+      <text name="Fig33.4.1"
+        x="257"
+        y="184"
+        width="214"
+        height="16"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public int anzahlEinwohner</text>
+      <text name="Fig33.4.2"
+        x="257"
+        y="200"
+        width="214"
+        height="16"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public double relevanzGrad</text>
+      <text name="Fig33.4.3"
+        x="257"
+        y="216"
+        width="214"
+        height="22"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public final String ortArt</text>
+    </group>
+    <rectangle name="Fig33.5"
+      x="256"
+      y="239"
+      width="216"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig33.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[257, 240, 214, 24]"
+         href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig33.6.0"
+        x="257"
+        y="240"
+        width="214"
+        height="24"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+      <text name="Fig33.6.1"
+        x="257"
+        y="240"
+        width="214"
+        height="22"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >public double berechneRelevanzGrad()</text>
+    </group>
   </group>
 </pgml>
 <todo>
