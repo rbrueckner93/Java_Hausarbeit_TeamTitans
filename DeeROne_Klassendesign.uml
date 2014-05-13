@@ -61,7 +61,7 @@
 			Java
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Tue May 13 17:53:53 CEST 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Tue May 13 18:51:13 CEST 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -2097,6 +2097,231 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
                     </UML:Parameter>
                   </UML:BehavioralFeature.parameter>
                 </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E2B'
+                  name = 'gueltigeBezeichner' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E2C'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E2D'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E2E'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue></UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E32'
+                  name = 'bezeichnerXKoordinate' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E33'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E34'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E35'
+                  name = 'bezeichnerYKoordinate' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E36'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E37'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E38'
+                  name = 'bezeichnerName' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E39'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E3A'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E3B'
+                  name = 'bezeichnerKennung' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E3C'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E3D'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E3E'
+                  name = 'bezeichnerEinwohnerzahl' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E3F'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E40'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E41'
+                  name = 'bezeichnerUmschlagvolumen' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E42'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E43'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E44'
+                  name = 'bezeichnerPassagieraufkommen' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E45'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E46'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E47'
+                  name = 'minKoordX' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E48'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E49'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E53'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E4A'
+                  name = 'maxKoordX' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E4B'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E4C'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E54'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>199</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E4D'
+                  name = 'minKoordY' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E4E'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E4F'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E55'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E50'
+                  name = 'maxKoordY' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E51'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E52'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E56'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>99</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
               </UML:Classifier.feature>
             </UML:Class>
             <UML:Class xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF3'
@@ -2208,6 +2433,66 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
                     </UML:Parameter>
                   </UML:BehavioralFeature.parameter>
                 </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E57'
+                  name = 'gueltigeBezeichner' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E58'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E59'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E5A'
+                  name = 'bezeichnerStart' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E5B'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E5C'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E5D'
+                  name = 'bezeichnerZiel' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E5E'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E5F'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E60'
+                  name = 'bezeichnerFaktor' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E61'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E62'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
               </UML:Classifier.feature>
             </UML:Class>
             <UML:Class xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF5'
@@ -2334,6 +2619,93 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
                     </UML:Parameter>
                   </UML:BehavioralFeature.parameter>
                 </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E66'
+                  name = 'gueltigeBezeichner' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E67'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E68'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E69'
+                  name = 'bezeichnerStart' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E6A'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E6B'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E74'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>start</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E6C'
+                  name = 'bezeichnerZiel' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E6D'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E6E'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E73'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>end</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E6F'
+                  name = 'bezeichnerKorridorKennung' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E70'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E71'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E72'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>kind</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
               </UML:Classifier.feature>
             </UML:Class>
             <UML:Class xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF7'
@@ -2460,6 +2832,105 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
                     </UML:Parameter>
                   </UML:BehavioralFeature.parameter>
                 </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E78'
+                  name = 'gueltigeBezeichner' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E79'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E7A'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E7B'
+                  name = 'bezeichnerStart' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E7C'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E7D'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E7E'
+                  name = 'bezeichnerZiel' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E7F'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E80'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E81'
+                  name = 'bezeichnerFlug' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E82'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E83'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E84'
+                  name = 'bezeichnerReiseliste' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E85'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E86'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E8A'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Aneinanderreihung aller Orte auf dem Weg der Flugroute</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E87'
+                  name = 'bezeichnerFaktor' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E88'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E89'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
               </UML:Classifier.feature>
             </UML:Class>
             <UML:Class xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF0'
@@ -2561,6 +3032,51 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
                       </UML:TaggedValue.type>
                     </UML:TaggedValue>
                   </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E22'
+                  name = 'merkmalBeginn' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E23'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E24'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E25'
+                  name = 'merkmalEnde' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E26'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E27'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E28'
+                  name = 'bezeichnerWertTrenner' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E29'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-75ae2bbb:145f649ac5f:-8000:0000000000000E2A'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
                   <UML:StructuralFeature.type>
                     <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
                   </UML:StructuralFeature.type>
@@ -3343,7 +3859,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </path>
   </group>
   <group name="Fig5"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1688, 8, 195, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1680, 8, 195, 143]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
        fill="1"
        fillcolor="white"
@@ -3354,7 +3870,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </private>
     
     <rectangle name="Fig5.0"
-      x="1688"
+      x="1680"
       y="8"
       width="195"
       height="143"
@@ -3364,7 +3880,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <text name="Fig5.1"
-      x="1689"
+      x="1681"
       y="9"
       width="193"
       height="23"
@@ -3380,7 +3896,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Simulator</text>
     <group name="Fig5.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1689, 9, 193, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1681, 9, 193, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -3392,7 +3908,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig5.2.0"
-        x="1689"
+        x="1681"
         y="9"
         width="193"
         height="0"
@@ -3403,7 +3919,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
     <rectangle name="Fig5.3"
-      x="1688"
+      x="1680"
       y="32"
       width="195"
       height="1"
@@ -3413,7 +3929,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig5.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1689, 33, 193, 58]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1681, 33, 193, 58]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -3424,7 +3940,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig5.4.0"
-        x="1689"
+        x="1681"
         y="33"
         width="193"
         height="58"
@@ -3434,7 +3950,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig5.4.1"
-        x="1689"
+        x="1681"
         y="33"
         width="193"
         height="17"
@@ -3450,7 +3966,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >nutzkosten : double</text>
       <text name="Fig5.4.2"
-        x="1689"
+        x="1681"
         y="50"
         width="193"
         height="23"
@@ -3467,7 +3983,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >routen : ArrayList&lt;Flugroute&gt;</text>
     </group>
     <rectangle name="Fig5.5"
-      x="1688"
+      x="1680"
       y="91"
       width="195"
       height="1"
@@ -3477,7 +3993,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig5.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1689, 92, 193, 58]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1681, 92, 193, 58]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A6F"
          fill="0"
          fillcolor="white"
@@ -3488,7 +4004,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig5.6.0"
-        x="1689"
+        x="1681"
         y="92"
         width="193"
         height="58"
@@ -3498,7 +4014,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig5.6.1"
-        x="1689"
+        x="1681"
         y="92"
         width="193"
         height="17"
@@ -3514,7 +4030,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >simuliere() : void</text>
       <text name="Fig5.6.2"
-        x="1689"
+        x="1681"
         y="109"
         width="193"
         height="23"
@@ -3737,7 +4253,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
   </group>
   <group name="Fig7"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1048, 8, 263, 177]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[1088, 8, 263, 177]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
        fill="1"
        fillcolor="white"
@@ -3748,7 +4264,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </private>
     
     <rectangle name="Fig7.0"
-      x="1048"
+      x="1088"
       y="8"
       width="263"
       height="177"
@@ -3758,7 +4274,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <text name="Fig7.1"
-      x="1049"
+      x="1089"
       y="9"
       width="261"
       height="23"
@@ -3774,7 +4290,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Flugroute</text>
     <group name="Fig7.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1049, 9, 261, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1089, 9, 261, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3786,7 +4302,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig7.2.0"
-        x="1049"
+        x="1089"
         y="9"
         width="261"
         height="0"
@@ -3797,7 +4313,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       />
     </group>
     <rectangle name="Fig7.3"
-      x="1048"
+      x="1088"
       y="32"
       width="263"
       height="1"
@@ -3807,7 +4323,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig7.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1049, 33, 261, 76]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1089, 33, 261, 76]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3818,7 +4334,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig7.4.0"
-        x="1049"
+        x="1089"
         y="33"
         width="261"
         height="76"
@@ -3828,7 +4344,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig7.4.1"
-        x="1049"
+        x="1089"
         y="33"
         width="261"
         height="17"
@@ -3844,7 +4360,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >ziel : Ort</text>
       <text name="Fig7.4.2"
-        x="1049"
+        x="1089"
         y="50"
         width="261"
         height="17"
@@ -3860,7 +4376,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >herkunft : Ort</text>
       <text name="Fig7.4.3"
-        x="1049"
+        x="1089"
         y="67"
         width="261"
         height="17"
@@ -3876,7 +4392,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >reiseListe : ArrayList&lt;Korridor&gt;</text>
       <text name="Fig7.4.4"
-        x="1049"
+        x="1089"
         y="84"
         width="261"
         height="23"
@@ -3893,7 +4409,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       >faktor : int</text>
     </group>
     <rectangle name="Fig7.5"
-      x="1048"
+      x="1088"
       y="108"
       width="263"
       height="1"
@@ -3903,7 +4419,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       strokecolor="black"
     />
     <group name="Fig7.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1049, 109, 261, 76]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1089, 109, 261, 76]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -3914,7 +4430,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       </private>
       
       <rectangle name="Fig7.6.0"
-        x="1049"
+        x="1089"
         y="109"
         width="261"
         height="76"
@@ -3924,7 +4440,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         strokecolor="black"
       />
       <text name="Fig7.6.1"
-        x="1049"
+        x="1089"
         y="109"
         width="261"
         height="17"
@@ -3940,7 +4456,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >ermittleBesteRoute()</text>
       <text name="Fig7.6.2"
-        x="1049"
+        x="1089"
         y="126"
         width="261"
         height="17"
@@ -3956,7 +4472,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >ermittleRoutennutzkosten() : double</text>
       <text name="Fig7.6.3"
-        x="1049"
+        x="1089"
         y="143"
         width="261"
         height="17"
@@ -3972,7 +4488,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         justification="Left"
       >erzeugeTextausgabeReiseroute() : String</text>
       <text name="Fig7.6.4"
-        x="1049"
+        x="1089"
         y="160"
         width="261"
         height="23"
@@ -5922,123 +6438,24 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
     </group>
   </group>
   <group name="Fig20"
-       description="org.argouml.uml.diagram.static_structure.ui.FigComment[1376, 368, 271, 59]pathVisible=false;stereotypeView=0;"
-       href="127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA3"
-       fill="1"
-       fillcolor="white"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-    </private>
-    
-    <rectangle name="Fig20.0"
-      x="1376"
-      y="368"
-      width="271"
-      height="59"
-      fill="0"
-      fillcolor="white"
-      stroke="0"
-      strokecolor="black"
-    />
-    <path name="Fig20.1"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="1"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="1376"
-              y="368" />
-      <lineto x="1636"
-              y="368" />
-      <lineto x="1646"
-              y="378" />
-      <lineto x="1646"
-              y="426" />
-      <lineto x="1376"
-              y="426" />
-      <lineto x="1376"
-              y="368" />
-    </path>
-    <path name="Fig20.2"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="1"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="1636"
-              y="368" />
-      <lineto x="1646"
-              y="378" />
-      <lineto x="1636"
-              y="378" />
-      <lineto x="1636"
-              y="368" />
-    </path>
-    <group name="Fig20.3"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1378, 370, 257, 0]"
-         href="127-0-0-1-6e6beeee:145f132a185:-8000:0000000000000BA3"
-         fill="0"
-         fillcolor="white"
-         stroke="0"
-         strokecolor="black"
-         visibility="0"
-    >
-      <private>
-      </private>
-      
-      <rectangle name="Fig20.3.0"
-        x="1378"
-        y="370"
-        width="257"
-        height="0"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-      />
-    </group>
-    <text name="Fig20.4"
-      x="1378"
-      y="370"
-      width="257"
-      height="55"
-      fill="0"
-      fillcolor="white"
-      stroke="0"
-      strokecolor="black"
-      textcolor="black"
-      font="Dialog"
-      italic="false"
-      bold="false"
-      textsize="12"
-      justification="Left"
-    >Wer erstellt die Instanzen
-der Klassen?
-Wo wird in Zukunft der Optimierer Platz finden?</text>
-  </group>
-  <group name="Fig21"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="-64--88--78-22-347c6cd5:145f1cbd2f1:-8000:0000000000000DD9"
        stroke="1"
        strokecolor="51 51 153"
   >
     <private>
-      sourcePortFig="Fig22.0"
+      sourcePortFig="Fig21.0"
       destPortFig="Fig0.0"
-      sourceFigNode="Fig22"
+      sourceFigNode="Fig21"
       destFigNode="Fig0"
-      <argouml:pathitem figname="Fig21.1"
+      <argouml:pathitem figname="Fig20.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="-64--88--78-22-347c6cd5:145f1cbd2f1:-8000:0000000000000DD9"
                         angle="-265.0"
                         offset="410" />
     </private>
-    <path name="Fig21.0"
+    <path name="Fig20.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
@@ -6051,7 +6468,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
               y="150" />
     </path>
   </group>
-  <group name="Fig22"
+  <group name="Fig21"
        description="org.argouml.uml.diagram.static_structure.ui.FigClass[248, 160, 224, 144]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
        fill="1"
@@ -6062,7 +6479,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     <private>
     </private>
     
-    <rectangle name="Fig22.0"
+    <rectangle name="Fig21.0"
       x="248"
       y="160"
       width="224"
@@ -6072,7 +6489,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig22.1"
+    <text name="Fig21.1"
       x="249"
       y="161"
       width="222"
@@ -6088,7 +6505,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       textsize="12"
       justification="Center"
     >Nebenort</text>
-    <group name="Fig22.2"
+    <group name="Fig21.2"
          description="org.argouml.uml.diagram.ui.FigStereotypesGroup[249, 161, 222, 0]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
          fill="0"
@@ -6100,7 +6517,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig22.2.0"
+      <rectangle name="Fig21.2.0"
         x="249"
         y="161"
         width="222"
@@ -6111,7 +6528,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig22.3"
+    <rectangle name="Fig21.3"
       x="248"
       y="184"
       width="224"
@@ -6121,7 +6538,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig22.4"
+    <group name="Fig21.4"
          description="org.argouml.uml.diagram.ui.FigAttributesCompartment[249, 185, 222, 67]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
          fill="0"
@@ -6132,7 +6549,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig22.4.0"
+      <rectangle name="Fig21.4.0"
         x="249"
         y="185"
         width="222"
@@ -6142,7 +6559,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig22.4.1"
+      <text name="Fig21.4.1"
         x="249"
         y="185"
         width="222"
@@ -6158,7 +6575,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >anzahlEinwohner : int</text>
-      <text name="Fig22.4.2"
+      <text name="Fig21.4.2"
         x="249"
         y="202"
         width="222"
@@ -6174,7 +6591,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >relevanzGrad : double</text>
-      <text name="Fig22.4.3"
+      <text name="Fig21.4.3"
         x="249"
         y="219"
         width="222"
@@ -6191,7 +6608,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         justification="Left"
       >beschreibung : String</text>
     </group>
-    <rectangle name="Fig22.5"
+    <rectangle name="Fig21.5"
       x="248"
       y="252"
       width="224"
@@ -6201,7 +6618,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig22.6"
+    <group name="Fig21.6"
          description="org.argouml.uml.diagram.ui.FigOperationsCompartment[249, 253, 222, 50]"
          href="-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B"
          fill="0"
@@ -6212,7 +6629,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig22.6.0"
+      <rectangle name="Fig21.6.0"
         x="249"
         y="253"
         width="222"
@@ -6222,7 +6639,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig22.6.1"
+      <text name="Fig21.6.1"
         x="249"
         y="253"
         width="222"
@@ -6238,7 +6655,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >berechneRelevanzGrad() : double</text>
-      <text name="Fig22.6.2"
+      <text name="Fig21.6.2"
         x="249"
         y="270"
         width="222"
@@ -6256,8 +6673,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       >&lt;&lt;create&gt;&gt; Nebenort() : void</text>
     </group>
   </group>
-  <group name="Fig23"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2432, 8, 217, 126]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig22"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2496, 8, 217, 177]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF0"
        fill="1"
        fillcolor="white"
@@ -6267,18 +6684,18 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     <private>
     </private>
     
-    <rectangle name="Fig23.0"
-      x="2432"
+    <rectangle name="Fig22.0"
+      x="2496"
       y="8"
       width="217"
-      height="126"
+      height="177"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig23.1"
-      x="2433"
+    <text name="Fig22.1"
+      x="2497"
       y="9"
       width="215"
       height="23"
@@ -6293,8 +6710,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       textsize="12"
       justification="Center"
     >Datei</text>
-    <group name="Fig23.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2433, 9, 147, 0]"
+    <group name="Fig22.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2497, 9, 147, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF0"
          fill="0"
          fillcolor="white"
@@ -6305,8 +6722,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig23.2.0"
-        x="2433"
+      <rectangle name="Fig22.2.0"
+        x="2497"
         y="9"
         width="147"
         height="0"
@@ -6316,8 +6733,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig23.3"
-      x="2432"
+    <rectangle name="Fig22.3"
+      x="2496"
       y="32"
       width="217"
       height="1"
@@ -6326,8 +6743,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig23.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2433, 33, 215, 42]"
+    <group name="Fig22.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2497, 33, 215, 93]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF0"
          fill="0"
          fillcolor="white"
@@ -6337,18 +6754,18 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig23.4.0"
-        x="2433"
+      <rectangle name="Fig22.4.0"
+        x="2497"
         y="33"
         width="215"
-        height="42"
+        height="93"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig23.4.1"
-        x="2433"
+      <text name="Fig22.4.1"
+        x="2497"
         y="33"
         width="215"
         height="17"
@@ -6363,9 +6780,57 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >kommentarMarker : String</text>
-      <text name="Fig23.4.2"
-        x="2433"
+      <text name="Fig22.4.2"
+        x="2497"
         y="50"
+        width="215"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >dateipfad : String</text>
+      <text name="Fig22.4.3"
+        x="2497"
+        y="67"
+        width="215"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >merkmalBeginn : String</text>
+      <text name="Fig22.4.4"
+        x="2497"
+        y="84"
+        width="215"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >merkmalEnde : String</text>
+      <text name="Fig22.4.5"
+        x="2497"
+        y="101"
         width="215"
         height="23"
         fill="0"
@@ -6378,11 +6843,11 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         bold="false"
         textsize="12"
         justification="Left"
-      >dateipfad : String</text>
+      >bezeichnerWertTrenner : String</text>
     </group>
-    <rectangle name="Fig23.5"
-      x="2432"
-      y="74"
+    <rectangle name="Fig22.5"
+      x="2496"
+      y="125"
       width="217"
       height="1"
       fill="1"
@@ -6390,8 +6855,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig23.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2433, 75, 215, 59]"
+    <group name="Fig22.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2497, 126, 215, 59]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF0"
          fill="0"
          fillcolor="white"
@@ -6401,9 +6866,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig23.6.0"
-        x="2433"
-        y="75"
+      <rectangle name="Fig22.6.0"
+        x="2497"
+        y="126"
         width="215"
         height="59"
         fill="0"
@@ -6411,9 +6876,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig23.6.1"
-        x="2433"
-        y="75"
+      <text name="Fig22.6.1"
+        x="2497"
+        y="126"
         width="215"
         height="17"
         fill="0"
@@ -6427,9 +6892,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >leseDatei() : String</text>
-      <text name="Fig23.6.2"
-        x="2433"
-        y="92"
+      <text name="Fig22.6.2"
+        x="2497"
+        y="143"
         width="215"
         height="17"
         fill="0"
@@ -6443,9 +6908,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >schreibeDatei() : void</text>
-      <text name="Fig23.6.3"
-        x="2433"
-        y="109"
+      <text name="Fig22.6.3"
+        x="2497"
+        y="160"
         width="215"
         height="23"
         fill="0"
@@ -6461,8 +6926,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       >&lt;&lt;create&gt;&gt; Datei() : void</text>
     </group>
   </group>
-  <group name="Fig24"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2216, 160, 208, 160]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig23"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2192, 288, 232, 364]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF1"
        fill="1"
        fillcolor="white"
@@ -6472,20 +6937,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     <private>
     </private>
     
-    <rectangle name="Fig24.0"
-      x="2216"
-      y="160"
-      width="208"
-      height="160"
+    <rectangle name="Fig23.0"
+      x="2192"
+      y="288"
+      width="232"
+      height="364"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig24.1"
-      x="2217"
-      y="161"
-      width="206"
+    <text name="Fig23.1"
+      x="2193"
+      y="289"
+      width="230"
       height="23"
       fill="0"
       fillcolor="white"
@@ -6498,8 +6963,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       textsize="12"
       justification="Center"
     >Kartendatei</text>
-    <group name="Fig24.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2217, 161, 176, 0]"
+    <group name="Fig23.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2193, 289, 176, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF1"
          fill="0"
          fillcolor="white"
@@ -6510,9 +6975,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig24.2.0"
-        x="2217"
-        y="161"
+      <rectangle name="Fig23.2.0"
+        x="2193"
+        y="289"
         width="176"
         height="0"
         fill="0"
@@ -6521,18 +6986,18 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig24.3"
-      x="2216"
-      y="184"
-      width="208"
+    <rectangle name="Fig23.3"
+      x="2192"
+      y="312"
+      width="232"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig24.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2217, 185, 206, 76]"
+    <group name="Fig23.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2193, 313, 230, 280]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF1"
          fill="0"
          fillcolor="white"
@@ -6542,20 +7007,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig24.4.0"
-        x="2217"
-        y="185"
-        width="206"
-        height="76"
+      <rectangle name="Fig23.4.0"
+        x="2193"
+        y="313"
+        width="230"
+        height="280"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig24.4.1"
-        x="2217"
-        y="185"
-        width="206"
+      <text name="Fig23.4.1"
+        x="2193"
+        y="313"
+        width="230"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6568,10 +7033,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiBeginnMarker : String</text>
-      <text name="Fig24.4.2"
-        x="2217"
-        y="202"
-        width="206"
+      <text name="Fig23.4.2"
+        x="2193"
+        y="330"
+        width="230"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6584,10 +7049,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiEndeMarker : String</text>
-      <text name="Fig24.4.3"
-        x="2217"
-        y="219"
-        width="206"
+      <text name="Fig23.4.3"
+        x="2193"
+        y="347"
+        width="230"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6600,11 +7065,11 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >datensatzBeginnMarker : String</text>
-      <text name="Fig24.4.4"
-        x="2217"
-        y="236"
-        width="206"
-        height="23"
+      <text name="Fig23.4.4"
+        x="2193"
+        y="364"
+        width="230"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6616,19 +7081,211 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >datensatzEndeMarker : String</text>
+      <text name="Fig23.4.5"
+        x="2193"
+        y="381"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >gueltigeBezeichner : ArrayList&lt;String&gt;</text>
+      <text name="Fig23.4.6"
+        x="2193"
+        y="398"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerXKoordinate : String</text>
+      <text name="Fig23.4.7"
+        x="2193"
+        y="415"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerYKoordinate : String</text>
+      <text name="Fig23.4.8"
+        x="2193"
+        y="432"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerName : String</text>
+      <text name="Fig23.4.9"
+        x="2193"
+        y="449"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerKennung : String</text>
+      <text name="Fig23.4.10"
+        x="2193"
+        y="466"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerEinwohnerzahl : String</text>
+      <text name="Fig23.4.11"
+        x="2193"
+        y="483"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerUmschlagvolumen : String</text>
+      <text name="Fig23.4.12"
+        x="2193"
+        y="500"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerPassagieraufkommen : String</text>
+      <text name="Fig23.4.13"
+        x="2193"
+        y="517"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >minKoordX : int</text>
+      <text name="Fig23.4.14"
+        x="2193"
+        y="534"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >maxKoordX : int</text>
+      <text name="Fig23.4.15"
+        x="2193"
+        y="551"
+        width="230"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >minKoordY : int</text>
+      <text name="Fig23.4.16"
+        x="2193"
+        y="568"
+        width="230"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >maxKoordY : int</text>
     </group>
-    <rectangle name="Fig24.5"
-      x="2216"
-      y="260"
-      width="208"
+    <rectangle name="Fig23.5"
+      x="2192"
+      y="592"
+      width="232"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig24.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2217, 261, 206, 59]"
+    <group name="Fig23.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2193, 593, 230, 59]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF1"
          fill="0"
          fillcolor="white"
@@ -6638,20 +7295,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig24.6.0"
-        x="2217"
-        y="261"
-        width="206"
+      <rectangle name="Fig23.6.0"
+        x="2193"
+        y="593"
+        width="230"
         height="59"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig24.6.1"
-        x="2217"
-        y="261"
-        width="206"
+      <text name="Fig23.6.1"
+        x="2193"
+        y="593"
+        width="230"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6664,10 +7321,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >pruefeDatei() : boolean</text>
-      <text name="Fig24.6.2"
-        x="2217"
-        y="278"
-        width="206"
+      <text name="Fig23.6.2"
+        x="2193"
+        y="610"
+        width="230"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6680,10 +7337,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >werteAus() : void</text>
-      <text name="Fig24.6.3"
-        x="2217"
-        y="295"
-        width="206"
+      <text name="Fig23.6.3"
+        x="2193"
+        y="627"
+        width="230"
         height="23"
         fill="0"
         fillcolor="white"
@@ -6698,25 +7355,25 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       >&lt;&lt;create&gt;&gt; Kartendatei() : void</text>
     </group>
   </group>
-  <group name="Fig25"
+  <group name="Fig24"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF2"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig24"
-      destPortFig="Fig23"
-      sourceFigNode="Fig24"
-      destFigNode="Fig23"
-      <argouml:pathitem figname="Fig25.1"
+      sourcePortFig="Fig23"
+      destPortFig="Fig22"
+      sourceFigNode="Fig23"
+      destFigNode="Fig22"
+      <argouml:pathitem figname="Fig24.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF2"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig25.0"
+    <path name="Fig24.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
@@ -6724,13 +7381,13 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       strokecolor="black"
     >
       <moveto x="2423"
-              y="160" />
-      <lineto x="2432"
-              y="133" />
+              y="288" />
+      <lineto x="2496"
+              y="184" />
     </path>
   </group>
-  <group name="Fig26"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2432, 160, 189, 160]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig25"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2672, 288, 215, 245]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF3"
        fill="1"
        fillcolor="white"
@@ -6740,20 +7397,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     <private>
     </private>
     
-    <rectangle name="Fig26.0"
-      x="2432"
-      y="160"
-      width="189"
-      height="160"
+    <rectangle name="Fig25.0"
+      x="2672"
+      y="288"
+      width="215"
+      height="245"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig26.1"
-      x="2433"
-      y="161"
-      width="187"
+    <text name="Fig25.1"
+      x="2673"
+      y="289"
+      width="213"
       height="23"
       fill="0"
       fillcolor="white"
@@ -6766,8 +7423,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       textsize="12"
       justification="Center"
     >Testdatei</text>
-    <group name="Fig26.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2433, 161, 161, 0]"
+    <group name="Fig25.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2673, 289, 161, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF3"
          fill="0"
          fillcolor="white"
@@ -6778,9 +7435,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig26.2.0"
-        x="2433"
-        y="161"
+      <rectangle name="Fig25.2.0"
+        x="2673"
+        y="289"
         width="161"
         height="0"
         fill="0"
@@ -6789,18 +7446,18 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig26.3"
-      x="2432"
-      y="184"
-      width="189"
+    <rectangle name="Fig25.3"
+      x="2672"
+      y="312"
+      width="215"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig26.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2433, 185, 187, 76]"
+    <group name="Fig25.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2673, 313, 213, 151]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF3"
          fill="0"
          fillcolor="white"
@@ -6810,20 +7467,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig26.4.0"
-        x="2433"
-        y="185"
-        width="187"
-        height="76"
+      <rectangle name="Fig25.4.0"
+        x="2673"
+        y="313"
+        width="213"
+        height="151"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig26.4.1"
-        x="2433"
-        y="185"
-        width="187"
+      <text name="Fig25.4.1"
+        x="2673"
+        y="313"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6836,10 +7493,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiBeginnMarker : int</text>
-      <text name="Fig26.4.2"
-        x="2433"
-        y="202"
-        width="187"
+      <text name="Fig25.4.2"
+        x="2673"
+        y="330"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6852,10 +7509,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiEndeMarker : int</text>
-      <text name="Fig26.4.3"
-        x="2433"
-        y="219"
-        width="187"
+      <text name="Fig25.4.3"
+        x="2673"
+        y="347"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6868,11 +7525,11 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >datensatzBeginnMarker : int</text>
-      <text name="Fig26.4.4"
-        x="2433"
-        y="236"
-        width="187"
-        height="23"
+      <text name="Fig25.4.4"
+        x="2673"
+        y="364"
+        width="213"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -6884,19 +7541,83 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >datensatzEndeMarker : int</text>
+      <text name="Fig25.4.5"
+        x="2673"
+        y="381"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >gueltigeBezeichner : ArrayList&lt;String&gt;</text>
+      <text name="Fig25.4.6"
+        x="2673"
+        y="398"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerStart : String</text>
+      <text name="Fig25.4.7"
+        x="2673"
+        y="415"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerZiel : String</text>
+      <text name="Fig25.4.8"
+        x="2673"
+        y="432"
+        width="213"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerFaktor : String</text>
     </group>
-    <rectangle name="Fig26.5"
-      x="2432"
-      y="260"
-      width="189"
+    <rectangle name="Fig25.5"
+      x="2672"
+      y="464"
+      width="215"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig26.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2433, 261, 187, 59]"
+    <group name="Fig25.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2673, 465, 213, 66]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF3"
          fill="0"
          fillcolor="white"
@@ -6906,20 +7627,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig26.6.0"
-        x="2433"
-        y="261"
-        width="187"
-        height="59"
+      <rectangle name="Fig25.6.0"
+        x="2673"
+        y="465"
+        width="213"
+        height="66"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig26.6.1"
-        x="2433"
-        y="261"
-        width="187"
+      <text name="Fig25.6.1"
+        x="2673"
+        y="465"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6932,10 +7653,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >pruefeDatei() : boolean</text>
-      <text name="Fig26.6.2"
-        x="2433"
-        y="278"
-        width="187"
+      <text name="Fig25.6.2"
+        x="2673"
+        y="482"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -6948,10 +7669,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >werteAus() : void</text>
-      <text name="Fig26.6.3"
-        x="2433"
-        y="295"
-        width="187"
+      <text name="Fig25.6.3"
+        x="2673"
+        y="499"
+        width="213"
         height="23"
         fill="0"
         fillcolor="white"
@@ -6966,39 +7687,39 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       >&lt;&lt;create&gt;&gt; Testdatei() : void</text>
     </group>
   </group>
-  <group name="Fig27"
+  <group name="Fig26"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF4"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig26"
-      destPortFig="Fig23"
-      sourceFigNode="Fig26"
-      destFigNode="Fig23"
-      <argouml:pathitem figname="Fig27.1"
+      sourcePortFig="Fig25"
+      destPortFig="Fig22"
+      sourceFigNode="Fig25"
+      destFigNode="Fig22"
+      <argouml:pathitem figname="Fig26.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF4"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig27.0"
+    <path name="Fig26.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="2480"
-              y="160" />
-      <lineto x="2480"
-              y="133" />
+      <moveto x="2776"
+              y="288" />
+      <lineto x="2712"
+              y="184" />
     </path>
   </group>
-  <group name="Fig28"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2632, 160, 204, 177]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig27"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2440, 288, 215, 245]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF5"
        fill="1"
        fillcolor="white"
@@ -7008,20 +7729,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     <private>
     </private>
     
-    <rectangle name="Fig28.0"
-      x="2632"
-      y="160"
-      width="204"
-      height="177"
+    <rectangle name="Fig27.0"
+      x="2440"
+      y="288"
+      width="215"
+      height="245"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig28.1"
-      x="2633"
-      y="161"
-      width="202"
+    <text name="Fig27.1"
+      x="2441"
+      y="289"
+      width="213"
       height="23"
       fill="0"
       fillcolor="white"
@@ -7034,8 +7755,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       textsize="12"
       justification="Center"
     >Netzdatei</text>
-    <group name="Fig28.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2633, 161, 172, 0]"
+    <group name="Fig27.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2441, 289, 172, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF5"
          fill="0"
          fillcolor="white"
@@ -7046,9 +7767,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig28.2.0"
-        x="2633"
-        y="161"
+      <rectangle name="Fig27.2.0"
+        x="2441"
+        y="289"
         width="172"
         height="0"
         fill="0"
@@ -7057,18 +7778,18 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig28.3"
-      x="2632"
-      y="184"
-      width="204"
+    <rectangle name="Fig27.3"
+      x="2440"
+      y="312"
+      width="215"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig28.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2633, 185, 202, 93]"
+    <group name="Fig27.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2441, 313, 213, 161]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF5"
          fill="0"
          fillcolor="white"
@@ -7078,20 +7799,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig28.4.0"
-        x="2633"
-        y="185"
-        width="202"
-        height="93"
+      <rectangle name="Fig27.4.0"
+        x="2441"
+        y="313"
+        width="213"
+        height="161"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig28.4.1"
-        x="2633"
-        y="185"
-        width="202"
+      <text name="Fig27.4.1"
+        x="2441"
+        y="313"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7104,10 +7825,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiBeginnMarker : int</text>
-      <text name="Fig28.4.2"
-        x="2633"
-        y="202"
-        width="202"
+      <text name="Fig27.4.2"
+        x="2441"
+        y="330"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7120,10 +7841,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiEndeMarker : int</text>
-      <text name="Fig28.4.3"
-        x="2633"
-        y="219"
-        width="202"
+      <text name="Fig27.4.3"
+        x="2441"
+        y="347"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7136,10 +7857,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >datensatzBeginnMarker : int</text>
-      <text name="Fig28.4.4"
-        x="2633"
-        y="236"
-        width="202"
+      <text name="Fig27.4.4"
+        x="2441"
+        y="364"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7152,11 +7873,11 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >datensatzEndeMarker : int</text>
-      <text name="Fig28.4.5"
-        x="2633"
-        y="253"
-        width="202"
-        height="23"
+      <text name="Fig27.4.5"
+        x="2441"
+        y="381"
+        width="213"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -7168,19 +7889,83 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiSuffix : String</text>
+      <text name="Fig27.4.6"
+        x="2441"
+        y="398"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >gueltigeBezeichner : ArrayList&lt;String&gt;</text>
+      <text name="Fig27.4.7"
+        x="2441"
+        y="415"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerStart : String</text>
+      <text name="Fig27.4.8"
+        x="2441"
+        y="432"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerZiel : String</text>
+      <text name="Fig27.4.9"
+        x="2441"
+        y="449"
+        width="213"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerKorridorKennung : int</text>
     </group>
-    <rectangle name="Fig28.5"
-      x="2632"
-      y="277"
-      width="204"
+    <rectangle name="Fig27.5"
+      x="2440"
+      y="473"
+      width="215"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig28.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2633, 278, 202, 59]"
+    <group name="Fig27.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2441, 474, 213, 59]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF5"
          fill="0"
          fillcolor="white"
@@ -7190,20 +7975,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig28.6.0"
-        x="2633"
-        y="278"
-        width="202"
+      <rectangle name="Fig27.6.0"
+        x="2441"
+        y="474"
+        width="213"
         height="59"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig28.6.1"
-        x="2633"
-        y="278"
-        width="202"
+      <text name="Fig27.6.1"
+        x="2441"
+        y="474"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7216,10 +8001,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >erstelleOutputStream() : String</text>
-      <text name="Fig28.6.2"
-        x="2633"
-        y="295"
-        width="202"
+      <text name="Fig27.6.2"
+        x="2441"
+        y="491"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7232,10 +8017,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >&lt;&lt;create&gt;&gt; Netzdatei() : void</text>
-      <text name="Fig28.6.3"
-        x="2633"
-        y="312"
-        width="202"
+      <text name="Fig27.6.3"
+        x="2441"
+        y="508"
+        width="213"
         height="23"
         fill="0"
         fillcolor="white"
@@ -7250,39 +8035,39 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       >erstelleDateiName() : String</text>
     </group>
   </group>
-  <group name="Fig29"
+  <group name="Fig28"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF6"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig28"
-      destPortFig="Fig23"
-      sourceFigNode="Fig28"
-      destFigNode="Fig23"
-      <argouml:pathitem figname="Fig29.1"
+      sourcePortFig="Fig27"
+      destPortFig="Fig22"
+      sourceFigNode="Fig27"
+      destFigNode="Fig22"
+      <argouml:pathitem figname="Fig28.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF6"
-                        angle="270.0"
-                        offset="-10" />
+                        angle="-258.99999999999994"
+                        offset="318" />
     </private>
-    <path name="Fig29.0"
+    <path name="Fig28.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="2632"
-              y="160" />
-      <lineto x="2632"
-              y="133" />
+      <moveto x="2638"
+              y="288" />
+      <lineto x="2638"
+              y="184" />
     </path>
   </group>
-  <group name="Fig30"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2848, 160, 205, 177]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+  <group name="Fig29"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[2896, 288, 215, 279]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF7"
        fill="1"
        fillcolor="white"
@@ -7292,20 +8077,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     <private>
     </private>
     
-    <rectangle name="Fig30.0"
-      x="2848"
-      y="160"
-      width="205"
-      height="177"
+    <rectangle name="Fig29.0"
+      x="2896"
+      y="288"
+      width="215"
+      height="279"
       fill="1"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig30.1"
-      x="2849"
-      y="161"
-      width="203"
+    <text name="Fig29.1"
+      x="2897"
+      y="289"
+      width="213"
       height="23"
       fill="0"
       fillcolor="white"
@@ -7318,8 +8103,8 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       textsize="12"
       justification="Center"
     >Simulationsdatei</text>
-    <group name="Fig30.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2849, 161, 203, 0]"
+    <group name="Fig29.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2897, 289, 203, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF7"
          fill="0"
          fillcolor="white"
@@ -7330,9 +8115,9 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig30.2.0"
-        x="2849"
-        y="161"
+      <rectangle name="Fig29.2.0"
+        x="2897"
+        y="289"
         width="203"
         height="0"
         fill="0"
@@ -7341,18 +8126,18 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig30.3"
-      x="2848"
-      y="184"
-      width="205"
+    <rectangle name="Fig29.3"
+      x="2896"
+      y="312"
+      width="215"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig30.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2849, 185, 203, 93]"
+    <group name="Fig29.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[2897, 313, 213, 195]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF7"
          fill="0"
          fillcolor="white"
@@ -7362,20 +8147,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig30.4.0"
-        x="2849"
-        y="185"
-        width="203"
-        height="93"
+      <rectangle name="Fig29.4.0"
+        x="2897"
+        y="313"
+        width="213"
+        height="195"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig30.4.1"
-        x="2849"
-        y="185"
-        width="203"
+      <text name="Fig29.4.1"
+        x="2897"
+        y="313"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7388,10 +8173,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiBeginnMarker : int</text>
-      <text name="Fig30.4.2"
-        x="2849"
-        y="202"
-        width="203"
+      <text name="Fig29.4.2"
+        x="2897"
+        y="330"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7404,10 +8189,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiEndeMarker : int</text>
-      <text name="Fig30.4.3"
-        x="2849"
-        y="219"
-        width="203"
+      <text name="Fig29.4.3"
+        x="2897"
+        y="347"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7420,10 +8205,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >datensatzBeginnMarker : int</text>
-      <text name="Fig30.4.4"
-        x="2849"
-        y="236"
-        width="203"
+      <text name="Fig29.4.4"
+        x="2897"
+        y="364"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7436,11 +8221,11 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >datensatzEndeMarker : int</text>
-      <text name="Fig30.4.5"
-        x="2849"
-        y="253"
-        width="203"
-        height="23"
+      <text name="Fig29.4.5"
+        x="2897"
+        y="381"
+        width="213"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -7452,19 +8237,115 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >dateiSuffix : int</text>
+      <text name="Fig29.4.6"
+        x="2897"
+        y="398"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >gueltigeBezeichner : ArrayList&lt;String&gt;</text>
+      <text name="Fig29.4.7"
+        x="2897"
+        y="415"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerStart : String</text>
+      <text name="Fig29.4.8"
+        x="2897"
+        y="432"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerZiel : String</text>
+      <text name="Fig29.4.9"
+        x="2897"
+        y="449"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerFlug : String</text>
+      <text name="Fig29.4.10"
+        x="2897"
+        y="466"
+        width="213"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerReiseliste : String</text>
+      <text name="Fig29.4.11"
+        x="2897"
+        y="483"
+        width="213"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >bezeichnerFaktor : String</text>
     </group>
-    <rectangle name="Fig30.5"
-      x="2848"
-      y="277"
-      width="205"
+    <rectangle name="Fig29.5"
+      x="2896"
+      y="507"
+      width="215"
       height="1"
       fill="1"
       fillcolor="black"
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig30.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2849, 278, 203, 59]"
+    <group name="Fig29.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[2897, 508, 213, 59]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF7"
          fill="0"
          fillcolor="white"
@@ -7474,20 +8355,20 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig30.6.0"
-        x="2849"
-        y="278"
-        width="203"
+      <rectangle name="Fig29.6.0"
+        x="2897"
+        y="508"
+        width="213"
         height="59"
         fill="0"
         fillcolor="white"
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig30.6.1"
-        x="2849"
-        y="278"
-        width="203"
+      <text name="Fig29.6.1"
+        x="2897"
+        y="508"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7500,10 +8381,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >erstelleOutputStream() : String</text>
-      <text name="Fig30.6.2"
-        x="2849"
-        y="295"
-        width="203"
+      <text name="Fig29.6.2"
+        x="2897"
+        y="525"
+        width="213"
         height="17"
         fill="0"
         fillcolor="white"
@@ -7516,10 +8397,10 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         textsize="12"
         justification="Left"
       >&lt;&lt;create&gt;&gt; Simulationsdatei() : void</text>
-      <text name="Fig30.6.3"
-        x="2849"
-        y="312"
-        width="203"
+      <text name="Fig29.6.3"
+        x="2897"
+        y="542"
+        width="213"
         height="23"
         fill="0"
         fillcolor="white"
@@ -7534,38 +8415,38 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       >erstelleDateiName() : String</text>
     </group>
   </group>
-  <group name="Fig31"
+  <group name="Fig30"
        description="org.argouml.uml.diagram.ui.FigGeneralization"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF8"
        stroke="1"
        strokecolor="black"
   >
     <private>
-      sourcePortFig="Fig30"
-      destPortFig="Fig23"
-      sourceFigNode="Fig30"
-      destFigNode="Fig23"
-      <argouml:pathitem figname="Fig31.1"
+      sourcePortFig="Fig29"
+      destPortFig="Fig22"
+      sourceFigNode="Fig29"
+      destFigNode="Fig22"
+      <argouml:pathitem figname="Fig30.1"
                         classname="org.argouml.uml.diagram.ui.PathItemPlacement"
                         figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
                         ownerhref="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF8"
                         angle="270.0"
                         offset="-10" />
     </private>
-    <path name="Fig31.0"
+    <path name="Fig30.0"
       description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="2848"
-              y="160" />
-      <lineto x="2648"
-              y="133" />
+      <moveto x="2896"
+              y="288" />
+      <lineto x="2712"
+              y="184" />
     </path>
   </group>
-  <group name="Fig32"
+  <group name="Fig31"
        description="org.argouml.uml.diagram.static_structure.ui.FigClass[1936, 208, 153, 71]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E50"
        fill="1"
@@ -7576,7 +8457,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
     <private>
     </private>
     
-    <rectangle name="Fig32.0"
+    <rectangle name="Fig31.0"
       x="1936"
       y="208"
       width="153"
@@ -7586,7 +8467,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       stroke="1"
       strokecolor="black"
     />
-    <text name="Fig32.1"
+    <text name="Fig31.1"
       x="1937"
       y="209"
       width="151"
@@ -7602,7 +8483,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       textsize="12"
       justification="Center"
     >Main</text>
-    <group name="Fig32.2"
+    <group name="Fig31.2"
          description="org.argouml.uml.diagram.ui.FigStereotypesGroup[1937, 209, 151, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E50"
          fill="0"
@@ -7614,7 +8495,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig32.2.0"
+      <rectangle name="Fig31.2.0"
         x="1937"
         y="209"
         width="151"
@@ -7625,7 +8506,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig32.3"
+    <rectangle name="Fig31.3"
       x="1936"
       y="232"
       width="153"
@@ -7635,7 +8516,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig32.4"
+    <group name="Fig31.4"
          description="org.argouml.uml.diagram.ui.FigAttributesCompartment[1937, 233, 151, 21]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E50"
          fill="0"
@@ -7646,7 +8527,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig32.4.0"
+      <rectangle name="Fig31.4.0"
         x="1937"
         y="233"
         width="151"
@@ -7657,7 +8538,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         strokecolor="black"
       />
     </group>
-    <rectangle name="Fig32.5"
+    <rectangle name="Fig31.5"
       x="1936"
       y="253"
       width="153"
@@ -7667,7 +8548,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       stroke="1"
       strokecolor="black"
     />
-    <group name="Fig32.6"
+    <group name="Fig31.6"
          description="org.argouml.uml.diagram.ui.FigOperationsCompartment[1937, 254, 151, 25]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E50"
          fill="0"
@@ -7678,7 +8559,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
       <private>
       </private>
       
-      <rectangle name="Fig32.6.0"
+      <rectangle name="Fig31.6.0"
         x="1937"
         y="254"
         width="151"
@@ -7688,7 +8569,7 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         stroke="0"
         strokecolor="black"
       />
-      <text name="Fig32.6.1"
+      <text name="Fig31.6.1"
         x="1937"
         y="254"
         width="151"
@@ -7705,103 +8586,6 @@ Wo wird in Zukunft der Optimierer Platz finden?</text>
         justification="Left"
       >&lt;&lt;create&gt;&gt; Main() : void</text>
     </group>
-  </group>
-  <group name="Fig33"
-       description="org.argouml.uml.diagram.static_structure.ui.FigComment[20, 20, 229, 59]pathVisible=false;stereotypeView=0;"
-       href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E93"
-       fill="1"
-       fillcolor="white"
-       stroke="1"
-       strokecolor="black"
-  >
-    <private>
-    </private>
-    
-    <rectangle name="Fig33.0"
-      x="20"
-      y="20"
-      width="229"
-      height="59"
-      fill="0"
-      fillcolor="white"
-      stroke="0"
-      strokecolor="black"
-    />
-    <path name="Fig33.1"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="1"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="20"
-              y="20" />
-      <lineto x="238"
-              y="20" />
-      <lineto x="248"
-              y="30" />
-      <lineto x="248"
-              y="78" />
-      <lineto x="20"
-              y="78" />
-      <lineto x="20"
-              y="20" />
-    </path>
-    <path name="Fig33.2"
-      description="org.tigris.gef.presentation.FigPoly"
-      fill="1"
-      fillcolor="white"
-      stroke="1"
-      strokecolor="black"
-    >
-      <moveto x="238"
-              y="20" />
-      <lineto x="248"
-              y="30" />
-      <lineto x="238"
-              y="30" />
-      <lineto x="238"
-              y="20" />
-    </path>
-    <group name="Fig33.3"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[22, 22, 215, 0]"
-         href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E93"
-         fill="0"
-         fillcolor="white"
-         stroke="0"
-         strokecolor="black"
-         visibility="0"
-    >
-      <private>
-      </private>
-      
-      <rectangle name="Fig33.3.0"
-        x="22"
-        y="22"
-        width="215"
-        height="0"
-        fill="0"
-        fillcolor="white"
-        stroke="0"
-        strokecolor="black"
-      />
-    </group>
-    <text name="Fig33.4"
-      x="22"
-      y="22"
-      width="215"
-      height="55"
-      fill="0"
-      fillcolor="white"
-      stroke="0"
-      strokecolor="black"
-      textcolor="black"
-      font="Dialog"
-      italic="false"
-      bold="false"
-      textsize="12"
-      justification="Left"
-    >sind alle Datentypen Java-Datentypen?</text>
   </group>
 </pgml>
 <pgml description="org.argouml.uml.diagram.use_case.ui.UMLUseCaseDiagram|10-43-7-31-56355908:145f06c124d:-8000:0000000000000B17"
