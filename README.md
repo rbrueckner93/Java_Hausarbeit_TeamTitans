@@ -1,10 +1,10 @@
 Java_Hausarbeit_TeamTitans
 ==========================
-Hub für unsere Hausarbeit.
+Rep für unsere Hausarbeit.
 Team Titans.
 Progress: 0%
 ==========================
-ABGABE : 14.6.2014
+ABGABE : 11.6.2014
 ==========================
 
 Um das Klassendesign in ArgoUML zu bearbeiten, sollte das Paket Java aktiviert werden:
