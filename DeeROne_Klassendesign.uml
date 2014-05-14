@@ -61,7 +61,7 @@
 			Java
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Tue May 13 18:51:13 CEST 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Wed May 14 15:35:46 CEST 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -971,7 +971,7 @@ Die einmaligen Nutzungskosten müssen nicht separat ermittelt werden, da sowohl 
                 </UML:Multiplicity>
               </UML:StructuralFeature.multiplicity>
               <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFA'
@@ -1121,7 +1121,7 @@ Die einmaligen Nutzungskosten müssen nicht separat ermittelt werden, da sowohl 
                 </UML:Multiplicity>
               </UML:StructuralFeature.multiplicity>
               <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFD'
@@ -1271,7 +1271,7 @@ Die einmaligen Nutzungskosten müssen nicht separat ermittelt werden, da sowohl 
                 </UML:Multiplicity>
               </UML:StructuralFeature.multiplicity>
               <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF4'
@@ -1421,7 +1421,7 @@ Die einmaligen Nutzungskosten müssen nicht separat ermittelt werden, da sowohl 
                 </UML:Multiplicity>
               </UML:StructuralFeature.multiplicity>
               <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
             <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF7'
@@ -1726,7 +1726,7 @@ später: bessere Sternlösung: Geld sparen: Alle Korridorarten, die zwischen Pun
                 <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B9D'
                   name = 'return' isSpecification = 'false' kind = 'return'>
                   <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
                   </UML:Parameter.type>
                 </UML:Parameter>
               </UML:BehavioralFeature.parameter>
@@ -4881,7 +4881,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >bauKosten : int</text>
+      >bauKosten : double</text>
       <text name="Fig10.4.3"
         x="753"
         y="395"
@@ -5151,7 +5151,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >bauKosten : int</text>
+      >bauKosten : double</text>
       <text name="Fig12.4.3"
         x="497"
         y="395"
@@ -5421,7 +5421,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >bauKosten : int</text>
+      >bauKosten : double</text>
       <text name="Fig14.4.3"
         x="497"
         y="219"
@@ -5689,7 +5689,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >bauKosten : int</text>
+      >bauKosten : double</text>
       <text name="Fig16.4.3"
         x="753"
         y="219"
@@ -6149,7 +6149,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
         bold="false"
         textsize="12"
         justification="Left"
-      >ermittleGesamteBaukosten() : int</text>
+      >ermittleGesamteBaukosten() : double</text>
       <text name="Fig18.6.6"
         x="1377"
         y="245"
@@ -6711,7 +6711,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Datei</text>
     <group name="Fig22.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2497, 9, 147, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2497, 9, 175, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF0"
          fill="0"
          fillcolor="white"
@@ -6725,7 +6725,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig22.2.0"
         x="2497"
         y="9"
-        width="147"
+        width="175"
         height="0"
         fill="0"
         fillcolor="white"
@@ -6964,7 +6964,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Kartendatei</text>
     <group name="Fig23.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2193, 289, 176, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2193, 289, 230, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF1"
          fill="0"
          fillcolor="white"
@@ -6978,7 +6978,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig23.2.0"
         x="2193"
         y="289"
-        width="176"
+        width="230"
         height="0"
         fill="0"
         fillcolor="white"
@@ -7424,7 +7424,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Testdatei</text>
     <group name="Fig25.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2673, 289, 161, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2673, 289, 213, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF3"
          fill="0"
          fillcolor="white"
@@ -7438,7 +7438,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig25.2.0"
         x="2673"
         y="289"
-        width="161"
+        width="213"
         height="0"
         fill="0"
         fillcolor="white"
@@ -7712,7 +7712,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="2776"
+      <moveto x="2712"
               y="288" />
       <lineto x="2712"
               y="184" />
@@ -7756,7 +7756,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Netzdatei</text>
     <group name="Fig27.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2441, 289, 172, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2441, 289, 213, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF5"
          fill="0"
          fillcolor="white"
@@ -7770,7 +7770,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig27.2.0"
         x="2441"
         y="289"
-        width="172"
+        width="213"
         height="0"
         fill="0"
         fillcolor="white"
@@ -8104,7 +8104,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       justification="Center"
     >Simulationsdatei</text>
     <group name="Fig29.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2897, 289, 203, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[2897, 289, 213, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000DF7"
          fill="0"
          fillcolor="white"
@@ -8118,7 +8118,7 @@ ganzzahlig und positiv</UML:TaggedValue.dataValue>
       <rectangle name="Fig29.2.0"
         x="2897"
         y="289"
-        width="203"
+        width="213"
         height="0"
         fill="0"
         fillcolor="white"
