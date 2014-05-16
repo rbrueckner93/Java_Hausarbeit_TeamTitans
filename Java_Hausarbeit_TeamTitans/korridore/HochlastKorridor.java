@@ -1,6 +1,10 @@
 package korridore;
 
+import Exceptions.UngueltigerOrt;
+import orte.Hauptort;
+import orte.Nebenort;
 import orte.Ort;
+import orte.Umschlagpunkt;
 
 public class HochlastKorridor extends Korridor {
 	/* {author=TolleN, HandritschkP} */
@@ -22,9 +26,19 @@ public class HochlastKorridor extends Korridor {
 
 	public static final String KENNUNG = "HLST";
 
-	public HochlastKorridor(Ort ortA, Ort ortB) {
+	/**
+	 * Wirft Exception wenn Orte verwedet wurden, die nicht fuer die Korridorart
+	 * gültig sind. Fehler wird bei der Erzeugung von Korridoren in der Karte
+	 * abgefangen
+	 * 
+	 * @param ortA
+	 * @param ortB
+	 * @throws UngueltigerOrt
+	 */
+	public HochlastKorridor(Ort ortA, Ort ortB) throws UngueltigerOrt {
 		super(ortA, ortB);
-		ueberpruefeOrtart();
+		ueberpruefeOrtart(ortA);
+		ueberpruefeOrtart(ortB);
 	}
 
 	public static double getBaukosten() {
@@ -45,9 +59,15 @@ public class HochlastKorridor extends Korridor {
 
 	/**
 	 * Ueberpruefung, ob ortA, ortB aus den Ortsklassen Hauptort oder
-	 * Umschlagpunkt stammen. (Ort.ortArt)
+	 * Umschlagpunkt stammen. (Ort.ortArt) * wirft sonst Exception
+	 * (UngueltigerOrt) aus
 	 */
-	public void ueberpruefeOrtart() {
+	public void ueberpruefeOrtart(Ort ortA) throws UngueltigerOrt {
+
+		if (ortA.getClass() != Hauptort.class
+				|| ortA.getClass() != Umschlagpunkt.class) {
+			throw new UngueltigerOrt();
+		}
 	}
 
 }
