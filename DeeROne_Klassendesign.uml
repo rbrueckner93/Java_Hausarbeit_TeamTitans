@@ -61,7 +61,7 @@
 			Java
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri May 16 14:49:36 CEST 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri May 16 15:18:27 CEST 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -766,7 +766,7 @@ BESCHREIBUNG ist Hauptort</UML:TaggedValue.dataValue>
             <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B9B'
               isSpecification = 'false'>
               <UML:TaggedValue.dataValue>... wird erst bei Nutzung erstellt mit Start, Ziel, Faktor.
-Sucht sich bei Initialisierung ihren eigenen Weg, fuellt dann nach und nach die ArrayList auf.
+Sucht sich nach Aufforderung durch ermittleBesteRoute (nicht schon bei Initialisierung) ihren eigenen optimalen Weg, und schreibt diesen in der reiseListe fest und stellt die Nutzkosten in ermittleRoutennutzkosten fest.
 </UML:TaggedValue.dataValue>
               <UML:TaggedValue.type>
                 <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
@@ -930,6 +930,28 @@ dabei werden korridor.ermittleLaenge(); und korridor.NUTZUNGSKOSTEN herangezogen
                   name = 'return' isSpecification = 'false' kind = 'return'>
                   <UML:Parameter.type>
                     <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id = '127-0-0-1-3fadf826:14605235602:-8000:0000000000000EC0'
+              name = 'erzeugeOrtsListe' visibility = 'public' isSpecification = 'false'
+              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-3fadf826:14605235602:-8000:0000000000000EC2'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>gibt eine ArrayList von Orten zurück, die die Reihenfolge von Reise-Hops ausgibt. aus der ArrayList&lt;Korridor&gt; mit ortA und ortB muss also nach dem Ort des ersten Korridors gesucht werden, der herkunft entspricht. im zweiten korridor wird festgestellt, welcher ort nicht dem zweiten ort des ersten korridors entspricht usw., sodass der letzte ort in der reiseliste ziel entspricht. eine ueberpruefung muss natuerlich stattfinden. sie ist eine direkte ableitung aus reiseListe ArrayList&lt;Korridor&gt;</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '127-0-0-1-3fadf826:14605235602:-8000:0000000000000EC1'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B2C'/>
                   </UML:Parameter.type>
                 </UML:Parameter>
               </UML:BehavioralFeature.parameter>
@@ -3155,6 +3177,15 @@ schreibt die in der Datei befindlichen Informationen nach einer Pruefung durch e
                   name = 'erstelleOutputStream' visibility = 'public' isSpecification = 'false'
                   ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
                   isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '127-0-0-1-3fadf826:14605235602:-8000:0000000000000EC3'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>benutzt unter anderem erzeugeOrtsListe, um reiseListe zu erstellen.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
                   <UML:BehavioralFeature.parameter>
                     <UML:Parameter xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E40'
                       name = 'return' isSpecification = 'false' kind = 'return'>
@@ -4707,7 +4738,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
     </group>
   </group>
   <group name="Fig7"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[30, 656, 233, 177]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[30, 656, 235, 194]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
        fill="1"
        fillcolor="white"
@@ -4720,8 +4751,8 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
     <rectangle name="Fig7.0"
       x="30"
       y="656"
-      width="233"
-      height="177"
+      width="235"
+      height="194"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -4730,7 +4761,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
     <text name="Fig7.1"
       x="31"
       y="657"
-      width="231"
+      width="233"
       height="23"
       fill="0"
       fillcolor="white"
@@ -4769,7 +4800,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
     <rectangle name="Fig7.3"
       x="30"
       y="680"
-      width="233"
+      width="235"
       height="1"
       fill="1"
       fillcolor="black"
@@ -4777,7 +4808,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       strokecolor="black"
     />
     <group name="Fig7.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[31, 681, 231, 76]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[31, 681, 233, 76]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -4790,7 +4821,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <rectangle name="Fig7.4.0"
         x="31"
         y="681"
-        width="231"
+        width="233"
         height="76"
         fill="0"
         fillcolor="white"
@@ -4800,7 +4831,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <text name="Fig7.4.1"
         x="31"
         y="681"
-        width="231"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4816,7 +4847,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <text name="Fig7.4.2"
         x="31"
         y="698"
-        width="231"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4832,7 +4863,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <text name="Fig7.4.3"
         x="31"
         y="715"
-        width="231"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4848,7 +4879,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <text name="Fig7.4.4"
         x="31"
         y="732"
-        width="231"
+        width="233"
         height="23"
         fill="0"
         fillcolor="white"
@@ -4865,7 +4896,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
     <rectangle name="Fig7.5"
       x="30"
       y="756"
-      width="233"
+      width="235"
       height="1"
       fill="1"
       fillcolor="black"
@@ -4873,7 +4904,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       strokecolor="black"
     />
     <group name="Fig7.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[31, 757, 231, 76]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[31, 757, 233, 93]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -4886,8 +4917,8 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <rectangle name="Fig7.6.0"
         x="31"
         y="757"
-        width="231"
-        height="76"
+        width="233"
+        height="93"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4896,7 +4927,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <text name="Fig7.6.1"
         x="31"
         y="757"
-        width="231"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4912,7 +4943,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <text name="Fig7.6.2"
         x="31"
         y="774"
-        width="231"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4928,7 +4959,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <text name="Fig7.6.3"
         x="31"
         y="791"
-        width="231"
+        width="233"
         height="17"
         fill="0"
         fillcolor="white"
@@ -4944,8 +4975,8 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <text name="Fig7.6.4"
         x="31"
         y="808"
-        width="231"
-        height="23"
+        width="233"
+        height="17"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4957,6 +4988,22 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
         textsize="12"
         justification="Left"
       >&lt;&lt;create&gt;&gt; Flugroute() : void</text>
+      <text name="Fig7.6.5"
+        x="31"
+        y="825"
+        width="233"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >erzeugeOrtsListe() : ArrayList&lt;Ort&gt;</text>
     </group>
   </group>
   <group name="Fig8"
@@ -8346,7 +8393,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       justification="Center"
     >Main</text>
     <group name="Fig29.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[33, 553, 151, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[33, 553, 1038, 0]"
          href="10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E50"
          fill="0"
          fillcolor="white"
@@ -8360,7 +8407,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <rectangle name="Fig29.2.0"
         x="33"
         y="553"
-        width="151"
+        width="1038"
         height="0"
         fill="0"
         fillcolor="white"
