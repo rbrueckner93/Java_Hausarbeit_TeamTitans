@@ -61,7 +61,7 @@
 			Java
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri May 16 15:18:27 CEST 2014'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri May 16 15:26:59 CEST 2014'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -72,342 +72,6 @@
       name = 'deerone' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
       isAbstract = 'false'>
       <UML:Namespace.ownedElement>
-        <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'
-          name = 'Ort' visibility = 'public' isSpecification = 'false' isRoot = 'false'
-          isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB0'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A70'
-              name = 'koordX' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A71'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A72'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A73'
-              name = 'koordY' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A74'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A75'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B11'
-              name = 'name' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B12'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B13'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DCD'
-              name = 'Ort' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
-              isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DCE'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7C'
-              name = 'kennung' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7D'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7E'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E86'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>HPT, NBN, UMS oder ASL</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EAC'
-              name = 'angebundeneKorridore' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EAD'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EAE'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EAF'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>ein erstellter Korridor wird in den beiden beteiligten Orten in ihrer Liste angebundeneKorridore referenziert.
-in dieser Liste befinden sich also alle an den ort angebundenen korridore, sobald diese erstellt sind ( sie sind referenziert, nicht mit new Korridor() definiert!</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B31'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
-        <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B'
-          name = 'Nebenort' visibility = 'public' isSpecification = 'false' isRoot = 'false'
-          isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB2'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '-64--88--78-22-347c6cd5:145f1cbd2f1:-8000:0000000000000DD9'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A82'
-              name = 'anzahlEinwohner' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A83'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A84'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A94'
-              name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DEF'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>unterscheidet: E &lt; 101 =&gt; 0
-E &gt; 100  =&gt; teilt Einwohner durch 25000</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A95'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9D'
-              name = 'relevanzGrad' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9E'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9F'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD2'
-              name = 'Nebenort' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
-              isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD3'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E76'
-              name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E77'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E78'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
-        <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D'
-          name = 'Umschlagpunkt' visibility = 'public' isSpecification = 'false' isRoot = 'false'
-          isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB3'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087E'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A85'
-              name = 'umschlagVolumen' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A86'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A87'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A92'
-              name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DF0'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>teilt Umschlagvolumen durch 200000</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A93'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA0'
-              name = 'relevanzGrad' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA1'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA2'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD4'
-              name = 'Umschlagpunkt' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
-              isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-70--269ba314:145ffb45827:-8000:0000000000000E88'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>umschlagVolumen wird aus Datei übergeben
-relevanzGrad wird aus umschlagVolumen durch berechneRelevanzGrad() berechnet
-beschreibung ist &quot;Umschlagpunkt&quot;</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD5'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E79'
-              name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7A'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7B'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087E'
           name = 'ist ein' isSpecification = 'false'>
           <UML:Generalization.child>
@@ -417,118 +81,6 @@ beschreibung ist &quot;Umschlagpunkt&quot;</UML:TaggedValue.dataValue>
             <UML:Class xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'/>
           </UML:Generalization.parent>
         </UML:Generalization>
-        <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F'
-          name = 'Hauptort' visibility = 'public' isSpecification = 'false' isRoot = 'false'
-          isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB1'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:0000000000000880'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A7F'
-              name = 'anzahlEinwohner' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A80'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A81'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A96'
-              name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DEE'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>teilt die Einwohner durch 15000</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A97'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9A'
-              name = 'relevanzGrad' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9B'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9C'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD6'
-              name = 'Hauptort' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
-              isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-70--269ba314:145ffb45827:-8000:0000000000000E89'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>anzahlEinwohner wird aus Datei übergeben
-relevanzGrad wird mit berechneRelevanzGrad berechnet
-BESCHREIBUNG ist Hauptort</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD7'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E73'
-              name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E74'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E75'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:0000000000000880'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -661,102 +213,6 @@ BESCHREIBUNG ist Hauptort</UML:TaggedValue.dataValue>
                 <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
               </UML:StructuralFeature.type>
             </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
-        <UML:Class xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76'
-          name = 'Korridor' visibility = 'public' isSpecification = 'false' isRoot = 'false'
-          isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B82'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>die den Unterklasse zugeordnete Methode ueberpruefeOrtart ueberprueft, ob die Orte A und B fuer die jeweiligen Orte zulaessig ist, wenn nicht, gibt die Methode ein false zurueck. wird aufgerufen durch die initialisierung eines jeden korridors.</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB9'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A79'
-              name = 'ortA' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A7A'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A7B'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA6'
-              name = 'ortB' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA7'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA8'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B39'
-              name = 'laenge' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'changeable' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B3A'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B3B'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B41'
-              name = 'ermittleLaenge' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B42'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDA'
-              name = 'Korridor' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
-              isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDB'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
         <UML:Class xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77'
@@ -958,129 +414,6 @@ dabei werden korridor.ermittleLaenge(); und korridor.NUTZUNGSKOSTEN herangezogen
             </UML:Operation>
           </UML:Classifier.feature>
         </UML:Class>
-        <UML:Class xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88'
-          name = 'Auslandsverbindung' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '10-43-7-70--269ba314:145ffb45827:-8000:0000000000000E8A'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>Klasse hat bis auf die Berechnung der Relvanzgrades keine eigenen Methoden, sie dient vor allem der Aufnahme der Informationen aus der </UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB4'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A89'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A8A'
-              name = 'passagierAufkommen' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A8B'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A8C'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A8D'
-              name = 'umschlagVolumen' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A8E'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A8F'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A90'
-              name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DF1'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>relevanzGrad=(umschlagVolumen+3*passagierAufkommen)/1000000</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A91'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA3'
-              name = 'relevanzGrad' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA4'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA5'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACD'
-              name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACE'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACF'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDE'
-              name = 'Auslandsverbindung' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDF'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A89'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -1090,156 +423,6 @@ dabei werden korridor.ermittleLaenge(); und korridor.NUTZUNGSKOSTEN herangezogen
             <UML:Class xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'/>
           </UML:Generalization.parent>
         </UML:Generalization>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9'
-          name = 'EinfacherKorridor' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB6'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABA'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADB'
-              name = 'ZULAESSIGE_ORTKENNUNG' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADC'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADD'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE6'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>Mit Erzeugung eines Korridors wird unweigerlich geprueft werden, ob die hinzuzufuegenden Orte auch den Anforderungen der bestimmten Korridorart entsprechen.</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEE'
-              name = 'BAUKOSTEN' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEF'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF0'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFA'
-              name = 'NUTZUNGSKOSTEN' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFB'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFC'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7E'
-              name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DC9'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>Ueberpruefung, ob ortA, ortB aus den Ortsklassen Nebenort, Hauptort oder Umschlagpunkt stammen.
-(Ort.ortArt)</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7F'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA7'
-              name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA8'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA9'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAF'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>wird fuer jeden EinfacherKorridor als &quot;Einfacher Korridor&quot; festgelegt.</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE0'
-              name = 'EinfacherKorridor' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE1'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E90'
-              name = 'KENNUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E91'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E92'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABA'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -1249,156 +432,6 @@ dabei werden korridor.ermittleLaenge(); und korridor.NUTZUNGSKOSTEN herangezogen
             <UML:Class xmi.idref = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76'/>
           </UML:Generalization.parent>
         </UML:Generalization>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB'
-          name = 'StandardKorridor' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB5'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABC'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADE'
-              name = 'ZULAESSIGE_ORTKENNUNG' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADF'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE0'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE7'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>Mit Erzeugung eines Korridors wird unweigerlich geprueft werden, ob die hinzuzufuegenden Orte auch den Anforderungen der bestimmten Korridorart entsprechen.</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF1'
-              name = 'BAUKOSTEN' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF2'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF3'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFD'
-              name = 'NUTZUNGSKOSTEN' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFE'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFF'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B80'
-              name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DCC'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>Ueberpruefung, ob ortA, ortB aus den Ortsklassen Hauptort, Umschlagpunkt oder Nebenort stammen.
-(Ort.ortArt)</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B81'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAA'
-              name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAB'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAC'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BB0'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>wird fuer jeden StandarfKorridor als &quot;Standardkorridor&quot; festgelegt.</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE2'
-              name = 'StandardKorridor' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE3'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8A'
-              name = 'KENNUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8B'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8C'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABC'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -1408,156 +441,6 @@ dabei werden korridor.ermittleLaenge(); und korridor.NUTZUNGSKOSTEN herangezogen
             <UML:Class xmi.idref = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76'/>
           </UML:Generalization.parent>
         </UML:Generalization>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD'
-          name = 'HochlastKorridor' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB8'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABE'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC1'
-              name = 'ZULAESSIGE_ORTKENNUNG' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD6'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD5'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE4'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>Mit Erzeugung eines Korridors wird unweigerlich geprueft werden, ob die hinzuzufuegenden Orte auch den Anforderungen der bestimmten Korridorart entsprechen.</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE8'
-              name = 'BAUKOSTEN' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE9'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEA'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF4'
-              name = 'NUTZUNGSKOSTEN' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF5'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF6'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7A'
-              name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DCB'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>Ueberpruefung, ob ortA, ortB aus den Ortsklassen Hauptort oder Umschlagpunkt stammen.
-(Ort.ortArt)</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7B'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA1'
-              name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA2'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA3'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAD'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>wird fuer jeden HauptlastKorridor als &quot;Hauptlastkorridor&quot; festgelegt.</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE4'
-              name = 'HochlastKorridor' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE5'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E87'
-              name = 'KENNUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E88'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E89'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABE'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -1567,156 +450,6 @@ dabei werden korridor.ermittleLaenge(); und korridor.NUTZUNGSKOSTEN herangezogen
             <UML:Class xmi.idref = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76'/>
           </UML:Generalization.parent>
         </UML:Generalization>
-        <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABF'
-          name = 'SicherheitsKorridor' visibility = 'public' isSpecification = 'false'
-          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
-          <UML:ModelElement.taggedValue>
-            <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB7'
-              isSpecification = 'false'>
-              <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
-              <UML:TaggedValue.type>
-                <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
-              </UML:TaggedValue.type>
-            </UML:TaggedValue>
-          </UML:ModelElement.taggedValue>
-          <UML:GeneralizableElement.generalization>
-            <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC0'/>
-          </UML:GeneralizableElement.generalization>
-          <UML:Classifier.feature>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD8'
-              name = 'ZULAESSIGE_ORTKENNUNG' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD9'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADA'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE5'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>Mit Erzeugung eines Korridors wird unweigerlich geprueft werden, ob die hinzuzufuegenden Orte auch den Anforderungen der bestimmten Korridorart entsprechen.</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEB'
-              name = 'BAUKOSTEN' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEC'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AED'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF7'
-              name = 'NUTZUNGSKOSTEN' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF8'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF9'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7C'
-              name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DCA'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>ueberpruefung, ob ortA, ortB eine Ortsart besitzen (hier hinreichend.)
-(Ort.ortArt)</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7D'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA4'
-              name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA5'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA6'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:ModelElement.taggedValue>
-                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAE'
-                  isSpecification = 'false'>
-                  <UML:TaggedValue.dataValue>wird fuer jeden SicherheitsKorridor als &quot;Sicherheitskorridor&quot; festgelegt.</UML:TaggedValue.dataValue>
-                  <UML:TaggedValue.type>
-                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
-                  </UML:TaggedValue.type>
-                </UML:TaggedValue>
-              </UML:ModelElement.taggedValue>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-            <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE6'
-              name = 'SicherheitsKorridor' visibility = 'public' isSpecification = 'false'
-              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
-              isLeaf = 'false' isAbstract = 'false'>
-              <UML:ModelElement.stereotype>
-                <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
-              </UML:ModelElement.stereotype>
-              <UML:BehavioralFeature.parameter>
-                <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE7'
-                  name = 'return' isSpecification = 'false' kind = 'return'>
-                  <UML:Parameter.type>
-                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
-                  </UML:Parameter.type>
-                </UML:Parameter>
-              </UML:BehavioralFeature.parameter>
-            </UML:Operation>
-            <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8D'
-              name = 'KENNUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
-              changeability = 'frozen' targetScope = 'instance'>
-              <UML:StructuralFeature.multiplicity>
-                <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8E'>
-                  <UML:Multiplicity.range>
-                    <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8F'
-                      lower = '1' upper = '1'/>
-                  </UML:Multiplicity.range>
-                </UML:Multiplicity>
-              </UML:StructuralFeature.multiplicity>
-              <UML:StructuralFeature.type>
-                <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
-              </UML:StructuralFeature.type>
-            </UML:Attribute>
-          </UML:Classifier.feature>
-        </UML:Class>
         <UML:Generalization xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC0'
           isSpecification = 'false'>
           <UML:Generalization.child>
@@ -3627,6 +2360,1285 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
             </UML:Multiplicity>
           </UML:TagDefinition.multiplicity>
         </UML:TagDefinition>
+        <UML:Package xmi.id = '10-43-3-112-127ab010:1460530fdc5:-8000:0000000000000EC4'
+          name = 'orte' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+          isAbstract = 'false'>
+          <UML:Namespace.ownedElement>
+            <UML:Class xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A88'
+              name = 'Auslandsverbindung' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '10-43-7-70--269ba314:145ffb45827:-8000:0000000000000E8A'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Klasse hat bis auf die Berechnung der Relvanzgrades keine eigenen Methoden, sie dient vor allem der Aufnahme der Informationen aus der </UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB4'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A89'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A8A'
+                  name = 'passagierAufkommen' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A8B'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A8C'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A8D'
+                  name = 'umschlagVolumen' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A8E'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A8F'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A90'
+                  name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DF1'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>relevanzGrad=(umschlagVolumen+3*passagierAufkommen)/1000000</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A91'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA3'
+                  name = 'relevanzGrad' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA4'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA5'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACD'
+                  name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACE'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ACF'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDE'
+                  name = 'Auslandsverbindung' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDF'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087D'
+              name = 'Umschlagpunkt' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB3'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087E'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A85'
+                  name = 'umschlagVolumen' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A86'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A87'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A92'
+                  name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DF0'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>teilt Umschlagvolumen durch 200000</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A93'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA0'
+                  name = 'relevanzGrad' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA1'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA2'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD4'
+                  name = 'Umschlagpunkt' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-70--269ba314:145ffb45827:-8000:0000000000000E88'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>umschlagVolumen wird aus Datei übergeben
+relevanzGrad wird aus umschlagVolumen durch berechneRelevanzGrad() berechnet
+beschreibung ist &quot;Umschlagpunkt&quot;</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD5'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E79'
+                  name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7A'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7B'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087F'
+              name = 'Hauptort' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB1'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:0000000000000880'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A7F'
+                  name = 'anzahlEinwohner' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A80'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A81'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A96'
+                  name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DEE'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>teilt die Einwohner durch 15000</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A97'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9A'
+                  name = 'relevanzGrad' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9B'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9C'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD6'
+                  name = 'Hauptort' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-70--269ba314:145ffb45827:-8000:0000000000000E89'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>anzahlEinwohner wird aus Datei übergeben
+relevanzGrad wird mit berechneRelevanzGrad berechnet
+BESCHREIBUNG ist Hauptort</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD7'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E73'
+                  name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E74'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E75'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'
+              name = 'Ort' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB0'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A70'
+                  name = 'koordX' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A71'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A72'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A73'
+                  name = 'koordY' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A74'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A75'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B11'
+                  name = 'name' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B12'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B13'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DCD'
+                  name = 'Ort' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DCE'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7C'
+                  name = 'kennung' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7D'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E7E'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E86'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>HPT, NBN, UMS oder ASL</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EAC'
+                  name = 'angebundeneKorridore' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EAD'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EAE'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EAF'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>ein erstellter Korridor wird in den beiden beteiligten Orten in ihrer Liste angebundeneKorridore referenziert.
+in dieser Liste befinden sich also alle an den ort angebundenen korridore, sobald diese erstellt sind ( sie sind referenziert, nicht mit new Korridor() definiert!</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B31'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087B'
+              name = 'Nebenort' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB2'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '-64--88--78-22-347c6cd5:145f1cbd2f1:-8000:0000000000000DD9'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A82'
+                  name = 'anzahlEinwohner' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A83'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A84'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086C'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A94'
+                  name = 'berechneRelevanzGrad' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DEF'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>unterscheidet: E &lt; 101 =&gt; 0
+E &gt; 100  =&gt; teilt Einwohner durch 25000</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A95'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9D'
+                  name = 'relevanzGrad' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9E'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000A9F'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD2'
+                  name = 'Nebenort' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DD3'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E76'
+                  name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E77'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E78'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000859'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+        <UML:Package xmi.id = '10-43-3-112-127ab010:1460530fdc5:-8000:0000000000000EC5'
+          name = 'korridore' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+          isAbstract = 'false'>
+          <UML:Namespace.ownedElement>
+            <UML:Class xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A76'
+              name = 'Korridor' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B82'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>die den Unterklasse zugeordnete Methode ueberpruefeOrtart ueberprueft, ob die Orte A und B fuer die jeweiligen Orte zulaessig ist, wenn nicht, gibt die Methode ein false zurueck. wird aufgerufen durch die initialisierung eines jeden korridors.</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB9'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A79'
+                  name = 'ortA' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A7A'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A7B'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA6'
+                  name = 'ortB' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA7'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AA8'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '-64--88--78-26--47640419:145ed35bd21:-8000:000000000000087A'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B39'
+                  name = 'laenge' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  changeability = 'changeable' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B3A'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B3B'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B41'
+                  name = 'ermittleLaenge' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B42'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDA'
+                  name = 'Korridor' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DDB'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABD'
+              name = 'HochlastKorridor' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB8'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABE'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC1'
+                  name = 'ZULAESSIGE_ORTKENNUNG' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD6'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD5'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE4'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Mit Erzeugung eines Korridors wird unweigerlich geprueft werden, ob die hinzuzufuegenden Orte auch den Anforderungen der bestimmten Korridorart entsprechen.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE8'
+                  name = 'BAUKOSTEN' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE9'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEA'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF4'
+                  name = 'NUTZUNGSKOSTEN' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF5'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF6'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7A'
+                  name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DCB'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Ueberpruefung, ob ortA, ortB aus den Ortsklassen Hauptort oder Umschlagpunkt stammen.
+(Ort.ortArt)</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7B'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA1'
+                  name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA2'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA3'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAD'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>wird fuer jeden HauptlastKorridor als &quot;Hauptlastkorridor&quot; festgelegt.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE4'
+                  name = 'HochlastKorridor' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE5'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E87'
+                  name = 'KENNUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E88'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E89'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABF'
+              name = 'SicherheitsKorridor' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB7'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AC0'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD8'
+                  name = 'ZULAESSIGE_ORTKENNUNG' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD9'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADA'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE5'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Mit Erzeugung eines Korridors wird unweigerlich geprueft werden, ob die hinzuzufuegenden Orte auch den Anforderungen der bestimmten Korridorart entsprechen.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEB'
+                  name = 'BAUKOSTEN' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEC'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AED'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF7'
+                  name = 'NUTZUNGSKOSTEN' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF8'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF9'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7C'
+                  name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DCA'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>ueberpruefung, ob ortA, ortB eine Ortsart besitzen (hier hinreichend.)
+(Ort.ortArt)</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7D'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA4'
+                  name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA5'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA6'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAE'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>wird fuer jeden SicherheitsKorridor als &quot;Sicherheitskorridor&quot; festgelegt.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE6'
+                  name = 'SicherheitsKorridor' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE7'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8D'
+                  name = 'KENNUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8E'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8F'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABB'
+              name = 'StandardKorridor' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB5'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABC'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADE'
+                  name = 'ZULAESSIGE_ORTKENNUNG' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADF'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE0'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE7'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Mit Erzeugung eines Korridors wird unweigerlich geprueft werden, ob die hinzuzufuegenden Orte auch den Anforderungen der bestimmten Korridorart entsprechen.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF1'
+                  name = 'BAUKOSTEN' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF2'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF3'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFD'
+                  name = 'NUTZUNGSKOSTEN' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFE'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFF'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B80'
+                  name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DCC'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Ueberpruefung, ob ortA, ortB aus den Ortsklassen Hauptort, Umschlagpunkt oder Nebenort stammen.
+(Ort.ortArt)</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B81'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAA'
+                  name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAB'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAC'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BB0'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>wird fuer jeden StandarfKorridor als &quot;Standardkorridor&quot; festgelegt.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE2'
+                  name = 'StandardKorridor' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE3'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8A'
+                  name = 'KENNUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8B'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E8C'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AB9'
+              name = 'EinfacherKorridor' visibility = 'public' isSpecification = 'false'
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '127-0-0-1-7b4b47f3:14604154486:-8000:0000000000000EB6'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>TolleN, HandritschkP</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88--78-26-3437f299:1460373b943:-8000:0000000000000EA7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ABA'/>
+              </UML:GeneralizableElement.generalization>
+              <UML:Classifier.feature>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADB'
+                  name = 'ZULAESSIGE_ORTKENNUNG' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADC'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000ADD'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE6'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Mit Erzeugung eines Korridors wird unweigerlich geprueft werden, ob die hinzuzufuegenden Orte auch den Anforderungen der bestimmten Korridorart entsprechen.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:Class xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AD7'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEE'
+                  name = 'BAUKOSTEN' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AEF'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AF0'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFA'
+                  name = 'NUTZUNGSKOSTEN' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'classifier' changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFB'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AFC'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086F'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7E'
+                  name = 'ueberpruefeOrtart' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88--78-22--1f4719dc:145f1f83264:-8000:0000000000000DC9'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Ueberpruefung, ob ortA, ortB aus den Ortsklassen Nebenort, Hauptort oder Umschlagpunkt stammen.
+(Ort.ortArt)</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000B7F'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000873'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA7'
+                  name = 'BESCHREIBUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA8'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BA9'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000BAF'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>wird fuer jeden EinfacherKorridor als &quot;Einfacher Korridor&quot; festgelegt.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '10-43-7-31-56355908:145f06c124d:-8000:0000000000000AE1'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+                <UML:Operation xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE0'
+                  name = 'EinfacherKorridor' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.stereotype>
+                    <UML:Stereotype href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#.:000000000000082B'/>
+                  </UML:ModelElement.stereotype>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88--78-22-5c4abdf4:145f23428e6:-8000:0000000000000DE1'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:000000000000086B'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Attribute xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E90'
+                  name = 'KENNUNG' visibility = 'public' isSpecification = 'false' ownerScope = 'classifier'
+                  changeability = 'frozen' targetScope = 'instance'>
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E91'>
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = '10-43-7-31-212d02b3:145f5ab41e1:-8000:0000000000000E92'
+                          lower = '1' upper = '1'/>
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:StructuralFeature.type>
+                    <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:StructuralFeature.type>
+                </UML:Attribute>
+              </UML:Classifier.feature>
+            </UML:Class>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
       </UML:Namespace.ownedElement>
     </UML:Model>
   </XMI.content>
@@ -4775,7 +4787,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       justification="Center"
     >Flugroute</text>
     <group name="Fig7.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[31, 657, 231, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[31, 657, 233, 0]"
          href="10-43-7-31-4e3c75f:145efaf6936:-8000:0000000000000A77"
          fill="0"
          fillcolor="white"
@@ -4789,7 +4801,7 @@ erzeugt Simulationsinstanz, laesst sie samt der eingelesenen Testdatei im TestDa
       <rectangle name="Fig7.2.0"
         x="31"
         y="657"
-        width="231"
+        width="233"
         height="0"
         fill="0"
         fillcolor="white"
