@@ -11,15 +11,11 @@ public class Auslandsverbindung extends Ort {
 
 	public double umschlagVolumen;
 
-	public double relevanzGrad;
-
 	public static final String BESCHREIBUNG = "Auslandsverbindung";
-
-	public static final String KENNUNG = "ASL";
-
+	
 	public Auslandsverbindung(int koordX, int koordY, String name,
-			int passagierAufkommen, double umschlagVolumen) {
-		super(koordX, koordY, name);
+			String kennung, int passagierAufkommen, double umschlagVolumen) {
+		super(koordX, koordY, name, kennung);
 		this.passagierAufkommen = passagierAufkommen;
 		this.umschlagVolumen = umschlagVolumen;
 		berechneRelevanzGrad();
@@ -27,14 +23,6 @@ public class Auslandsverbindung extends Ort {
 
 	public double getRelevanzGrad() {
 		return relevanzGrad;
-	}
-
-	public void setRelevanzGrad(double relevanzGrad) {
-		this.relevanzGrad = relevanzGrad;
-	}
-
-	public static String getKennung() {
-		return KENNUNG;
 	}
 
 	/**

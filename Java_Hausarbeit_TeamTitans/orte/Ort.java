@@ -13,12 +13,38 @@ public class Ort {
 
 	public String name;
 
-	public Ort(int koordX, int koordY, String name) {
+	public String kennung;
+	
+	public double relevanzGrad;
+
+	public Ort(int koordX, int koordY, String name, String kennung) {
 		super();
 		this.koordX = koordX;
 		this.koordY = koordY;
 		this.name = name;
+		this.kennung = kennung;
 	}
+
+	
+	public double getRelevanzGrad() {
+		return relevanzGrad;
+	}
+
+
+	public void setRelevanzGrad(double relevanzGrad) {
+		this.relevanzGrad = relevanzGrad;
+	}
+
+
+	public String getKennung() {
+		return kennung;
+	}
+
+
+	public ArrayList<Korridor> getAngebundeneKorridore() {
+		return angebundeneKorridore;
+	}
+
 
 	/**
 	 * ein erstellter Korridor wird in den beiden beteiligten Orten in ihrer
