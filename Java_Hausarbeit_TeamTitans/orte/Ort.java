@@ -23,6 +23,7 @@ public class Ort {
 		this.koordY = koordY;
 		this.name = name;
 		this.kennung = kennung;
+		angebundeneKorridore = new ArrayList<Korridor>();
 	}
 
 	
