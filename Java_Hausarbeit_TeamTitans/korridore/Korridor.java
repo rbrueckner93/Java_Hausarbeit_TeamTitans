@@ -47,7 +47,7 @@ public class Korridor {
 	 * @param ortA
 	 * @param ortB
 	 */
-	public Korridor(Ort ortA, Ort ortB, String kennung) throws UngueltigerOrt{
+	public Korridor(Ort ortA, Ort ortB, String kennung) throws UngueltigerOrt {
 		super();
 		this.ortA = ortA;
 		this.ortB = ortB;
@@ -123,27 +123,31 @@ public class Korridor {
 
 	public void ueberpruefeOrtart(Ort ortA) throws UngueltigerOrt {
 		if (kennung.equals(KENNUNG_ENFC)) {
-			if (ortA.getClass() != Hauptort.class
-					|| ortA.getClass() != Nebenort.class
-					|| ortA.getClass() != Umschlagpunkt.class) {
+			if (ortA.getClass() == Hauptort.class
+					|| ortA.getClass() == Nebenort.class
+					|| ortA.getClass() == Umschlagpunkt.class) {
+			} else {
 				throw new UngueltigerOrt();
 			}
 		} else if (kennung.equals(KENNUNG_HLST)) {
-			if (ortA.getClass() != Hauptort.class
-					|| ortA.getClass() != Umschlagpunkt.class) {
+			if (ortA.getClass() == Hauptort.class
+					|| ortA.getClass() == Umschlagpunkt.class) {
+			} else {
 				throw new UngueltigerOrt();
 			}
 		} else if (kennung.equals(KENNUNG_SICH)) {
-			if (ortA.getClass() != Hauptort.class
-					|| ortA.getClass() != Nebenort.class
-					|| ortA.getClass() != Umschlagpunkt.class
-					|| ortA.getClass() != Auslandsverbindung.class) {
+			if (ortA.getClass() == Hauptort.class
+					|| ortA.getClass() == Nebenort.class
+					|| ortA.getClass() == Umschlagpunkt.class
+					|| ortA.getClass() == Auslandsverbindung.class) {
+			} else {
 				throw new UngueltigerOrt();
 			}
 		} else if (kennung.equals(KENNUNG_STND)) {
-			if (ortA.getClass() != Hauptort.class
-					|| ortA.getClass() != Nebenort.class
-					|| ortA.getClass() != Umschlagpunkt.class) {
+			if (ortA.getClass() == Hauptort.class
+					|| ortA.getClass() == Nebenort.class
+					|| ortA.getClass() == Umschlagpunkt.class) {
+			} else {
 				throw new UngueltigerOrt();
 			}
 		} else {
