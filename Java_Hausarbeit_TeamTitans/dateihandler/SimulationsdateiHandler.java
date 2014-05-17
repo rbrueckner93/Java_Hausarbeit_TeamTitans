@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import Main.Simulator;
 
 /**
+ * @author TolleN
+ * Beschreibung
  * aufgrund eines ihr uebergebenen Simulators erstellt SimulationsdateiHandler
  * eine Datei, die Informationen ueber die durchgefuehrte Simulation enthaelt.
  */
@@ -11,21 +13,13 @@ public class SimulationsdateiHandler extends Datei {
 	/* {author=TolleN} */
 
 	public static final String DATEI_BEGINN_MARKER = ">->sim";
-
 	public static final String DATEI_ENDE_MARKER = "<-<sim";
-
 	public static final String DATENSATZ_BEGINN_MARKER = ">->route";
-
 	public static final String DATENSATZ_ENDE_MARKER = "<-<route";
-
 	public static final String DATEI_SUFFIX = "_sim";
-
 	public static ArrayList<String> GUELTIGE_BEZEICHNER;
-
 	public static final String BEZEICHNER_START = "start";
-
 	public static final String BEZEICHNER_ZIEL = "end";
-	
 	public static final char REISELISTE_TEILER = ';';
 
 	/**

@@ -1,5 +1,4 @@
 package dateihandler;
-
 import java.io.File;
 import java.util.ArrayList;
 
@@ -11,31 +10,24 @@ import orte.Nebenort;
 import orte.Umschlagpunkt;
 import Main.Karte;
 
+/**
+ * 
+ * @author TolleN
+ *
+ */
+
 public class KartendateiHandler extends Datei {
-	/* {author=TolleN} */
-
 	public static final String DATEI_BEGINN_MARKER = ">->map";
-
 	public static final String DATEI_ENDE_MARKER = "<-<map";
-
 	public static final String DATENSATZ_BEGINN_MARKER = ">->loc";
-
 	public static final String DATENSATZ_ENDE_MARKER = "<-<loc";
-
 	public static ArrayList<String> GUELTIGE_BEZEICHNER;
-
 	public static final String BEZEICHNER_X_KOORDINATE = "x";
-
 	public static final String BEZEICHNER_Y_KOORDINATE = "y";
-
 	public static final String BEZEICHNER_NAME = "name";
-
 	public static final String BEZEICHNER_KENNUNG = "kind";
-
 	public static final String BEZEICHNER_EINWOHNERZAHL = "population";
-
 	public static final String BEZEICHNER_UMSCHLAGVOLUMEN = "turnover";
-
 	public static final String BEZEICHNER_PASSAGIERAUFKOMMEN = "passengers";
 
 	/**
