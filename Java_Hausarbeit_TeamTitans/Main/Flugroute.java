@@ -67,32 +67,67 @@ public class Flugroute {
 	}
 
 	public void ermittleBesteRoute() {
+		/**
+		 * flugroutenInArbeit speichert nur solange Elemente, wie sie nicht am
+		 * Ende der zu optimierenden Flugroute angekommen sind.
+		 */
 		ArrayList<Flugroute> flugroutenInArbeit = new ArrayList<Flugroute>();
+		/**
+		 * moeglicheFlugrouten speichert diejenigen Routen ab, über die ohne
+		 * doppelt angeflogene Orte das ziel erreicht werden kann
+		 */
 		ArrayList<Flugroute> moeglicheFlugrouten = new ArrayList<Flugroute>();
-		ArrayList<Double> kostenVergleich = new ArrayList<Double>();
+
 		for (Korridor verbindung : herkunft.angebundeneKorridore) {
 			flugroutenInArbeit.add(new Flugroute(herkunft, bestimmeAnderenOrt(
-					verbindung, herkunft), 0));
+					verbindung, herkunft), faktor));
 		}
-		// solange in der "In Arbeit"-Liste noch Elt. stehen:
+		// solange in der "In Arbeit"-Liste noch Flugrouten stehen:
 		while (flugroutenInArbeit.size() > 0) {
 			for (Flugroute weg : flugroutenInArbeit) {
-				//TODO implement Algorithm
+				for (Korridor verbindung : weg.ziel.angebundeneKorridore) {
+					/**
+					 * wenn ermittleAnderenOrt(verbindung, weg.ziel) nicht in
+					 * weg.erzeugeOrtsListe vorkommt und
+					 * ermittleAnderenOrt(verbindung, weg.ziel) nicht gleich
+					 * ziel ist, dann schreibe in flugroutenInArbeit.add()
+					 */
+					Ort neuesZiel = bestimmeAnderenOrt(verbindung, weg.ziel);
+					boolean bereitsDagewesen = (kommtOrtInOrtslisteVor(
+							neuesZiel, weg.erzeugeOrtsListe()));
+					if ((bereitsDagewesen == false) && (neuesZiel != ziel)) {
+						flugroutenInArbeit.add(new Flugroute(neuesZiel,
+								herkunft, faktor));
+					}
+					if ((bereitsDagewesen == false) && (neuesZiel == ziel)) {
+						moeglicheFlugrouten.add(new Flugroute(ziel, herkunft,
+								faktor));
+					}
+					/**
+					 * wenn ermittleAnderenOrt(verbindung, weg.ziel nicht in
+					 * weg.erzeugeOrtsListe vorkommt und
+					 * ermittleAnderenOrt(verbindung, weg.ziel) gleich ziel ist,
+					 * dann schreibe in moeglicheFlugrouten
+					 */
+					flugroutenInArbeit.remove(weg);
+				}
+
 			}
-		}
-		/**
-		 * Nimm die günstigste und gib sie zurück.
-		 */
-		while (moeglicheFlugrouten.size() > 1) {
-			for (int i = 0; i < moeglicheFlugrouten.size(); i++) {
-				if (moeglicheFlugrouten.get(i).ermittleRoutennutzkosten() < moeglicheFlugrouten
-						.get(i + 1).ermittleRoutennutzkosten()) {
-					moeglicheFlugrouten.remove(i + 1);
+
+			/**
+			 * Nimm die günstigste und gib sie zurück.
+			 */
+			while (moeglicheFlugrouten.size() > 1) {
+				for (int i = 0; i < moeglicheFlugrouten.size(); i++) {
+					if (moeglicheFlugrouten.get(i).ermittleRoutennutzkosten() < moeglicheFlugrouten
+							.get(i + 1).ermittleRoutennutzkosten()) {
+						moeglicheFlugrouten.remove(i + 1);
+					}
 				}
 			}
+			// ändere die ReiseListe des aktuellen Flugroutenobjekts
+			reiseListe = moeglicheFlugrouten.get(0).reiseListe;
 		}
-		// ändere die ReiseListe des aktuellen Flugroutenobjekts
-		reiseListe = moeglicheFlugrouten.get(0).reiseListe;
 
 	}
 
@@ -143,7 +178,7 @@ public class Flugroute {
 		ArrayList<Ort> ortsListe = new ArrayList<Ort>();
 		ortsListe.add(herkunft);
 		for (Korridor verbindung : reiseListe) {
-			if (verbindung.ortA.equals(ortsListe.get(ortsListe.size()-1))) {
+			if (verbindung.ortA.equals(ortsListe.get(ortsListe.size() - 1))) {
 				ortsListe.add(verbindung.ortB);
 			} else if (verbindung.ortB
 					.equals(ortsListe.get(ortsListe.size() - 1))) {
@@ -152,5 +187,25 @@ public class Flugroute {
 		}
 
 		return ortsListe;
+	}
+
+	/**
+	 * Ueberprueft eine ArrayList von Orten auf vorkommen eines bestimmten
+	 * Ortes.
+	 * 
+	 * @param ort
+	 *            : Ein beliebiger Ort
+	 * @param ortsliste
+	 *            : Eine Liste mit Orten
+	 * @return true: ort kommt in der ortsliste vor.
+	 * @author: BruecknerR
+	 */
+	public boolean kommtOrtInOrtslisteVor(Ort ort, ArrayList<Ort> ortsliste) {
+		for (Ort testort : ortsliste) {
+			if (testort.equals(ort)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
