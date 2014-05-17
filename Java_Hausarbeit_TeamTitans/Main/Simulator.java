@@ -11,7 +11,7 @@ public class Simulator {
 	/**
 	 * in diesem Attribut werden die Nutzkosten aller Routen aufsummiert. Dies tut die KLasse selber.
 	 */
-	public static double nutzkosten;
+	public double nutzkosten;
 
 	public ArrayList<Flugroute> routen;
 
