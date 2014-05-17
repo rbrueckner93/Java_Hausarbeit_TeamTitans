@@ -2,7 +2,10 @@ package Main;
 
 import java.util.ArrayList;
 
+import Exceptions.UngueltigerOrt;
 import korridore.Korridor;
+import orte.Hauptort;
+import orte.Nebenort;
 import orte.Ort;
 
 /**
@@ -44,8 +47,16 @@ public class Karte {
 
 	// Konstruktor der Karte. Nichts wird gesetzt. Weitere Aenderungen ueber
 	// setters.
+
 	public Karte() {
 		super();
+		orte = new ArrayList<Ort>();
+		eingerichteteKorridore = new ArrayList<Korridor>();
+		Hauptort test1 = new Hauptort(10, 10, "Presdorf", "HPT", 23000);
+		Nebenort test2 = new Nebenort(170, 65, "dahme", "NBN", 56000);
+		orte.add(test1);
+		orte.add(test2);
+
 	}
 
 	public static double getBudget() {
@@ -77,8 +88,12 @@ public class Karte {
 		return baukosten;
 	}
 
-	public double ermittleOrtsdistanz() {
-		return 0.0;
+	public double ermittleOrtsdistanz(Ort orteins, Ort ortzwei) {
+		double laengeQuadrat = Math.pow(orteins.koordX - ortzwei.koordX, 2)
+				+ Math.pow(orteins.koordY - ortzwei.koordY, 2);
+		double laenge = (Math.sqrt(laengeQuadrat));
+		laenge = ((Math.round(laenge * 1000)) / 1000);
+		return laenge;
 	}
 
 	/**
@@ -89,14 +104,55 @@ public class Karte {
 	 * Karte muss auf ortA und ortB ort.angebundeneKorridore.add(Korridor)
 	 * hinzufügen.
 	 */
-	public void erzeugeNetz() {
+	public void erzeugeNetz() throws UngueltigerOrt {
+		erzeugeKorridor();
+		System.out.println(eingerichteteKorridore.get(0).getBaukosten());
+
 	}
 
+	/**
+	 * ArrayList orte wird von Dateihandler gefüllt. Pruefe auch ob gleicher
+	 * hoechster Relevanzgrad vorhanden ist. Dann wird der Ort weitergegeben der
+	 * am naechsten am Mittelpunkt der Karte liegt.
+	 * 
+	 * @return
+	 */
 	public Ort sucheOrtMitHoechstenRelevanzGrad() {
-		return null;
+
+		Ort hoechster = orte.get(0);
+		for (int i = 1; i < orte.size(); i++) {
+
+			if (hoechster.getRelevanzGrad() < orte.get(i).getRelevanzGrad()) {
+				hoechster = orte.get(i);
+
+			}
+		}
+		for (int i = 0; i < orte.size(); i++) {
+			if (hoechster.getRelevanzGrad() == orte.get(i).getRelevanzGrad()
+					&& hoechster != orte.get(i)) {
+
+				Ort NullOrt = new Ort(100, 50, "NullOrt", "0");
+
+				double entfernung1 = ermittleOrtsdistanz(NullOrt, hoechster);
+				double entfernung2 = ermittleOrtsdistanz(NullOrt, orte.get(i));
+				if (entfernung1 > entfernung2) {
+					hoechster = orte.get(i);
+				}
+			}
+		}
+		return hoechster;
 	}
 
-	public void erzeugeKorridor() {
+	public void erzeugeKorridor() throws UngueltigerOrt {
+
+		for (int i = 0; i < orte.size(); i++) {
+			if (sucheOrtMitHoechstenRelevanzGrad() != orte.get(i)) {
+				eingerichteteKorridore.add(new Korridor(sucheOrtMitHoechstenRelevanzGrad(),
+								orte.get(i), "SICH"));
+			}
+			//sucheOrtMitHoechstenRelevanzGrad().angebundeneKorridore.add();
+			
+		}
 	}
 
 	public double ermittleGesamteBaukosten() {
