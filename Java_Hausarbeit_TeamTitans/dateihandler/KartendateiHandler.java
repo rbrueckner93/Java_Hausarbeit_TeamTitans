@@ -2,6 +2,13 @@ package dateihandler;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import com.sun.org.glassfish.gmbal.ParameterNames;
+
+import orte.Auslandsverbindung;
+import orte.Hauptort;
+import orte.Nebenort;
+import orte.Umschlagpunkt;
 import Main.Karte;
 
 public class KartendateiHandler extends Datei {
@@ -72,11 +79,27 @@ public class KartendateiHandler extends Datei {
 	public boolean pruefeDatei() {
 		return false;
 	}
-
+	/**
+	 * Diese Methode wertet den eingangsStream aus und erstellt entsprechende Orte 
+	 */
 	public void werteAus() {
+		 ArrayList<String> eingelesenezeilen = Datei.leseDatei(aktuelleKartendatei);
+		 
+	 }
+	//Hier stehen die 4 methoden zur Erzeugung der 4 verschiedenen Orte.
+	//@author Nils
+	public void erzeugeHauptort(int koordX, int koordY, String name, String kennung, int anzahlEinwohner) {
+		kartenInstanz.orte.add(new Hauptort(koordX, koordY, name, kennung, anzahlEinwohner));
 	}
-
-	public void erzeugeOrte() {
+	public void erzeugeNebenort(int koordX, int koordY, String name, String kennung, int anzahlEinwohner) {
+		kartenInstanz.orte.add(new Nebenort(koordX, koordY, name, kennung, anzahlEinwohner));
 	}
+	public void erzeugeUmschlagpunkt(int koordX, int koordY, String name, String kennung, double umschlagVolumen) {
+		kartenInstanz.orte.add(new Umschlagpunkt(koordX, koordY, name, kennung, umschlagVolumen));
+	}
+	public void erzeugeAuslandsverbindung(int koordX, int koordY, String name, String kennung, double umschlagVolumen, int passagierAufkommen) {
+		kartenInstanz.orte.add(new Auslandsverbindung(koordX, koordY, name, kennung, passagierAufkommen, umschlagVolumen));
+	}
+	
 
 }
