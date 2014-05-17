@@ -5,28 +5,13 @@ public class Nebenort extends Ort {
 
 	public int anzahlEinwohner;
 
-	public double relevanzGrad;
-
 	public static final String BESCHREIBUNG = "Nebenort";
 
-	public static final String KENNUNG = "NBN";
-
-	public Nebenort(int koordX, int koordY, String name, int anzahlEinwohner) {
-		super(koordX, koordY, name);
+	public Nebenort(int koordX, int koordY, String name, String kennung,
+			int anzahlEinwohner) {
+		super(koordX, koordY, name, kennung);
 		this.anzahlEinwohner = anzahlEinwohner;
 		berechneRelevanzGrad();
-	}
-
-	public double getRelevanzGrad() {
-		return relevanzGrad;
-	}
-
-	public void setRelevanzGrad(double relevanzGrad) {
-		this.relevanzGrad = relevanzGrad;
-	}
-
-	public static String getKennung() {
-		return KENNUNG;
 	}
 
 	/**
