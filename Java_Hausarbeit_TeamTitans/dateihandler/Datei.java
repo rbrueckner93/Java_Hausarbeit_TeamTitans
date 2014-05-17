@@ -32,10 +32,11 @@ public class Datei {
 	 * auf lesbarkeit und isFile().
 	 * 
 	 * @param neueDatei
-	 * @return ArrayList<String> pro Index eine Zeile.
+	 * @return ArrayList<String> pro Index eine Zeile. Ohne Leerzeilen.
 	 */
 	public static ArrayList<String> leseDatei(File aktuelleDatei) {
 		ArrayList<String> zeilen = new ArrayList<String>();
+		ArrayList<String> ohneLeerzeilen = new ArrayList<String>();
 		int aktuelleZeile = 0;
 		try {
 			FileReader fileReader = new FileReader(aktuelleDatei);
@@ -50,25 +51,36 @@ public class Datei {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Fehler in Datei");
 		}
-		return zeilen;
+		for (String zeile : zeilen) {
+			if (!zeile.equals("")) {
+				int i = 0;
+				ohneLeerzeilen.add(zeilen.get(i));
+				i += 1;
+			}
+		}
+		return ohneLeerzeilen;
 	}
 
 	/**
 	 * bekommt Dateinamen[inklusive Suffix!] und OutputStream als String
-	 * @param zuSchreibenderText ArrayList von Strings mit allen Zeilen.
-	 * @param neuerDateiname String der Namen+Suffix der Datei(kein ".txt") enthält.
+	 * 
+	 * @param zuSchreibenderText
+	 *            ArrayList von Strings mit allen Zeilen.
+	 * @param neuerDateiname
+	 *            String der Namen+Suffix der Datei(kein ".txt") enthält.
 	 * @author Nils
 	 */
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,
 			String neuerDateiname) {
-		File neueDatei = new File(Benutzerinterface.standardpfad+neuerDateiname+".txt");
-		try{
+		File neueDatei = new File(Benutzerinterface.standardpfad
+				+ neuerDateiname + ".txt");
+		try {
 			PrintStream writer = new PrintStream(neueDatei);
-			for (String zeile : zuSchreibenderText){
+			for (String zeile : zuSchreibenderText) {
 				writer.println(zeile);
 			}
 			writer.close();
-		} catch (FileNotFoundException e){
+		} catch (FileNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "Datei nicht gefunden");
 			return;
 		}
