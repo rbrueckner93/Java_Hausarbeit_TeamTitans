@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import Exceptions.UngueltigerOrt;
 import korridore.Korridor;
+import orte.Auslandsverbindung;
 import orte.Hauptort;
 import orte.Nebenort;
 import orte.Ort;
+import orte.Umschlagpunkt;
 
 /**
  * Die Karte ist
@@ -36,7 +38,6 @@ public class Karte {
 
 	public static final int KARTE_GROESSE_Y = 99;
 
-
 	/**
 	 * speichert den Namen der KartendateiHandler, auf deren Basis das Netz
 	 * erzeugt wird beziehungsweise wurde. der Name der NetzdateiHandler soll
@@ -55,8 +56,17 @@ public class Karte {
 		// nur zum Testen
 		Hauptort test1 = new Hauptort(10, 10, "Presdorf", "HPT", 23000);
 		Nebenort test2 = new Nebenort(170, 65, "dahme", "NBN", 56000);
+		Auslandsverbindung test3 = new Auslandsverbindung(23, 34, "Luckau",
+				"ASL", 3544, 455);
+		Umschlagpunkt test4 = new Umschlagpunkt(67, 123, "Hambur", "UMS", 75653);
+		Hauptort test5 = new Hauptort(60, 80, "Bremen", "HPT", 2340);
+		Nebenort test6 = new Nebenort(90, 95, "muenchen", "NBN", 5700);
 		orte.add(test1);
 		orte.add(test2);
+		orte.add(test3);
+		orte.add(test4);
+		orte.add(test5);
+		orte.add(test6);
 
 	}
 
@@ -87,8 +97,6 @@ public class Karte {
 		return eingerichteteKorridore;
 	}
 
-
-
 	// ab hier andere Methoden
 
 	/**
@@ -114,7 +122,7 @@ public class Karte {
 	 * Karte muss auf ortA und ortB ort.angebundeneKorridore.add(Korridor)
 	 * hinzufügen.
 	 */
-	public void erzeugeNetz() throws UngueltigerOrt {
+	public void erzeugeNetz() {
 		erzeugeKorridor();
 		System.out.println(eingerichteteKorridore.get(0).getBaukosten());
 
@@ -160,17 +168,60 @@ public class Karte {
 	 * 
 	 * @throws UngueltigerOrt
 	 */
-	public void erzeugeKorridor() throws UngueltigerOrt {
+	// public void erzeugeKorridor() throws UngueltigerOrt {
+	//
+	// for (int i = 0; i < orte.size(); i++) {
+	//
+	// if (sucheOrtMitHoechstenRelevanzGrad() != orte.get(i)) {
+	//
+	// eingerichteteKorridore
+	// .add(new Korridor(sucheOrtMitHoechstenRelevanzGrad(),
+	// orte.get(i), "SICH"));
+	// }
+	//
+	// sucheOrtMitHoechstenRelevanzGrad().angebundeneKorridore
+	// .add(eingerichteteKorridore.get(i));
+	// orte.get(i).angebundeneKorridore.add(eingerichteteKorridore.get(i));
+	// }
+	// }
 
+	public void erzeugeKorridor() {
+		ArrayList<Korridor> test = new ArrayList<Korridor>();
 		for (int i = 0; i < orte.size(); i++) {
-			
+
+			test.clear();
+
 			if (sucheOrtMitHoechstenRelevanzGrad() != orte.get(i)) {
 
-				eingerichteteKorridore
-						.add(new Korridor(sucheOrtMitHoechstenRelevanzGrad(),
-								orte.get(i), "SICH"));
+				try {
+					test.add(new Korridor(sucheOrtMitHoechstenRelevanzGrad(),
+							orte.get(i), "SICH"));
+				} catch (UngueltigerOrt e) {
+				}
+				try {
+					test.add(new Korridor(sucheOrtMitHoechstenRelevanzGrad(),
+							orte.get(i), "HLST"));
+				} catch (UngueltigerOrt e) {
+				}
+				try {
+					test.add(new Korridor(sucheOrtMitHoechstenRelevanzGrad(),
+							orte.get(i), "ENFC"));
+				} catch (UngueltigerOrt e) {
+				}
+				try {
+					test.add(new Korridor(sucheOrtMitHoechstenRelevanzGrad(),
+							orte.get(i), "STND"));
+				} catch (UngueltigerOrt e) {
+				}
 			}
-			
+
+			for (int j = 1; j < test.size(); j++) {
+				if (test.get(0).getBaukosten() > test.get(i).getBaukosten()) {
+					test.set(0, test.get(i));
+				}
+			}
+			System.out.println(test + "nach sortieren");
+			eingerichteteKorridore.add(test.get(0));
 			sucheOrtMitHoechstenRelevanzGrad().angebundeneKorridore
 					.add(eingerichteteKorridore.get(i));
 			orte.get(i).angebundeneKorridore.add(eingerichteteKorridore.get(i));
@@ -189,45 +240,53 @@ public class Karte {
 	 * uebergabe der Liste Auswertung der Anzahl nach Art (uebergabeparameter
 	 * ist Art des zu analysierenden Korridors)
 	 */
-	
+
 	public int ermittleAnzahlHLSTKorridore() {
 		int anzahlHLST = 0;
 		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
 
 			if (eingerichteteKorridore.get(i).getKennung().equals("HLST")) {
-				anzahlHLST += 1; }		
-		} return anzahlHLST;
+				anzahlHLST += 1;
+			}
+		}
+		return anzahlHLST;
 
 	}
-	
+
 	public int ermittleAnzahlSICHKorridore() {
 		int anzahlSICH = 0;
 		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
 
 			if (eingerichteteKorridore.get(i).getKennung().equals("SICH")) {
-				anzahlSICH += 1; }		
-		} return anzahlSICH;
+				anzahlSICH += 1;
+			}
+		}
+		return anzahlSICH;
 
 	}
+
 	public int ermittleAnzahlENFCKorridore() {
 		int anzahlENFC = 0;
 		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
 
 			if (eingerichteteKorridore.get(i).getKennung().equals("ENFC")) {
-				anzahlENFC += 1; }		
-		} return anzahlENFC;
+				anzahlENFC += 1;
+			}
+		}
+		return anzahlENFC;
 
 	}
-	
+
 	public int ermittleAnzahlSTNDKorridore() {
 		int anzahlSTND = 0;
 		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
 
 			if (eingerichteteKorridore.get(i).getKennung().equals("STND")) {
-				anzahlSTND += 1; }		
-		} return anzahlSTND;
+				anzahlSTND += 1;
+			}
+		}
+		return anzahlSTND;
 
 	}
-	
-	
+
 }
