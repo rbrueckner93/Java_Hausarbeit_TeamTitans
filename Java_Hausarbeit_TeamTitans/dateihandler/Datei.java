@@ -32,18 +32,15 @@ public class Datei {
 	 * auf lesbarkeit und isFile().
 	 * 
 	 * @param neueDatei
-	 * @return ArrayList<String> pro Index eine Zeile. Ohne Leerzeilen.
+	 * @return ArrayList<String> pro Index eine Zeile.
 	 */
 	public static ArrayList<String> leseDatei(File aktuelleDatei) {
 		ArrayList<String> zeilen = new ArrayList<String>();
-		ArrayList<String> ohneLeerzeilen = new ArrayList<String>();
-		int aktuelleZeile = 0;
 		try {
 			FileReader fileReader = new FileReader(aktuelleDatei);
 			BufferedReader reader = new BufferedReader(fileReader);
 			while (reader.ready()) {
-				zeilen.add(aktuelleZeile, reader.readLine().trim());
-				aktuelleZeile += 1;
+				zeilen.add(reader.readLine().trim());
 			}
 			reader.close();
 		} catch (FileNotFoundException e) {
@@ -51,14 +48,7 @@ public class Datei {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Fehler in Datei");
 		}
-		for (String zeile : zeilen) {
-			if (!zeile.equals("")) {
-				int i = 0;
-				ohneLeerzeilen.add(zeilen.get(i));
-				i += 1;
-			}
-		}
-		return ohneLeerzeilen;
+		return zeilen;
 	}
 
 	/**
