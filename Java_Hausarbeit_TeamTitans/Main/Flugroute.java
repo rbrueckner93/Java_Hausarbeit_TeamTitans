@@ -6,27 +6,18 @@ import korridore.Korridor;
 import orte.Ort;
 
 /**
- * ... wird erst bei Nutzung erstellt mit Start, Ziel, Faktor. Sucht sich nach
+ * @author BruecknerR
+ * ... wird erst bei Nutzung=Testdateieinlesen erstellt mit Start, Ziel, Faktor. Sucht sich nach
  * Aufforderung durch ermittleBesteRoute (nicht schon bei Initialisierung) ihren
  * eigenen optimalen Weg, und schreibt diesen in der reiseListe fest und stellt
  * die Nutzkosten in ermittleRoutennutzkosten fest.
  */
 public class Flugroute {
-	/* {author=BruecknerR} */
-
 	public Ort ziel;
 	public Ort herkunft;
-
-	/**
-	 * ArrayList mit Flurkorridoren, die mit einer Flugroute genutzt werden.
-	 */
+	// ArrayList mit Flurkorridoren, die mit einer Flugroute genutzt werden.
 	public ArrayList<Korridor> reiseListe;
-
-	/**
-	 * Angabe, welche Intensitaet der Nutzung vermutet wird. (Haeufigkeit der
-	 * Fluege)
-	 * 
-	 */
+	// Haeufigkeit der Fluege auf Route
 	public int faktor;
 
 	/**

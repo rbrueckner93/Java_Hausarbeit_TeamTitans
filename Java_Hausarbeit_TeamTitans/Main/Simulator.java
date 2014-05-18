@@ -1,41 +1,33 @@
 package Main;
+
 import java.util.ArrayList;
 
 /**
- * Das berechnete Netz wird anhand einer TestdateiHandler berechnet hinsichtlich
- * der anfallenden Kosten.
+ * @author BruecknerR Das berechnete Netz wird anhand einer Testdatei berechnet
+ *         hinsichtlich der anfallenden Kosten.
  */
 public class Simulator {
-	/* {author=BruecknerR} */
 
-	/**
-	 * in diesem Attribut werden die Nutzkosten aller Routen aufsummiert. Dies tut die KLasse selber.
-	 */
-	public double nutzkosten;
-
+	// Alle angelegten Routen werden in einer Liste gespeichert
 	public ArrayList<Flugroute> routen;
 
 	/**
-	 * speichert die Information ueber die verwendete TestdateiHandler fuer die
+	 * speichert die Information ueber die verwendete Testdatei fuer die
 	 * Simulation.
 	 */
-	public String nameTestdateiHandler;
+	public String nameTestdatei;
 
 	// Leerer Konstruktor der Klasse.
 	public Simulator() {
 		super();
 	}
 
-	public String getNameTestdateiHandler() {
-		return nameTestdateiHandler;
+	public String getNameTestdatei() {
+		return nameTestdatei;
 	}
 
-	public void setNameTestdateiHandler(String nameTestdateiHandler) {
-		this.nameTestdateiHandler = nameTestdateiHandler;
-	}
-
-	public double getNutzkosten() {
-		return nutzkosten;
+	public void setNameTestdateiHandler(String nameTestdatei) {
+		this.nameTestdatei = nameTestdatei;
 	}
 
 	/**
@@ -43,6 +35,20 @@ public class Simulator {
 	 * route.ermittleBesteRoute() aus.
 	 */
 	public void simuliere() {
+		for (Flugroute route : routen) {
+			route.ermittleBesteRoute();
+		}
+	}
+
+	/**
+	 * mit dieser Methode werden die Nutzkosten aller Routen aufsummiert.
+	 */
+	public double ermittleNutzkosten() {
+		double nutzkosten = 0.0;
+		for (Flugroute route : routen) {
+			nutzkosten += route.ermittleRoutennutzkosten();
+		}
+		return nutzkosten;
 	}
 
 }
