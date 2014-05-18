@@ -2,9 +2,8 @@ package Main;
 
 import java.io.File;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-
-import Exceptions.BudgetKleinerNull;
 
 /**
  * lukas erzeugt in einigen Methoden Instanzen von JFileChooser, auf dieser
@@ -32,24 +31,29 @@ public class Benutzerinterface {
 	 */
 	public int abfrageBudget() {
 		String budgetEingabe;
-		int budgetInt=0;
+		int budgetInt = 0;
 		while (true) {
 			try {
-				
-				budgetEingabe = JOptionPane.showInputDialog("Wie hoch ist das Budget für den Netzbau?");
+
+				budgetEingabe = JOptionPane
+						.showInputDialog("Wie hoch ist das Budget für den Netzbau?");
+
 				if (budgetEingabe == null) {
 					int beenden;
-					beenden = JOptionPane.showConfirmDialog(null,"Wirklich beenden?" , "Abbruch", JOptionPane.YES_NO_OPTION );
-					if(beenden == JOptionPane.YES_OPTION) { System.exit(0);
-					} 				
+					beenden = JOptionPane.showConfirmDialog(null,
+							"Wirklich beenden?", "Abbruch",
+							JOptionPane.YES_NO_OPTION);
+					if (beenden == JOptionPane.YES_OPTION) {
+						System.exit(0);
+					}
 				}
 				budgetInt = Integer.parseInt(budgetEingabe);
-				System.out.println("hallo");
+
 				if (budgetInt > 0) {
 					System.out.println(budgetInt);
 					return budgetInt;
 				} else {
-					JOptionPane.showMessageDialog(null, "negativ");
+					JOptionPane.showMessageDialog(null, "Das Budget sollte besser positiv sein!");
 				}
 			} catch (NumberFormatException ex) {
 				JOptionPane.showMessageDialog(null,
@@ -62,15 +66,58 @@ public class Benutzerinterface {
 	 * fragt nach Testdatei, faengt alle Exceptions,
 	 */
 	public File frageNachTestdatei() {
-		return null;
+		
+
+			File testdateiFile ;
+			JFileChooser chooser = new JFileChooser();
+
+			while (true) {
+
+				int status = chooser.showOpenDialog(null);
+
+				if (status == JFileChooser.APPROVE_OPTION) {
+					testdateiFile = chooser.getSelectedFile();
+					if (testdateiFile.isFile() && testdateiFile.canRead()) {
+						return testdateiFile;
+					} else {
+						JOptionPane.showMessageDialog(null,	"Sie sollten eine Kartendatei auswählen");
+					}				
+				} else { 	
+					int beenden;
+					beenden = JOptionPane.showConfirmDialog(null,
+							"Wirklich beenden?", "Abbruch",
+							JOptionPane.YES_NO_OPTION);
+					if (beenden == JOptionPane.YES_OPTION) {
+						System.exit(0);
+					}
+					
+				}
+			}
 	}
 
-	public String zeigeNutzkosten() {
-		return null;
+	/**
+	 * Nimmt Nutzkosten von aktuellem Simulationsobjekt und gibt diese dem
+	 * Anwender aus.
+	 * 
+	 * @param aktuelleSimulation
+	 */
+	public void zeigeNutzkosten(Simulator aktuelleSimulation) {
+
+		double kosten = aktuelleSimulation.nutzkosten;
+		JOptionPane.showMessageDialog(null, "Die Nutzkosten betragen " + kosten
+				+ " Geldeinheiten.");
 	}
 
-	public String zeigeBaukosten() {
-		return null;
+	/**
+	 * Ermittelt Baukosten der aktuellen Karte und zeigt dem Anwender diese.
+	 * 
+	 * @param aktuelleKarte
+	 */
+	public void zeigeBaukosten(Karte aktuelleKarte) {
+		double baukosten = aktuelleKarte.ermittleGesamteBaukosten();
+		JOptionPane.showMessageDialog(null, "Die Baukosten betragen "
+				+ baukosten + " Geldeinheiten.");
+
 	}
 
 	public Benutzerinterface() {
@@ -89,7 +136,32 @@ public class Benutzerinterface {
 	 * selbst neu aufrufen, falls abgebrochen wird, system.exit(0);
 	 */
 	public File frageNachKartendatei() {
-		return null;
+
+		File kartenfile ;
+		JFileChooser chooser = new JFileChooser();
+
+		while (true) {
+
+			int status = chooser.showOpenDialog(null);
+
+			if (status == JFileChooser.APPROVE_OPTION) {
+				kartenfile = chooser.getSelectedFile();
+				if (kartenfile.isFile() && kartenfile.canRead()) {
+					return kartenfile;
+				} else {
+					JOptionPane.showMessageDialog(null,	"Sie sollten eine Kartendatei auswählen");
+				}				
+			} else { 	
+				int beenden;
+				beenden = JOptionPane.showConfirmDialog(null,
+						"Wirklich beenden?", "Abbruch",
+						JOptionPane.YES_NO_OPTION);
+				if (beenden == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+				
+			}
+		}
 	}
 
 }
