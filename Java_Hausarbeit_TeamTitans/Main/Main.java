@@ -2,6 +2,10 @@ package Main;
 
 import java.io.File;
 
+import korridore.Korridor;
+import orte.Ort;
+import dateihandler.KartendateiHandler;
+
 /**
  * @author BruecknerR, FechnerL, HandritschkP, TolleN erzeugt Karteninstanz,
  *         laesst sie samt der eingelesenen Kartendatei im KartenDateiHandler
@@ -11,37 +15,23 @@ import java.io.File;
 public class Main {
 	public static void main(String[] args) {
 		// TODO Einzelne Abschnitte gegen Fehler absichern
-
 		Benutzerinterface gui = new Benutzerinterface();
-		// Begruessung des Benutzers durch einen freundlichen Dialog
-		gui.begruessung();
-		// Instanziierung des Kartenobjektes fuer diesen Programmablauf
-		Karte map = new Karte();
-		// Abfrage einer zu nutzenden Datei mit Kartendaten
-		File kartenDatei = gui.frageNachKartendatei();
-		// Instanziierung des KartendateiHandlers, der die Karte fuellt
-		dateihandler.KartendateiHandler maphandler = new dateihandler.KartendateiHandler(
-				map, kartenDatei);
-		// TODO muss leseDatei hier ausgefuehrt werden?
-
-		/**
-		 * in diesem Abschnitt muss auf der Karte alles durchgefuehrt werden,
-		 * Netzerstellung etc.
-		 */
-
-		// NACH ERSTELLUNG DES NETZES... SIMULIEREN
-
-		// Abfrage einer zu nutzenden Datei mit Flugdaten=Testdaten
-		File testDatei = gui.frageNachTestdatei();
-		Simulator sim = new Simulator();
-		dateihandler.TestdateiHandler testhandler = new dateihandler.TestdateiHandler(
-				testDatei, sim);
-		//schreibe die Flugrouten aus Datei in den Simulator
-		testhandler.erzeugeFlugrouten();
-		sim.simuliere();
-		
-		
-		gui.zeigeNutzkosten(sim);
-
+		File datei = gui.frageNachKartendatei();
+		Karte de = new Karte();
+		KartendateiHandler verarbeiter = new KartendateiHandler(de, datei);
+		verarbeiter.verarbeiteKartendatei();
+		System.out.println(de.orte);
+		for (Ort b : de.orte){
+			System.out.println(b.name);
+			System.out.println(b.kennung);
+		}
+		de.erzeugeNetz();
+		for (Korridor d : de.eingerichteteKorridore){
+			System.out.println(d.getOrtA());
+			System.out.println(d.getOrtB());
+		}
+		Flugroute ab = new Flugroute(de.orte.get(6),de.orte.get(2),243);
+		ab.ermittleBesteRoute();
+		System.out.println(ab.erzeugeTextausgabeReiseroute());
 	}
 }

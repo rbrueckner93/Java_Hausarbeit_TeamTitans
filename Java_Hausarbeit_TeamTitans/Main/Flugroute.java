@@ -6,11 +6,11 @@ import korridore.Korridor;
 import orte.Ort;
 
 /**
- * @author BruecknerR
- * ... wird erst bei Nutzung=Testdateieinlesen erstellt mit Start, Ziel, Faktor. Sucht sich nach
- * Aufforderung durch ermittleBesteRoute (nicht schon bei Initialisierung) ihren
- * eigenen optimalen Weg, und schreibt diesen in der reiseListe fest und stellt
- * die Nutzkosten in ermittleRoutennutzkosten fest.
+ * @author BruecknerR ... wird erst bei Nutzung=Testdateieinlesen erstellt mit
+ *         Start, Ziel, Faktor. Sucht sich nach Aufforderung durch
+ *         ermittleBesteRoute (nicht schon bei Initialisierung) ihren eigenen
+ *         optimalen Weg, und schreibt diesen in der reiseListe fest und stellt
+ *         die Nutzkosten in ermittleRoutennutzkosten fest.
  */
 public class Flugroute {
 	public Ort ziel;
@@ -84,15 +84,24 @@ public class Flugroute {
 					 * ziel ist, dann schreibe in flugroutenInArbeit.add()
 					 */
 					Ort neuesZiel = bestimmeAnderenOrt(verbindung, weg.ziel);
-					boolean bereitsDagewesen = (kommtOrtInOrtslisteVor(
-							neuesZiel, weg.erzeugeOrtsListe()));
-					if ((bereitsDagewesen == false) && (neuesZiel != ziel)) {
-						flugroutenInArbeit.add(new Flugroute(neuesZiel,
-								herkunft, faktor));
+					boolean bereitsDagewesen;
+					try {
+						bereitsDagewesen = (kommtOrtInOrtslisteVor(neuesZiel,
+								weg.erzeugeOrtsListe()));
+					} catch (NullPointerException e) {
+						bereitsDagewesen = false;
+						System.out
+								.println("Es existiert noch nichts in der Liste...");
 					}
-					if ((bereitsDagewesen == false) && (neuesZiel == ziel)) {
-						moeglicheFlugrouten.add(new Flugroute(ziel, herkunft,
-								faktor));
+					if (!bereitsDagewesen) {
+						if (neuesZiel != ziel) {
+							flugroutenInArbeit.add(new Flugroute(neuesZiel,
+									herkunft, faktor));
+						}
+						if (neuesZiel == ziel) {
+							moeglicheFlugrouten.add(new Flugroute(ziel,
+									herkunft, faktor));
+						}
 					}
 					/**
 					 * wenn ermittleAnderenOrt(verbindung, weg.ziel nicht in
