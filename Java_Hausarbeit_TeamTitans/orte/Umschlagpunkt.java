@@ -19,6 +19,7 @@ public class Umschlagpunkt extends Ort {
 		super(koordX, koordY, name);
 		this.umschlagVolumen = umschlagVolumen;
 		berechneRelevanzGrad();
+		setKennung();
 	}
 
 	/**

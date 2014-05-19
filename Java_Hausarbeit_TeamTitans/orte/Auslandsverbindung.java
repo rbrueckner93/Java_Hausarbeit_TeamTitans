@@ -21,6 +21,7 @@ public class Auslandsverbindung extends Ort {
 		this.passagierAufkommen = passagierAufkommen;
 		this.umschlagVolumen = umschlagVolumen;
 		berechneRelevanzGrad();
+		setKennung();
 	}
 
 	public double getRelevanzGrad() {
