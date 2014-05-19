@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import orte.Auslandsverbindung;
 import orte.Hauptort;
 import orte.Nebenort;
+import orte.Ort;
 import orte.Umschlagpunkt;
 import Main.Karte;
 
@@ -72,7 +73,7 @@ public class KartendateiHandler extends Datei {
 
 	public void verarbeiteKartendatei() {
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
-		while (!dateiEndemarkererreicht(aktuelleZeile, geleseneDaten)) {
+		while (!dateiEndemarkerErreicht(aktuelleZeile, geleseneDaten)) {
 			aktuelleZeile = findeDatensatzBeginnMarker(aktuelleZeile,
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
 			int endeDatensatz = findeDatensatzEndeMarker(aktuelleZeile,
@@ -89,7 +90,7 @@ public class KartendateiHandler extends Datei {
 	 * @param text
 	 * @return
 	 */
-	public boolean dateiEndemarkererreicht(int beginn,
+	public boolean dateiEndemarkerErreicht(int beginn,
 			ArrayList<String> text) {
 		while (true) {
 			//beginn+1 , da ich eine Zeile vorraus schaue.
@@ -182,11 +183,11 @@ public class KartendateiHandler extends Datei {
 	 * @return
 	 */
 	public String getMerkmal(String wertBezeichner, String zeile) {
-		int anfang = zeile.indexOf(Datei.MERKMAL_BEGINN+wertBezeichner, 0);
-		int ende = zeile.indexOf("]", anfang);
+		int anfang = zeile.indexOf(MERKMAL_BEGINN+wertBezeichner, 0);
+		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
 		String inhaltMerkmal = zeile.substring(anfang, ende);
-		String[] merkmalsplit = inhaltMerkmal.split("\\|");
-		if (merkmalsplit[0].equals(Datei.MERKMAL_BEGINN+wertBezeichner)) {
+		String[] merkmalsplit = inhaltMerkmal.split(BEZEICHNER_WERT_TRENNER);
+		if (merkmalsplit[0].equals(MERKMAL_BEGINN+wertBezeichner)) {
 			return merkmalsplit[1];
 		} else {
 			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
@@ -217,22 +218,22 @@ public class KartendateiHandler extends Datei {
 		String kennung = getMerkmal(BEZEICHNER_KENNUNG, datensatz);
 
 		switch (kennung) {
-		case "HPT":
+		case Ort.KENNUNG_HAUPTORT:
 			int einwohnerZahl = Integer.parseInt(getMerkmal(
 					BEZEICHNER_EINWOHNERZAHL, datensatz));
 			erzeugeHauptort(xkoord, ykoord, name,einwohnerZahl);
 			break;
-		case "NBN":
+		case Ort.KENNUNG_NEBENORT:
 			int einwohnerZahlnbn = Integer.parseInt(getMerkmal(
 					BEZEICHNER_EINWOHNERZAHL, datensatz));
 			erzeugeNebenort(xkoord, ykoord, name, einwohnerZahlnbn);
 			break;
-		case "UMS":
+		case Ort.KENNUNG_UMSCHLAGPUNKT:
 			double umschlagVolumen = Double.parseDouble(getMerkmal(
 					BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
 			erzeugeUmschlagpunkt(xkoord, ykoord, name, umschlagVolumen);
 			break;
-		case "ASL":
+		case Ort.KENNUNG_AUSLANDSVERBINDUNG:
 			double umschlagVolumenASL = Double.parseDouble(getMerkmal(
 					BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
 			int passagierAufkommen = Integer.parseInt(getMerkmal(

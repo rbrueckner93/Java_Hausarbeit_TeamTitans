@@ -6,6 +6,11 @@ import korridore.Korridor;
 
 public class Ort {
 	/* {author=TolleN, HandritschkP} */
+	
+	public static final String KENNUNG_HAUPTORT = "HPT";
+	public static final String KENNUNG_NEBENORT = "NBN";
+	public static final String KENNUNG_UMSCHLAGPUNKT = "UMS";
+	public static final String KENNUNG_AUSLANDSVERBINDUNG = "ASL";
 
 	public int koordX;
 
