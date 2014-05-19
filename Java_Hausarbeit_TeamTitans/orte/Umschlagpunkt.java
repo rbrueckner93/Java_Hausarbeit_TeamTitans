@@ -7,8 +7,6 @@ public class Umschlagpunkt extends Ort {
 
 	public static final String BESCHREIBUNG = "Umschlagpunkt";
 	
-	public static final String KENNUNG = "UMS";
-
 	/**
 	 * umschlagVolumen wird aus Datei übergeben relevanzGrad wird aus
 	 * umschlagVolumen durch berechneRelevanzGrad() berechnet beschreibung ist
@@ -32,7 +30,7 @@ public class Umschlagpunkt extends Ort {
 	 * Setzt die Kennung Klassenspezifisch.
 	 */
 	public void setKennung() {
-		kennung = KENNUNG;
+		kennung = KENNUNG_UMSCHLAGPUNKT;
 	}
 
 }

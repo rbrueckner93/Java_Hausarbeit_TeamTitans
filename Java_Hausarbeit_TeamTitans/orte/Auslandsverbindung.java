@@ -13,8 +13,6 @@ public class Auslandsverbindung extends Ort {
 
 	public static final String BESCHREIBUNG = "Auslandsverbindung";
 	
-	public static final String KENNUNG = "ASL";
-	
 	public Auslandsverbindung(int koordX, int koordY, String name,
 			 int passagierAufkommen, double umschlagVolumen) {
 		super(koordX, koordY, name);
@@ -38,6 +36,6 @@ public class Auslandsverbindung extends Ort {
 	 * Setzt die Kennung Klassenspezifisch.
 	 */
 	public void setKennung() {
-		kennung = KENNUNG;
+		kennung = KENNUNG_AUSLANDSVERBINDUNG;
 	}
 }
