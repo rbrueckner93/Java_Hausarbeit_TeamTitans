@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import main.Karte;
 import orte.Auslandsverbindung;
 import orte.Hauptort;
 import orte.Nebenort;
 import orte.Ort;
 import orte.Umschlagpunkt;
-import Main.Karte;
 
 /**
  * 

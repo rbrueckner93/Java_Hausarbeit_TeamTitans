@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 /*Diese Exceptions soll bei Orten geworfen werden, 
 wenn ein unerlaubter Ort bei einem Korridor genutzt wird.

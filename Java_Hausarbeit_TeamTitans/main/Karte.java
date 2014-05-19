@@ -1,8 +1,8 @@
-package Main;
+package main;
 
 import java.util.ArrayList;
 
-import Exceptions.UngueltigerOrt;
+import exceptions.UngueltigerOrt;
 import korridore.Korridor;
 import orte.Auslandsverbindung;
 import orte.Hauptort;

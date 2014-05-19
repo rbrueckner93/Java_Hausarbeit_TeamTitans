@@ -1,7 +1,8 @@
 package dateihandler;
 
 import java.util.ArrayList;
-import Main.Simulator;
+
+import main.Simulator;
 
 /**
  * @author TolleN

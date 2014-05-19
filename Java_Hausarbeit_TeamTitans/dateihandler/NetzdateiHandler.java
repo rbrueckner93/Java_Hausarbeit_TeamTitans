@@ -2,7 +2,7 @@ package dateihandler;
 
 import java.util.ArrayList;
 
-import Main.Karte;
+import main.Karte;
 
 /**
  * 
