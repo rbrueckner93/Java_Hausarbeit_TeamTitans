@@ -18,6 +18,7 @@ public class Hauptort extends Ort {
 		super(koordX, koordY, name);
 		this.anzahlEinwohner = anzahlEinwohner;
 		berechneRelevanzGrad();
+		setKennung();
 	}
 
 	/**
