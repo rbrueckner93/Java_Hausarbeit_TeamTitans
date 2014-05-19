@@ -73,37 +73,47 @@ public class KartendateiHandler extends Datei {
 
 	public void verarbeiteKartendatei() {
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
-		while (!dateiEndemarkerErreicht(aktuelleZeile, geleseneDaten)) {
-			aktuelleZeile = findeDatensatzBeginnMarker(aktuelleZeile,
+		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
+			int datensatzbeginn = findeDatensatzBeginnMarker(aktuelleZeile,
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
-			int endeDatensatz = findeDatensatzEndeMarker(aktuelleZeile,
+			int endeDatensatz = findeDatensatzEndeMarker(datensatzbeginn,
 					geleseneDaten, DATENSATZ_ENDE_MARKER);
 			werteDatensatzAus(aktuelleZeile, endeDatensatz, geleseneDaten);
-			System.out.println(endeDatensatz+" ende datensatz");
 			aktuelleZeile = endeDatensatz;
-			System.out.println(aktuelleZeile+"  aktuelleZeile");
+			if (datensatzbeginn == endeDatensatz) {
+				aktuelleZeile += 1;
+			}
 		}
 	}
 	/**
-	 * 
+	 * Sucht nach vorhandenem Datensatzbeginn. Kriterium um weiter auszuwerten.
 	 * @param beginn
 	 * @param text
 	 * @return
 	 */
-	public boolean dateiEndemarkerErreicht(int beginn,
+	public boolean DatensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
-		while (true) {
-			//beginn+1 , da ich eine Zeile vorraus schaue.
-			if (text.get(beginn+1).equals("") || text.get(beginn+1).equals("\n")) {
-				beginn++;
-				continue;
-			}
-			if (text.get(beginn+1).substring(0, DATEI_ENDE_MARKER.length()).equals(DATEI_ENDE_MARKER)){
-				return true;
+		while (beginn < text.size()) {
+			int ueberpruefteZeile = beginn + 1;
+			if (ueberpruefteZeile < text.size()) {
+				try {
+					String test = text.get(ueberpruefteZeile).substring(
+							text.get(ueberpruefteZeile).indexOf(DATENSATZ_BEGINN_MARKER),
+							text.get(ueberpruefteZeile).indexOf(DATENSATZ_BEGINN_MARKER)
+									+ DATENSATZ_BEGINN_MARKER.length());
+					if (test.equals(DATENSATZ_BEGINN_MARKER)) {
+						return true;
+					} else {
+						beginn++;
+					}
+				} catch (StringIndexOutOfBoundsException e) {
+					beginn++;
+				}
 			} else {
 				return false;
 			}
 		}
+		return false;
 	}
 	/**
 	 * Findet Datensatz beginn
