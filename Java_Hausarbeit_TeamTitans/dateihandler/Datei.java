@@ -18,9 +18,9 @@ import Main.Benutzerinterface;
  */
 public class Datei {
 	public static final String KOMMENTARMARKER = "##";
-	public static final char MERKMAL_BEGINN = '[';
-	public static final char MERKMAL_ENDE = ']';
-	public static final char BEZEICHNER_WERT_TRENNER = '|';
+	public static final String MERKMAL_BEGINN = "[";
+	public static final String MERKMAL_ENDE = "]";
+	public static final String BEZEICHNER_WERT_TRENNER = "|";
 
 	/**
 	 * Methode die eine gegebene Datei Zeilenweise ausliest und ein Array von
