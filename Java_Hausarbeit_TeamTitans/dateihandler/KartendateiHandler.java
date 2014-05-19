@@ -220,24 +220,24 @@ public class KartendateiHandler extends Datei {
 		case "HPT":
 			int einwohnerZahl = Integer.parseInt(getMerkmal(
 					BEZEICHNER_EINWOHNERZAHL, datensatz));
-			erzeugeHauptort(xkoord, ykoord, name, kennung, einwohnerZahl);
+			erzeugeHauptort(xkoord, ykoord, name,einwohnerZahl);
 			break;
 		case "NBN":
 			int einwohnerZahlnbn = Integer.parseInt(getMerkmal(
 					BEZEICHNER_EINWOHNERZAHL, datensatz));
-			erzeugeNebenort(xkoord, ykoord, name, kennung, einwohnerZahlnbn);
+			erzeugeNebenort(xkoord, ykoord, name, einwohnerZahlnbn);
 			break;
 		case "UMS":
 			double umschlagVolumen = Double.parseDouble(getMerkmal(
 					BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
-			erzeugeUmschlagpunkt(xkoord, ykoord, name, kennung, umschlagVolumen);
+			erzeugeUmschlagpunkt(xkoord, ykoord, name, umschlagVolumen);
 			break;
 		case "ASL":
 			double umschlagVolumenASL = Double.parseDouble(getMerkmal(
 					BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
 			int passagierAufkommen = Integer.parseInt(getMerkmal(
 					BEZEICHNER_PASSAGIERAUFKOMMEN, datensatz));
-			erzeugeAuslandsverbindung(xkoord, ykoord, name, kennung,
+			erzeugeAuslandsverbindung(xkoord, ykoord, name,
 					umschlagVolumenASL, passagierAufkommen);
 		}
 	}
@@ -245,27 +245,27 @@ public class KartendateiHandler extends Datei {
 	// Hier stehen die 4 Methoden zur Erzeugung der 4 verschiedenen Orte.
 	// @author Nils
 	public void erzeugeHauptort(int koordX, int koordY, String name,
-			String kennung, int anzahlEinwohner) {
-		kartenInstanz.orte.add(new Hauptort(koordX, koordY, name, kennung,
+			 int anzahlEinwohner) {
+		kartenInstanz.orte.add(new Hauptort(koordX, koordY, name,
 				anzahlEinwohner));
 	}
 
 	public void erzeugeNebenort(int koordX, int koordY, String name,
-			String kennung, int anzahlEinwohner) {
-		kartenInstanz.orte.add(new Nebenort(koordX, koordY, name, kennung,
+			 int anzahlEinwohner) {
+		kartenInstanz.orte.add(new Nebenort(koordX, koordY, name,
 				anzahlEinwohner));
 	}
 
 	public void erzeugeUmschlagpunkt(int koordX, int koordY, String name,
-			String kennung, double umschlagVolumen) {
-		kartenInstanz.orte.add(new Umschlagpunkt(koordX, koordY, name, kennung,
+			double umschlagVolumen) {
+		kartenInstanz.orte.add(new Umschlagpunkt(koordX, koordY, name,
 				umschlagVolumen));
 	}
 
 	public void erzeugeAuslandsverbindung(int koordX, int koordY, String name,
-			String kennung, double umschlagVolumen, int passagierAufkommen) {
+			double umschlagVolumen, int passagierAufkommen) {
 		kartenInstanz.orte.add(new Auslandsverbindung(koordX, koordY, name,
-				kennung, passagierAufkommen, umschlagVolumen));
+				 passagierAufkommen, umschlagVolumen));
 	}
 	
 }

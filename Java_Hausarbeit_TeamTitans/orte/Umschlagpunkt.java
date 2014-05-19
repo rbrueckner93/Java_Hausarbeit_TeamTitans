@@ -6,15 +6,17 @@ public class Umschlagpunkt extends Ort {
 	public double umschlagVolumen;
 
 	public static final String BESCHREIBUNG = "Umschlagpunkt";
+	
+	public static final String KENNUNG = "UMS";
 
 	/**
 	 * umschlagVolumen wird aus Datei übergeben relevanzGrad wird aus
 	 * umschlagVolumen durch berechneRelevanzGrad() berechnet beschreibung ist
 	 * "Umschlagpunkt"
 	 */
-	public Umschlagpunkt(int koordX, int koordY, String name, String kennung,
+	public Umschlagpunkt(int koordX, int koordY, String name,
 			double umschlagVolumen) {
-		super(koordX, koordY, name, kennung);
+		super(koordX, koordY, name);
 		this.umschlagVolumen = umschlagVolumen;
 		berechneRelevanzGrad();
 	}
@@ -25,6 +27,11 @@ public class Umschlagpunkt extends Ort {
 	public void berechneRelevanzGrad() {
 		setRelevanzGrad((umschlagVolumen / 200000));
 	}
-
+	/**
+	 * Setzt die Kennung Klassenspezifisch.
+	 */
+	public void setKennung() {
+		kennung = KENNUNG;
+	}
 
 }

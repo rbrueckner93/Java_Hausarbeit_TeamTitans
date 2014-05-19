@@ -55,6 +55,8 @@ public class Korridor {
 		ermittleLaenge();
 		ueberpruefeOrtart(ortA);
 		ueberpruefeOrtart(ortB);
+		ortA.angebundeneKorridore.add(this);
+		ortB.angebundeneKorridore.add(this);
 	}
 
 	public double getLaenge() {

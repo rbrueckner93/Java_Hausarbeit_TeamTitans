@@ -6,12 +6,15 @@ public class Nebenort extends Ort {
 	public int anzahlEinwohner;
 
 	public static final String BESCHREIBUNG = "Nebenort";
+	
+	public static final String KENNUNG = "NBN";
 
-	public Nebenort(int koordX, int koordY, String name, String kennung,
+	public Nebenort(int koordX, int koordY, String name,
 			int anzahlEinwohner) {
-		super(koordX, koordY, name, kennung);
+		super(koordX, koordY, name);
 		this.anzahlEinwohner = anzahlEinwohner;
 		berechneRelevanzGrad();
+		setKennung();
 	}
 
 	/**
@@ -23,6 +26,12 @@ public class Nebenort extends Ort {
 		} else {
 			setRelevanzGrad((anzahlEinwohner / 25000));
 		}
+	}
+	/**
+	 * Setzt die Kennung Klassenspezifisch.
+	 */
+	public void setKennung(){
+		kennung = KENNUNG;
 	}
 
 }
