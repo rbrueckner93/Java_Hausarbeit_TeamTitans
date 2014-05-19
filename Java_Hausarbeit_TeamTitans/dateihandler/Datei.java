@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import Main.Benutzerinterface;
+import main.Benutzerinterface;
 
 /**
  * @author TolleN

@@ -3,7 +3,7 @@ package dateihandler;
 import java.io.File;
 import java.util.ArrayList;
 
-import Main.Simulator;
+import main.Simulator;
 
 /**
  * @author TolleN

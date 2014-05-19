@@ -1,6 +1,6 @@
 package korridore;
 
-import Exceptions.UngueltigerOrt;
+import exceptions.UngueltigerOrt;
 import orte.Auslandsverbindung;
 import orte.Hauptort;
 import orte.Nebenort;
