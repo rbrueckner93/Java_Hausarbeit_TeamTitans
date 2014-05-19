@@ -54,23 +54,20 @@ public class Karte {
 		eingerichteteKorridore = new ArrayList<Korridor>();
 
 		// nur zum Testen
-		Hauptort test1 = new Hauptort(10, 10, "Presdorf", "HPT", 23000);
-		Nebenort test2 = new Nebenort(170, 65, "dahme", "NBN", 56000);
+		Hauptort test1 = new Hauptort(10, 10, "Presdorf", 23000);
+		Nebenort test2 = new Nebenort(170, 65, "dahme", 56000);
 		Auslandsverbindung test3 = new Auslandsverbindung(23, 34, "Luckau",
-				"ASL", 3544, 455);
-		Umschlagpunkt test4 = new Umschlagpunkt(67, 123, "Hambur", "UMS", 75653);
-		Hauptort test5 = new Hauptort(60, 80, "Bremen", "HPT", 2340);
-		Nebenort test6 = new Nebenort(90, 95, "muenchen", "NBN", 5700);
+				3544, 455);
+		Umschlagpunkt test4 = new Umschlagpunkt(67, 123, "Hambur", 75653);
+		Hauptort test5 = new Hauptort(60, 80, "Bremen", 2340);
+		Nebenort test6 = new Nebenort(90, 95, "muenchen", 5700);
 		orte.add(test1);
 		orte.add(test2);
 		orte.add(test3);
 		orte.add(test4);
 		orte.add(test5);
 		orte.add(test6);
-
 	}
-
-	// Ab hier Getters und Setters
 
 	public static double getBudget() {
 		return budget;
@@ -97,8 +94,6 @@ public class Karte {
 		return eingerichteteKorridore;
 	}
 
-	// ab hier andere Methoden
-
 	/**
 	 * Ermittelt Ortsdistanz fuer andere Methoden. Rundet die Distanz.
 	 * 
@@ -106,6 +101,7 @@ public class Karte {
 	 * @param ortzwei
 	 * @return
 	 */
+
 	public double ermittleOrtsdistanz(Ort orteins, Ort ortzwei) {
 		double laengeQuadrat = Math.pow(orteins.koordX - ortzwei.koordX, 2)
 				+ Math.pow(orteins.koordY - ortzwei.koordY, 2);
@@ -122,10 +118,10 @@ public class Karte {
 	 * Karte muss auf ortA und ortB ort.angebundeneKorridore.add(Korridor)
 	 * hinzufügen.
 	 */
+
 	public void erzeugeNetz() {
 		erzeugeKorridor();
 		System.out.println(eingerichteteKorridore.get(0).getBaukosten());
-
 	}
 
 	/**
@@ -135,6 +131,7 @@ public class Karte {
 	 * 
 	 * @return
 	 */
+
 	public Ort sucheOrtMitHoechstenRelevanzGrad() {
 
 		Ort hoechster = orte.get(0);
@@ -142,14 +139,13 @@ public class Karte {
 
 			if (hoechster.getRelevanzGrad() < orte.get(i).getRelevanzGrad()) {
 				hoechster = orte.get(i);
-
 			}
 		}
 		for (int i = 0; i < orte.size(); i++) {
 			if (hoechster.getRelevanzGrad() == orte.get(i).getRelevanzGrad()
 					&& hoechster != orte.get(i)) {
 
-				Ort NullOrt = new Ort(100, 50, "NullOrt", "0");
+				Ort NullOrt = new Ort(100, 50, "NullOrt");
 
 				double entfernung1 = ermittleOrtsdistanz(NullOrt, hoechster);
 				double entfernung2 = ermittleOrtsdistanz(NullOrt, orte.get(i));
@@ -168,34 +164,15 @@ public class Karte {
 	 * 
 	 * @throws UngueltigerOrt
 	 */
-	// public void erzeugeKorridor() throws UngueltigerOrt {
-	//
-	// for (int i = 0; i < orte.size(); i++) {
-	//
-	// if (sucheOrtMitHoechstenRelevanzGrad() != orte.get(i)) {
-	//
-	// eingerichteteKorridore
-	// .add(new Korridor(sucheOrtMitHoechstenRelevanzGrad(),
-	// orte.get(i), "SICH"));
-	// }
-	//
-	// sucheOrtMitHoechstenRelevanzGrad().angebundeneKorridore
-	// .add(eingerichteteKorridore.get(i));
-	// orte.get(i).angebundeneKorridore.add(eingerichteteKorridore.get(i));
-	// }
-	// }
 
 	public void erzeugeKorridor() {
 		ArrayList<Korridor> test = new ArrayList<Korridor>();
 		for (int i = 0; i < orte.size(); i++) {
 
-			//test.clear();
-			
-			for(int k = 0; k < test.size(); k++){
-				test.remove(test.size() - 1 - k );
+			for (int k = 0; k < test.size(); k++) {
+				test.remove(test.size() - 1 - k);
 			}
-			
-			//System.out.println(orte);
+
 			if (sucheOrtMitHoechstenRelevanzGrad() != orte.get(i)) {
 
 				try {
@@ -219,8 +196,6 @@ public class Karte {
 				} catch (UngueltigerOrt e) {
 				}
 			}
-			
-			//System.out.println(test + " vor Fehler");
 			Korridor beste = test.get(0);
 
 			for (int j = 1; j < test.size(); j++) {
@@ -229,12 +204,7 @@ public class Karte {
 					beste = test.get(j);
 				}
 			}
-
 			eingerichteteKorridore.add(beste);
-			sucheOrtMitHoechstenRelevanzGrad().angebundeneKorridore
-					.add(eingerichteteKorridore.get(i));
-			orte.get(i).angebundeneKorridore.add(eingerichteteKorridore.get(i));
-			System.out.println(eingerichteteKorridore +" sind die eingerichteten Korridore");
 		}
 	}
 
@@ -260,7 +230,6 @@ public class Karte {
 			}
 		}
 		return anzahlHLST;
-
 	}
 
 	public int ermittleAnzahlSICHKorridore() {
@@ -272,7 +241,6 @@ public class Karte {
 			}
 		}
 		return anzahlSICH;
-
 	}
 
 	public int ermittleAnzahlENFCKorridore() {
@@ -284,7 +252,6 @@ public class Karte {
 			}
 		}
 		return anzahlENFC;
-
 	}
 
 	public int ermittleAnzahlSTNDKorridore() {
@@ -296,7 +263,5 @@ public class Karte {
 			}
 		}
 		return anzahlSTND;
-
 	}
-
 }
