@@ -45,6 +45,9 @@ public class Benutzerinterface {
 							JOptionPane.YES_NO_OPTION);
 					if (beenden == JOptionPane.YES_OPTION) {
 						System.exit(0);
+						
+					}else if(beenden == JOptionPane.NO_OPTION) {
+						continue;
 					}
 				}
 				budgetInt = Integer.parseInt(budgetEingabe);
@@ -53,7 +56,8 @@ public class Benutzerinterface {
 					System.out.println(budgetInt);
 					return budgetInt;
 				} else {
-					JOptionPane.showMessageDialog(null, "Das Budget sollte besser positiv sein!");
+					JOptionPane.showMessageDialog(null,
+							"Das Budget sollte besser positiv sein!");
 				}
 			} catch (NumberFormatException ex) {
 				JOptionPane.showMessageDialog(null,
@@ -66,33 +70,33 @@ public class Benutzerinterface {
 	 * fragt nach Testdatei, faengt alle Exceptions,
 	 */
 	public File frageNachTestdatei() {
-		
+		JOptionPane.showMessageDialog(null, "Bitte waehlen Sie nun eine Testdatei aus.");
+		File testdateiFile;
+		JFileChooser chooser = new JFileChooser();
 
-			File testdateiFile ;
-			JFileChooser chooser = new JFileChooser();
+		while (true) {
 
-			while (true) {
+			int status = chooser.showOpenDialog(null);
 
-				int status = chooser.showOpenDialog(null);
-
-				if (status == JFileChooser.APPROVE_OPTION) {
-					testdateiFile = chooser.getSelectedFile();
-					if (testdateiFile.isFile() && testdateiFile.canRead()) {
-						return testdateiFile;
-					} else {
-						JOptionPane.showMessageDialog(null,	"Sie sollten eine Kartendatei auswählen");
-					}				
-				} else { 	
-					int beenden;
-					beenden = JOptionPane.showConfirmDialog(null,
-							"Wirklich beenden?", "Abbruch",
-							JOptionPane.YES_NO_OPTION);
-					if (beenden == JOptionPane.YES_OPTION) {
-						System.exit(0);
-					}
-					
+			if (status == JFileChooser.APPROVE_OPTION) {
+				testdateiFile = chooser.getSelectedFile();
+				if (testdateiFile.isFile() && testdateiFile.canRead()) {
+					return testdateiFile;
+				} else {
+					JOptionPane.showMessageDialog(null,
+							"Sie sollten eine Kartendatei auswählen");
 				}
+			} else {
+				int beenden;
+				beenden = JOptionPane.showConfirmDialog(null,
+						"Wirklich beenden?", "Abbruch",
+						JOptionPane.YES_NO_OPTION);
+				if (beenden == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+
 			}
+		}
 	}
 
 	/**
@@ -124,11 +128,20 @@ public class Benutzerinterface {
 	}
 
 	/**
-	 * 1) Abspeichern und schliessen 2) Simulation speichern und Karte mit
-	 * anderen Testparametern simulieren 3) Programmabbruch
+	 * Übergibt 0 für Abspeichern und schließen, 1 für Simulation speichern und
+	 * Karte mit anderen Testparametern simulieren und 2 für Programmabbruch
 	 */
-	public boolean frageNachEndoption() {
-		return false;
+	public int frageNachEndoption() {
+		int entscheidung;
+
+		String[] buttons = new String[] { "Abspeichern und schließen",
+				"Speichern und neue Simulation", "Programm schließen" };
+		entscheidung = JOptionPane.showOptionDialog(null,
+				"Wie soll es weitergehen?", "Und nun?",
+				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+				buttons, buttons[0]);
+
+		return entscheidung;
 	}
 
 	/**
@@ -137,7 +150,8 @@ public class Benutzerinterface {
 	 */
 	public File frageNachKartendatei() {
 
-		File kartenfile ;
+		JOptionPane.showMessageDialog(null, "Bitte waehlen Sie eine Kartendatei aus.");
+		File kartenfile;
 		JFileChooser chooser = new JFileChooser();
 
 		while (true) {
@@ -149,9 +163,10 @@ public class Benutzerinterface {
 				if (kartenfile.isFile() && kartenfile.canRead()) {
 					return kartenfile;
 				} else {
-					JOptionPane.showMessageDialog(null,	"Sie sollten eine Kartendatei auswählen");
-				}				
-			} else { 	
+					JOptionPane.showMessageDialog(null,
+							"Sie sollten eine Kartendatei auswählen");
+				}
+			} else {
 				int beenden;
 				beenden = JOptionPane.showConfirmDialog(null,
 						"Wirklich beenden?", "Abbruch",
@@ -159,7 +174,7 @@ public class Benutzerinterface {
 				if (beenden == JOptionPane.YES_OPTION) {
 					System.exit(0);
 				}
-				
+
 			}
 		}
 	}
