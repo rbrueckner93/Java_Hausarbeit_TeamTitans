@@ -6,15 +6,16 @@ public class Hauptort extends Ort {
 	public int anzahlEinwohner;
 
 	public static final String BESCHREIBUNG = "Hauptort";
+	
+	public static final String KENNUNG = "HPT";
 
 	/**
 	 * anzahlEinwohner wird aus Datei übergeben relevanzGrad wird mit
 	 * berechneRelevanzGrad berechnet BESCHREIBUNG ist Hauptort
 	 */
 
-	public Hauptort(int koordX, int koordY, String name, String kennung,
-			int anzahlEinwohner) {
-		super(koordX, koordY, name, kennung);
+	public Hauptort(int koordX, int koordY, String name, int anzahlEinwohner) {
+		super(koordX, koordY, name);
 		this.anzahlEinwohner = anzahlEinwohner;
 		berechneRelevanzGrad();
 	}
@@ -24,6 +25,13 @@ public class Hauptort extends Ort {
 	 */
 	public void berechneRelevanzGrad() {
 		setRelevanzGrad((anzahlEinwohner / 15000));
+	}
+
+	/**
+	 * Setzt die Kennung Klassenspezifisch.
+	 */
+	public void setKennung() {
+		kennung = KENNUNG;
 	}
 
 }

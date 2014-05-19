@@ -17,12 +17,11 @@ public class Ort {
 	
 	public double relevanzGrad;
 
-	public Ort(int koordX, int koordY, String name, String kennung) {
+	public Ort(int koordX, int koordY, String name) {
 		super();
 		this.koordX = koordX;
 		this.koordY = koordY;
 		this.name = name;
-		this.kennung = kennung;
 		angebundeneKorridore = new ArrayList<Korridor>();
 	}
 
