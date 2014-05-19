@@ -5,11 +5,17 @@ Team Titans.
 Progress: 30%
 ==========================
 ToDo:
+
 -Flugrouten vervollständigen
+
 -Einlesen von Testdateien ermöglichen
+
 -Ausgabe Netzdatei+Simulationsdatei
+
 -GUI vervollständigen
+
 -Weitere Optimierung des Netzes
+
 -Allgemeinen Programmablauf in Main erstellen.
   
 ABGABE : 11.6.2014
