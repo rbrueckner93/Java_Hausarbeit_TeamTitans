@@ -2,12 +2,21 @@ Java_Hausarbeit_TeamTitans
 ==========================
 Rep für unsere Hausarbeit.
 Team Titans.
-Progress: 0%
+Progress: 30%
 ==========================
+ToDo:
+  -Flugrouten vervollständigen
+  -Einlesen von Testdateien ermöglichen
+  -Ausgabe Netzdatei+Simulationsdatei
+  -GUI vervollständigen
+  -Weitere Optimierung des Netzes
+  -Allgemeinen Programmablauf in Main erstellen.
+  
 ABGABE : 11.6.2014
+
 ==========================
 
-Um das Klassendesign in ArgoUML zu bearbeiten, sollte das Paket Java aktiviert werden:
-Datei>Projekteinstellungen>Profile>Verfügbare Profile	Java >> aktivieren.
+Docu aktuelle halten. Variablen benennen.
 
-Bitte bei Attributen und Methoden die entsprechenden Typen und Klassen vorzugsweise aus Java nutzen.
+-Mittwoch den Fortschritt in SDW vorstellen. 
+-Davor treffen nochmal Probleme erörtern.
