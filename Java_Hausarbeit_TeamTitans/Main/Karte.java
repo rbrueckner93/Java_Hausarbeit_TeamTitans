@@ -189,8 +189,13 @@ public class Karte {
 		ArrayList<Korridor> test = new ArrayList<Korridor>();
 		for (int i = 0; i < orte.size(); i++) {
 
-			test.clear();
-
+			//test.clear();
+			
+			for(int k = 0; k < test.size(); k++){
+				test.remove(test.size() - 1 - k );
+			}
+			
+			//System.out.println(orte);
 			if (sucheOrtMitHoechstenRelevanzGrad() != orte.get(i)) {
 
 				try {
@@ -214,17 +219,22 @@ public class Karte {
 				} catch (UngueltigerOrt e) {
 				}
 			}
+			
+			//System.out.println(test + " vor Fehler");
+			Korridor beste = test.get(0);
 
 			for (int j = 1; j < test.size(); j++) {
-				if (test.get(0).getBaukosten() > test.get(i).getBaukosten()) {
-					test.set(0, test.get(i));
+
+				if (beste.getBaukosten() > test.get(j).getBaukosten()) {
+					beste = test.get(j);
 				}
 			}
-			System.out.println(test + "nach sortieren");
-			eingerichteteKorridore.add(test.get(0));
+
+			eingerichteteKorridore.add(beste);
 			sucheOrtMitHoechstenRelevanzGrad().angebundeneKorridore
 					.add(eingerichteteKorridore.get(i));
 			orte.get(i).angebundeneKorridore.add(eingerichteteKorridore.get(i));
+			System.out.println(eingerichteteKorridore +" sind die eingerichteten Korridore");
 		}
 	}
 
