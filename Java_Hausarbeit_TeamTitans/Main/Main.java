@@ -41,7 +41,7 @@ public class Main {
 		sim.simuliere();
 		
 		
-		gui.zeigeNutzkosten(sim.ermittleNutzkosten());
+		gui.zeigeNutzkosten(sim);
 
 	}
 }
