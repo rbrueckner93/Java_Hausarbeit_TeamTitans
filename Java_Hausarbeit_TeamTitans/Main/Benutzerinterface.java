@@ -29,9 +29,9 @@ public class Benutzerinterface {
 	/**
 	 * Einlesen und ueberpruefen des Budgets: ganzzahlig und positiv
 	 */
-	public int abfrageBudget() {
+	public double abfrageBudget() {
 		String budgetEingabe;
-		int budgetInt = 0;
+		double budget = 0;
 		while (true) {
 			try {
 
@@ -50,11 +50,11 @@ public class Benutzerinterface {
 						continue;
 					}
 				}
-				budgetInt = Integer.parseInt(budgetEingabe);
+				budget = Double.parseDouble(budgetEingabe);
 
-				if (budgetInt > 0) {
-					System.out.println(budgetInt);
-					return budgetInt;
+				if (budget > 0) {
+					System.out.println(budget);
+					return budget;
 				} else {
 					JOptionPane.showMessageDialog(null,
 							"Das Budget sollte besser positiv sein!");
@@ -107,7 +107,7 @@ public class Benutzerinterface {
 	 */
 	public void zeigeNutzkosten(Simulator aktuelleSimulation) {
 
-		double kosten = aktuelleSimulation.nutzkosten;
+		double kosten = aktuelleSimulation.ermittleNutzkosten();
 		JOptionPane.showMessageDialog(null, "Die Nutzkosten betragen " + kosten
 				+ " Geldeinheiten.");
 	}
