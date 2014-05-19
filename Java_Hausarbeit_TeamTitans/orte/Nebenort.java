@@ -7,8 +7,6 @@ public class Nebenort extends Ort {
 
 	public static final String BESCHREIBUNG = "Nebenort";
 	
-	public static final String KENNUNG = "NBN";
-
 	public Nebenort(int koordX, int koordY, String name,
 			int anzahlEinwohner) {
 		super(koordX, koordY, name);
@@ -31,7 +29,7 @@ public class Nebenort extends Ort {
 	 * Setzt die Kennung Klassenspezifisch.
 	 */
 	public void setKennung(){
-		kennung = KENNUNG;
+		kennung = KENNUNG_NEBENORT;
 	}
 
 }

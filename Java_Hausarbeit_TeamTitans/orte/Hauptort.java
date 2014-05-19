@@ -7,8 +7,6 @@ public class Hauptort extends Ort {
 
 	public static final String BESCHREIBUNG = "Hauptort";
 	
-	public static final String KENNUNG = "HPT";
-
 	/**
 	 * anzahlEinwohner wird aus Datei übergeben relevanzGrad wird mit
 	 * berechneRelevanzGrad berechnet BESCHREIBUNG ist Hauptort
@@ -32,7 +30,7 @@ public class Hauptort extends Ort {
 	 * Setzt die Kennung Klassenspezifisch.
 	 */
 	public void setKennung() {
-		kennung = KENNUNG;
+		kennung = KENNUNG_HAUPTORT;
 	}
 
 }
