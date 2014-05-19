@@ -43,7 +43,7 @@ public class Karte {
 	 * erzeugt wird beziehungsweise wurde. der Name der NetzdateiHandler soll
 	 * KartendateiHandler_net sein, was ein solches Vorgehen notwendig macht.
 	 */
-	public String nameKartendateiHandler;
+	public String nameKartendatei;
 
 	// Konstruktor der Karte. Nichts wird gesetzt. Weitere Aenderungen ueber
 	// setters.
@@ -78,11 +78,11 @@ public class Karte {
 	}
 
 	public String getNameKartendateiHandler() {
-		return nameKartendateiHandler;
+		return nameKartendatei;
 	}
 
 	public void setNameKartendateiHandler(String nameKartendateiHandler) {
-		this.nameKartendateiHandler = nameKartendateiHandler;
+		this.nameKartendatei = nameKartendateiHandler;
 	}
 
 	// Methode missverständlich. name geaendert. Vllt variable auch aendern.
