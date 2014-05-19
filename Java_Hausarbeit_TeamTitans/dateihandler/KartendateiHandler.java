@@ -186,11 +186,11 @@ public class KartendateiHandler extends Datei {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN+wertBezeichner, 0);
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
 		String inhaltMerkmal = zeile.substring(anfang, ende);
-		String[] merkmalsplit = inhaltMerkmal.split(BEZEICHNER_WERT_TRENNER);
+		String[] merkmalsplit = inhaltMerkmal.split("\\"+BEZEICHNER_WERT_TRENNER);
 		if (merkmalsplit[0].equals(MERKMAL_BEGINN+wertBezeichner)) {
 			return merkmalsplit[1];
 		} else {
-			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
+			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "+aktuelleZeile
 					+ wertBezeichner);
 		}
 		return null;
