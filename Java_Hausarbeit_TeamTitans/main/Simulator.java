@@ -20,6 +20,7 @@ public class Simulator {
 	// Leerer Konstruktor der Klasse.
 	public Simulator() {
 		super();
+		routen = new ArrayList<Flugroute>();
 	}
 
 	public String getNameTestdatei() {
