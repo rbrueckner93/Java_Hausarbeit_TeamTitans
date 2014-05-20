@@ -17,11 +17,8 @@ public class Korridor {
 	/* {author=TolleN} */
 
 	public Ort ortA;
-
 	public Ort ortB;
-
 	public double laenge;
-
 	private String kennung;
 
 	public static final double BAUKOSTEN_ENFC = 50000;
@@ -73,6 +70,20 @@ public class Korridor {
 
 	public String getKennung() {
 		return kennung;
+	}
+
+	public Ort bestimmeAnderenOrt(Ort bekanntesEnde) {
+		Ort ermittelterOrt;
+		if (ortA == bekanntesEnde) {
+			ermittelterOrt = ortB;
+		} else if (ortB == bekanntesEnde) {
+			ermittelterOrt = ortA;
+		} else {
+			ermittelterOrt = null;
+		}
+		// hier vielleicht auch ne Exception oder sowas?
+
+		return ermittelterOrt;
 	}
 
 	public double getBaukosten() {
