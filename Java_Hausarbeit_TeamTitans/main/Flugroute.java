@@ -1,6 +1,8 @@
 package main;
 
 import java.util.ArrayList;
+
+import exceptions.OrtNichtVorhanden;
 import korridore.Korridor;
 import orte.Ort;
 
@@ -42,20 +44,6 @@ public class Flugroute {
 	 * 
 	 * anhand unterschiedlicher Korridorkombinationen ermitteln
 	 */
-	public Ort bestimmeAnderenOrt(Korridor verbindung, Ort bekanntesEnde) {
-		Ort ermittelterOrt;
-		if (verbindung.ortA.equals(bekanntesEnde)) {
-			ermittelterOrt = verbindung.ortB;
-		}
-		if (verbindung.ortB.equals(bekanntesEnde)) {
-			ermittelterOrt = verbindung.ortA;
-		} else {
-			ermittelterOrt = null;
-		}
-		// hier vielleicht auch ne Exception oder sowas?
-
-		return ermittelterOrt;
-	}
 
 	public void ermittleBesteRoute() {
 		/**
@@ -72,86 +60,84 @@ public class Flugroute {
 		// von Start ausgehend alle angebundenen Korridore als
 		// flugroutenInArbeit anlegen.
 		for (int i = 0; i < herkunft.angebundeneKorridore.size(); i++) {
-			//ueberpruefen, ob mit dem ersten Hop bereits das Ziel erreicht wurde.
-			if (bestimmeAnderenOrt(herkunft.angebundeneKorridore.get(i),
-					herkunft).equals(ziel)) {
-				Flugroute neueFlugroute = new Flugroute(
-						herkunft,
-						bestimmeAnderenOrt(
-								herkunft.angebundeneKorridore.get(i), herkunft),
-						faktor);
-				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore
-						.get(i));
+			// ueberpruefen, ob mit dem ersten Hop bereits das Ziel erreicht
+			// wurde, wenn ja als moeglicheFlugroute abspeichern.
+			if (herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft) == ziel) {
+				Flugroute neueFlugroute = new Flugroute(herkunft,herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft), faktor);
+				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore.get(i));
+				System.out.println(herkunft.angebundeneKorridore.get(i));
 				moeglicheFlugrouten.add(neueFlugroute);
-			} else {
-				Flugroute neueFlugroute = new Flugroute(
-						herkunft,
-						bestimmeAnderenOrt(
-								herkunft.angebundeneKorridore.get(i), herkunft),
-						faktor);
-				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore
-						.get(i));
+			}
+			// wenn Ziel mit einem Hop noch nicht erreicht, in
+			// flugroutenInArbeit speichern.
+			else {
+				Flugroute neueFlugroute = new Flugroute(herkunft,herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft), faktor);
+				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore.get(i));
+				System.out.println(herkunft.angebundeneKorridore.get(i));
 				flugroutenInArbeit.add(neueFlugroute);
 			}
 		}
+		
 		// solange in der "In Arbeit"-Liste noch Flugrouten stehen:
+		while (flugroutenInArbeit.size() > 0) {
+			//int d = 1;
+			//System.out.println("Durchlauf " + d);
+			//d++;
+			//System.out.println("Es sind noch " + flugroutenInArbeit.size()
+			//		+ " Routen in Arbeit.");
 
-		if (flugroutenInArbeit.size() > 0) {
-			System.out.println("Es ist mindestens eine in Arbeit.");
 			for (int routen = 0; routen < flugroutenInArbeit.size(); routen++) {
 				Flugroute weg = flugroutenInArbeit.get(routen);
-				for (Korridor verbindung : weg.ziel.angebundeneKorridore) {
+				for (int i = 0; i < weg.ziel.angebundeneKorridore.size(); i++) {
+					Korridor verbindung = weg.ziel.angebundeneKorridore.get(i);
 					/**
 					 * wenn ermittleAnderenOrt(verbindung, weg.ziel) nicht in
 					 * weg.erzeugeOrtsListe vorkommt und
 					 * ermittleAnderenOrt(verbindung, weg.ziel) nicht gleich
 					 * ziel ist, dann schreibe in flugroutenInArbeit.add()
 					 */
-					Ort neuesZiel = bestimmeAnderenOrt(verbindung, weg.ziel);
-					if (weg.erzeugeOrtsListe().size() > 0) {
-						if (kommtOrtInOrtslisteVor(neuesZiel,
-								weg.erzeugeOrtsListe())) {
-
-							if (!neuesZiel.equals(ziel)) {
-								flugroutenInArbeit.add(new Flugroute(neuesZiel,
-										herkunft, faktor));
+					Ort neuesZiel = verbindung.bestimmeAnderenOrt(weg.ziel);
+					try {
+						if (weg.erzeugeOrtsListe().size() > 0) {
+							// was will ich hier?
+							if (!kommtOrtInOrtslisteVor(neuesZiel, weg.erzeugeOrtsListe())) {
+								if (neuesZiel != ziel) {
+									Flugroute neueFlugroute = new Flugroute(herkunft, neuesZiel, faktor);
+									for(Korridor add:reiseListe){
+										neueFlugroute.reiseListe.add(add);
+									flugroutenInArbeit.add(neueFlugroute);
+									}
+								}
+								if (neuesZiel == ziel) {
+									Flugroute neueKompletteFlugroute = new Flugroute(herkunft, ziel, faktor);
+									for(Korridor add:reiseListe){
+										neueKompletteFlugroute.reiseListe.add(add);
+									moeglicheFlugrouten.add(neueKompletteFlugroute);
+									}
+								}
 							}
-							if (neuesZiel.equals(ziel)) {
-								moeglicheFlugrouten.add(new Flugroute(ziel,
-										herkunft, faktor));
-							}
+						} else {
+							System.out.println("Es wurde eine Route nicht aufgenommen, da sie zu einer Kreisroute wurde.");
 						}
-					} else {
-
-						if (neuesZiel != ziel) {
-							Flugroute andereNeueFlugroute = new Flugroute(
-									neuesZiel, herkunft, faktor);
-							andereNeueFlugroute.reiseListe.add(verbindung);
-							flugroutenInArbeit.add(andereNeueFlugroute);
-							System.out.println("routeInArbeit hinzugefuegt.");
-						}
-						if (neuesZiel == ziel) {
-							Flugroute dritteNeueFlugroute = new Flugroute(ziel,
-									herkunft, faktor);
-							dritteNeueFlugroute.reiseListe.add(verbindung);
-							moeglicheFlugrouten.add(dritteNeueFlugroute);
-							System.out.println("moeglicheRoute hinzugefuegt.");
-						}
+					} catch (OrtNichtVorhanden e) {
+						System.out.println("OrtNichtvorhanden tauchte auf...");
 					}
+
 					/**
 					 * wenn ermittleAnderenOrt(verbindung, weg.ziel nicht in
 					 * weg.erzeugeOrtsListe vorkommt und
 					 * ermittleAnderenOrt(verbindung, weg.ziel) gleich ziel ist,
 					 * wird er nirgendwo hingeschrieben.
 					 * 
-					 * alle flugrouten, die nun uebrig sind (d.h. nicht um ein
-					 * weiteren Hop bzw. das Ziel erweitert wurden, werden in
-					 * eine ArrayList geschrieben, die am Ende gelöscht wird.
+					 * alle flugrouten, die nun uebrig sind, werden geloescht.
+					 * alsbald wird der zaehler um 1 verringert, um kein Elt. zu
+					 * ueberspringen.
 					 */
 					//
 
 				}
 				flugroutenInArbeit.remove(routen);
+				routen--;
 
 			}
 		}
@@ -200,9 +186,14 @@ public class Flugroute {
 	 */
 	public String erzeugeTextausgabeReiseroute() {
 		String ausgabe = "";
-		for (Ort ort : erzeugeOrtsListe()) {
-			ausgabe.concat(ort.name);
-			ausgabe.concat(";");
+		try {
+			for (Ort ort : erzeugeOrtsListe()) {
+				ausgabe.concat(ort.name);
+				ausgabe.concat(";");
+			}
+		} catch (OrtNichtVorhanden e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return ausgabe;
 	}
@@ -216,42 +207,42 @@ public class Flugroute {
 	 * ziel entspricht. eine ueberpruefung muss natuerlich stattfinden. sie ist
 	 * eine direkte ableitung aus reiseListe ArrayList<Korridor>
 	 * 
-	 * ungetestet! mit Vorsicht zu genießen!
 	 */
-	public ArrayList<Ort> erzeugeOrtsListe() {
+	public ArrayList<Ort> erzeugeOrtsListe() throws OrtNichtVorhanden {
 		ArrayList<Ort> ortsListe = new ArrayList<Ort>();
 		ortsListe.add(herkunft);
-		// try {
-		// if (reiseListe.size() > 0) {
-		// for (Korridor verbindung : reiseListe) {
-		// if (verbindung.ortA.equals(ortsListe.get(ortsListe.size()))) {
-		// ortsListe.add(verbindung.ortB);
-		// } else if (verbindung.ortB.equals(ortsListe.get(ortsListe
-		// .size()))) {
-		// ortsListe.add(verbindung.ortA);
-		// }
-		// }
-		// }
-		// } catch (NullPointerException e) {
-		// System.out.println("noch keine Korridore in ReiseListe");
-		// }
+
+		if (reiseListe.size() > 0) {
+			for (Korridor verbindung : reiseListe) {
+				if (verbindung.ortA == ortsListe.get(ortsListe.size() - 1)) {
+					ortsListe.add(verbindung.ortB);
+					System.out.println("ortB wurde hinzugefuegt");
+				} else if (verbindung.ortB == ortsListe
+						.get(ortsListe.size() - 1)) {
+					ortsListe.add(verbindung.ortA);
+					System.out.println("ortA wurde hinzugefuegt");
+				} else {
+					throw new OrtNichtVorhanden();
+				}
+			}
+		}
 		return ortsListe;
 	}
 
 	/**
-	 * Ueberprueft eine ArrayList von Orten auf vorkommen eines bestimmten
+	 * Ueberprueft eine ArrayList von Orten auf Vorkommen eines bestimmten
 	 * Ortes.
 	 * 
 	 * @param ort
 	 *            : Ein beliebiger Ort
 	 * @param ortsliste
-	 *            : Eine Liste mit Orten
+	 *            : Eine ArrayList mit Orten
 	 * @return true: ort kommt in der ortsliste vor.
 	 * @author: BruecknerR
 	 */
 	public boolean kommtOrtInOrtslisteVor(Ort ort, ArrayList<Ort> ortsliste) {
 		for (Ort testort : ortsliste) {
-			if (testort.equals(ort)) {
+			if (testort == ort) {
 				return true;
 			}
 		}
