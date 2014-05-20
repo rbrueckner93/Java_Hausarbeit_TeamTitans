@@ -17,12 +17,8 @@ public class Korridor {
 	/* {author=TolleN} */
 
 	public Ort ortA;
-
 	public Ort ortB;
-
 	public double laenge;
-	public double nutzungskosten;
-	public double baukosten;
 	private String kennung;
 
 	public static final double BAUKOSTEN_ENFC = 50000;
@@ -58,8 +54,6 @@ public class Korridor {
 		ueberpruefeOrtart(ortB);
 		ortA.angebundeneKorridore.add(this);
 		ortB.angebundeneKorridore.add(this);
-		nutzungskosten = this.getNutzungskosten();
-		baukosten = this.getBaukosten();
 	}
 
 	public double getLaenge() {
