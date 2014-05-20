@@ -2,15 +2,15 @@ Java_Hausarbeit_TeamTitans
 ==========================
 Rep für unsere Hausarbeit.
 Team Titans.
-Progress: 30%
+Progress: 35%
 ==========================
 ToDo:
 
 -Flugrouten vervollständigen
 
--Einlesen von Testdateien ermöglichen
+-Einlesen fehlersicherer machen
 
--Ausgabe Netzdatei+Simulationsdatei
+-Ausgabe Simulationsdatei
 
 -GUI vervollständigen
 
@@ -24,5 +24,5 @@ ABGABE : 11.6.2014
 
 Docu aktuelle halten. Variablen benennen.
 
--Mittwoch den Fortschritt in SDW vorstellen. 
+-Mittwoch den Fortschritt in SDV vorstellen. 
 -Davor treffen nochmal Probleme erörtern.
