@@ -65,7 +65,6 @@ public class Flugroute {
 			if (herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft) == ziel) {
 				Flugroute neueFlugroute = new Flugroute(herkunft,herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft), faktor);
 				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore.get(i));
-				System.out.println(herkunft.angebundeneKorridore.get(i));
 				moeglicheFlugrouten.add(neueFlugroute);
 			}
 			// wenn Ziel mit einem Hop noch nicht erreicht, in
@@ -73,19 +72,12 @@ public class Flugroute {
 			else {
 				Flugroute neueFlugroute = new Flugroute(herkunft,herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft), faktor);
 				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore.get(i));
-				System.out.println(herkunft.angebundeneKorridore.get(i));
 				flugroutenInArbeit.add(neueFlugroute);
 			}
 		}
 		
 		// solange in der "In Arbeit"-Liste noch Flugrouten stehen:
 		while (flugroutenInArbeit.size() > 0) {
-			//int d = 1;
-			//System.out.println("Durchlauf " + d);
-			//d++;
-			//System.out.println("Es sind noch " + flugroutenInArbeit.size()
-			//		+ " Routen in Arbeit.");
-
 			for (int routen = 0; routen < flugroutenInArbeit.size(); routen++) {
 				Flugroute weg = flugroutenInArbeit.get(routen);
 				for (int i = 0; i < weg.ziel.angebundeneKorridore.size(); i++) {
@@ -154,10 +146,12 @@ public class Flugroute {
 
 			}
 		}
-		if (moeglicheFlugrouten.size() > 0) {
-			System.out.println("Ich schreibe gleich in die Reiseliste!");
+		if (moeglicheFlugrouten.size() == 1) {
+			System.out.println("Optimum gefunden!");
 			reiseListe = moeglicheFlugrouten.get(0).reiseListe;
-			System.out.println(reiseListe);
+			for(Korridor k: reiseListe){
+				System.out.println(">>"+k.ortA+">>"+k.ortB+">>"+k.laenge+">>");
+			}
 		}
 	}
 
@@ -216,11 +210,9 @@ public class Flugroute {
 			for (Korridor verbindung : reiseListe) {
 				if (verbindung.ortA == ortsListe.get(ortsListe.size() - 1)) {
 					ortsListe.add(verbindung.ortB);
-					System.out.println("ortB wurde hinzugefuegt");
 				} else if (verbindung.ortB == ortsListe
 						.get(ortsListe.size() - 1)) {
 					ortsListe.add(verbindung.ortA);
-					System.out.println("ortA wurde hinzugefuegt");
 				} else {
 					throw new OrtNichtVorhanden();
 				}
