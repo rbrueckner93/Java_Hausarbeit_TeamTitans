@@ -1,7 +1,6 @@
 package main;
 
 import java.util.ArrayList;
-
 import korridore.Korridor;
 import orte.Ort;
 
@@ -33,6 +32,7 @@ public class Flugroute {
 		this.ziel = ziel;
 		this.herkunft = herkunft;
 		this.faktor = faktor;
+		reiseListe = new ArrayList<Korridor>();
 	}
 
 	/**
@@ -69,13 +69,37 @@ public class Flugroute {
 		 */
 		ArrayList<Flugroute> moeglicheFlugrouten = new ArrayList<Flugroute>();
 
-		for (Korridor verbindung : herkunft.angebundeneKorridore) {
-			flugroutenInArbeit.add(new Flugroute(herkunft, bestimmeAnderenOrt(
-					verbindung, herkunft), faktor));
+		// von Start ausgehend alle angebundenen Korridore als
+		// flugroutenInArbeit anlegen.
+		for (int i = 0; i < herkunft.angebundeneKorridore.size(); i++) {
+			//ueberpruefen, ob mit dem ersten Hop bereits das Ziel erreicht wurde.
+			if (bestimmeAnderenOrt(herkunft.angebundeneKorridore.get(i),
+					herkunft).equals(ziel)) {
+				Flugroute neueFlugroute = new Flugroute(
+						herkunft,
+						bestimmeAnderenOrt(
+								herkunft.angebundeneKorridore.get(i), herkunft),
+						faktor);
+				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore
+						.get(i));
+				moeglicheFlugrouten.add(neueFlugroute);
+			} else {
+				Flugroute neueFlugroute = new Flugroute(
+						herkunft,
+						bestimmeAnderenOrt(
+								herkunft.angebundeneKorridore.get(i), herkunft),
+						faktor);
+				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore
+						.get(i));
+				flugroutenInArbeit.add(neueFlugroute);
+			}
 		}
 		// solange in der "In Arbeit"-Liste noch Flugrouten stehen:
-		while (flugroutenInArbeit.size() > 0) {
-			for (Flugroute weg : flugroutenInArbeit) {
+
+		if (flugroutenInArbeit.size() > 0) {
+			System.out.println("Es ist mindestens eine in Arbeit.");
+			for (int routen = 0; routen < flugroutenInArbeit.size(); routen++) {
+				Flugroute weg = flugroutenInArbeit.get(routen);
 				for (Korridor verbindung : weg.ziel.angebundeneKorridore) {
 					/**
 					 * wenn ermittleAnderenOrt(verbindung, weg.ziel) nicht in
@@ -84,51 +108,71 @@ public class Flugroute {
 					 * ziel ist, dann schreibe in flugroutenInArbeit.add()
 					 */
 					Ort neuesZiel = bestimmeAnderenOrt(verbindung, weg.ziel);
-					boolean bereitsDagewesen;
-					try {
-						bereitsDagewesen = (kommtOrtInOrtslisteVor(neuesZiel,
-								weg.erzeugeOrtsListe()));
-					} catch (NullPointerException e) {
-						bereitsDagewesen = false;
-						System.out
-								.println("Es existiert noch nichts in der Liste...");
-					}
-					if (!bereitsDagewesen) {
+					if (weg.erzeugeOrtsListe().size() > 0) {
+						if (kommtOrtInOrtslisteVor(neuesZiel,
+								weg.erzeugeOrtsListe())) {
+
+							if (!neuesZiel.equals(ziel)) {
+								flugroutenInArbeit.add(new Flugroute(neuesZiel,
+										herkunft, faktor));
+							}
+							if (neuesZiel.equals(ziel)) {
+								moeglicheFlugrouten.add(new Flugroute(ziel,
+										herkunft, faktor));
+							}
+						}
+					} else {
+
 						if (neuesZiel != ziel) {
-							flugroutenInArbeit.add(new Flugroute(neuesZiel,
-									herkunft, faktor));
+							Flugroute andereNeueFlugroute = new Flugroute(
+									neuesZiel, herkunft, faktor);
+							andereNeueFlugroute.reiseListe.add(verbindung);
+							flugroutenInArbeit.add(andereNeueFlugroute);
+							System.out.println("routeInArbeit hinzugefuegt.");
 						}
 						if (neuesZiel == ziel) {
-							moeglicheFlugrouten.add(new Flugroute(ziel,
-									herkunft, faktor));
+							Flugroute dritteNeueFlugroute = new Flugroute(ziel,
+									herkunft, faktor);
+							dritteNeueFlugroute.reiseListe.add(verbindung);
+							moeglicheFlugrouten.add(dritteNeueFlugroute);
+							System.out.println("moeglicheRoute hinzugefuegt.");
 						}
 					}
 					/**
 					 * wenn ermittleAnderenOrt(verbindung, weg.ziel nicht in
 					 * weg.erzeugeOrtsListe vorkommt und
 					 * ermittleAnderenOrt(verbindung, weg.ziel) gleich ziel ist,
-					 * dann schreibe in moeglicheFlugrouten
+					 * wird er nirgendwo hingeschrieben.
+					 * 
+					 * alle flugrouten, die nun uebrig sind (d.h. nicht um ein
+					 * weiteren Hop bzw. das Ziel erweitert wurden, werden in
+					 * eine ArrayList geschrieben, die am Ende gelöscht wird.
 					 */
-					flugroutenInArbeit.remove(weg);
+					//
+
 				}
+				flugroutenInArbeit.remove(routen);
 
 			}
-
-			/**
-			 * Nimm die günstigste und gib sie zurück.
-			 */
-			while (moeglicheFlugrouten.size() > 1) {
-				for (int i = 0; i < moeglicheFlugrouten.size(); i++) {
-					if (moeglicheFlugrouten.get(i).ermittleRoutennutzkosten() < moeglicheFlugrouten
-							.get(i + 1).ermittleRoutennutzkosten()) {
-						moeglicheFlugrouten.remove(i + 1);
-					}
-				}
-			}
-			// ändere die ReiseListe des aktuellen Flugroutenobjekts
-			reiseListe = moeglicheFlugrouten.get(0).reiseListe;
 		}
 
+		/**
+		 * Nimm die günstigste und gib sie zurück.
+		 */
+		while (moeglicheFlugrouten.size() > 1) {
+			for (int i = 0; i < moeglicheFlugrouten.size(); i++) {
+				if (moeglicheFlugrouten.get(i).ermittleRoutennutzkosten() < moeglicheFlugrouten
+						.get(i + 1).ermittleRoutennutzkosten()) {
+					moeglicheFlugrouten.remove(i + 1);
+				}
+
+			}
+		}
+		if (moeglicheFlugrouten.size() > 0) {
+			System.out.println("Ich schreibe gleich in die Reiseliste!");
+			reiseListe = moeglicheFlugrouten.get(0).reiseListe;
+			System.out.println(reiseListe);
+		}
 	}
 
 	/**
@@ -177,15 +221,20 @@ public class Flugroute {
 	public ArrayList<Ort> erzeugeOrtsListe() {
 		ArrayList<Ort> ortsListe = new ArrayList<Ort>();
 		ortsListe.add(herkunft);
-		for (Korridor verbindung : reiseListe) {
-			if (verbindung.ortA.equals(ortsListe.get(ortsListe.size() - 1))) {
-				ortsListe.add(verbindung.ortB);
-			} else if (verbindung.ortB
-					.equals(ortsListe.get(ortsListe.size() - 1))) {
-				ortsListe.add(verbindung.ortA);
-			}
-		}
-
+		// try {
+		// if (reiseListe.size() > 0) {
+		// for (Korridor verbindung : reiseListe) {
+		// if (verbindung.ortA.equals(ortsListe.get(ortsListe.size()))) {
+		// ortsListe.add(verbindung.ortB);
+		// } else if (verbindung.ortB.equals(ortsListe.get(ortsListe
+		// .size()))) {
+		// ortsListe.add(verbindung.ortA);
+		// }
+		// }
+		// }
+		// } catch (NullPointerException e) {
+		// System.out.println("noch keine Korridore in ReiseListe");
+		// }
 		return ortsListe;
 	}
 
