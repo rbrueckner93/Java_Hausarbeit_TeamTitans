@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import exceptions.MerkmalMissing;
 import orte.Ort;
 import main.Flugroute;
 import main.Karte;
@@ -51,13 +52,13 @@ public class TestdateiHandler extends Datei {
 	public void verarbeiteTestdatei() {
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
-			int datensatzbeginn = findeDatensatzBeginnMarker(aktuelleZeile,
+			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
-			int endeDatensatz = findeDatensatzEndeMarker(datensatzbeginn,
+			int datensatzEnde = findeDatensatzEndeMarker(datensatzBeginn,
 					geleseneDaten, DATENSATZ_ENDE_MARKER);
-			werteDatensatzAus(aktuelleZeile, endeDatensatz, geleseneDaten);
-			aktuelleZeile = endeDatensatz;
-			if (aktuelleZeile == endeDatensatz) {
+			werteDatensatzAus(aktuelleZeile, datensatzEnde, geleseneDaten);
+			aktuelleZeile = datensatzEnde;
+			if (aktuelleZeile == datensatzEnde) {
 				aktuelleZeile += 1;
 			}
 		}
@@ -66,12 +67,11 @@ public class TestdateiHandler extends Datei {
 	public boolean DatensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
 		while (beginn < text.size()) {
-			int ueberpruefteZeile = beginn + 1;
-			if (ueberpruefteZeile < text.size()) {
+			if (beginn < text.size()) {
 				try {
-					String test = text.get(ueberpruefteZeile).substring(
-							text.get(ueberpruefteZeile).indexOf(DATENSATZ_BEGINN_MARKER),
-							text.get(ueberpruefteZeile).indexOf(DATENSATZ_BEGINN_MARKER)
+					String test = text.get(beginn).substring(
+							text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER),
+							text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
 									+ DATENSATZ_BEGINN_MARKER.length());
 					if (test.equals(DATENSATZ_BEGINN_MARKER)) {
 						return true;
@@ -142,7 +142,8 @@ public class TestdateiHandler extends Datei {
 		return beginn;
 	}
 
-	public String getMerkmal(String wertBezeichner, String zeile) {
+	public String getMerkmal(String wertBezeichner, String zeile)
+			throws StringIndexOutOfBoundsException {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
 		String inhaltMerkmal = zeile.substring(anfang, ende);
@@ -194,9 +195,20 @@ public class TestdateiHandler extends Datei {
 		for (int i = beginnZeile; i <= endeZeile; i++) {
 			datensatz += text.get(i);
 		}
-		String nameOrtHerkunft = getMerkmal(BEZEICHNER_START, datensatz);
-		String nameOrtZiel = getMerkmal(BEZEICHNER_ZIEL, datensatz);
-		int faktor = Integer.parseInt(getMerkmal(BEZEICHNER_FAKTOR, datensatz));
-		erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktor);
+		try {
+			int faktorDefault = 1;
+			String nameOrtHerkunft = getMerkmal(BEZEICHNER_START, datensatz);
+			String nameOrtZiel = getMerkmal(BEZEICHNER_ZIEL, datensatz);
+			try {
+				int faktor = Integer.parseInt(getMerkmal(BEZEICHNER_FAKTOR,
+						datensatz));
+				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktor);
+			} catch (StringIndexOutOfBoundsException e) {
+				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktorDefault);
+			}
+		} catch (StringIndexOutOfBoundsException e) {
+			JOptionPane.showMessageDialog(null, "Datensatz fehlt Merkmal");
+		}
+
 	}
 }

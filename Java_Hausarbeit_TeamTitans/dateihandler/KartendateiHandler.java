@@ -74,13 +74,13 @@ public class KartendateiHandler extends Datei {
 	public void verarbeiteKartendatei() {
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
-			int datensatzbeginn = findeDatensatzBeginnMarker(aktuelleZeile,
+			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
-			int endeDatensatz = findeDatensatzEndeMarker(datensatzbeginn,
+			int datensatzEnde = findeDatensatzEndeMarker(datensatzBeginn,
 					geleseneDaten, DATENSATZ_ENDE_MARKER);
-			werteDatensatzAus(aktuelleZeile, endeDatensatz, geleseneDaten);
-			aktuelleZeile = endeDatensatz;
-			if (datensatzbeginn == endeDatensatz) {
+			werteDatensatzAus(aktuelleZeile, datensatzEnde, geleseneDaten);
+			aktuelleZeile = datensatzEnde;
+			if (datensatzBeginn == datensatzEnde) {
 				aktuelleZeile += 1;
 			}
 		}
@@ -94,12 +94,11 @@ public class KartendateiHandler extends Datei {
 	public boolean DatensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
 		while (beginn < text.size()) {
-			int ueberpruefteZeile = beginn + 1;
-			if (ueberpruefteZeile < text.size()) {
+			if (beginn < text.size()) {
 				try {
-					String test = text.get(ueberpruefteZeile).substring(
-							text.get(ueberpruefteZeile).indexOf(DATENSATZ_BEGINN_MARKER),
-							text.get(ueberpruefteZeile).indexOf(DATENSATZ_BEGINN_MARKER)
+					String test = text.get(beginn).substring(
+							text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER),
+							text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
 									+ DATENSATZ_BEGINN_MARKER.length());
 					if (test.equals(DATENSATZ_BEGINN_MARKER)) {
 						return true;
