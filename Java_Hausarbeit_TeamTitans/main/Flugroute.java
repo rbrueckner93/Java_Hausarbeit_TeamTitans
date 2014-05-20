@@ -97,15 +97,18 @@ public class Flugroute {
 									Flugroute neueFlugroute = new Flugroute(herkunft, neuesZiel, faktor);
 									for(Korridor add:reiseListe){
 										neueFlugroute.reiseListe.add(add);
-									flugroutenInArbeit.add(neueFlugroute);
 									}
+									neueFlugroute.reiseListe.add(verbindung);
+									flugroutenInArbeit.add(neueFlugroute);
 								}
 								if (neuesZiel == ziel) {
 									Flugroute neueKompletteFlugroute = new Flugroute(herkunft, ziel, faktor);
 									for(Korridor add:reiseListe){
-										neueKompletteFlugroute.reiseListe.add(add);
-									moeglicheFlugrouten.add(neueKompletteFlugroute);
+									neueKompletteFlugroute.reiseListe.add(add);
 									}
+									neueKompletteFlugroute.reiseListe.add(verbindung);
+									moeglicheFlugrouten.add(neueKompletteFlugroute);
+									
 								}
 							}
 						} else {
@@ -184,6 +187,7 @@ public class Flugroute {
 			for (Ort ort : erzeugeOrtsListe()) {
 				ausgabe.concat(ort.name);
 				ausgabe.concat(";");
+				System.out.println(ausgabe);
 			}
 		} catch (OrtNichtVorhanden e) {
 			// TODO Auto-generated catch block
