@@ -38,7 +38,7 @@ public class Simulator {
 	public void simuliere() {
 		for (Flugroute route : routen) {
 			route.ermittleBesteRoute();
-		}
+			}
 	}
 
 	/**
