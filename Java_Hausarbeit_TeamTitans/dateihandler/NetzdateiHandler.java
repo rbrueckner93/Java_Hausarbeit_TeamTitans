@@ -2,6 +2,7 @@ package dateihandler;
 
 import java.util.ArrayList;
 
+import korridore.Korridor;
 import main.Karte;
 
 /**
@@ -31,12 +32,30 @@ public class NetzdateiHandler extends Datei {
 		this.fertigesNetz = fertigesNetz;
 	}
 
-	public String erstelleOutputStream() {
-		return null;
+	public void schreibeNetzdatei(){
+		Datei.schreibeDatei(erstelleOutputStream(), erstelleDateiName());
+	}
+	
+	
+	public ArrayList<String> erstelleOutputStream() {
+		ArrayList<String> fertigerText = new ArrayList<String>();
+		fertigerText.add(DATEI_BEGINN_MARKER);
+		fertigerText.add("");
+		for (Korridor aktuellerKorridor : fertigesNetz.eingerichteteKorridore){
+			fertigerText.add(DATENSATZ_BEGINN_MARKER);
+			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_START+BEZEICHNER_WERT_TRENNER+aktuellerKorridor.getOrtA().name+MERKMAL_ENDE);
+			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_ZIEL+BEZEICHNER_WERT_TRENNER+aktuellerKorridor.getOrtB().name+MERKMAL_ENDE);
+			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_KORRIDOR_KENNUNG+BEZEICHNER_WERT_TRENNER+aktuellerKorridor.getKennung()+MERKMAL_ENDE);
+			fertigerText.add(DATENSATZ_ENDE_MARKER);
+		}
+		fertigerText.add("");
+		fertigerText.add(DATEI_ENDE_MARKER);
+		return fertigerText;
 	}
 
 	public String erstelleDateiName() {
-		return null;
+			String dateiName = fertigesNetz.getNameKartendateiHandler()+DATEI_SUFFIX;
+		return dateiName;
 	}
 
 }
