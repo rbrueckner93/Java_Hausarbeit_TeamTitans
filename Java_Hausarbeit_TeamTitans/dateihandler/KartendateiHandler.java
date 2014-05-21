@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import exceptions.MerkmalMissing;
 import main.Karte;
 import orte.Auslandsverbindung;
 import orte.Hauptort;
@@ -287,8 +288,11 @@ public class KartendateiHandler extends Datei {
 	 * @param zeile
 	 * @return
 	 */
-	public String getMerkmal(String wertBezeichner, String zeile) {
+	public String getMerkmal(String wertBezeichner, String zeile) throws MerkmalMissing {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN+wertBezeichner, 0);
+		if ( anfang == -1){
+			throw new MerkmalMissing();
+		}
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
 		String inhaltMerkmal = zeile.substring(anfang, ende);
 		String[] merkmalsplit = inhaltMerkmal.split("\\"+BEZEICHNER_WERT_TRENNER);
@@ -315,6 +319,7 @@ public class KartendateiHandler extends Datei {
 		for (int i = beginnZeile; i <= endeZeile; i++) {
 			datensatz += text.get(i);
 		}
+		try{
 		int xkoord = Integer
 				.parseInt(getMerkmal(BEZEICHNER_X_KOORDINATE, datensatz));
 		int ykoord = Integer
@@ -345,6 +350,10 @@ public class KartendateiHandler extends Datei {
 					BEZEICHNER_PASSAGIERAUFKOMMEN, datensatz));
 			erzeugeAuslandsverbindung(xkoord, ykoord, name,
 					umschlagVolumenASL, passagierAufkommen);
+		}} catch (MerkmalMissing e){
+			JOptionPane.showMessageDialog(null, "Fehlendes Merkmal");
+		} catch (NumberFormatException f){
+			JOptionPane.showMessageDialog(null, "Fehler in Mermalen. Zahlen sind keine Zahlen");
 		}
 	}
 

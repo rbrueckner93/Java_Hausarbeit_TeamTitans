@@ -69,6 +69,9 @@ public class SimulationsdateiHandler extends Datei {
 			fertigerText.add(MERKMAL_BEGINN
 					+ aktuelleFlugroute.erzeugeTextausgabeReiseroute()
 					+ MERKMAL_ENDE);
+			fertigerText.add(MERKMAL_BEGINN + BEZEICHNER_FAKTOR
+					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.faktor
+					+ MERKMAL_ENDE);
 			fertigerText.add(DATENSATZ_ENDE_MARKER);
 		}
 		fertigerText.add("");
