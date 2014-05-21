@@ -16,14 +16,15 @@ public class Benutzerinterface {
 	/**
 	 * durch system.getproperties("User.Home") am Beginn des Programmes gesetzt.
 	 */
-	public static final String standardpfad = System.getProperty("user.home");
-
+	//public static final String standardpfad = System.getProperty("user.home");
+	public static final String standardpfad = "C:\\Users\\Pontifex\\";
+	
 	/**
 	 * Begruessung des Anwenders bei Start des Programms
 	 */
 	public void begruessung() {
 		JOptionPane.showMessageDialog(null,
-				"Hallo Anwender, \nTeam Titans wuenscht viel Spa§!");
+				"Hallo Anwender, \nTeam Titans wuenscht viel Spass!");
 	}
 
 	/**
