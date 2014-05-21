@@ -515,7 +515,7 @@ public class Karte {
 
 					if (summeAbstandermitteln(fiktivOrt) < kleinsteSumme) {
 						kleinsteSumme = summeAbstandermitteln(fiktivOrt);
-//						System.out.println(kleinsteSumme + "   das ist i: " + i + "   das ist j: " +j);
+
 						punkt.set(0, i);
 						punkt.set(1, j);
 					}
