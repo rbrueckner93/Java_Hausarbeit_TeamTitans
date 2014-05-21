@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import exceptions.OrtNichtVorhanden;
 import korridore.Korridor;
 import orte.Ort;
+import sun.org.mozilla.javascript.internal.regexp.SubString;
 
 /**
  * @author BruecknerR ... wird erst bei Nutzung=Testdateieinlesen erstellt mit
@@ -62,9 +63,10 @@ public class Flugroute {
 		for (int i = 0; i < herkunft.angebundeneKorridore.size(); i++) {
 			// ueberpruefen, ob mit dem ersten Hop bereits das Ziel erreicht
 			// wurde, wenn ja als moeglicheFlugroute abspeichern.
-			Ort erstesZiel = herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft);
+			Ort erstesZiel = herkunft.angebundeneKorridore.get(i)
+					.bestimmeAnderenOrt(herkunft);
 			Flugroute ersteRoute = new Flugroute(erstesZiel, herkunft, faktor);
-			//TODO dieses hinzufuegen scheint noch nicht zu klappen...
+			// TODO dieses hinzufuegen scheint noch nicht zu klappen...
 			ersteRoute.reiseListe.add(herkunft.angebundeneKorridore.get(i));
 			if (erstesZiel == ziel) {
 				moeglicheFlugrouten.add(ersteRoute);
@@ -107,15 +109,16 @@ public class Flugroute {
 								}
 
 							}
-							//Diente nur Debug-Zwecken
-//							else {
-//								System.out.println("Es wurde eine Route nicht aufgenommen, da sie zu einer Kreisroute wurde.");
-//							}
+							// Diente nur Debug-Zwecken
+							else {
+								System.out
+										.println("Es wurde eine Route nicht aufgenommen, da sie zu einer Kreisroute wurde.");
+							}
 
 						}
 					} catch (OrtNichtVorhanden e) {
 						System.out.println("OrtNichtvorhanden tauchte auf...");
-						//TODO was anstaendiges tun...
+						// TODO was anstaendiges tun...
 					}
 
 					/**
@@ -186,10 +189,9 @@ public class Flugroute {
 		String ausgabe = "";
 		try {
 			for (Ort ort : erzeugeOrtsListe()) {
-				ausgabe.concat(ort.name);
-				ausgabe.concat(";");
-				System.out.println(ausgabe);
+				ausgabe += ort.name+";";
 			}
+			ausgabe = ausgabe.substring(0, ausgabe.length()-1);
 		} catch (OrtNichtVorhanden e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -210,12 +212,12 @@ public class Flugroute {
 	public ArrayList<Ort> erzeugeOrtsListe() throws OrtNichtVorhanden {
 		ArrayList<Ort> ortsListe = new ArrayList<Ort>();
 		ortsListe.add(herkunft);
-
 		if (reiseListe.size() > 0) {
 			for (Korridor verbindung : reiseListe) {
 				if (verbindung.ortA == ortsListe.get(ortsListe.size() - 1)) {
 					ortsListe.add(verbindung.ortB);
-				} else if (verbindung.ortB == ortsListe.get(ortsListe.size() - 1)) {
+				} else if (verbindung.ortB == ortsListe
+						.get(ortsListe.size() - 1)) {
 					ortsListe.add(verbindung.ortA);
 				} else {
 					throw new OrtNichtVorhanden();
