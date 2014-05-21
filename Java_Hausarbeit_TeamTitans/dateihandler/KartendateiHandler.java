@@ -53,7 +53,7 @@ public class KartendateiHandler extends Datei {
 	/**
 	 * 99
 	 */
-	public static final int MAY_KOORD_Y = 99;
+	public static final int MAX_KOORD_Y = 99;
 
 	public Karte kartenInstanz;
 
@@ -218,7 +218,7 @@ public class KartendateiHandler extends Datei {
 	 */
 	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text,
 			String marker) {
-		while (beginn < text.size() -1) {
+		while (beginn < text.size() - 1) {
 			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -345,6 +345,11 @@ public class KartendateiHandler extends Datei {
 					datensatz));
 			int ykoord = Integer.parseInt(getMerkmal(BEZEICHNER_Y_KOORDINATE,
 					datensatz));
+			//Ueberoruefen der Orte auf ihre Position.
+			koordinateCheckenX(xkoord);
+			koordinateCheckenY(ykoord);
+			mindestabstandEingehalten(xkoord, ykoord);
+			//Restliche Auswertung.
 			String name = getMerkmal(BEZEICHNER_NAME, datensatz);
 			String kennung = getMerkmal(BEZEICHNER_KENNUNG, datensatz);
 
@@ -379,6 +384,34 @@ public class KartendateiHandler extends Datei {
 					"Fehler in Mermalen. Zahlen sind keine Zahlen");
 		}
 	}
+
+	public boolean mindestabstandEingehalten(int x, int y) {
+		if (kartenInstanz.orte.size() != 0) {
+			for (Ort ortB : kartenInstanz.orte) {
+				double distanz = Math
+						.sqrt(Math
+								.pow((( x - ortB.koordX) + (y - ortB.koordY)),
+										2));
+				if (distanz < 3) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	public void koordinateCheckenX(int koord){
+		if (koord > MAX_KOORD_X || koord < MIN_KOORD_X){
+			JOptionPane.showMessageDialog(null, "Ort liegt außerhalb der erlaubten Karte - X Wert außerhalb");
+		}
+	}
+	
+	public void koordinateCheckenY(int koord){
+		if (koord > MAX_KOORD_Y || koord < MIN_KOORD_Y){
+			JOptionPane.showMessageDialog(null, "Ort liegt außerhalb der erlaubten Karte - Y Wert außerhalb");
+		}
+	}
+	
 
 	// Hier stehen die 4 Methoden zur Erzeugung der 4 verschiedenen Orte.
 	// @author Nils
