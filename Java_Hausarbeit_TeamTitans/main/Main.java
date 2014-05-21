@@ -5,7 +5,10 @@ import java.io.File;
 import korridore.Korridor;
 import orte.Ort;
 import dateihandler.KartendateiHandler;
+import dateihandler.NetzdateiHandler;
+import dateihandler.SimulationsdateiHandler;
 import dateihandler.TestdateiHandler;
+import exceptions.OrtNichtVorhanden;
 
 /**
  * @author BruecknerR, FechnerL, HandritschkP, TolleN erzeugt Karteninstanz,
@@ -25,13 +28,17 @@ public class Main {
 		de.erzeugeNetz();
 		Simulator sim = new Simulator();
 		File simdatei = gui.frageNachTestdatei();
-		TestdateiHandler testverarbeiter = new TestdateiHandler(simdatei, sim, de);
+		TestdateiHandler testverarbeiter = new TestdateiHandler(simdatei, sim,
+				de);
 		testverarbeiter.verarbeiteTestdatei();
-		for (Flugroute b : sim.routen){
-			System.out.println(b.herkunft);
-		}
-//		Flugroute ab = new Flugroute(de.orte.get(6),de.orte.get(2),243);
-//		ab.ermittleBesteRoute();
-//		System.out.println(ab.erzeugeTextausgabeReiseroute());
+		sim.simuliere();
+
+		NetzdateiHandler netzler = new NetzdateiHandler(de);
+		netzler.schreibeNetzdatei();
+		
+		SimulationsdateiHandler simon = new SimulationsdateiHandler(sim);
+		simon.schreibeSimulationsDatei();
+		for(Flugroute a:sim.routen){
+			System.out.println(a.erzeugeTextausgabeReiseroute());		}
 	}
 }
