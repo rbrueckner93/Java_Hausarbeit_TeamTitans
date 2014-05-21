@@ -25,7 +25,9 @@ public class Main {
 		KartendateiHandler verarbeiter = new KartendateiHandler(de, datei);
 		verarbeiter.verarbeiteKartendatei();
 		System.out.println(de.orte);
-		de.erzeugeNetz();
+		de.erstelleNetz();
+		
+		
 		Simulator sim = new Simulator();
 		File simdatei = gui.frageNachTestdatei();
 		TestdateiHandler testverarbeiter = new TestdateiHandler(simdatei, sim,
