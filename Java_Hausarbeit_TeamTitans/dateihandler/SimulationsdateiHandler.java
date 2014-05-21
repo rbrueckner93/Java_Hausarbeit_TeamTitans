@@ -66,7 +66,7 @@ public class SimulationsdateiHandler extends Datei {
 			fertigerText.add(MERKMAL_BEGINN + BEZEICHNER_ZIEL
 					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.ziel.name
 					+ MERKMAL_ENDE);
-			fertigerText.add(MERKMAL_BEGINN
+			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_REISELISTE+BEZEICHNER_WERT_TRENNER
 					+ aktuelleFlugroute.erzeugeTextausgabeReiseroute()
 					+ MERKMAL_ENDE);
 			fertigerText.add(MERKMAL_BEGINN + BEZEICHNER_FAKTOR
