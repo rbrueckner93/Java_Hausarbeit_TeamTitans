@@ -145,13 +145,16 @@ public class Flugroute {
 		 */
 		while (moeglicheFlugrouten.size() > 1) {
 			for (int i = 0; i < moeglicheFlugrouten.size(); i++) {
-				if (moeglicheFlugrouten.get(i).ermittleRoutennutzkosten() < moeglicheFlugrouten
-						.get(i + 1).ermittleRoutennutzkosten()) {
-					moeglicheFlugrouten.remove(i + 1);
+				if (moeglicheFlugrouten.get(0).ermittleRoutennutzkosten() < moeglicheFlugrouten
+						.get(1).ermittleRoutennutzkosten()) {
+					moeglicheFlugrouten.remove(1);
+				} else {
+					moeglicheFlugrouten.remove(0);
 				}
-
 			}
+
 		}
+
 		if (moeglicheFlugrouten.size() == 1) {
 			System.out.println("Optimum gefunden!");
 			reiseListe = moeglicheFlugrouten.get(0).reiseListe;
@@ -189,9 +192,9 @@ public class Flugroute {
 		String ausgabe = "";
 		try {
 			for (Ort ort : erzeugeOrtsListe()) {
-				ausgabe += ort.name+";";
+				ausgabe += ort.name + ";";
 			}
-			ausgabe = ausgabe.substring(0, ausgabe.length()-1);
+			ausgabe = ausgabe.substring(0, ausgabe.length() - 1);
 		} catch (OrtNichtVorhanden e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
