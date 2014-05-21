@@ -33,11 +33,11 @@ public class NetzdateiHandler extends Datei {
 	}
 
 	public void schreibeNetzdatei(){
-		Datei.schreibeDatei(erstelleOutputStream(), erstelleDateiName());
+		Datei.schreibeDatei(erstelleOutputStreamNet(), erstelleDateiNameNet());
 	}
 	
 	
-	public ArrayList<String> erstelleOutputStream() {
+	public ArrayList<String> erstelleOutputStreamNet() {
 		ArrayList<String> fertigerText = new ArrayList<String>();
 		fertigerText.add(DATEI_BEGINN_MARKER);
 		fertigerText.add("");
@@ -53,7 +53,7 @@ public class NetzdateiHandler extends Datei {
 		return fertigerText;
 	}
 
-	public String erstelleDateiName() {
+	public String erstelleDateiNameNet() {
 			String dateiName = fertigesNetz.getNameKartendateiHandler()+DATEI_SUFFIX;
 		return dateiName;
 	}

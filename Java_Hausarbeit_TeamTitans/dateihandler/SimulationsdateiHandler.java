@@ -1,14 +1,13 @@
 package dateihandler;
 
 import java.util.ArrayList;
-
+import main.Flugroute;
 import main.Simulator;
 
 /**
- * @author TolleN
- * Beschreibung
- * aufgrund eines ihr uebergebenen Simulators erstellt SimulationsdateiHandler
- * eine Datei, die Informationen ueber die durchgefuehrte Simulation enthaelt.
+ * @author TolleN Beschreibung aufgrund eines ihr uebergebenen Simulators
+ *         erstellt SimulationsdateiHandler eine Datei, die Informationen ueber
+ *         die durchgefuehrte Simulation enthaelt.
  */
 public class SimulationsdateiHandler extends Datei {
 	/* {author=TolleN} */
@@ -21,7 +20,8 @@ public class SimulationsdateiHandler extends Datei {
 	public static ArrayList<String> GUELTIGE_BEZEICHNER;
 	public static final String BEZEICHNER_START = "start";
 	public static final String BEZEICHNER_ZIEL = "end";
-	public static final char REISELISTE_TEILER = ';';
+	// Wird nicht mehr benötigt.
+	// public static final char REISELISTE_TEILER = ';';
 
 	/**
 	 * Aneinanderreihung aller Orte auf dem Weg der Flugroute
@@ -34,9 +34,10 @@ public class SimulationsdateiHandler extends Datei {
 	 * Uebergabe der Informationen, die durch den Simulator gesammelt wurden.
 	 */
 	public Simulator fertigeSimulation;
-	
+
 	/**
 	 * Konstruktor. Bekommt ein fertiges Objekt der Klasse Simulator uebergeben.
+	 * 
 	 * @param fertigeSimulation
 	 */
 
@@ -45,15 +46,39 @@ public class SimulationsdateiHandler extends Datei {
 		this.fertigeSimulation = fertigeSimulation;
 	}
 
-	/**
-	 * benutzt unter anderem erzeugeOrtsListe, um reiseListe zu erstellen.
-	 */
-	public String erstelleOutputStream() {
-		return null;
+	public void schreibeSimulationsDatei() {
+		Datei.schreibeDatei(erstelleOutputStreamSim(), erstelleDateiNameSim());
 	}
 
-	public String erstelleDateiName() {
-		return null;
+	/**
+	 * Methode erzeugt einen AusgabeStream der den Regeln folgt. benätigt
+	 * lediglich eine liste aller erstellten Flugrouten.
+	 */
+	public ArrayList<String> erstelleOutputStreamSim() {
+		ArrayList<String> fertigerText = new ArrayList<String>();
+		fertigerText.add(DATEI_BEGINN_MARKER);
+		fertigerText.add("");
+		for (Flugroute aktuelleFlugroute : fertigeSimulation.routen) {
+			fertigerText.add(DATENSATZ_BEGINN_MARKER);
+			fertigerText.add(MERKMAL_BEGINN + BEZEICHNER_START
+					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.herkunft.name
+					+ MERKMAL_ENDE);
+			fertigerText.add(MERKMAL_BEGINN + BEZEICHNER_ZIEL
+					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.ziel.name
+					+ MERKMAL_ENDE);
+			fertigerText.add(MERKMAL_BEGINN
+					+ aktuelleFlugroute.erzeugeTextausgabeReiseroute()
+					+ MERKMAL_ENDE);
+			fertigerText.add(DATENSATZ_ENDE_MARKER);
+		}
+		fertigerText.add("");
+		fertigerText.add(DATEI_ENDE_MARKER);
+		return fertigerText;
+	}
+
+	public String erstelleDateiNameSim() {
+		String dateiname = fertigeSimulation.nameTestdatei + DATEI_SUFFIX;
+		return dateiname;
 	}
 
 }
