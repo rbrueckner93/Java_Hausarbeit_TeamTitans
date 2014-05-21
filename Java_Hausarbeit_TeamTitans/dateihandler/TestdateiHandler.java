@@ -70,19 +70,19 @@ public class TestdateiHandler extends Datei {
 	 * @param marker
 	 * @return
 	 */
-	public static int findeDateiBeginnMarker(int beginn,
-			ArrayList<String> text) {
+	public static int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size()) {
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATEI_BEGINN_MARKER),
-						text.get(beginn).indexOf(DATEI_BEGINN_MARKER) + DATEI_BEGINN_MARKER.length());
-				if (test.equals(DATEI_BEGINN_MARKER)) {
-					return beginn;
-				} else {
-					beginn++;
-				}
-			} catch (StringIndexOutOfBoundsException e) {
+			int anfang = text.get(beginn).indexOf(DATEI_BEGINN_MARKER);
+			if (anfang == -1) {
+				beginn++;
+				continue;
+			}
+			int ende = text.get(beginn).indexOf(DATEI_BEGINN_MARKER)
+					+ DATEI_BEGINN_MARKER.length();
+			String zeile = text.get(beginn).substring(anfang, ende);
+			if (zeile.equals(DATEI_BEGINN_MARKER)) {
+				return beginn;
+			} else {
 				beginn++;
 			}
 		}
@@ -99,54 +99,61 @@ public class TestdateiHandler extends Datei {
 	public static int findeDateiEndeMarker(int beginn, ArrayList<String> text) {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
-		int endeDateiBeginnMarker = text.get(beginn).indexOf(DATEI_BEGINN_MARKER)
+		int endeDateiBeginnMarker = text.get(beginn).indexOf(
+				DATEI_BEGINN_MARKER)
 				+ DATEI_BEGINN_MARKER.length();
-			try {
-			String zutesten = text.get(beginn).substring(
-					text.get(beginn).indexOf(DATEI_BEGINN_MARKER, endeDateiBeginnMarker),
-					text.get(beginn).indexOf(DATEI_BEGINN_MARKER, endeDateiBeginnMarker)
-							+ DATEI_BEGINN_MARKER.length());
+		// Beginn der Suche nach DateiBeginnMarker.
+		int anfangZeile1 = text.get(beginn).indexOf(DATEI_BEGINN_MARKER,
+				endeDateiBeginnMarker);
+		if (anfangZeile1 != -1) {
+			int endeZeile1 = anfangZeile1 + DATEI_BEGINN_MARKER.length();
+			String zutesten = text.get(beginn).substring(anfangZeile1,
+					endeZeile1);
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
-				JOptionPane
-						.showMessageDialog(null,
-								"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "+beginn);
+				JOptionPane.showMessageDialog(null,
+						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+								+ beginn);
 				return 0;
 			}
-		} catch (IndexOutOfBoundsException e) {
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATEI_ENDE_MARKER),
-						text.get(beginn).indexOf(DATEI_ENDE_MARKER) + DATEI_ENDE_MARKER.length());
-				if (test.equals(DATEI_ENDE_MARKER)) {
-					return beginn;
-				}
-			} catch (StringIndexOutOfBoundsException f) {
-				beginn++;
+		}
+		int anfangZeile11 = text.get(beginn).indexOf(DATEI_ENDE_MARKER);
+		if (anfangZeile11 != -1) {
+			int endeZeile11 = anfangZeile11 + DATEI_ENDE_MARKER.length();
+			String test = text.get(beginn)
+					.substring(anfangZeile11, endeZeile11);
+			if (test.equals(DATEI_ENDE_MARKER)) {
+				return beginn;
 			}
 		}
+		beginn++;
 		while (beginn < text.size()) {
-			try {
+			int anfangAktuelleZeile = text.get(beginn).indexOf(
+					DATEI_BEGINN_MARKER);
+			if (anfangAktuelleZeile != -1) {
+				int endeAktuelleZeile = anfangAktuelleZeile
+						+ DATEI_BEGINN_MARKER.length();
 				String moeglicherstart = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATEI_BEGINN_MARKER),
-						text.get(beginn).indexOf(DATEI_BEGINN_MARKER) + DATEI_BEGINN_MARKER.length());
+						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
-					JOptionPane
-							.showMessageDialog(null,
-									"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "+beginn);
+					JOptionPane.showMessageDialog(null,
+							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+									+ beginn);
 					return 0;
 				}
-			} catch (StringIndexOutOfBoundsException e) {
 			}
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATEI_ENDE_MARKER),
-						text.get(beginn).indexOf(DATEI_ENDE_MARKER) + DATEI_ENDE_MARKER.length());
-				if (test.equals(DATEI_ENDE_MARKER)) {
+			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
+					DATEI_ENDE_MARKER);
+			if (anfangAktuelleZeile1 != -1) {
+				int endeAktuelleZeile1 = anfangAktuelleZeile1
+						+ DATEI_ENDE_MARKER.length();
+				String zeile = text.get(beginn).substring(anfangAktuelleZeile1,
+						endeAktuelleZeile1);
+				if (zeile.equals(DATEI_ENDE_MARKER)) {
 					return beginn;
 				}
-			} catch (StringIndexOutOfBoundsException e) {
-				beginn++;
 			}
+			beginn++;
+			continue;
 		}
 		return beginn;
 	}
@@ -159,22 +166,18 @@ public class TestdateiHandler extends Datei {
 	public boolean DatensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
 		while (beginn < text.size()) {
-			if (beginn < text.size()) {
-				try {
-					String test = text.get(beginn).substring(
-							text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER),
-							text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
-									+ DATENSATZ_BEGINN_MARKER.length());
-					if (test.equals(DATENSATZ_BEGINN_MARKER)) {
-						return true;
-					} else {
-						beginn++;
-					}
-				} catch (StringIndexOutOfBoundsException e) {
-					beginn++;
-				}
+			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
+			if (anfang == -1) {
+				beginn++;
+				continue;
+			}
+			int ende = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
+					+ DATENSATZ_BEGINN_MARKER.length();
+			String zeile = text.get(beginn).substring(anfang, ende);
+			if (zeile.equals(DATENSATZ_BEGINN_MARKER)) {
+				return true;
 			} else {
-				return false;
+				beginn++;
 			}
 		}
 		return false;
@@ -182,74 +185,84 @@ public class TestdateiHandler extends Datei {
 
 	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text,
 			String marker) {
-		while (beginn < (text.size() - 1)) {
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(marker),
-						text.get(beginn).indexOf(marker) + marker.length());
-				if (test.equals(marker)) {
-					return beginn;
-				} else {
-					beginn++;
-				}
-			} catch (StringIndexOutOfBoundsException e) {
+		while (beginn < text.size() -1) {
+			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
+			if (anfang == -1) {
+				beginn++;
+				continue;
+			}
+			int ende = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
+					+ DATENSATZ_BEGINN_MARKER.length();
+			String zeile = text.get(beginn).substring(anfang, ende);
+			if (zeile.equals(DATENSATZ_BEGINN_MARKER)) {
+				return beginn;
+			} else {
 				beginn++;
 			}
 		}
-		return beginn;
+		return -1;
+
 	}
 
-	public static int findeDatensatzEndeMarker(int beginn, ArrayList<String> text) {
+	public static int findeDatensatzEndeMarker(int beginn,
+			ArrayList<String> text) {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
-		int endeDateiBeginnMarker = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
+		int endeDateiBeginnMarker = text.get(beginn).indexOf(
+				DATENSATZ_BEGINN_MARKER)
 				+ DATENSATZ_BEGINN_MARKER.length();
-			try {
-			String zutesten = text.get(beginn).substring(
-					text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER, endeDateiBeginnMarker),
-					text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER, endeDateiBeginnMarker)
-							+ DATENSATZ_BEGINN_MARKER.length());
+		// Beginn der Suche nach DateiBeginnMarker.
+		int anfangZeile1 = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER,
+				endeDateiBeginnMarker);
+		if (anfangZeile1 != -1) {
+			int endeZeile1 = anfangZeile1 + DATENSATZ_BEGINN_MARKER.length();
+			String zutesten = text.get(beginn).substring(anfangZeile1,
+					endeZeile1);
 			if (zutesten.equals(DATENSATZ_BEGINN_MARKER)) {
-				JOptionPane
-						.showMessageDialog(null,
-								"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "+beginn);
+				JOptionPane.showMessageDialog(null,
+						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+								+ beginn);
 				return 0;
 			}
-		} catch (IndexOutOfBoundsException e) {
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER),
-						text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER) + DATENSATZ_ENDE_MARKER.length());
-				if (test.equals(DATENSATZ_ENDE_MARKER)) {
-					return beginn;
-				}
-			} catch (StringIndexOutOfBoundsException f) {
-				beginn++;
+		}
+		int anfangZeile11 = text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER);
+		if (anfangZeile11 != -1) {
+			int endeZeile11 = anfangZeile11 + DATENSATZ_ENDE_MARKER.length();
+			String test = text.get(beginn)
+					.substring(anfangZeile11, endeZeile11);
+			if (test.equals(DATENSATZ_ENDE_MARKER)) {
+				return beginn;
 			}
 		}
+		beginn++;
 		while (beginn < text.size()) {
-			try {
+			int anfangAktuelleZeile = text.get(beginn).indexOf(
+					DATENSATZ_BEGINN_MARKER);
+			if (anfangAktuelleZeile != -1) {
+				int endeAktuelleZeile = anfangAktuelleZeile
+						+ DATENSATZ_BEGINN_MARKER.length();
 				String moeglicherstart = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER),
-						text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER) + DATENSATZ_BEGINN_MARKER.length());
+						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATENSATZ_BEGINN_MARKER)) {
-					JOptionPane
-							.showMessageDialog(null,
-									"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "+beginn);
+					JOptionPane.showMessageDialog(null,
+							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+									+ beginn);
 					return 0;
 				}
-			} catch (StringIndexOutOfBoundsException e) {
 			}
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER),
-						text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER) + DATENSATZ_ENDE_MARKER.length());
-				if (test.equals(DATENSATZ_ENDE_MARKER)) {
+			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
+					DATENSATZ_ENDE_MARKER);
+			if (anfangAktuelleZeile1 != -1) {
+				int endeAktuelleZeile1 = anfangAktuelleZeile1
+						+ DATENSATZ_ENDE_MARKER.length();
+				String zeile = text.get(beginn).substring(anfangAktuelleZeile1,
+						endeAktuelleZeile1);
+				if (zeile.equals(DATENSATZ_ENDE_MARKER)) {
 					return beginn;
 				}
-			} catch (StringIndexOutOfBoundsException e) {
-				beginn++;
 			}
+			beginn++;
+			continue;
 		}
 		return beginn;
 	}
