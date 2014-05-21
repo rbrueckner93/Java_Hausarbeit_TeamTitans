@@ -27,20 +27,19 @@ public class Main {
 		System.out.println(de.orte);
 		de.erstelleNetz();
 		
-		
-		Simulator sim = new Simulator();
-		File simdatei = gui.frageNachTestdatei();
-		TestdateiHandler testverarbeiter = new TestdateiHandler(simdatei, sim,
-				de);
-		testverarbeiter.verarbeiteTestdatei();
-		sim.simuliere();
+		do {
+			Simulator sim = new Simulator();
+			File simdatei = gui.frageNachTestdatei();
+			TestdateiHandler testverarbeiter = new TestdateiHandler(simdatei, sim,
+					de);
+			testverarbeiter.verarbeiteTestdatei();
+			sim.simuliere();
 
-		NetzdateiHandler netzler = new NetzdateiHandler(de);
-		netzler.schreibeNetzdatei();
-		
-		SimulationsdateiHandler simon = new SimulationsdateiHandler(sim);
-		simon.schreibeSimulationsDatei();
-		for(Flugroute a:sim.routen){
-			System.out.println(a.erzeugeTextausgabeReiseroute());		}
+			NetzdateiHandler netzler = new NetzdateiHandler(de);
+			netzler.schreibeNetzdatei();
+			
+			SimulationsdateiHandler simon = new SimulationsdateiHandler(sim);
+			simon.schreibeSimulationsDatei();
+		} while (gui.frageNachEndoption() == 1);
 	}
 }
