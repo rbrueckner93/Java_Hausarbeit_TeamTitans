@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import exceptions.MerkmalMissing;
 import orte.Ort;
 import main.Flugroute;
 import main.Karte;
@@ -254,8 +255,11 @@ public class TestdateiHandler extends Datei {
 	}
 
 	public String getMerkmal(String wertBezeichner, String zeile)
-			throws StringIndexOutOfBoundsException {
+			throws MerkmalMissing {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
+		if (anfang == -1){
+			throw new MerkmalMissing();
+		}
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
 		String inhaltMerkmal = zeile.substring(anfang, ende);
 		String[] merkmalsplit = inhaltMerkmal.split("\\"
@@ -314,11 +318,13 @@ public class TestdateiHandler extends Datei {
 				int faktor = Integer.parseInt(getMerkmal(BEZEICHNER_FAKTOR,
 						datensatz));
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktor);
-			} catch (StringIndexOutOfBoundsException e) {
+			} catch (MerkmalMissing e) {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktorDefault);
 			}
-		} catch (StringIndexOutOfBoundsException e) {
-			JOptionPane.showMessageDialog(null, "Datensatz fehlt Merkmal");
+		} catch (MerkmalMissing e) {
+			JOptionPane.showMessageDialog(null, "Datensatz fehlt Merkmal "+aktuelleZeile);
+		} catch (NumberFormatException f){
+			JOptionPane.showMessageDialog(null, "Merkmale enthalten keine Zahlen "+aktuelleZeile);
 		}
 
 	}
