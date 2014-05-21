@@ -1,4 +1,5 @@
 package dateihandler;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ import orte.Umschlagpunkt;
 /**
  * 
  * @author TolleN
- *
+ * 
  */
 
 public class KartendateiHandler extends Datei {
@@ -86,30 +87,32 @@ public class KartendateiHandler extends Datei {
 			}
 		}
 	}
+
 	/**
 	 * 
 	 * @param beginn
 	 * @param text
 	 * @return
 	 */
-	public static int findeDateiBeginnMarker(int beginn,
-			ArrayList<String> text) {
+	public static int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size()) {
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATEI_BEGINN_MARKER),
-						text.get(beginn).indexOf(DATEI_BEGINN_MARKER) + DATEI_BEGINN_MARKER.length());
-				if (test.equals(DATEI_BEGINN_MARKER)) {
-					return beginn;
-				} else {
-					beginn++;
-				}
-			} catch (StringIndexOutOfBoundsException e) {
+			int anfang = text.get(beginn).indexOf(DATEI_BEGINN_MARKER);
+			if (anfang == -1) {
+				beginn++;
+				continue;
+			}
+			int ende = text.get(beginn).indexOf(DATEI_BEGINN_MARKER)
+					+ DATEI_BEGINN_MARKER.length();
+			String zeile = text.get(beginn).substring(anfang, ende);
+			if (zeile.equals(DATEI_BEGINN_MARKER)) {
+				return beginn;
+			} else {
 				beginn++;
 			}
 		}
 		return -1;
 	}
+
 	/**
 	 * 
 	 * @param beginn
@@ -119,59 +122,68 @@ public class KartendateiHandler extends Datei {
 	public static int findeDateiEndeMarker(int beginn, ArrayList<String> text) {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
-		int endeDateiBeginnMarker = text.get(beginn).indexOf(DATEI_BEGINN_MARKER)
+		int endeDateiBeginnMarker = text.get(beginn).indexOf(
+				DATEI_BEGINN_MARKER)
 				+ DATEI_BEGINN_MARKER.length();
-			try {
-			String zutesten = text.get(beginn).substring(
-					text.get(beginn).indexOf(DATEI_BEGINN_MARKER, endeDateiBeginnMarker),
-					text.get(beginn).indexOf(DATEI_BEGINN_MARKER, endeDateiBeginnMarker)
-							+ DATEI_BEGINN_MARKER.length());
+		// Beginn der Suche nach DateiBeginnMarker.
+		int anfangZeile1 = text.get(beginn).indexOf(DATEI_BEGINN_MARKER,
+				endeDateiBeginnMarker);
+		if (anfangZeile1 != -1) {
+			int endeZeile1 = anfangZeile1 + DATEI_BEGINN_MARKER.length();
+			String zutesten = text.get(beginn).substring(anfangZeile1,
+					endeZeile1);
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
-				JOptionPane
-						.showMessageDialog(null,
-								"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "+beginn);
+				JOptionPane.showMessageDialog(null,
+						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+								+ beginn);
 				return 0;
 			}
-		} catch (IndexOutOfBoundsException e) {
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATEI_ENDE_MARKER),
-						text.get(beginn).indexOf(DATEI_ENDE_MARKER) + DATEI_ENDE_MARKER.length());
-				if (test.equals(DATEI_ENDE_MARKER)) {
-					return beginn;
-				}
-			} catch (StringIndexOutOfBoundsException f) {
-				beginn++;
+		}
+		int anfangZeile11 = text.get(beginn).indexOf(DATEI_ENDE_MARKER);
+		if (anfangZeile11 != -1) {
+			int endeZeile11 = anfangZeile11 + DATEI_ENDE_MARKER.length();
+			String test = text.get(beginn)
+					.substring(anfangZeile11, endeZeile11);
+			if (test.equals(DATEI_ENDE_MARKER)) {
+				return beginn;
 			}
 		}
+		beginn++;
 		while (beginn < text.size()) {
-			try {
+			int anfangAktuelleZeile = text.get(beginn).indexOf(
+					DATEI_BEGINN_MARKER);
+			if (anfangAktuelleZeile != -1) {
+				int endeAktuelleZeile = anfangAktuelleZeile
+						+ DATEI_BEGINN_MARKER.length();
 				String moeglicherstart = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATEI_BEGINN_MARKER),
-						text.get(beginn).indexOf(DATEI_BEGINN_MARKER) + DATEI_BEGINN_MARKER.length());
+						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
-					JOptionPane
-							.showMessageDialog(null,
-									"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "+beginn);
+					JOptionPane.showMessageDialog(null,
+							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+									+ beginn);
 					return 0;
 				}
-			} catch (StringIndexOutOfBoundsException e) {
 			}
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATEI_ENDE_MARKER),
-						text.get(beginn).indexOf(DATEI_ENDE_MARKER) + DATEI_ENDE_MARKER.length());
-				if (test.equals(DATEI_ENDE_MARKER)) {
+			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
+					DATEI_ENDE_MARKER);
+			if (anfangAktuelleZeile1 != -1) {
+				int endeAktuelleZeile1 = anfangAktuelleZeile1
+						+ DATEI_ENDE_MARKER.length();
+				String zeile = text.get(beginn).substring(anfangAktuelleZeile1,
+						endeAktuelleZeile1);
+				if (zeile.equals(DATEI_ENDE_MARKER)) {
 					return beginn;
 				}
-			} catch (StringIndexOutOfBoundsException e) {
-				beginn++;
 			}
+			beginn++;
+			continue;
 		}
 		return beginn;
 	}
+
 	/**
 	 * Sucht nach vorhandenem Datensatzbeginn. Kriterium um weiter auszuwerten.
+	 * 
 	 * @param beginn
 	 * @param text
 	 * @return
@@ -179,26 +191,23 @@ public class KartendateiHandler extends Datei {
 	public boolean DatensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
 		while (beginn < text.size()) {
-			if (beginn < text.size()) {
-				try {
-					String test = text.get(beginn).substring(
-							text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER),
-							text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
-									+ DATENSATZ_BEGINN_MARKER.length());
-					if (test.equals(DATENSATZ_BEGINN_MARKER)) {
-						return true;
-					} else {
-						beginn++;
-					}
-				} catch (StringIndexOutOfBoundsException e) {
-					beginn++;
-				}
+			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
+			if (anfang == -1) {
+				beginn++;
+				continue;
+			}
+			int ende = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
+					+ DATENSATZ_BEGINN_MARKER.length();
+			String zeile = text.get(beginn).substring(anfang, ende);
+			if (zeile.equals(DATENSATZ_BEGINN_MARKER)) {
+				return true;
 			} else {
-				return false;
+				beginn++;
 			}
 		}
 		return false;
 	}
+
 	/**
 	 * Findet Datensatz beginn
 	 * 
@@ -209,74 +218,84 @@ public class KartendateiHandler extends Datei {
 	 */
 	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text,
 			String marker) {
-		while (beginn < (text.size() - 1)) {
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(marker),
-						text.get(beginn).indexOf(marker) + marker.length());
-				if (test.equals(marker)) {
-					return beginn;
-				} else {
-					beginn++;
-				}
-			} catch (StringIndexOutOfBoundsException e) {
+		while (beginn < text.size() -1) {
+			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
+			if (anfang == -1) {
+				beginn++;
+				continue;
+			}
+			int ende = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
+					+ DATENSATZ_BEGINN_MARKER.length();
+			String zeile = text.get(beginn).substring(anfang, ende);
+			if (zeile.equals(DATENSATZ_BEGINN_MARKER)) {
+				return beginn;
+			} else {
 				beginn++;
 			}
 		}
-		return beginn;
+		return -1;
+
 	}
 
-	public static int findeDatensatzEndeMarker(int beginn, ArrayList<String> text) {
+	public static int findeDatensatzEndeMarker(int beginn,
+			ArrayList<String> text) {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
-		int endeDateiBeginnMarker = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER)
+		int endeDateiBeginnMarker = text.get(beginn).indexOf(
+				DATENSATZ_BEGINN_MARKER)
 				+ DATENSATZ_BEGINN_MARKER.length();
-			try {
-			String zutesten = text.get(beginn).substring(
-					text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER, endeDateiBeginnMarker),
-					text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER, endeDateiBeginnMarker)
-							+ DATENSATZ_BEGINN_MARKER.length());
+		// Beginn der Suche nach DateiBeginnMarker.
+		int anfangZeile1 = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER,
+				endeDateiBeginnMarker);
+		if (anfangZeile1 != -1) {
+			int endeZeile1 = anfangZeile1 + DATENSATZ_BEGINN_MARKER.length();
+			String zutesten = text.get(beginn).substring(anfangZeile1,
+					endeZeile1);
 			if (zutesten.equals(DATENSATZ_BEGINN_MARKER)) {
-				JOptionPane
-						.showMessageDialog(null,
-								"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "+beginn);
+				JOptionPane.showMessageDialog(null,
+						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+								+ beginn);
 				return 0;
 			}
-		} catch (IndexOutOfBoundsException e) {
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER),
-						text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER) + DATENSATZ_ENDE_MARKER.length());
-				if (test.equals(DATENSATZ_ENDE_MARKER)) {
-					return beginn;
-				}
-			} catch (StringIndexOutOfBoundsException f) {
-				beginn++;
+		}
+		int anfangZeile11 = text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER);
+		if (anfangZeile11 != -1) {
+			int endeZeile11 = anfangZeile11 + DATENSATZ_ENDE_MARKER.length();
+			String test = text.get(beginn)
+					.substring(anfangZeile11, endeZeile11);
+			if (test.equals(DATENSATZ_ENDE_MARKER)) {
+				return beginn;
 			}
 		}
+		beginn++;
 		while (beginn < text.size()) {
-			try {
+			int anfangAktuelleZeile = text.get(beginn).indexOf(
+					DATENSATZ_BEGINN_MARKER);
+			if (anfangAktuelleZeile != -1) {
+				int endeAktuelleZeile = anfangAktuelleZeile
+						+ DATENSATZ_BEGINN_MARKER.length();
 				String moeglicherstart = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER),
-						text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER) + DATENSATZ_BEGINN_MARKER.length());
+						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATENSATZ_BEGINN_MARKER)) {
-					JOptionPane
-							.showMessageDialog(null,
-									"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "+beginn);
+					JOptionPane.showMessageDialog(null,
+							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+									+ beginn);
 					return 0;
 				}
-			} catch (StringIndexOutOfBoundsException e) {
 			}
-			try {
-				String test = text.get(beginn).substring(
-						text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER),
-						text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER) + DATENSATZ_ENDE_MARKER.length());
-				if (test.equals(DATENSATZ_ENDE_MARKER)) {
+			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
+					DATENSATZ_ENDE_MARKER);
+			if (anfangAktuelleZeile1 != -1) {
+				int endeAktuelleZeile1 = anfangAktuelleZeile1
+						+ DATENSATZ_ENDE_MARKER.length();
+				String zeile = text.get(beginn).substring(anfangAktuelleZeile1,
+						endeAktuelleZeile1);
+				if (zeile.equals(DATENSATZ_ENDE_MARKER)) {
 					return beginn;
 				}
-			} catch (StringIndexOutOfBoundsException e) {
-				beginn++;
 			}
+			beginn++;
+			continue;
 		}
 		return beginn;
 	}
@@ -288,19 +307,21 @@ public class KartendateiHandler extends Datei {
 	 * @param zeile
 	 * @return
 	 */
-	public String getMerkmal(String wertBezeichner, String zeile) throws MerkmalMissing {
-		int anfang = zeile.indexOf(MERKMAL_BEGINN+wertBezeichner, 0);
-		if ( anfang == -1){
+	public String getMerkmal(String wertBezeichner, String zeile)
+			throws MerkmalMissing {
+		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
+		if (anfang == -1) {
 			throw new MerkmalMissing();
 		}
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
 		String inhaltMerkmal = zeile.substring(anfang, ende);
-		String[] merkmalsplit = inhaltMerkmal.split("\\"+BEZEICHNER_WERT_TRENNER);
-		if (merkmalsplit[0].equals(MERKMAL_BEGINN+wertBezeichner)) {
+		String[] merkmalsplit = inhaltMerkmal.split("\\"
+				+ BEZEICHNER_WERT_TRENNER);
+		if (merkmalsplit[0].equals(MERKMAL_BEGINN + wertBezeichner)) {
 			return merkmalsplit[1];
 		} else {
-			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "+aktuelleZeile
-					+ wertBezeichner);
+			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
+					+ aktuelleZeile + wertBezeichner);
 		}
 		return null;
 	}
@@ -319,54 +340,56 @@ public class KartendateiHandler extends Datei {
 		for (int i = beginnZeile; i <= endeZeile; i++) {
 			datensatz += text.get(i);
 		}
-		try{
-		int xkoord = Integer
-				.parseInt(getMerkmal(BEZEICHNER_X_KOORDINATE, datensatz));
-		int ykoord = Integer
-				.parseInt(getMerkmal(BEZEICHNER_Y_KOORDINATE, datensatz));
-		String name = getMerkmal(BEZEICHNER_NAME, datensatz);
-		String kennung = getMerkmal(BEZEICHNER_KENNUNG, datensatz);
+		try {
+			int xkoord = Integer.parseInt(getMerkmal(BEZEICHNER_X_KOORDINATE,
+					datensatz));
+			int ykoord = Integer.parseInt(getMerkmal(BEZEICHNER_Y_KOORDINATE,
+					datensatz));
+			String name = getMerkmal(BEZEICHNER_NAME, datensatz);
+			String kennung = getMerkmal(BEZEICHNER_KENNUNG, datensatz);
 
-		switch (kennung) {
-		case Ort.KENNUNG_HAUPTORT:
-			int einwohnerZahl = Integer.parseInt(getMerkmal(
-					BEZEICHNER_EINWOHNERZAHL, datensatz));
-			erzeugeHauptort(xkoord, ykoord, name,einwohnerZahl);
-			break;
-		case Ort.KENNUNG_NEBENORT:
-			int einwohnerZahlnbn = Integer.parseInt(getMerkmal(
-					BEZEICHNER_EINWOHNERZAHL, datensatz));
-			erzeugeNebenort(xkoord, ykoord, name, einwohnerZahlnbn);
-			break;
-		case Ort.KENNUNG_UMSCHLAGPUNKT:
-			double umschlagVolumen = Double.parseDouble(getMerkmal(
-					BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
-			erzeugeUmschlagpunkt(xkoord, ykoord, name, umschlagVolumen);
-			break;
-		case Ort.KENNUNG_AUSLANDSVERBINDUNG:
-			double umschlagVolumenASL = Double.parseDouble(getMerkmal(
-					BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
-			int passagierAufkommen = Integer.parseInt(getMerkmal(
-					BEZEICHNER_PASSAGIERAUFKOMMEN, datensatz));
-			erzeugeAuslandsverbindung(xkoord, ykoord, name,
-					umschlagVolumenASL, passagierAufkommen);
-		}} catch (MerkmalMissing e){
+			switch (kennung) {
+			case Ort.KENNUNG_HAUPTORT:
+				int einwohnerZahl = Integer.parseInt(getMerkmal(
+						BEZEICHNER_EINWOHNERZAHL, datensatz));
+				erzeugeHauptort(xkoord, ykoord, name, einwohnerZahl);
+				break;
+			case Ort.KENNUNG_NEBENORT:
+				int einwohnerZahlnbn = Integer.parseInt(getMerkmal(
+						BEZEICHNER_EINWOHNERZAHL, datensatz));
+				erzeugeNebenort(xkoord, ykoord, name, einwohnerZahlnbn);
+				break;
+			case Ort.KENNUNG_UMSCHLAGPUNKT:
+				double umschlagVolumen = Double.parseDouble(getMerkmal(
+						BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
+				erzeugeUmschlagpunkt(xkoord, ykoord, name, umschlagVolumen);
+				break;
+			case Ort.KENNUNG_AUSLANDSVERBINDUNG:
+				double umschlagVolumenASL = Double.parseDouble(getMerkmal(
+						BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
+				int passagierAufkommen = Integer.parseInt(getMerkmal(
+						BEZEICHNER_PASSAGIERAUFKOMMEN, datensatz));
+				erzeugeAuslandsverbindung(xkoord, ykoord, name,
+						umschlagVolumenASL, passagierAufkommen);
+			}
+		} catch (MerkmalMissing e) {
 			JOptionPane.showMessageDialog(null, "Fehlendes Merkmal");
-		} catch (NumberFormatException f){
-			JOptionPane.showMessageDialog(null, "Fehler in Mermalen. Zahlen sind keine Zahlen");
+		} catch (NumberFormatException f) {
+			JOptionPane.showMessageDialog(null,
+					"Fehler in Mermalen. Zahlen sind keine Zahlen");
 		}
 	}
 
 	// Hier stehen die 4 Methoden zur Erzeugung der 4 verschiedenen Orte.
 	// @author Nils
 	public void erzeugeHauptort(int koordX, int koordY, String name,
-			 int anzahlEinwohner) {
+			int anzahlEinwohner) {
 		kartenInstanz.orte.add(new Hauptort(koordX, koordY, name,
 				anzahlEinwohner));
 	}
 
 	public void erzeugeNebenort(int koordX, int koordY, String name,
-			 int anzahlEinwohner) {
+			int anzahlEinwohner) {
 		kartenInstanz.orte.add(new Nebenort(koordX, koordY, name,
 				anzahlEinwohner));
 	}
@@ -380,7 +403,7 @@ public class KartendateiHandler extends Datei {
 	public void erzeugeAuslandsverbindung(int koordX, int koordY, String name,
 			double umschlagVolumen, int passagierAufkommen) {
 		kartenInstanz.orte.add(new Auslandsverbindung(koordX, koordY, name,
-				 passagierAufkommen, umschlagVolumen));
+				passagierAufkommen, umschlagVolumen));
 	}
-	
+
 }
