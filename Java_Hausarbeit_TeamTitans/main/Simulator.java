@@ -17,7 +17,6 @@ public class Simulator {
 	 */
 	public String nameTestdatei;
 
-	// Leerer Konstruktor der Klasse.
 	public Simulator() {
 		super();
 		routen = new ArrayList<Flugroute>();
@@ -37,8 +36,11 @@ public class Simulator {
 	 */
 	public void simuliere() {
 		for (Flugroute route : routen) {
+			// Debug only.
+			// System.out.println("Ermittle Route von "+route.herkunft.name+" nach "+route.ziel.name);
 			route.ermittleBesteRoute();
-			}
+			// System.out.println("=================================================================");
+		}
 	}
 
 	/**
