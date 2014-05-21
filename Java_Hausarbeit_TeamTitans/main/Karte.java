@@ -12,6 +12,7 @@ import orte.Ort;
 //import sun.awt.UngrabEvent;
 
 /**
+ * @author HandritschkP
  * Die Karte ist
  * 
  * -zunaechst baut die karte ein Netz in sternform auf, indem die Relevanzgrade
@@ -20,7 +21,6 @@ import orte.Ort;
  * Datenhandler speichert das Netz als Textdatei.
  */
 public class Karte {
-	/* {author=HandritschkP} */
 
 	/**
 	 * Wird per JOptionPane abgefragt. von Lukas
@@ -86,7 +86,7 @@ public class Karte {
 
 	}
 
-	// Methode missverst�ndlich. name geaendert. Vllt variable auch aendern.
+	// Methode missverständlich. name geaendert. Vllt variable auch aendern.
 	public ArrayList<Ort> getListeAllerOrte() {
 		return orte;
 	}
@@ -117,16 +117,16 @@ public class Karte {
 	 * spaeter: bessere Sternloesung: Geld sparen: Alle Korridorarten, die
 	 * zwischen Punkt A und Punkt B moeglich sind, erzeugen und vergleichen. Die
 	 * Karte muss auf ortA und ortB ort.angebundeneKorridore.add(Korridor)
-	 * hinzuf�gen.
+	 * hinzufügen.
 	 */
 
-	public void erzeugeNetz() {
-		erzeugeKorridor();
-		System.out.println(eingerichteteKorridore.get(0).getBaukosten());
-	}
+//	public void erzeugeNetz() {
+//		erzeugeKorridor();
+//		System.out.println(eingerichteteKorridore.get(0).getBaukosten());
+//	}
 
 	/**
-	 * ArrayList orte wird von Dateihandler gef�llt. Pruefe auch ob gleicher
+	 * ArrayList orte wird von Dateihandler gefüllt. Pruefe auch ob gleicher
 	 * hoechster Relevanzgrad vorhanden ist. Dann wird der Ort weitergegeben der
 	 * am naechsten am Mittelpunkt der Karte liegt.
 	 * 
@@ -166,7 +166,7 @@ public class Karte {
 	 * @throws UngueltigerOrt
 	 */
 
-	// Ab hier verschiedene M�glichkeiten der Netzerstellung, zum einen immer
+	// Ab hier verschiedene Möglichkeiten der Netzerstellung, zum einen immer
 	// weiter optimiert, zum anderen zum testen
 
 	// Alle Orte mit jeden anderen verbunden
@@ -219,178 +219,178 @@ public class Karte {
 	// }
 
 	// //Sternvariante
-	public void erzeugeKorridor() {
-		ArrayList<Korridor> moeglicheKorridore = new ArrayList<Korridor>();
-		for (int i = 0; i < orte.size(); i++) {
+//	public void erzeugeKorridor() {
+//		ArrayList<Korridor> moeglicheKorridore = new ArrayList<Korridor>();
+//		for (int i = 0; i < orte.size(); i++) {
+//
+//			for (int k = 0; k < moeglicheKorridore.size(); k++) {
+//				moeglicheKorridore.remove(moeglicheKorridore.size() - 1 - k);
+//			}
+//
+//			if (sucheOrtMitHoechstenRelevanzGrad() != orte.get(i)) {
+//
+//				try {
+//					moeglicheKorridore.add(new Korridor(
+//							sucheOrtMitHoechstenRelevanzGrad(), orte.get(i),
+//							korridore.Korridor.KENNUNG_SICH));
+//				} catch (UngueltigerOrt e) {
+//				}
+//				try {
+//					moeglicheKorridore.add(new Korridor(
+//							sucheOrtMitHoechstenRelevanzGrad(), orte.get(i),
+//							korridore.Korridor.KENNUNG_HLST));
+//				} catch (UngueltigerOrt e) {
+//				}
+//				try {
+//					moeglicheKorridore.add(new Korridor(
+//							sucheOrtMitHoechstenRelevanzGrad(), orte.get(i),
+//							korridore.Korridor.KENNUNG_ENFC));
+//				} catch (UngueltigerOrt e) {
+//				}
+//				try {
+//					moeglicheKorridore.add(new Korridor(
+//							sucheOrtMitHoechstenRelevanzGrad(), orte.get(i),
+//							korridore.Korridor.KENNUNG_STND));
+//				} catch (UngueltigerOrt e) {
+//				}
+//			} else {
+//				continue;
+//			}
+//			Korridor beste = moeglicheKorridore.get(0);
+//
+//			for (int j = 1; j < moeglicheKorridore.size(); j++) {
+//
+//				if (beste.getBaukosten() > moeglicheKorridore.get(j)
+//						.getBaukosten()) {
+//					beste = moeglicheKorridore.get(j);
+//				}
+//			}
+//			eingerichteteKorridore.add(beste);
+//		}
+//	}
 
-			for (int k = 0; k < moeglicheKorridore.size(); k++) {
-				moeglicheKorridore.remove(moeglicheKorridore.size() - 1 - k);
-			}
-
-			if (sucheOrtMitHoechstenRelevanzGrad() != orte.get(i)) {
-
-				try {
-					moeglicheKorridore.add(new Korridor(
-							sucheOrtMitHoechstenRelevanzGrad(), orte.get(i),
-							korridore.Korridor.KENNUNG_SICH));
-				} catch (UngueltigerOrt e) {
-				}
-				try {
-					moeglicheKorridore.add(new Korridor(
-							sucheOrtMitHoechstenRelevanzGrad(), orte.get(i),
-							korridore.Korridor.KENNUNG_HLST));
-				} catch (UngueltigerOrt e) {
-				}
-				try {
-					moeglicheKorridore.add(new Korridor(
-							sucheOrtMitHoechstenRelevanzGrad(), orte.get(i),
-							korridore.Korridor.KENNUNG_ENFC));
-				} catch (UngueltigerOrt e) {
-				}
-				try {
-					moeglicheKorridore.add(new Korridor(
-							sucheOrtMitHoechstenRelevanzGrad(), orte.get(i),
-							korridore.Korridor.KENNUNG_STND));
-				} catch (UngueltigerOrt e) {
-				}
-			} else {
-				continue;
-			}
-			Korridor beste = moeglicheKorridore.get(0);
-
-			for (int j = 1; j < moeglicheKorridore.size(); j++) {
-
-				if (beste.getBaukosten() > moeglicheKorridore.get(j)
-						.getBaukosten()) {
-					beste = moeglicheKorridore.get(j);
-				}
-			}
-			eingerichteteKorridore.add(beste);
-		}
-	}
-
-	// // Anfang 2 Sterne Variante (zus�tzlich muss Methode erzeugeNetz auch
+	// // Anfang 2 Sterne Variante (zusätzlich muss Methode erzeugeNetz auch
 	// auskommentiert werden
 	//
-	// public Ort sucheOrtMitHoechstenRelevanzGrad(ArrayList<Ort> liste) {
-	//
-	// Ort hoechster = liste.get(0);
-	// for (int i = 1; i < liste.size(); i++) {
-	//
-	// if (hoechster.getRelevanzGrad() < liste.get(i).getRelevanzGrad()) {
-	// hoechster = liste.get(i);
-	// }
-	// }
-	// for (int i = 0; i < liste.size(); i++) {
-	// if (hoechster.getRelevanzGrad() == liste.get(i).getRelevanzGrad()
-	// && hoechster != liste.get(i)) {
-	//
-	// Ort NullOrt = new Ort(100, 50, "NullOrt");
-	//
-	// double entfernung1 = ermittleOrtsdistanz(NullOrt, hoechster);
-	// double entfernung2 = ermittleOrtsdistanz(NullOrt, orte.get(i));
-	// if (entfernung1 > entfernung2) {
-	// hoechster = orte.get(i);
-	// }
-	// }
-	// }
-	// return hoechster;
-	// }
-	//
-	// public ArrayList<Ort> linkeTeilkarte (ArrayList<Ort> liste){
-	//
-	// ArrayList<Ort> orteLinks = new ArrayList<>();
-	// for (int x = 0 ; x < orte.size(); x++ ){
-	// if(orte.get(x).koordX < 99.5){
-	// orteLinks.add(orte.get(x));
-	// }
-	// }
-	// return orteLinks;
-	// }
-	//
-	// public ArrayList<Ort> rechteTeilkarte (ArrayList<Ort> liste){
-	//
-	// ArrayList<Ort> orteRechts = new ArrayList<>();
-	// for (int x = 0 ; x < orte.size(); x++ ){
-	// if(orte.get(x).koordX < 99.5){
-	// orteRechts.add(orte.get(x));
-	// }
-	// }
-	// return orteRechts;
-	// }
-	//
-	// public void erzeugeKorridor( ArrayList<Ort> liste) {
-	//
-	// ArrayList<Korridor> moeglicheKorridore = new ArrayList<Korridor>();
-	//
-	// for (int i = 0; i < liste.size(); i++) {
-	//
-	// for (int k = 0; k < moeglicheKorridore.size(); k++) {
-	// moeglicheKorridore.remove(moeglicheKorridore.size() - 1 - k);
-	// }
-	//
-	// if (sucheOrtMitHoechstenRelevanzGrad(liste) != liste.get(i)) {
-	//
-	// try {
-	// moeglicheKorridore.add(new
-	// Korridor(sucheOrtMitHoechstenRelevanzGrad(liste),
-	// liste.get(i), korridore.Korridor.KENNUNG_SICH));
-	// } catch (UngueltigerOrt e) {
-	// }
-	// try {
-	// moeglicheKorridore.add(new
-	// Korridor(sucheOrtMitHoechstenRelevanzGrad(liste),
-	// liste.get(i), korridore.Korridor.KENNUNG_HLST));
-	// } catch (UngueltigerOrt e) {
-	// }
-	// try {
-	// moeglicheKorridore.add(new
-	// Korridor(sucheOrtMitHoechstenRelevanzGrad(liste),
-	// liste.get(i), korridore.Korridor.KENNUNG_ENFC));
-	// } catch (UngueltigerOrt e) {
-	// }
-	// try {
-	// moeglicheKorridore.add(new
-	// Korridor(sucheOrtMitHoechstenRelevanzGrad(liste),
-	// liste.get(i), korridore.Korridor.KENNUNG_STND));
-	// } catch (UngueltigerOrt e) {
-	// }
-	// } else {
-	// continue;
-	// }
-	// Korridor beste = moeglicheKorridore.get(0);
-	//
-	// for (int j = 1; j < moeglicheKorridore.size(); j++) {
-	//
-	// if (beste.getBaukosten() > moeglicheKorridore.get(j).getBaukosten()) {
-	// beste = moeglicheKorridore.get(j);
-	// }
-	// }
-	// eingerichteteKorridore.add(beste);
-	// }
-	// }
-	//
-	// public void erstelleNetz(){
-	//
-	// erzeugeKorridor(rechteTeilkarte(orte));
-	// erzeugeKorridor(linkeTeilkarte(orte));
-	// try{
-	// eingerichteteKorridore.add(new
-	// Korridor(sucheOrtMitHoechstenRelevanzGrad(linkeTeilkarte(orte)),
-	// sucheOrtMitHoechstenRelevanzGrad(rechteTeilkarte(orte)),"HLST"));
-	// } catch (UngueltigerOrt e){
-	// try{
-	// eingerichteteKorridore.add(new
-	// Korridor(sucheOrtMitHoechstenRelevanzGrad(linkeTeilkarte(orte)),
-	// sucheOrtMitHoechstenRelevanzGrad(rechteTeilkarte(orte)),"SICH"));
-	// } catch (UngueltigerOrt f){
-	// System.out.println("Kann gar nicht passieren!");
-	// }
-	//
-	// }
-	//
-	// };
-	//
+	 public Ort sucheOrtMitHoechstenRelevanzGrad(ArrayList<Ort> liste) {
+	
+	 Ort hoechster = liste.get(0);
+	 for (int i = 1; i < liste.size(); i++) {
+	
+	 if (hoechster.getRelevanzGrad() < liste.get(i).getRelevanzGrad() && !(hoechster.kennung.equals("ASL"))) {
+	 hoechster = liste.get(i);
+	 }
+	 }
+	 for (int i = 0; i < liste.size(); i++) {
+	 if (hoechster.getRelevanzGrad() == liste.get(i).getRelevanzGrad()
+	 && hoechster != liste.get(i)) {
+	
+	 Ort NullOrt = new Ort(100, 50, "NullOrt");
+	
+	 double entfernung1 = ermittleOrtsdistanz(NullOrt, hoechster);
+	 double entfernung2 = ermittleOrtsdistanz(NullOrt, orte.get(i));
+	 if (entfernung1 > entfernung2) {
+	 hoechster = orte.get(i);
+	 }
+	 }
+	 }
+	 return hoechster;
+	 }
+	
+	 public ArrayList<Ort> linkeTeilkarte (ArrayList<Ort> liste){
+	
+	 ArrayList<Ort> orteLinks = new ArrayList<>();
+	 for (int x = 0 ; x < orte.size(); x++ ){
+	 if(orte.get(x).koordX < 99.5 && !(orte.get(x).kennung.equals("ASL")) ){
+	 orteLinks.add(orte.get(x));
+	 }
+	 }
+	 return orteLinks;
+	 }
+	
+	 public ArrayList<Ort> rechteTeilkarte (ArrayList<Ort> liste){
+	
+	 ArrayList<Ort> orteRechts = new ArrayList<>();
+	 for (int x = 0 ; x < orte.size(); x++ ){
+	 if(orte.get(x).koordX > 99.5 && !(orte.get(x).kennung.equals("ASL"))){
+	 orteRechts.add(orte.get(x));
+	 }
+	 }
+	 return orteRechts;
+	 }
+	
+	 public void erzeugeKorridor( ArrayList<Ort> liste) {
+	
+	 ArrayList<Korridor> moeglicheKorridore = new ArrayList<Korridor>();
+	
+	 for (int i = 0; i < liste.size(); i++) {
+	
+	 for (int k = 0; k < moeglicheKorridore.size(); k++) {
+	 moeglicheKorridore.remove(moeglicheKorridore.size() - 1 - k);
+	 }
+	
+	 if (sucheOrtMitHoechstenRelevanzGrad(liste) != liste.get(i)) {
+	
+	 try {
+	 moeglicheKorridore.add(new
+	 Korridor(sucheOrtMitHoechstenRelevanzGrad(liste),
+	 liste.get(i), korridore.Korridor.KENNUNG_SICH));
+	 } catch (UngueltigerOrt e) {
+	 }
+	 try {
+	 moeglicheKorridore.add(new
+	 Korridor(sucheOrtMitHoechstenRelevanzGrad(liste),
+	 liste.get(i), korridore.Korridor.KENNUNG_HLST));
+	 } catch (UngueltigerOrt e) {
+	 }
+	 try {
+	 moeglicheKorridore.add(new
+	 Korridor(sucheOrtMitHoechstenRelevanzGrad(liste),
+	 liste.get(i), korridore.Korridor.KENNUNG_ENFC));
+	 } catch (UngueltigerOrt e) {
+	 }
+	 try {
+	 moeglicheKorridore.add(new
+	 Korridor(sucheOrtMitHoechstenRelevanzGrad(liste),
+	 liste.get(i), korridore.Korridor.KENNUNG_STND));
+	 } catch (UngueltigerOrt e) {
+	 }
+	 } else {
+	 continue;
+	 }
+	 Korridor beste = moeglicheKorridore.get(0);
+	
+	 for (int j = 1; j < moeglicheKorridore.size(); j++) {
+	
+	 if (beste.getBaukosten() > moeglicheKorridore.get(j).getBaukosten()) {
+	 beste = moeglicheKorridore.get(j);
+	 }
+	 }
+	 eingerichteteKorridore.add(beste);
+	 }
+	 }
+	
+	 public void erstelleNetz(){
+	 auslandsverbindungAnsNetzAnbienden();
+	 erzeugeKorridor(rechteTeilkarte(orte));
+	 erzeugeKorridor(linkeTeilkarte(orte));
+	 try{
+	 eingerichteteKorridore.add(new
+	 Korridor(sucheOrtMitHoechstenRelevanzGrad(linkeTeilkarte(orte)),
+	 sucheOrtMitHoechstenRelevanzGrad(rechteTeilkarte(orte)),"HLST"));
+	 } catch (UngueltigerOrt e){
+	 try{
+	 eingerichteteKorridore.add(new
+	 Korridor(sucheOrtMitHoechstenRelevanzGrad(linkeTeilkarte(orte)),
+	 sucheOrtMitHoechstenRelevanzGrad(rechteTeilkarte(orte)),"SICH"));
+	 } catch (UngueltigerOrt f){
+	 System.out.println("Kann gar nicht passieren!");
+	 }
+	
+	 }
+	
+	 };
+	
 	// //Ende 2 Sterne Variante
 
 	public double ermittleGesamteBaukosten() {
@@ -401,58 +401,39 @@ public class Karte {
 		return gesamtKosten;
 	}
 
+	public int ermittleAnzahlHLSTKorridore() {
+		return ermitteleAnzahlKorridore(Korridor.KENNUNG_HLST);
+	}
+
+	public int ermittleAnzahlSICHKorridore() {
+		return ermitteleAnzahlKorridore(Korridor.KENNUNG_SICH);
+	}
+
+	public int ermittleAnzahlENFCKorridore() {
+		return ermitteleAnzahlKorridore(Korridor.KENNUNG_ENFC);
+	}
+
+	public int ermittleAnzahlSTNDKorridore() {
+		return ermitteleAnzahlKorridore(Korridor.KENNUNG_STND);
+	}
 	/**
 	 * uebergabe der Liste Auswertung der Anzahl nach Art (uebergabeparameter
 	 * ist Art des zu analysierenden Korridors)
 	 */
+	public int ermitteleAnzahlKorridore(String kennung){
+	int anzahl = 0;	
+	for (int i = 0; i < eingerichteteKorridore.size(); i++) {
 
-	public int ermittleAnzahlHLSTKorridore() {
-		int anzahlHLST = 0;
-		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
-
-			if (eingerichteteKorridore.get(i).getKennung().equals("HLST")) {
-				anzahlHLST += 1;
-			}
+		if (eingerichteteKorridore.get(i).getKennung().equals(kennung)) {
+			anzahl += 1;
 		}
-		return anzahlHLST;
 	}
-
-	public int ermittleAnzahlSICHKorridore() {
-		int anzahlSICH = 0;
-		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
-
-			if (eingerichteteKorridore.get(i).getKennung().equals("SICH")) {
-				anzahlSICH += 1;
-			}
-		}
-		return anzahlSICH;
-	}
-
-	public int ermittleAnzahlENFCKorridore() {
-		int anzahlENFC = 0;
-		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
-
-			if (eingerichteteKorridore.get(i).getKennung().equals("ENFC")) {
-				anzahlENFC += 1;
-			}
-		}
-		return anzahlENFC;
-	}
-
-	public int ermittleAnzahlSTNDKorridore() {
-		int anzahlSTND = 0;
-		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
-
-			if (eingerichteteKorridore.get(i).getKennung().equals("STND")) {
-				anzahlSTND += 1;
-			}
-		}
-		return anzahlSTND;
+	return anzahl;
 	}
 
 	/**
-	 * Verbindet alle Auslandsverbindungen mit dem n�chstliegenden,
-	 * Nichtauslandsverbindungsort mit einen Sicherheitskorridor F�gt die
+	 * Verbindet alle Auslandsverbindungen mit dem nächstliegenden,
+	 * Nichtauslandsverbindungsort mit einen Sicherheitskorridor Fügt die
 	 * erstllten Korridore der ArrayList eingerichtete Korridore zu.
 	 */
 	public void auslandsverbindungAnsNetzAnbienden() {
@@ -490,8 +471,8 @@ public class Karte {
 	}
 
 	/**
-	 * Berechnet den Mittelpunt (Punkt, wo die Summe der Abst�nde am kleinsten
-	 * ist) des Netzes. Gibt ArrayList zur�ck. Element0 = X-Koordinate, Element1
+	 * Berechnet den Mittelpunt (Punkt, wo die Summe der Abstände am kleinsten
+	 * ist) des Netzes. Gibt ArrayList zurück. Element0 = X-Koordinate, Element1
 	 * = Y-Koordinate des Mittelpunktes.
 	 * 
 	 * @return
@@ -505,7 +486,7 @@ public class Karte {
 
 		double kleinsteSumme = 222000 * orte.size(); // 222 ist der maximale
 													// Abstand der auf der Karte
-													// m�glich w�re
+													// möglich wäre
 
 		for (int i = 0; i < 200; i++) {
 
