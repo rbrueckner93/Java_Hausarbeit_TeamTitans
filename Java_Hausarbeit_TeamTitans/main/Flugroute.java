@@ -62,20 +62,20 @@ public class Flugroute {
 		for (int i = 0; i < herkunft.angebundeneKorridore.size(); i++) {
 			// ueberpruefen, ob mit dem ersten Hop bereits das Ziel erreicht
 			// wurde, wenn ja als moeglicheFlugroute abspeichern.
-			if (herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft) == ziel) {
-				Flugroute neueFlugroute = new Flugroute(herkunft,herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft), faktor);
-				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore.get(i));
-				moeglicheFlugrouten.add(neueFlugroute);
+			Ort erstesZiel = herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft);
+			Flugroute ersteRoute = new Flugroute(erstesZiel, herkunft, faktor);
+			//TODO dieses hinzufuegen scheint noch nicht zu klappen...
+			ersteRoute.reiseListe.add(herkunft.angebundeneKorridore.get(i));
+			if (erstesZiel == ziel) {
+				moeglicheFlugrouten.add(ersteRoute);
 			}
 			// wenn Ziel mit einem Hop noch nicht erreicht, in
 			// flugroutenInArbeit speichern.
 			else {
-				Flugroute neueFlugroute = new Flugroute(herkunft,herkunft.angebundeneKorridore.get(i).bestimmeAnderenOrt(herkunft), faktor);
-				neueFlugroute.reiseListe.add(herkunft.angebundeneKorridore.get(i));
-				flugroutenInArbeit.add(neueFlugroute);
+				flugroutenInArbeit.add(ersteRoute);
 			}
 		}
-		
+
 		// solange in der "In Arbeit"-Liste noch Flugrouten stehen:
 		while (flugroutenInArbeit.size() > 0) {
 			for (int routen = 0; routen < flugroutenInArbeit.size(); routen++) {
@@ -91,31 +91,31 @@ public class Flugroute {
 					Ort neuesZiel = verbindung.bestimmeAnderenOrt(weg.ziel);
 					try {
 						if (weg.erzeugeOrtsListe().size() > 0) {
-							// was will ich hier?
-							if (!kommtOrtInOrtslisteVor(neuesZiel, weg.erzeugeOrtsListe())) {
+							if (!kommtOrtInOrtslisteVor(neuesZiel,
+									weg.erzeugeOrtsListe())) {
+								Flugroute neueFlugroute = new Flugroute(
+										neuesZiel, herkunft, faktor);
+								for (Korridor add : weg.reiseListe) {
+									neueFlugroute.reiseListe.add(add);
+								}
+								neueFlugroute.reiseListe.add(verbindung);
 								if (neuesZiel != ziel) {
-									Flugroute neueFlugroute = new Flugroute(herkunft, neuesZiel, faktor);
-									for(Korridor add:reiseListe){
-										neueFlugroute.reiseListe.add(add);
-									}
-									neueFlugroute.reiseListe.add(verbindung);
 									flugroutenInArbeit.add(neueFlugroute);
 								}
 								if (neuesZiel == ziel) {
-									Flugroute neueKompletteFlugroute = new Flugroute(herkunft, ziel, faktor);
-									for(Korridor add:reiseListe){
-									neueKompletteFlugroute.reiseListe.add(add);
-									}
-									neueKompletteFlugroute.reiseListe.add(verbindung);
-									moeglicheFlugrouten.add(neueKompletteFlugroute);
-									
+									moeglicheFlugrouten.add(neueFlugroute);
 								}
+
 							}
-						} else {
-							System.out.println("Es wurde eine Route nicht aufgenommen, da sie zu einer Kreisroute wurde.");
+							//Diente nur Debug-Zwecken
+//							else {
+//								System.out.println("Es wurde eine Route nicht aufgenommen, da sie zu einer Kreisroute wurde.");
+//							}
+
 						}
 					} catch (OrtNichtVorhanden e) {
 						System.out.println("OrtNichtvorhanden tauchte auf...");
+						//TODO was anstaendiges tun...
 					}
 
 					/**
@@ -152,8 +152,9 @@ public class Flugroute {
 		if (moeglicheFlugrouten.size() == 1) {
 			System.out.println("Optimum gefunden!");
 			reiseListe = moeglicheFlugrouten.get(0).reiseListe;
-			for(Korridor k: reiseListe){
-				System.out.println(">>"+k.ortA+">>"+k.ortB+">>"+k.laenge+">>");
+			for (Korridor k : reiseListe) {
+				System.out.println(">>" + k.ortA + ">>" + k.ortB + ">>"
+						+ k.laenge + ">>");
 			}
 		}
 	}
@@ -214,8 +215,7 @@ public class Flugroute {
 			for (Korridor verbindung : reiseListe) {
 				if (verbindung.ortA == ortsListe.get(ortsListe.size() - 1)) {
 					ortsListe.add(verbindung.ortB);
-				} else if (verbindung.ortB == ortsListe
-						.get(ortsListe.size() - 1)) {
+				} else if (verbindung.ortB == ortsListe.get(ortsListe.size() - 1)) {
 					ortsListe.add(verbindung.ortA);
 				} else {
 					throw new OrtNichtVorhanden();
