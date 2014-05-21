@@ -8,10 +8,6 @@ ToDo:
 
 -Flugrouten vervollständigen
 
--Einlesen fehlersicherer machen
-
--Ausgabe Simulationsdatei
-
 -GUI vervollständigen
 
 -Weitere Optimierung des Netzes
@@ -24,5 +20,4 @@ ABGABE : 11.6.2014
 
 Docu aktuelle halten. Variablen benennen.
 
--Mittwoch den Fortschritt in SDV vorstellen. 
--Davor treffen nochmal Probleme erörtern.
+- Morgen Main besprechen.
