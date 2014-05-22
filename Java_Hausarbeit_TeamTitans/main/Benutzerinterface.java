@@ -6,19 +6,18 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
+ * @author FechnerL
  * lukas erzeugt in einigen Methoden Instanzen von JFileChooser, auf dieser
  * waehlt er eine Datei aus, faengt exceptions und gibt ein objekt vom Typ File
  * (frage nach kartendatei, frage nach Testdatei ) zurueck.
  */
 public class Benutzerinterface {
-	/* {author=FechnerL} */
 
 	/**
 	 * durch system.getproperties("User.Home") am Beginn des Programmes gesetzt.
 	 */
-	//public static final String standardpfad = System.getProperty("user.home");
-	public static final String standardpfad = "C:\\Users\\Pontifex\\";
-	
+	public static final String standardpfad = System.getProperty("user.home");
+
 	/**
 	 * Begruessung des Anwenders bei Start des Programms
 	 */
@@ -37,7 +36,7 @@ public class Benutzerinterface {
 			try {
 
 				budgetEingabe = JOptionPane
-						.showInputDialog("Wie hoch ist das Budget für den Netzbau?");
+						.showInputDialog("Wie hoch ist das Budget fuer den Netzbau?");
 
 				if (budgetEingabe == null) {
 					int beenden;
@@ -46,8 +45,8 @@ public class Benutzerinterface {
 							JOptionPane.YES_NO_OPTION);
 					if (beenden == JOptionPane.YES_OPTION) {
 						System.exit(0);
-						
-					}else if(beenden == JOptionPane.NO_OPTION) {
+
+					} else if (beenden == JOptionPane.NO_OPTION) {
 						continue;
 					}
 				}
@@ -62,7 +61,7 @@ public class Benutzerinterface {
 				}
 			} catch (NumberFormatException ex) {
 				JOptionPane.showMessageDialog(null,
-						"Das Budget sollte eine natürliche Zahl sein.");
+						"Das Budget sollte eine natuerliche Zahl sein.");
 			}
 		}
 	}
@@ -71,7 +70,8 @@ public class Benutzerinterface {
 	 * fragt nach Testdatei, faengt alle Exceptions,
 	 */
 	public File frageNachTestdatei() {
-		JOptionPane.showMessageDialog(null, "Bitte waehlen Sie nun eine Testdatei aus.");
+		JOptionPane.showMessageDialog(null,
+				"Bitte waehlen Sie nun eine Testdatei aus.");
 		File testdateiFile;
 		JFileChooser chooser = new JFileChooser();
 
@@ -85,7 +85,7 @@ public class Benutzerinterface {
 					return testdateiFile;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"Sie sollten eine Kartendatei auswählen");
+							"Sie sollten eine Kartendatei auswaehlen");
 				}
 			} else {
 				int beenden;
@@ -129,20 +129,33 @@ public class Benutzerinterface {
 	}
 
 	/**
-	 * Übergibt 0 für Abspeichern und schließen, 1 für Simulation speichern und
-	 * Karte mit anderen Testparametern simulieren und 2 für Programmabbruch
+	 * uebergibt 0 fuer Abspeichern und schliessen, 1 fuer Simulation speichern und
+	 * Karte mit anderen Testparametern simulieren und 2 fuer Programmabbruch
 	 */
 	public int frageNachEndoption() {
 		int entscheidung;
+		while (true) {
+			String[] buttons = new String[] { "Abspeichern und schliessen",
+					"Speichern und neue Simulation", "Programm schliessen" };
+			entscheidung = JOptionPane.showOptionDialog(null,
+					"Wie soll es weitergehen?", "Und nun?",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+					null, buttons, buttons[0]);
+			if (entscheidung == -1) {
+				{
+					int beenden;
+					beenden = JOptionPane.showConfirmDialog(null,
+							"Wirklich beenden?", "Abbruch",
+							JOptionPane.YES_NO_OPTION);
+					if (beenden == JOptionPane.YES_OPTION) {
+						System.exit(0);
+					}
 
-		String[] buttons = new String[] { "Abspeichern und schließen",
-				"Speichern und neue Simulation", "Programm schließen" };
-		entscheidung = JOptionPane.showOptionDialog(null,
-				"Wie soll es weitergehen?", "Und nun?",
-				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
-				buttons, buttons[0]);
-
-		return entscheidung;
+				}
+			} else {
+				return entscheidung;
+			}
+		}
 	}
 
 	/**
@@ -151,7 +164,8 @@ public class Benutzerinterface {
 	 */
 	public File frageNachKartendatei() {
 
-		JOptionPane.showMessageDialog(null, "Bitte waehlen Sie eine Kartendatei aus.");
+		JOptionPane.showMessageDialog(null,
+				"Bitte waehlen Sie eine Kartendatei aus.");
 		File kartenfile;
 		JFileChooser chooser = new JFileChooser();
 
@@ -165,7 +179,7 @@ public class Benutzerinterface {
 					return kartenfile;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"Sie sollten eine Kartendatei auswählen");
+							"Sie sollten eine Kartendatei auswaehlen");
 				}
 			} else {
 				int beenden;
