@@ -50,7 +50,9 @@ public class TestdateiHandler extends Datei {
 	}
 
 	public void verarbeiteTestdatei() {
+		//Einlesen der Datei. Liefert pro Zeile einn StringObjekt im Array.
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
+		// Checken ob Marker vorhanden.
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei BeginnMarker");
@@ -61,6 +63,7 @@ public class TestdateiHandler extends Datei {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
 			System.exit(0);
 		}
+		//Eigentliche Auswertung des gefundenen Datensatzes.
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
 			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
@@ -127,7 +130,7 @@ public class TestdateiHandler extends Datei {
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
 						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-								+ beginn);
+								+ (beginn+1));
 				System.exit(0);
 			}
 		}
@@ -152,7 +155,7 @@ public class TestdateiHandler extends Datei {
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
 							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-									+ beginn);
+									+ (beginn+1));
 					System.exit(0);
 				}
 			}
@@ -199,7 +202,13 @@ public class TestdateiHandler extends Datei {
 		}
 		return false;
 	}
-
+	/**
+	 * 
+	 * @param beginn
+	 * @param text
+	 * @param marker
+	 * @return
+	 */
 	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text,
 			String marker) {
 		while (beginn < text.size() - 1) {
@@ -220,7 +229,12 @@ public class TestdateiHandler extends Datei {
 		return -1;
 
 	}
-
+	/**
+	 * 
+	 * @param beginn
+	 * @param text
+	 * @return
+	 */
 	public static int findeDatensatzEndeMarker(int beginn,
 			ArrayList<String> text) {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
@@ -238,7 +252,7 @@ public class TestdateiHandler extends Datei {
 			if (zutesten.equals(DATENSATZ_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
 						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-								+ beginn);
+								+ (beginn+1));
 				return 0;
 			}
 		}
@@ -263,7 +277,7 @@ public class TestdateiHandler extends Datei {
 				if (moeglicherstart.equals(DATENSATZ_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
 							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-									+ beginn);
+									+ (beginn+1));
 					return 0;
 				}
 			}
@@ -283,12 +297,18 @@ public class TestdateiHandler extends Datei {
 		}
 		return beginn;
 	}
-
+	/**
+	 * 
+	 * @param wertBezeichner
+	 * @param zeile
+	 * @return
+	 * @throws MerkmalMissing
+	 */
 	public String getMerkmal(String wertBezeichner, String zeile)
 			throws MerkmalMissing {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
 		if (anfang == -1) {
-			throw new MerkmalMissing();
+			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
 		String inhaltMerkmal = zeile.substring(anfang, ende);
@@ -300,7 +320,7 @@ public class TestdateiHandler extends Datei {
 			JOptionPane
 					.showMessageDialog(null, "Fehler im Merkmal. "
 							+ wertBezeichner + "Im Datensatz ab Zeile "
-							+ aktuelleZeile);
+							+ (aktuelleZeile+1));
 		}
 		return null;
 	}
@@ -354,13 +374,13 @@ public class TestdateiHandler extends Datei {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktorDefault);
 			}
 		} catch (MerkmalMissing e) {
-			JOptionPane.showMessageDialog(null,
-					"Merkmal fehlt oder inkorrekt in Datensatz ab Zeile "
-							+ aktuelleZeile);
+			e.erzeugeMeldung();
+			System.exit(0);
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
 					"Merkmale enthalten keine Zahlen. Im Datensatz ab "
-							+ aktuelleZeile);
+							+ (aktuelleZeile+1));
+			System.exit(0);
 		}
 
 	}
