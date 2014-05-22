@@ -58,7 +58,7 @@ public class TestdateiHandler extends Datei {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei BeginnMarker");
 			System.exit(0);
 		}
-		int dateiEnde = findeDateiEndeMarker(aktuelleZeile, geleseneDaten);
+		int dateiEnde = findeDateiEndeMarker(dateiAnfang, geleseneDaten);
 		if (dateiEnde == -1) {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
 			System.exit(0);
@@ -129,7 +129,7 @@ public class TestdateiHandler extends Datei {
 					endeZeile1);
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
-						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
+						"Dateibeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 								+ (beginn+1));
 				System.exit(0);
 			}
@@ -154,7 +154,7 @@ public class TestdateiHandler extends Datei {
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
-							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
+							"Dateibeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 									+ (beginn+1));
 					System.exit(0);
 				}
@@ -362,6 +362,7 @@ public class TestdateiHandler extends Datei {
 		for (int i = beginnZeile; i <= endeZeile; i++) {
 			datensatz += text.get(i);
 		}
+		System.out.println(datensatz);
 		try {
 			int faktorDefault = 1;
 			String nameOrtHerkunft = getMerkmal(BEZEICHNER_START, datensatz);

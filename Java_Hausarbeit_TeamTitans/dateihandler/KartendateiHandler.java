@@ -80,7 +80,7 @@ public class KartendateiHandler extends Datei {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Beginn Marker");
 			System.exit(0);
 		}
-		int dateiEnde = findeDateiEndeMarker(aktuelleZeile, geleseneDaten);
+		int dateiEnde = findeDateiEndeMarker(dateiAnfang, geleseneDaten);
 		if (dateiEnde == -1){
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
 			System.exit(0);
@@ -96,6 +96,7 @@ public class KartendateiHandler extends Datei {
 			aktuelleZeile = datensatzEnde;
 			if (datensatzBeginn == datensatzEnde) {
 				aktuelleZeile += 1;
+				System.out.println(1);
 			}
 		}
 	}
