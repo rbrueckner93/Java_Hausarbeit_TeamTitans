@@ -114,14 +114,21 @@ public class Benutzerinterface {
 	}
 
 	/**
-	 * Ermittelt Baukosten der aktuellen Karte und zeigt dem Anwender diese.
+	 * Ermittelt Baukosten der aktuellen Karte und zeigt dem Anwender diese. Zusaetzlich wird dem Anwender
+	 * eine Auflistung der gebauten Korridore, gruppiert nach ihrer Art, ausgegeben.
 	 * 
 	 * @param aktuelleKarte
 	 */
 	public void zeigeBaukosten(Karte aktuelleKarte) {
 		double baukosten = aktuelleKarte.ermittleGesamteBaukosten();
 		JOptionPane.showMessageDialog(null, "Die Baukosten betragen "
-				+ baukosten + " Geldeinheiten.");
+				+ baukosten + " Geldeinheiten. \nFolgende Korridore wurden gebaut: \nEinfache Korridore: " +
+		aktuelleKarte.ermittleAnzahlENFCKorridore() + "\nStandardkorridore: " + aktuelleKarte.ermittleAnzahlSTNDKorridore() 
+		+ "\nHochleistungskorridore: " + aktuelleKarte.ermittleAnzahlHLSTKorridore() +
+		"\nSicherheitskorridore: " + 	aktuelleKarte.ermittleAnzahlSICHKorridore());
+		
+	
+		
 
 	}
 
