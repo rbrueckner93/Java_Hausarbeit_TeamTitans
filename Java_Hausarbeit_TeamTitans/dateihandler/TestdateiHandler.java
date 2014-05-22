@@ -57,6 +57,10 @@ public class TestdateiHandler extends Datei {
 			System.exit(0);
 		}
 		int dateiEnde = findeDateiEndeMarker(aktuelleZeile, geleseneDaten);
+		if (dateiEnde == -1) {
+			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
+			System.exit(0);
+		}
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
 			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
@@ -124,7 +128,7 @@ public class TestdateiHandler extends Datei {
 				JOptionPane.showMessageDialog(null,
 						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 								+ beginn);
-				return 0;
+				System.exit(0);
 			}
 		}
 		int anfangZeile11 = text.get(beginn).indexOf(DATEI_ENDE_MARKER);
@@ -149,7 +153,7 @@ public class TestdateiHandler extends Datei {
 					JOptionPane.showMessageDialog(null,
 							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 									+ beginn);
-					return 0;
+					System.exit(0);
 				}
 			}
 			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
@@ -166,7 +170,7 @@ public class TestdateiHandler extends Datei {
 			beginn++;
 			continue;
 		}
-		return beginn;
+		return -1;
 	}
 
 	/**
@@ -323,8 +327,8 @@ public class TestdateiHandler extends Datei {
 			}
 		}
 		if (ortHerkunft == null || ortZiel == null) {
-			JOptionPane.showMessageDialog(null,
-					"Flugroute nicht erzeugbar - "+ortHerkunft+ " oder " + ortZiel+  " nicht auf Karte");
+			JOptionPane.showMessageDialog(null, "Flugroute nicht erzeugbar - "
+					+ ortHerkunft + " oder " + ortZiel + " nicht auf Karte");
 		} else {
 			aktuelleSimulation.routen.add(new Flugroute(ortZiel, ortHerkunft,
 					faktor));
@@ -350,11 +354,13 @@ public class TestdateiHandler extends Datei {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktorDefault);
 			}
 		} catch (MerkmalMissing e) {
-			JOptionPane.showMessageDialog(null, "Merkmal fehlt oder inkorrekt in Datensatz ab Zeile "
-					+ aktuelleZeile);
+			JOptionPane.showMessageDialog(null,
+					"Merkmal fehlt oder inkorrekt in Datensatz ab Zeile "
+							+ aktuelleZeile);
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
-					"Merkmale enthalten keine Zahlen. Im Datensatz ab " + aktuelleZeile);
+					"Merkmale enthalten keine Zahlen. Im Datensatz ab "
+							+ aktuelleZeile);
 		}
 
 	}

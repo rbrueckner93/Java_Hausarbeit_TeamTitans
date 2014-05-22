@@ -77,10 +77,14 @@ public class KartendateiHandler extends Datei {
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
-			JOptionPane.showMessageDialog(null, "Fehlender Datei BeginnMarker");
+			JOptionPane.showMessageDialog(null, "Fehlender Datei Beginn Marker");
 			System.exit(0);
 		}
 		int dateiEnde = findeDateiEndeMarker(aktuelleZeile, geleseneDaten);
+		if (dateiEnde == -1){
+			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
+			System.exit(0);
+		}
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
 			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
@@ -144,7 +148,7 @@ public class KartendateiHandler extends Datei {
 				JOptionPane.showMessageDialog(null,
 						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 								+ beginn);
-				return 0;
+				System.exit(0);
 			}
 		}
 		int anfangZeile11 = text.get(beginn).indexOf(DATEI_ENDE_MARKER);
@@ -169,7 +173,7 @@ public class KartendateiHandler extends Datei {
 					JOptionPane.showMessageDialog(null,
 							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 									+ beginn);
-					return 0;
+					System.exit(0);
 				}
 			}
 			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
@@ -186,7 +190,7 @@ public class KartendateiHandler extends Datei {
 			beginn++;
 			continue;
 		}
-		return beginn;
+		return -1;
 	}
 
 	/**
