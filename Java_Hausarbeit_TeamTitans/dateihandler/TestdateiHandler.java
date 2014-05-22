@@ -63,7 +63,7 @@ public class TestdateiHandler extends Datei {
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
 			int datensatzEnde = findeDatensatzEndeMarker(datensatzBeginn,
 					geleseneDaten);
-			werteDatensatzAus(aktuelleZeile, datensatzEnde, geleseneDaten);
+			werteDatensatzAus(datensatzBeginn, datensatzEnde, geleseneDaten);
 			aktuelleZeile = datensatzEnde;
 			if (aktuelleZeile == datensatzEnde) {
 				aktuelleZeile += 1;
