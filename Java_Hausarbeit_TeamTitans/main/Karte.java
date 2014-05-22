@@ -74,7 +74,7 @@ public class Karte {
 
 	}
 
-	// Methode missverständlich. name geaendert. Vllt variable auch aendern.
+	// Methode missverstï¿½ndlich. name geaendert. Vllt variable auch aendern.
 	public ArrayList<Ort> getListeAllerOrte() {
 		return orte;
 	}
@@ -99,7 +99,7 @@ public class Karte {
 	}
 
 	/**
-	 * ArrayList orte wird von Dateihandler gefüllt. Pruefe auch ob gleicher
+	 * ArrayList orte wird von Dateihandler gefï¿½llt. Pruefe auch ob gleicher
 	 * hoechster Relevanzgrad vorhanden ist. Dann wird der Ort weitergegeben der
 	 * am naechsten am Mittelpunkt der Karte liegt.
 	 * 
@@ -108,7 +108,7 @@ public class Karte {
 
 	/**
 	 * Bekommt eine Liste mit orten und gibt den mit hoechsten Relevanzgrad
-	 * zurück. Ort mit hoechsten Relevanzgrad aber nei Auslandsverbindung.
+	 * zurï¿½ck. Ort mit hoechsten Relevanzgrad aber nei Auslandsverbindung.
 	 * 
 	 * @param liste
 	 * @return
@@ -139,7 +139,7 @@ public class Karte {
 		return hoechster;
 	}
 /**
- * Bekommt Liste mit Orten und gibt Liste mit allen Orten, die in der linken Kartenhälfte liegen zurück.
+ * Bekommt Liste mit Orten und gibt Liste mit allen Orten, die in der linken Kartenhï¿½lfte liegen zurï¿½ck.
  * @param liste
  * @return
  */
@@ -156,7 +156,7 @@ public class Karte {
 	}
 
 	/**
-	 * Bekommt Liste mit allen Orten und gibt Liste mit allen Orten, die in der rechten Kartenhälfte liegen zurück. 
+	 * Bekommt Liste mit allen Orten und gibt Liste mit allen Orten, die in der rechten Kartenhï¿½lfte liegen zurï¿½ck. 
 	 * @param liste
 	 * @return
 	 */
@@ -174,7 +174,7 @@ public class Karte {
 
 	/**
 	 * Bekommt Liste mit Orten und erstellt Sternvariante.
-	 * Erstellt immer alle möglichen Korridorarten und gibt nur den aus, der die niedrigsten Baukosten hat.
+	 * Erstellt immer alle mï¿½glichen Korridorarten und gibt nur den aus, der die niedrigsten Baukosten hat.
 	 * @param liste
 	 */
 	public void erzeugeKorridor(ArrayList<Ort> liste) {
@@ -234,7 +234,7 @@ public class Karte {
 	 * Auslandsverbindungen vorher an angebunden mit externen Methode.
 	 */
 	public void erstelleNetz() {
-		auslandsverbindungAnsNetzAnbienden();
+	//	auslandsverbindungAnsNetzAnbienden();
 		erzeugeKorridor(rechteTeilkarte(orte));
 		erzeugeKorridor(linkeTeilkarte(orte));
 		try {
@@ -273,8 +273,8 @@ public class Karte {
 
 
 	/**
-	 * Verbindet alle Auslandsverbindungen mit dem nächstliegenden,
-	 * Nichtauslandsverbindungsort mit einen Sicherheitskorridor Fügt die
+	 * Verbindet alle Auslandsverbindungen mit dem nï¿½chstliegenden,
+	 * Nichtauslandsverbindungsort mit einen Sicherheitskorridor Fï¿½gt die
 	 * erstllten Korridore der ArrayList eingerichtete Korridore zu.
 	 */
 	
@@ -314,8 +314,8 @@ public class Karte {
 	}
 
 	/**
-	 * Berechnet den Mittelpunt (Punkt, wo die Summe der Abstände am kleinsten
-	 * ist) des Netzes. Gibt ArrayList zurück. Element0 = X-Koordinate, Element1
+	 * Berechnet den Mittelpunt (Punkt, wo die Summe der Abstï¿½nde am kleinsten
+	 * ist) des Netzes. Gibt ArrayList zurï¿½ck. Element0 = X-Koordinate, Element1
 	 * = Y-Koordinate des Mittelpunktes.
 	 * 
 	 * @return
@@ -330,7 +330,7 @@ public class Karte {
 		double kleinsteSumme = 222000 * orte.size(); // 222 ist der maximale
 														// Abstand der auf der
 														// Karte
-														// möglich wäre
+														// mï¿½glich wï¿½re
 
 		for (int i = 0; i < 200; i++) {
 
@@ -364,46 +364,30 @@ public class Karte {
 	 */
 
 	public int ermittleAnzahlHLSTKorridore() {
-		int anzahlHLST = 0;
-		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
-
-			if (eingerichteteKorridore.get(i).getKennung().equals("HLST")) {
-				anzahlHLST += 1;
-			}
-		}
-		return anzahlHLST;
+		return ermittleKorridoranzahlNachArt(Korridor.KENNUNG_HLST);
 	}
 
 	public int ermittleAnzahlSICHKorridore() {
-		int anzahlSICH = 0;
-		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
-
-			if (eingerichteteKorridore.get(i).getKennung().equals("SICH")) {
-				anzahlSICH += 1;
-			}
-		}
-		return anzahlSICH;
+		return ermittleKorridoranzahlNachArt(Korridor.KENNUNG_SICH);
 	}
 
 	public int ermittleAnzahlENFCKorridore() {
-		int anzahlENFC = 0;
-		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
-
-			if (eingerichteteKorridore.get(i).getKennung().equals("ENFC")) {
-				anzahlENFC += 1;
-			}
-		}
-		return anzahlENFC;
+		return ermittleKorridoranzahlNachArt(Korridor.KENNUNG_ENFC);
 	}
 
 	public int ermittleAnzahlSTNDKorridore() {
-		int anzahlSTND = 0;
+		return ermittleKorridoranzahlNachArt(Korridor.KENNUNG_STND);
+	}
+	
+	public int ermittleKorridoranzahlNachArt(String kennung){
+		int anzahl = 0;
 		for (int i = 0; i < eingerichteteKorridore.size(); i++) {
 
-			if (eingerichteteKorridore.get(i).getKennung().equals("STND")) {
-				anzahlSTND += 1;
+			if (eingerichteteKorridore.get(i).getKennung().equals(kennung)) {
+				anzahl += 1;
 			}
 		}
-		return anzahlSTND;
+		return anzahl;
+		
 	}
 }
