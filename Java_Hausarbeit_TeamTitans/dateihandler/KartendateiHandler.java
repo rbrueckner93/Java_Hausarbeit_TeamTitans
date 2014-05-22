@@ -147,7 +147,7 @@ public class KartendateiHandler extends Datei {
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
 						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-								+ beginn);
+								+ (beginn+1));
 				System.exit(0);
 			}
 		}
@@ -172,7 +172,7 @@ public class KartendateiHandler extends Datei {
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
 							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-									+ beginn);
+									+ (beginn+1));
 					System.exit(0);
 				}
 			}
@@ -248,7 +248,12 @@ public class KartendateiHandler extends Datei {
 		return -1;
 
 	}
-
+	/**
+	 * 
+	 * @param beginn
+	 * @param text
+	 * @return
+	 */
 	public static int findeDatensatzEndeMarker(int beginn,
 			ArrayList<String> text) {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
@@ -266,7 +271,7 @@ public class KartendateiHandler extends Datei {
 			if (zutesten.equals(DATENSATZ_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
 						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-								+ beginn);
+								+ (beginn+1));
 				return 0;
 			}
 		}
@@ -280,6 +285,7 @@ public class KartendateiHandler extends Datei {
 			}
 		}
 		beginn++;
+		// Schritt in nächste Zeile.
 		while (beginn < text.size()) {
 			int anfangAktuelleZeile = text.get(beginn).indexOf(
 					DATENSATZ_BEGINN_MARKER);
@@ -291,7 +297,7 @@ public class KartendateiHandler extends Datei {
 				if (moeglicherstart.equals(DATENSATZ_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
 							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-									+ beginn);
+									+ (beginn+1));
 					return 0;
 				}
 			}
@@ -323,7 +329,7 @@ public class KartendateiHandler extends Datei {
 			throws MerkmalMissing {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
 		if (anfang == -1) {
-			throw new MerkmalMissing();
+			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
 		String inhaltMerkmal = zeile.substring(anfang, ende);
@@ -334,7 +340,7 @@ public class KartendateiHandler extends Datei {
 		} else {
 			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
 					+ wertBezeichner + " in Datensatz der in Zeile "
-					+ aktuelleZeile + " beginnt");
+					+ (aktuelleZeile+1) + " beginnt");
 		}
 		return null;
 	}
@@ -365,7 +371,8 @@ public class KartendateiHandler extends Datei {
 			if (!mindestabstandEingehalten(xkoord, ykoord)) {
 				JOptionPane.showMessageDialog(null,
 						"Orte liegen zu dicht beeinander. Datensatz beginn in Zeile"
-								+ aktuelleZeile);
+								+ (aktuelleZeile+1));
+				System.exit(0);
 			}
 			// Restliche Auswertung.
 			String name = getMerkmal(BEZEICHNER_NAME, datensatz);
@@ -396,15 +403,12 @@ public class KartendateiHandler extends Datei {
 						umschlagVolumenASL, passagierAufkommen);
 			}
 		} catch (MerkmalMissing e) {
-			JOptionPane
-					.showMessageDialog(null,
-							"Fehlendes oder inkorrketes Merkmal. Datensatz ab Zeile "
-									+ aktuelleZeile);
+			e.erzeugeMeldung();
 			System.exit(0);
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
-					"Fehler in Mermalen. Zahlen sind keine Zahlen. In Zeile "
-							+ aktuelleZeile);
+					"Fehler in Merkmalen. Zahlen sind keine Zahlen. Datensatz ab Zeile "
+							+ (aktuelleZeile+1));
 			System.exit(0);
 		}
 	}
@@ -428,7 +432,8 @@ public class KartendateiHandler extends Datei {
 					.showMessageDialog(
 							null,
 							"Ort liegt ausserhalb der erlaubten Karte - X Wert außerhalb \n In Datensatz ab Zeile "
-									+ aktuelleZeile);
+									+ (aktuelleZeile+1));
+			System.exit(0);
 		}
 	}
 
@@ -438,7 +443,8 @@ public class KartendateiHandler extends Datei {
 					.showMessageDialog(
 							null,
 							"Ort liegt ausserhalb der erlaubten Karte - Y Wert außerhalb \n In Datensatz ab Zeile "
-									+ aktuelleZeile);
+									+ (aktuelleZeile+1));
+			System.exit(0);
 		}
 	}
 

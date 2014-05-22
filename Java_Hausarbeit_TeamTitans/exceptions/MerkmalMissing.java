@@ -1,11 +1,19 @@
 package exceptions;
 
-public class MerkmalMissing extends Exception{
+import javax.swing.JOptionPane;
 
-	public MerkmalMissing() {
+public class MerkmalMissing extends Exception{
+	
+	String merkmal;
+	int zeile;
+
+	public MerkmalMissing(String merkmal, int zeile) {
 		super("Merkmal nicht gefunden im Datensatz");
-		// TODO Auto-generated constructor stub
+		this.merkmal = merkmal;
+		this.zeile = zeile;
 	}
 		
-
+	public void erzeugeMeldung(){
+		JOptionPane.showMessageDialog(null, "Fehlendes oder Defektes Merkmal " +merkmal+"\n Datensatz beginn in Zeile "+(zeile+1));
+	}
 }
