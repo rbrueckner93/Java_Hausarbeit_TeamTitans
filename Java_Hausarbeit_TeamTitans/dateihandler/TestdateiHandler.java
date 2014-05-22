@@ -52,6 +52,7 @@ public class TestdateiHandler extends Datei {
 	public void verarbeiteTestdatei() {
 		//Einlesen der Datei. Liefert pro Zeile einn StringObjekt im Array.
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
+		aktuelleSimulation.nameTestdatei = getDateiNamen(aktuelleTestdatei);
 		// Checken ob Marker vorhanden.
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
@@ -384,5 +385,14 @@ public class TestdateiHandler extends Datei {
 			System.exit(0);
 		}
 
+	}
+	public String getDateiNamen(File datei){
+		int dateiEndung = datei.getName().indexOf(".txt");
+		if (dateiEndung == -1){
+			JOptionPane.showMessageDialog(null, "Falsche Dateiendung der Datei");
+			System.exit(0);
+		}
+		String dateiName = datei.getName().substring(0, dateiEndung);
+		return dateiName;
 	}
 }

@@ -75,6 +75,7 @@ public class KartendateiHandler extends Datei {
 
 	public void verarbeiteKartendatei() {
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
+		kartenInstanz.nameKartendatei = getDateiNamen(aktuelleKartendatei);
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Beginn Marker");
@@ -474,5 +475,18 @@ public class KartendateiHandler extends Datei {
 		kartenInstanz.orte.add(new Auslandsverbindung(koordX, koordY, name,
 				passagierAufkommen, umschlagVolumen));
 	}
-
+	/**
+	 * 
+	 * @param datei
+	 * @return
+	 */
+	public String getDateiNamen(File datei){
+		int dateiEndung = datei.getName().indexOf(".txt");
+		if (dateiEndung == -1){
+			JOptionPane.showMessageDialog(null, "Falsche Dateiendung der Datei");
+			System.exit(0);
+		}
+		String dateiName = datei.getName().substring(0, dateiEndung);
+		return dateiName;
+	}
 }
