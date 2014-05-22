@@ -216,6 +216,7 @@ public class Karte {
 			} else {
 				continue;
 			}
+			System.out.println(moeglicheKorridore);
 			Korridor beste = moeglicheKorridore.get(0);
 
 			for (int j = 1; j < moeglicheKorridore.size(); j++) {
@@ -279,17 +280,22 @@ public class Karte {
 	 */
 	
 	public void auslandsverbindungAnsNetzAnbienden() {
+		
 		ArrayList<Ort> listeAuslandsverbindungen = new ArrayList<Ort>();
 		Ort naechsterOrt = orte.get(0);
 
-		for (int i = 1; i < orte.size() || naechsterOrt.kennung.equals("ASL"); i++) {
+		for (int i = 1; i < orte.size() && naechsterOrt.kennung.equals("ASL"); i++) {
 			naechsterOrt = orte.get(i);
 		}
 
 		for (int i = 0; i < orte.size(); i++) {
+			
 			if (orte.get(i).kennung.equals("ASL")) {
 				listeAuslandsverbindungen.add(orte.get(i));
 			}
+		}
+	
+			
 			for (int j = 0; j < listeAuslandsverbindungen.size(); j++) {
 
 				for (int k = 0; k < orte.size(); k++) {
@@ -300,17 +306,21 @@ public class Karte {
 								listeAuslandsverbindungen.get(j), naechsterOrt)) {
 							naechsterOrt = orte.get(k);
 						}
-						try {
-							eingerichteteKorridore.add(new Korridor(
-									listeAuslandsverbindungen.get(j),
-									naechsterOrt, "SICH"));
-						} catch (UngueltigerOrt e) {
-							continue;
-						}
+
 					}
+					
 				}
+				
+				try {
+					eingerichteteKorridore.add(new Korridor(
+							listeAuslandsverbindungen.get(j),
+							naechsterOrt, "SICH"));
+				} catch (UngueltigerOrt e) {
+					continue;
+				}
+				
 			}
-		}
+		
 	}
 
 	/**
