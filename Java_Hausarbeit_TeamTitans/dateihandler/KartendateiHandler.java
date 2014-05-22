@@ -75,7 +75,14 @@ public class KartendateiHandler extends Datei {
 
 	public void verarbeiteKartendatei() {
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
-		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
+		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
+		if (dateiAnfang == -1) {
+			JOptionPane.showMessageDialog(null, "Fehlender Datei BeginnMarker");
+			System.exit(0);
+		}
+		int dateiEnde = findeDateiEndeMarker(aktuelleZeile, geleseneDaten);
+		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
+				&& aktuelleZeile < dateiEnde) {
 			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
 			int datensatzEnde = findeDatensatzEndeMarker(datensatzBeginn,
@@ -134,7 +141,7 @@ public class KartendateiHandler extends Datei {
 					endeZeile1);
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
-						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 								+ beginn);
 				return 0;
 			}
@@ -159,7 +166,7 @@ public class KartendateiHandler extends Datei {
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
-							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 									+ beginn);
 					return 0;
 				}
@@ -253,7 +260,7 @@ public class KartendateiHandler extends Datei {
 					endeZeile1);
 			if (zutesten.equals(DATENSATZ_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
-						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 								+ beginn);
 				return 0;
 			}
@@ -278,7 +285,7 @@ public class KartendateiHandler extends Datei {
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATENSATZ_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
-							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 									+ beginn);
 					return 0;
 				}
@@ -321,7 +328,8 @@ public class KartendateiHandler extends Datei {
 			return merkmalsplit[1];
 		} else {
 			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
-					+ aktuelleZeile + wertBezeichner);
+					+ wertBezeichner + " in Datensatz der in Zeile "
+					+ aktuelleZeile + " beginnt");
 		}
 		return null;
 	}
@@ -345,11 +353,15 @@ public class KartendateiHandler extends Datei {
 					datensatz));
 			int ykoord = Integer.parseInt(getMerkmal(BEZEICHNER_Y_KOORDINATE,
 					datensatz));
-			//Ueberoruefen der Orte auf ihre Position.
+			// Ueberoruefen der Orte auf ihre Position.
 			koordinateCheckenX(xkoord);
 			koordinateCheckenY(ykoord);
-			mindestabstandEingehalten(xkoord, ykoord);
-			//Restliche Auswertung.
+			if (!mindestabstandEingehalten(xkoord, ykoord)) {
+				JOptionPane.showMessageDialog(null,
+						"Orte liegen zu dicht beeinander. Datensatz beginn in Zeile"
+								+ aktuelleZeile);
+			}
+			// Restliche Auswertung.
 			String name = getMerkmal(BEZEICHNER_NAME, datensatz);
 			String kennung = getMerkmal(BEZEICHNER_KENNUNG, datensatz);
 
@@ -378,20 +390,24 @@ public class KartendateiHandler extends Datei {
 						umschlagVolumenASL, passagierAufkommen);
 			}
 		} catch (MerkmalMissing e) {
-			JOptionPane.showMessageDialog(null, "Fehlendes Merkmal");
+			JOptionPane
+					.showMessageDialog(null,
+							"Fehlendes Merkmal. Im Datensatz ab Zeile "
+									+ aktuelleZeile);
+			System.exit(0);
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
-					"Fehler in Mermalen. Zahlen sind keine Zahlen");
+					"Fehler in Mermalen. Zahlen sind keine Zahlen. In Zeile "
+							+ aktuelleZeile);
+			System.exit(0);
 		}
 	}
 
 	public boolean mindestabstandEingehalten(int x, int y) {
 		if (kartenInstanz.orte.size() != 0) {
 			for (Ort ortB : kartenInstanz.orte) {
-				double distanz = Math
-						.sqrt(Math
-								.pow((( x - ortB.koordX) + (y - ortB.koordY)),
-										2));
+				double distanz = Math.sqrt(Math.pow(
+						((x - ortB.koordX) + (y - ortB.koordY)), 2));
 				if (distanz < 3) {
 					return false;
 				}
@@ -399,19 +415,26 @@ public class KartendateiHandler extends Datei {
 		}
 		return true;
 	}
-	
-	public void koordinateCheckenX(int koord){
-		if (koord > MAX_KOORD_X || koord < MIN_KOORD_X){
-			JOptionPane.showMessageDialog(null, "Ort liegt außerhalb der erlaubten Karte - X Wert außerhalb");
+
+	public void koordinateCheckenX(int koord) {
+		if (koord > MAX_KOORD_X || koord < MIN_KOORD_X) {
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"Ort liegt ausserhalb der erlaubten Karte - X Wert außerhalb \n In Datensatz ab Zeile "
+									+ aktuelleZeile);
 		}
 	}
-	
-	public void koordinateCheckenY(int koord){
-		if (koord > MAX_KOORD_Y || koord < MIN_KOORD_Y){
-			JOptionPane.showMessageDialog(null, "Ort liegt außerhalb der erlaubten Karte - Y Wert außerhalb");
+
+	public void koordinateCheckenY(int koord) {
+		if (koord > MAX_KOORD_Y || koord < MIN_KOORD_Y) {
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"Ort liegt ausserhalb der erlaubten Karte - Y Wert außerhalb \n In Datensatz ab Zeile "
+									+ aktuelleZeile);
 		}
 	}
-	
 
 	// Hier stehen die 4 Methoden zur Erzeugung der 4 verschiedenen Orte.
 	// @author Nils

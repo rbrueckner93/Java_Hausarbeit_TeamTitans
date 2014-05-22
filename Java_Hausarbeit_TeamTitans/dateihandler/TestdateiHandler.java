@@ -51,7 +51,14 @@ public class TestdateiHandler extends Datei {
 
 	public void verarbeiteTestdatei() {
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
-		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
+		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
+		if (dateiAnfang == -1) {
+			JOptionPane.showMessageDialog(null, "Fehlender Datei BeginnMarker");
+			System.exit(0);
+		}
+		int dateiEnde = findeDateiEndeMarker(aktuelleZeile, geleseneDaten);
+		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
+				&& aktuelleZeile < dateiEnde) {
 			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
 			int datensatzEnde = findeDatensatzEndeMarker(datensatzBeginn,
@@ -63,8 +70,10 @@ public class TestdateiHandler extends Datei {
 			}
 		}
 	}
+
 	/**
 	 * Findet einen DateiBeginnmarker.
+	 * 
 	 * @param beginn
 	 * @param text
 	 * @param marker
@@ -88,9 +97,10 @@ public class TestdateiHandler extends Datei {
 		}
 		return -1;
 	}
-	
+
 	/**
 	 * Sucht nach einbem Datei ende Marker
+	 * 
 	 * @param beginn
 	 * @param text
 	 * @param marker
@@ -111,7 +121,7 @@ public class TestdateiHandler extends Datei {
 					endeZeile1);
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
-						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 								+ beginn);
 				return 0;
 			}
@@ -136,7 +146,7 @@ public class TestdateiHandler extends Datei {
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
-							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 									+ beginn);
 					return 0;
 				}
@@ -157,8 +167,10 @@ public class TestdateiHandler extends Datei {
 		}
 		return beginn;
 	}
+
 	/**
 	 * Liefert true zurück wenn noch ein Auswertbarer Datensatz vorhanden ist.
+	 * 
 	 * @param beginn
 	 * @param text
 	 * @return
@@ -185,7 +197,7 @@ public class TestdateiHandler extends Datei {
 
 	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text,
 			String marker) {
-		while (beginn < text.size() -1) {
+		while (beginn < text.size() - 1) {
 			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -220,7 +232,7 @@ public class TestdateiHandler extends Datei {
 					endeZeile1);
 			if (zutesten.equals(DATENSATZ_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
-						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 								+ beginn);
 				return 0;
 			}
@@ -245,7 +257,7 @@ public class TestdateiHandler extends Datei {
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATENSATZ_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
-							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde. Zeile: "
+							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
 									+ beginn);
 					return 0;
 				}
@@ -270,7 +282,7 @@ public class TestdateiHandler extends Datei {
 	public String getMerkmal(String wertBezeichner, String zeile)
 			throws MerkmalMissing {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
-		if (anfang == -1){
+		if (anfang == -1) {
 			throw new MerkmalMissing();
 		}
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
@@ -280,8 +292,10 @@ public class TestdateiHandler extends Datei {
 		if (merkmalsplit[0].equals(MERKMAL_BEGINN + wertBezeichner)) {
 			return merkmalsplit[1];
 		} else {
-			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
-					+ aktuelleZeile + wertBezeichner);
+			JOptionPane
+					.showMessageDialog(null, "Fehler im Merkmal. "
+							+ wertBezeichner + "Im Datensatz ab Zeile "
+							+ aktuelleZeile);
 		}
 		return null;
 	}
@@ -309,7 +323,7 @@ public class TestdateiHandler extends Datei {
 		}
 		if (ortHerkunft == null || ortZiel == null) {
 			JOptionPane.showMessageDialog(null,
-					"Flugroute nicht erzeugbar - Ort nicht auf Karte");
+					"Flugroute nicht erzeugbar - "+ortHerkunft+ " oder " + ortZiel+  " nicht auf Karte");
 		} else {
 			aktuelleSimulation.routen.add(new Flugroute(ortZiel, ortHerkunft,
 					faktor));
@@ -335,9 +349,11 @@ public class TestdateiHandler extends Datei {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktorDefault);
 			}
 		} catch (MerkmalMissing e) {
-			JOptionPane.showMessageDialog(null, "Datensatz fehlt Merkmal "+aktuelleZeile);
-		} catch (NumberFormatException f){
-			JOptionPane.showMessageDialog(null, "Merkmale enthalten keine Zahlen "+aktuelleZeile);
+			JOptionPane.showMessageDialog(null, "Merkmal fehlt in Datensatz ab Zeile "
+					+ aktuelleZeile);
+		} catch (NumberFormatException f) {
+			JOptionPane.showMessageDialog(null,
+					"Merkmale enthalten keine Zahlen. Im Datensatz ab " + aktuelleZeile);
 		}
 
 	}
