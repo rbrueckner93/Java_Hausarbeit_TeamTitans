@@ -87,7 +87,8 @@ public class KartendateiHandler extends Datei {
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
 			int datensatzEnde = findeDatensatzEndeMarker(datensatzBeginn,
 					geleseneDaten);
-			werteDatensatzAus(aktuelleZeile, datensatzEnde, geleseneDaten);
+			aktuelleZeile = datensatzBeginn;
+			werteDatensatzAus(datensatzBeginn, datensatzEnde, geleseneDaten);
 			aktuelleZeile = datensatzEnde;
 			if (datensatzBeginn == datensatzEnde) {
 				aktuelleZeile += 1;
@@ -348,6 +349,7 @@ public class KartendateiHandler extends Datei {
 		for (int i = beginnZeile; i <= endeZeile; i++) {
 			datensatz += text.get(i);
 		}
+		System.out.println(datensatz);
 		try {
 			int xkoord = Integer.parseInt(getMerkmal(BEZEICHNER_X_KOORDINATE,
 					datensatz));
@@ -392,7 +394,7 @@ public class KartendateiHandler extends Datei {
 		} catch (MerkmalMissing e) {
 			JOptionPane
 					.showMessageDialog(null,
-							"Fehlendes Merkmal. Im Datensatz ab Zeile "
+							"Fehlendes oder inkorrketes Merkmal. Datensatz ab Zeile "
 									+ aktuelleZeile);
 			System.exit(0);
 		} catch (NumberFormatException f) {
@@ -406,8 +408,8 @@ public class KartendateiHandler extends Datei {
 	public boolean mindestabstandEingehalten(int x, int y) {
 		if (kartenInstanz.orte.size() != 0) {
 			for (Ort ortB : kartenInstanz.orte) {
-				double distanz = Math.sqrt(Math.pow(
-						((x - ortB.koordX) + (y - ortB.koordY)), 2));
+				double distanz = Math.sqrt((Math.pow((x - ortB.koordX), 2))
+						+ Math.pow((y - ortB.koordY), 2));
 				if (distanz < 3) {
 					return false;
 				}
