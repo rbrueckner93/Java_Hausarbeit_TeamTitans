@@ -1,14 +1,16 @@
 package main;
 
 import java.io.File;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
 
 import korridore.Korridor;
 import orte.Ort;
 import dateihandler.KartendateiHandler;
-import dateihandler.NetzdateiHandler;
-import dateihandler.SimulationsdateiHandler;
 import dateihandler.TestdateiHandler;
 import exceptions.OrtNichtVorhanden;
+import exceptions.UngueltigerOrt;
 
 /**
  * @author BruecknerR, FechnerL, HandritschkP, TolleN erzeugt Karteninstanz,
@@ -24,22 +26,32 @@ public class Main {
 		Karte de = new Karte();
 		KartendateiHandler verarbeiter = new KartendateiHandler(de, datei);
 		verarbeiter.verarbeiteKartendatei();
-		System.out.println(de.orte);
+		System.out.println(de.orte.size() + " erzeugte Orte.");
+		//TODO nach budget fragen und bei Netz beruecksichtigen!
+		//gui.frageNachBudget schreiben und an Netzerstellung uebergeben...
 		de.erstelleNetz();
 		
-		do {
-			Simulator sim = new Simulator();
-			File simdatei = gui.frageNachTestdatei();
-			TestdateiHandler testverarbeiter = new TestdateiHandler(simdatei, sim,
-					de);
+		Simulator sim;
+		File simdatei;
+		TestdateiHandler testverarbeiter;
+		//TODO Speichern der Dateien nur auf Anweisung durchfuehren
+		int entscheidung = 3;
+		do{
+			sim = new Simulator();
+			simdatei = gui.frageNachTestdatei();
+			testverarbeiter = new TestdateiHandler(simdatei, sim, de);
 			testverarbeiter.verarbeiteTestdatei();
 			sim.simuliere();
-
-			NetzdateiHandler netzler = new NetzdateiHandler(de);
-			netzler.schreibeNetzdatei();
+			entscheidung = gui.frageNachEndoption();
+		}
+		while(entscheidung == 1);
+		if (entscheidung == 0){
+			//speichern wir nun die Karte und fertig is'
+			System.out.println("Sie haben abspeichern und schliessen gewaehlt...");
+		}
+		else{
+			System.out.println("Sie haben programm schliessen gewaehlt.");
 			
-			SimulationsdateiHandler simon = new SimulationsdateiHandler(sim);
-			simon.schreibeSimulationsDatei();
-		} while (gui.frageNachEndoption() == 1);
+		}
 	}
 }
