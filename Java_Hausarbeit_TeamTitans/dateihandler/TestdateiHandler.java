@@ -63,6 +63,7 @@ public class TestdateiHandler extends Datei {
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
 			int datensatzEnde = findeDatensatzEndeMarker(datensatzBeginn,
 					geleseneDaten);
+			aktuelleZeile = datensatzBeginn;
 			werteDatensatzAus(datensatzBeginn, datensatzEnde, geleseneDaten);
 			aktuelleZeile = datensatzEnde;
 			if (aktuelleZeile == datensatzEnde) {
@@ -349,7 +350,7 @@ public class TestdateiHandler extends Datei {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktorDefault);
 			}
 		} catch (MerkmalMissing e) {
-			JOptionPane.showMessageDialog(null, "Merkmal fehlt in Datensatz ab Zeile "
+			JOptionPane.showMessageDialog(null, "Merkmal fehlt oder inkorrekt in Datensatz ab Zeile "
 					+ aktuelleZeile);
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,

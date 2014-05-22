@@ -87,6 +87,7 @@ public class KartendateiHandler extends Datei {
 					geleseneDaten, DATENSATZ_BEGINN_MARKER);
 			int datensatzEnde = findeDatensatzEndeMarker(datensatzBeginn,
 					geleseneDaten);
+			aktuelleZeile = datensatzBeginn;
 			werteDatensatzAus(datensatzBeginn, datensatzEnde, geleseneDaten);
 			aktuelleZeile = datensatzEnde;
 			if (datensatzBeginn == datensatzEnde) {
@@ -393,7 +394,7 @@ public class KartendateiHandler extends Datei {
 		} catch (MerkmalMissing e) {
 			JOptionPane
 					.showMessageDialog(null,
-							"Fehlendes Merkmal. Im Datensatz ab Zeile "
+							"Fehlendes oder inkorrketes Merkmal. Datensatz ab Zeile "
 									+ aktuelleZeile);
 			System.exit(0);
 		} catch (NumberFormatException f) {
