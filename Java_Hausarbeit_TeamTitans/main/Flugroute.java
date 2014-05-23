@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import exceptions.OrtNichtVorhanden;
 import korridore.Korridor;
 import orte.Ort;
-import sun.org.mozilla.javascript.internal.regexp.SubString;
 
 /**
  * @author BruecknerR ... wird erst bei Nutzung=Testdateieinlesen erstellt mit

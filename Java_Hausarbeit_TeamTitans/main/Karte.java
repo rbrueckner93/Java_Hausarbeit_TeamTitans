@@ -92,67 +92,68 @@ public class Karte {
 	 */
 	public void erstelleNetz() {
 		verbindeAuslandsorte();
-		//erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG));
-		//erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG));
-		erstelleSternSTND(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG));
+		// erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		// erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		erstelleSternSTND(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
 	}
 
+	/**
+	 * Methode zum erstellen eines Ringes im Netz. Fehlerhaft
+	 * @param ohneASL
+	 */
 	public void erstelleRingStruktur(ArrayList<Ort> ohneASL) {
-		try{
-		Integer[] mittelpunkt = berechneNetzMittelpunkt(ohneASL);
-		double distanz = Double.MAX_VALUE;
-		for (Ort ort : ohneASL) {
-			double distanzOrt = Math.sqrt(Math.pow(
-					(mittelpunkt[0] - ort.koordX), 2)
-					+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
-			if (distanzOrt < distanz) {
-				distanz = distanzOrt;
+		try {
+			Integer[] mittelpunkt = berechneNetzMittelpunkt(ohneASL);
+			double distanz = Double.MAX_VALUE;
+			for (Ort ort : ohneASL) {
+				double distanzOrt = Math.sqrt(Math.pow(
+						(mittelpunkt[0] - ort.koordX), 2)
+						+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
+				if (distanzOrt < distanz) {
+					distanz = distanzOrt;
+				}
 			}
-		}
-		//Erstellung des Ringes
-		ArrayList<Ort> ringOrte = new ArrayList<Ort>();
-		for (Ort ort : ohneASL) {
-			double distanzOrt = Math.sqrt(Math.pow(
-					(mittelpunkt[0] - ort.koordX), 2)
-					+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
-			if (distanzOrt < (4.0 * distanz)) {
-				ringOrte.add(ort);
+			// Erstellung des Ringes
+			ArrayList<Ort> ringOrte = new ArrayList<Ort>();
+			for (Ort ort : ohneASL) {
+				double distanzOrt = Math.sqrt(Math.pow(
+						(mittelpunkt[0] - ort.koordX), 2)
+						+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
+				if (distanzOrt < (4.0 * distanz)) {
+					ringOrte.add(ort);
+				}
 			}
-		}
-		Ort ringstart = ringOrte.get(0);
-		for (int startOrt = 0; startOrt < ringOrte.size(); startOrt++) {
-			if (startOrt != (ringOrte.size() - 1)) {
-				eingerichteteKorridore.add(new Korridor(ringOrte.get(startOrt),
-						ringOrte.get((startOrt + 1)), Korridor.KENNUNG_ENFC));
-			} else {eingerichteteKorridore.add(new Korridor(ringOrte.get(startOrt),ringOrte.get(0), Korridor.KENNUNG_ENFC));}
-		}
-		// Hier erstellung der Liste verbleibenderOrte.
-		ArrayList<Ort> verbleibendeOrte = ohneASL;
-		for (Ort ortA : ringOrte) {
-			verbleibendeOrte.remove(ortA);
-		}
-		for (Ort ortA : verbleibendeOrte){
-		eingerichteteKorridore.add(new Korridor(ortA, findeDichtestenOrtzuDiesem(ortA, ringOrte), Korridor.KENNUNG_ENFC));
-		}
-		} catch (UngueltigerOrt e){}
-	}
-	
-	public Ort findeDichtestenOrtzuDiesem(Ort bezugsOrt, ArrayList<Ort> listeOrte){
-		Ort dichtesterOrt = null;
-		double distanz = Double.MAX_VALUE;
-		for (Ort ort : listeOrte){
-			if (bezugsOrt == ort){
-				continue;
+			Ort ringstart = ringOrte.get(0);
+			for (int startOrt = 0; startOrt < ringOrte.size(); startOrt++) {
+				if (startOrt != (ringOrte.size() - 1)) {
+					eingerichteteKorridore.add(new Korridor(ringOrte
+							.get(startOrt), ringOrte.get((startOrt + 1)),
+							Korridor.KENNUNG_ENFC));
+				} else {
+					eingerichteteKorridore.add(new Korridor(ringOrte
+							.get(startOrt), ringOrte.get(0),
+							Korridor.KENNUNG_ENFC));
+				}
 			}
-			double distanzOrt = Math.sqrt(Math.pow((bezugsOrt.koordX - ort.koordX), 2)+ Math.pow((bezugsOrt.koordY - ort.koordY), 2));
-			if (distanzOrt < distanz){
-				distanz = distanzOrt;
-				dichtesterOrt = ort;
+			// Hier erstellung der Liste verbleibenderOrte.
+			ArrayList<Ort> verbleibendeOrte = ohneASL;
+			for (Ort ortA : ringOrte) {
+				verbleibendeOrte.remove(ortA);
 			}
+			for (Ort ortA : verbleibendeOrte) {
+				eingerichteteKorridore.add(new Korridor(ortA,
+						findeDichtestenOrtzuDiesem(ortA, ringOrte),
+						Korridor.KENNUNG_ENFC));
+			}
+		} catch (UngueltigerOrt e) {
 		}
-		return dichtesterOrt;
 	}
 
+	/**
+	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Einfachen Korridoren.
+	 * @param ohneASL Liste mit Orten, aber ohne Auslandsorten.
+	 * @author Nils
+	 */
 	public void erstelleSternENFC(ArrayList<Ort> ohneASL) {
 		try {
 			Integer[] mittelpunkt = berechneNetzMittelpunkt(ohneASL);
@@ -176,7 +177,12 @@ public class Karte {
 		} catch (UngueltigerOrt e) {
 		}
 	}
-	
+
+	/**
+	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Standard Korridoren.
+	 * @param ohneASL Liste mit Orten, aber ohne Auslandsorten.
+	 * @author Nils
+	 */
 	public void erstelleSternSTND(ArrayList<Ort> ohneASL) {
 		try {
 			Integer[] mittelpunkt = berechneNetzMittelpunkt(ohneASL);
@@ -201,9 +207,16 @@ public class Karte {
 		}
 	}
 
-	public ArrayList<Ort> entferneOrtTyp(String kennung) {
+	/**
+	 * Diese Methode entfernt einen ganzen OrtTyp aus einer Liste.
+	 * @param kennung Kennung des OrtTypes
+	 * @param liste	Liste von Orten, aus der entfernt werden soll.
+	 * @return Liste ohne diesen OrtTyp.
+	 * @author Nils
+	 */
+	public ArrayList<Ort> entferneOrtTyp(String kennung, ArrayList<Ort> liste) {
 		ArrayList<Ort> ohneOrte = new ArrayList<Ort>();
-		for (Ort ort : orte) {
+		for (Ort ort : liste) {
 			if (!ort.kennung.equals(kennung)) {
 				ohneOrte.add(ort);
 			}
@@ -212,10 +225,34 @@ public class Karte {
 	}
 
 	/**
-	 * Diese Methode verbindet alle ASL Orte mit ihrem nächstgelegen Nicht ASL
-	 * Ort.
+	 * Diese Methode liefert den Ort zurueck, der am dichtesten zum Angegeben Ort liegt.
+	 * @param bezugsOrt Ort, von dem aus gesucht wird.
+	 * @param listeOrte Liste mit Orten, in der der dichteste gesucht werden soll.
+	 * @return Objekt des Typs Ort, der am dichtesten liegt.
 	 */
-
+	public Ort findeDichtestenOrtzuDiesem(Ort bezugsOrt,
+			ArrayList<Ort> listeOrte) {
+		Ort dichtesterOrt = null;
+		double distanz = Double.MAX_VALUE;
+		for (Ort ort : listeOrte) {
+			if (bezugsOrt == ort) {
+				continue;
+			}
+			double distanzOrt = Math.sqrt(Math.pow(
+					(bezugsOrt.koordX - ort.koordX), 2)
+					+ Math.pow((bezugsOrt.koordY - ort.koordY), 2));
+			if (distanzOrt < distanz) {
+				distanz = distanzOrt;
+				dichtesterOrt = ort;
+			}
+		}
+		return dichtesterOrt;
+	}
+	
+	/**
+	 * Diese Methode verbindet alle ASL Orte mit dem nächsten nicht ASL Ort.
+	 * @author Nils
+	 */
 	public void verbindeAuslandsorte() {
 		try {
 			ArrayList<Ort> aslOrte = new ArrayList<Ort>();
@@ -246,6 +283,14 @@ public class Karte {
 		}
 	}
 
+	/**
+	 * Diese Methode prüft, ob der angegebene KorridorTyp zwischen den Orten eingerichtet werden kann.
+	 * @param ortA
+	 * @param ortB
+	 * @param Typ des einzurichtenden Korridors
+	 * @return true, wenn möglich. Sonst false.
+	 * @author Nils
+	 */
 	public boolean istEinrichtbarerKorridor(Ort ortA, Ort ortB,
 			String korridorTyp) {
 		if (korridorTyp.equals(Korridor.KENNUNG_ENFC)) {
@@ -304,9 +349,9 @@ public class Karte {
 	/**
 	 * Ermittelt Ortsdistanz fuer andere Methoden. Rundet die Distanz.
 	 * 
-	 * @param orteins
-	 * @param ortzwei
-	 * @return
+	 * @param Ort eins
+	 * @param ort zwei
+	 * @return Laenge im Wert double
 	 */
 
 	public double ermittleOrtsdistanz(Ort orteins, Ort ortzwei) {
@@ -317,18 +362,10 @@ public class Karte {
 	}
 
 	/**
-	 * ArrayList orte wird von Dateihandler gefüllt. Pruefe auch ob gleicher
-	 * hoechster Relevanzgrad vorhanden ist. Dann wird der Ort weitergegeben der
-	 * am naechsten am Mittelpunkt der Karte liegt.
-	 * 
-	 * @return
-	 */
-
-	/**
 	 * Bekommt eine Liste mit orten und gibt den mit hoechsten Relevanzgrad
 	 * zurück. Ort mit hoechsten Relevanzgrad aber nei Auslandsverbindung.
 	 * 
-	 * @param liste
+	 * @param Liste aller zu ueberoruefenden Orte
 	 * @return
 	 */
 	public Ort sucheOrtMitHoechstenRelevanzGrad(ArrayList<Ort> liste) {
@@ -360,10 +397,8 @@ public class Karte {
 	/**
 	 * Geht Liste der der eingerichteten Korridore durch und summiert die
 	 * Baukosten und gibt diese aus.
-	 * 
-	 * @return
+	 * @return Summe aller Baukosten.
 	 */
-
 	public double ermittleGesamteBaukosten() {
 		int gesamtKosten = 0;
 		for (Korridor korridor : eingerichteteKorridore) {
@@ -373,13 +408,12 @@ public class Karte {
 	}
 
 	/**
-	 * Berechnet den Mittelpunt (Punkt, wo die Summe der Abstände am kleinsten
-	 * ist) des Netzes. Gibt ArrayList zurück. Element0 = X-Koordinate, Element1
-	 * = Y-Koordinate des Mittelpunktes.
-	 * 
-	 * @return
+	 * Berechnet die fiktiven x und y Koordinaten des Punktes mit geringster
+	 * Abstandssumme zu allen Orten. Im Bereich x(0-199) und y(0-99)
+	 * @param vorhandeneOrte   Liste der vorhandenen Orte.
+	 * @return Integer Array der Laenge 2 || Pos 0 = x-Wert. Pos 1 = y-Wert.
+	 * @author Nils
 	 */
-
 	public Integer[] berechneNetzMittelpunkt(ArrayList<Ort> vorhandeneOrte) {
 		Integer[] koord = new Integer[2];
 		double distanz = Double.MAX_VALUE;
@@ -400,6 +434,54 @@ public class Karte {
 			}
 		}
 		return koord;
+	}
+
+	/**
+	 * Löscht einen bestimmten Ort aus einer uebergeben Liste. Verändert Liste
+	 * nicht, wenn Ort nicht in Liste.
+	 * 
+	 * @param zuLöschenOrt
+	 *            Ort der gelöscht werden soll.
+	 * @param listeDerOrte
+	 *            Liste aus der der Ort entfernt werden soll.
+	 * @return Ursprungsliste ohne den angegeben Ort.
+	 * @author Nils
+	 */
+	public ArrayList<Ort> löscheOrtAusListe(Ort zuLöschenOrt,
+			ArrayList<Ort> listeDerOrte) {
+		ArrayList<Ort> saubereListe = new ArrayList<Ort>();
+		for (Ort ort : listeDerOrte) {
+			if (zuLöschenOrt != ort) {
+				saubereListe.add(ort);
+			}
+		}
+		return saubereListe;
+	}
+
+	/**
+	 * Methode liefert den Ort eines Netztes zurück, der am dichtestens am
+	 * fiktiven Mittelpunkt des Netzes liegt.
+	 * 
+	 * @param orteDesNetzes
+	 *            Liste alle Orte im Netz.
+	 * @return Objekt des Types Ort, liegt am dichtesten am fiktiven
+	 *         Mittelpunkt.
+	 * @author Nils
+	 */
+	public Ort getMittigstenOrt(ArrayList<Ort> orteDesNetzes) {
+		Integer[] mittelpunkt = berechneNetzMittelpunkt(orteDesNetzes);
+		Ort netzMittelpunkt = null;
+		double distanz = Double.MAX_VALUE;
+		for (Ort ort : orteDesNetzes) {
+			double distanzZuOrt = Math.sqrt(Math.pow(
+					(mittelpunkt[0] - ort.koordX), 2)
+					+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
+			if (distanzZuOrt < distanz) {
+				distanz = distanzZuOrt;
+				netzMittelpunkt = ort;
+			}
+		}
+		return netzMittelpunkt;
 	}
 
 	/**
@@ -449,27 +531,27 @@ public class Karte {
 		}
 		return anzahlSTND;
 	}
-	
-	public int anzahlOrteInFelderListe(ArrayList<Feld> felderLi){
+
+	public int anzahlOrteInFelderListe(ArrayList<Feld> felderLi) {
 		int anzahl = 0;
-		for(Feld felda:felderLi)
-		{
+		for (Feld felda : felderLi) {
 			anzahl += felda.bestimmeOrteAusserASLImFeld().size();
 		}
 		return anzahl;
 	}
-	
-	public ArrayList<Feld> ermittleKonzentrationsfelder(int minOrte, int erstellerKantenlaenge) {
+
+	public ArrayList<Feld> ermittleKonzentrationsfelder(int minOrte,
+			int erstellerKantenlaenge) {
 		// in felderListe werden die Felder geschrieben, die den Kriterien
 		// entsprechen.
 		ArrayList<Feld> felderListe = new ArrayList<Feld>();
 		for (int x = 0; (x + erstellerKantenlaenge) <= KARTE_GROESSE_X; x++) {
 			boolean etwasInX_Gefunden = false;
 			for (int y = 0; (y + erstellerKantenlaenge) <= KARTE_GROESSE_Y; y++) {
-				Feld neuesFeld = new Feld(this, x, y,
-						erstellerKantenlaenge);
-				if(neuesFeld.bestimmeOrteAusserASLImFeld().size()>=minOrte) felderListe.add(neuesFeld);
-			//	System.out.println("Ich habe ("+neuesFeld.startX+"|"+neuesFeld.startY+"), ("+neuesFeld.endX+"|"+neuesFeld.endY+") hinzugefuegt. Dort befinden sich "+neuesFeld.bestimmeOrteImFeld().size()+" Orte.");
+				Feld neuesFeld = new Feld(this, x, y, erstellerKantenlaenge);
+				if (neuesFeld.bestimmeOrteAusserASLImFeld().size() >= minOrte)
+					felderListe.add(neuesFeld);
+				// System.out.println("Ich habe ("+neuesFeld.startX+"|"+neuesFeld.startY+"), ("+neuesFeld.endX+"|"+neuesFeld.endY+") hinzugefuegt. Dort befinden sich "+neuesFeld.bestimmeOrteImFeld().size()+" Orte.");
 				if (neuesFeld.bestimmeOrteAusserASLImFeld().size() == 0)
 					y += (erstellerKantenlaenge - 1);
 				etwasInX_Gefunden = true;
@@ -481,23 +563,29 @@ public class Karte {
 		// durchsuche die ArrayList nach dem Maximum, mit dem begonnen wird
 		ArrayList<Feld> felderOhneUeberschneidung = new ArrayList<Feld>();
 
-		//loesche alle Felder aus der Liste, die sich mit dem aktuell am dichtesten besiedelten Ort ueberschneiden
+		// loesche alle Felder aus der Liste, die sich mit dem aktuell am
+		// dichtesten besiedelten Ort ueberschneiden
 		while (felderListe.size() > 0) {
 			int max = 0;
 			// jedes Feld nach der Anzahl der Orte fragen, um Feld mit
 			// dichtester besiedlung zu ermitteln
 			for (int index = 0; index < felderListe.size(); index++) {
-				if (felderListe.get(max).bestimmeOrteAusserASLImFeld().size() < felderListe.get(index).bestimmeOrteAusserASLImFeld().size())
+				if (felderListe.get(max).bestimmeOrteAusserASLImFeld().size() < felderListe
+						.get(index).bestimmeOrteAusserASLImFeld().size())
 					max = index;
 			}
 			// loesche jetzt alle felder in der Liste, deren flaeche sich mit
 			// der flaeche von der flaeche mit den meisten orten schneidet.
 			for (int i = 0; i < felderListe.size(); i++) {
-				if ((i != max) && (felderListe.get(max).ueberschneidungMitFeld(felderListe.get(i)))) {
-					System.out.println("Es wird gelÃ¶scht:"+felderListe.get(i));
+				if ((i != max)
+						&& (felderListe.get(max)
+								.ueberschneidungMitFeld(felderListe.get(i)))) {
+					System.out.println("Es wird gelÃ¶scht:"
+							+ felderListe.get(i));
 					felderListe.remove(i);
 					i--;
-					if (i < max) max--;
+					if (i < max)
+						max--;
 				}
 			}
 			felderOhneUeberschneidung.add(felderListe.get(max));

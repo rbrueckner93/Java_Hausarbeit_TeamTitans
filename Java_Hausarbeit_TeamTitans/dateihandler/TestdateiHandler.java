@@ -68,7 +68,7 @@ public class TestdateiHandler extends Datei {
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
 			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
-					geleseneDaten, DATENSATZ_BEGINN_MARKER);
+					geleseneDaten);
 			int datensatzEnde = findeDatensatzEndeMarker(datensatzBeginn,
 					geleseneDaten);
 			aktuelleZeile = datensatzBeginn;
@@ -210,8 +210,7 @@ public class TestdateiHandler extends Datei {
 	 * @param marker
 	 * @return
 	 */
-	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text,
-			String marker) {
+	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size() - 1) {
 			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
 			if (anfang == -1) {
