@@ -27,7 +27,7 @@ public class Datei {
 	 * Strings aller Zeilen zurückgibt. Datei muss von UI geprüft worden sein
 	 * auf lesbarkeit und isFile().
 	 * 
-	 * @param neueDatei
+	 * @param neueDatei Datei die eingelsen werden soll.
 	 * @return ArrayList<String> pro Index eine Zeile.
 	 */
 	public static ArrayList<String> leseDatei(File aktuelleDatei) {
@@ -48,12 +48,10 @@ public class Datei {
 	}
 
 	/**
-	 * bekommt Dateinamen[inklusive Suffix!] und OutputStream als String
-	 * 
-	 * @param zuSchreibenderText
-	 *            ArrayList von Strings mit allen Zeilen.
-	 * @param neuerDateiname
-	 *            String der Namen+Suffix der Datei(kein ".txt") enthält.
+	 * Schreibt einen Liste von Strings. Jedes Objekt ist eine neue Zeile.
+	 * Bekommt Dateinamen[inklusive Suffix!] und OutputStream als String
+	 * @param zuSchreibenderText ArrayList von Strings mit allen Zeilen.
+	 * @param neuerDateiname String des Namen+Suffix der Datei(kein ".txt") enthält.
 	 * @author Nils
 	 */
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,

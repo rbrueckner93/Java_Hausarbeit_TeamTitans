@@ -32,11 +32,17 @@ public class NetzdateiHandler extends Datei {
 		this.fertigesNetz = fertigesNetz;
 	}
 
+	/**
+	 * Methode erzeugt einen schreibbaren Stream und schreibt diesen in eine uebergebene Datei.
+	 */
 	public void schreibeNetzdatei(){
 		Datei.schreibeDatei(erstelleOutputStreamNet(), erstelleDateiNameNet());
 	}
 	
-	
+	/**
+	 * Methode schreibt alle ausgewerteten Korridore in ein String Array. Haelt sich dabei an vorgegebene Syntax und Markierer.
+	 * @return ArrayList von Strings.
+	 */
 	public ArrayList<String> erstelleOutputStreamNet() {
 		ArrayList<String> fertigerText = new ArrayList<String>();
 		fertigerText.add(DATEI_BEGINN_MARKER);
@@ -53,6 +59,10 @@ public class NetzdateiHandler extends Datei {
 		return fertigerText;
 	}
 
+	/**
+	 * Haengt an den Dateinamen den spezifischen suffix dran.
+	 * @return String Dateiname+suffix
+	 */
 	public String erstelleDateiNameNet() {
 			String dateiName = fertigesNetz.getNameKartendateiHandler()+DATEI_SUFFIX;
 		return dateiName;
