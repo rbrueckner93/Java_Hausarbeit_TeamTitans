@@ -400,4 +400,61 @@ public class Karte {
 		return anzahl;
 		
 	}
+	
+	public int anzahlOrteInFelderListe(ArrayList<Feld> felderLi){
+		int anzahl = 0;
+		for(Feld felda:felderLi)
+		{
+			anzahl += felda.bestimmeOrteAusserASLImFeld().size();
+		}
+		return anzahl;
+	}
+	
+	public ArrayList<Feld> ermittleKonzentrationsfelder(int minOrte, int erstellerKantenlaenge) {
+		// in felderListe werden die Felder geschrieben, die den Kriterien
+		// entsprechen.
+		ArrayList<Feld> felderListe = new ArrayList<Feld>();
+		for (int x = 0; (x + erstellerKantenlaenge) <= KARTE_GROESSE_X; x++) {
+			boolean etwasInX_Gefunden = false;
+			for (int y = 0; (y + erstellerKantenlaenge) <= KARTE_GROESSE_Y; y++) {
+				Feld neuesFeld = new Feld(this, x, y,
+						erstellerKantenlaenge);
+				if(neuesFeld.bestimmeOrteAusserASLImFeld().size()>=minOrte) felderListe.add(neuesFeld);
+			//	System.out.println("Ich habe ("+neuesFeld.startX+"|"+neuesFeld.startY+"), ("+neuesFeld.endX+"|"+neuesFeld.endY+") hinzugefuegt. Dort befinden sich "+neuesFeld.bestimmeOrteImFeld().size()+" Orte.");
+				if (neuesFeld.bestimmeOrteAusserASLImFeld().size() == 0)
+					y += (erstellerKantenlaenge - 1);
+				etwasInX_Gefunden = true;
+			}
+			if (etwasInX_Gefunden = false)
+				x += erstellerKantenlaenge;
+		}
+
+		// durchsuche die ArrayList nach dem Maximum, mit dem begonnen wird
+		ArrayList<Feld> felderOhneUeberschneidung = new ArrayList<Feld>();
+
+		//loesche alle Felder aus der Liste, die sich mit dem aktuell am dichtesten besiedelten Ort ueberschneiden
+		while (felderListe.size() > 0) {
+			int max = 0;
+			// jedes Feld nach der Anzahl der Orte fragen, um Feld mit
+			// dichtester besiedlung zu ermitteln
+			for (int index = 0; index < felderListe.size(); index++) {
+				if (felderListe.get(max).bestimmeOrteAusserASLImFeld().size() < felderListe.get(index).bestimmeOrteAusserASLImFeld().size())
+					max = index;
+			}
+			// loesche jetzt alle felder in der Liste, deren flaeche sich mit
+			// der flaeche von der flaeche mit den meisten orten schneidet.
+			for (int i = 0; i < felderListe.size(); i++) {
+				if ((i != max) && (felderListe.get(max).ueberschneidungMitFeld(felderListe.get(i)))) {
+					System.out.println("Es wird gelöscht:"+felderListe.get(i));
+					felderListe.remove(i);
+					i--;
+					if (i < max) max--;
+				}
+			}
+			felderOhneUeberschneidung.add(felderListe.get(max));
+			felderListe.remove(max);
+		}
+
+		return felderOhneUeberschneidung;
+	}
 }
