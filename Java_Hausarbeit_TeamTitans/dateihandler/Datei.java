@@ -58,7 +58,6 @@ public class Datei {
 	 */
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,
 			String neuerDateiname) {
-		System.out.println(Benutzerinterface.standardpfad+"  "+neuerDateiname);
 		File neueDatei = new File(Benutzerinterface.standardpfad+ "\\"
 				+ neuerDateiname + ".txt");
 		try {
