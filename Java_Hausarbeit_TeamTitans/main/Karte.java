@@ -92,13 +92,17 @@ public class Karte {
 	 */
 	public void erstelleNetz() {
 		verbindeAuslandsorte();
-		// erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
-		// erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
-		erstelleSternSTND(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		// erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
+		// orte));
+		erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
+				orte));
+		// erstelleSternSTND(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
+		// orte));
 	}
 
 	/**
-	 * Methode zum erstellen eines Ringes im Netz. Fehlerhaft
+	 * Methode zum erstellen eines Ringes im Netz. Weitere Optimierung folgt.
+	 * 
 	 * @param ohneASL
 	 */
 	public void erstelleRingStruktur(ArrayList<Ort> ohneASL) {
@@ -123,17 +127,31 @@ public class Karte {
 					ringOrte.add(ort);
 				}
 			}
+			// Sortieren der Liste RingOrte aufsteigend nach ihrer Distanz
+			Ort mittigsterOrt = getMittigstenOrt(ohneASL);
+			ringOrte = sortiereListeNachAbstand(mittigsterOrt, ringOrte);
+			//Sortierung abgeschlossen.
 			Ort ringstart = ringOrte.get(0);
-			for (int startOrt = 0; startOrt < ringOrte.size(); startOrt++) {
-				if (startOrt != (ringOrte.size() - 1)) {
-					eingerichteteKorridore.add(new Korridor(ringOrte
-							.get(startOrt), ringOrte.get((startOrt + 1)),
-							Korridor.KENNUNG_ENFC));
+			ArrayList<Ort> verbleibendeRingOrte = new ArrayList<Ort>();
+			for (Ort ort : ringOrte) {
+				verbleibendeRingOrte.add(ort);
+			}
+			//Erstellung des Rings.
+			for (int index = 0; index < ringOrte.size(); index++) {
+				if (index == (ringOrte.size() - 1)) {
+//					eingerichteteKorridore.add(new Korridor(
+//							ringOrte.get(index), ringstart,
+//							Korridor.KENNUNG_ENFC));
+//					verbleibendeRingOrte.remove(ringOrte.get(index));
+					break;
 				} else {
-					eingerichteteKorridore.add(new Korridor(ringOrte
-							.get(startOrt), ringOrte.get(0),
+					eingerichteteKorridore.add(new Korridor(
+							ringOrte.get(index), findeDichtestenOrtzuDiesem(
+									ringOrte.get(index), verbleibendeRingOrte),
 							Korridor.KENNUNG_ENFC));
+					verbleibendeRingOrte.remove(ringOrte.get(index));
 				}
+
 			}
 			// Hier erstellung der Liste verbleibenderOrte.
 			ArrayList<Ort> verbleibendeOrte = ohneASL;
@@ -150,8 +168,11 @@ public class Karte {
 	}
 
 	/**
-	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Einfachen Korridoren.
-	 * @param ohneASL Liste mit Orten, aber ohne Auslandsorten.
+	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Einfachen
+	 * Korridoren.
+	 * 
+	 * @param ohneASL
+	 *            Liste mit Orten, aber ohne Auslandsorten.
 	 * @author Nils
 	 */
 	public void erstelleSternENFC(ArrayList<Ort> ohneASL) {
@@ -179,8 +200,11 @@ public class Karte {
 	}
 
 	/**
-	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Standard Korridoren.
-	 * @param ohneASL Liste mit Orten, aber ohne Auslandsorten.
+	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Standard
+	 * Korridoren.
+	 * 
+	 * @param ohneASL
+	 *            Liste mit Orten, aber ohne Auslandsorten.
 	 * @author Nils
 	 */
 	public void erstelleSternSTND(ArrayList<Ort> ohneASL) {
@@ -209,8 +233,11 @@ public class Karte {
 
 	/**
 	 * Diese Methode entfernt einen ganzen OrtTyp aus einer Liste.
-	 * @param kennung Kennung des OrtTypes
-	 * @param liste	Liste von Orten, aus der entfernt werden soll.
+	 * 
+	 * @param kennung
+	 *            Kennung des OrtTypes
+	 * @param liste
+	 *            Liste von Orten, aus der entfernt werden soll.
 	 * @return Liste ohne diesen OrtTyp.
 	 * @author Nils
 	 */
@@ -225,9 +252,13 @@ public class Karte {
 	}
 
 	/**
-	 * Diese Methode liefert den Ort zurueck, der am dichtesten zum Angegeben Ort liegt.
-	 * @param bezugsOrt Ort, von dem aus gesucht wird.
-	 * @param listeOrte Liste mit Orten, in der der dichteste gesucht werden soll.
+	 * Diese Methode liefert den Ort zurueck, der am dichtesten zum Angegeben
+	 * Ort liegt.
+	 * 
+	 * @param bezugsOrt
+	 *            Ort, von dem aus gesucht wird.
+	 * @param listeOrte
+	 *            Liste mit Orten, in der der dichteste gesucht werden soll.
 	 * @return Objekt des Typs Ort, der am dichtesten liegt.
 	 */
 	public Ort findeDichtestenOrtzuDiesem(Ort bezugsOrt,
@@ -248,9 +279,10 @@ public class Karte {
 		}
 		return dichtesterOrt;
 	}
-	
+
 	/**
 	 * Diese Methode verbindet alle ASL Orte mit dem nächsten nicht ASL Ort.
+	 * 
 	 * @author Nils
 	 */
 	public void verbindeAuslandsorte() {
@@ -284,10 +316,13 @@ public class Karte {
 	}
 
 	/**
-	 * Diese Methode prüft, ob der angegebene KorridorTyp zwischen den Orten eingerichtet werden kann.
+	 * Diese Methode prüft, ob der angegebene KorridorTyp zwischen den Orten
+	 * eingerichtet werden kann.
+	 * 
 	 * @param ortA
 	 * @param ortB
-	 * @param Typ des einzurichtenden Korridors
+	 * @param Typ
+	 *            des einzurichtenden Korridors
 	 * @return true, wenn möglich. Sonst false.
 	 * @author Nils
 	 */
@@ -349,8 +384,10 @@ public class Karte {
 	/**
 	 * Ermittelt Ortsdistanz fuer andere Methoden. Rundet die Distanz.
 	 * 
-	 * @param Ort eins
-	 * @param ort zwei
+	 * @param Ort
+	 *            eins
+	 * @param ort
+	 *            zwei
 	 * @return Laenge im Wert double
 	 */
 
@@ -365,7 +402,8 @@ public class Karte {
 	 * Bekommt eine Liste mit orten und gibt den mit hoechsten Relevanzgrad
 	 * zurück. Ort mit hoechsten Relevanzgrad aber nei Auslandsverbindung.
 	 * 
-	 * @param Liste aller zu ueberoruefenden Orte
+	 * @param Liste
+	 *            aller zu ueberoruefenden Orte
 	 * @return
 	 */
 	public Ort sucheOrtMitHoechstenRelevanzGrad(ArrayList<Ort> liste) {
@@ -397,6 +435,7 @@ public class Karte {
 	/**
 	 * Geht Liste der der eingerichteten Korridore durch und summiert die
 	 * Baukosten und gibt diese aus.
+	 * 
 	 * @return Summe aller Baukosten.
 	 */
 	public double ermittleGesamteBaukosten() {
@@ -410,7 +449,9 @@ public class Karte {
 	/**
 	 * Berechnet die fiktiven x und y Koordinaten des Punktes mit geringster
 	 * Abstandssumme zu allen Orten. Im Bereich x(0-199) und y(0-99)
-	 * @param vorhandeneOrte   Liste der vorhandenen Orte.
+	 * 
+	 * @param vorhandeneOrte
+	 *            Liste der vorhandenen Orte.
 	 * @return Integer Array der Laenge 2 || Pos 0 = x-Wert. Pos 1 = y-Wert.
 	 * @author Nils
 	 */
@@ -447,12 +488,31 @@ public class Karte {
 	 * @return Ursprungsliste ohne den angegeben Ort.
 	 * @author Nils
 	 */
-	public ArrayList<Ort> löscheOrtAusListe(Ort zuLöschenOrt,
+	public ArrayList<Ort> loescheOrtAusListe(Ort zuLoeschenOrt,
 			ArrayList<Ort> listeDerOrte) {
 		ArrayList<Ort> saubereListe = new ArrayList<Ort>();
 		for (Ort ort : listeDerOrte) {
-			if (zuLöschenOrt != ort) {
+			if (zuLoeschenOrt != ort) {
 				saubereListe.add(ort);
+			}
+		}
+		return saubereListe;
+	}
+
+	/**
+	 * Diese Methode loescht den angegebenen Korridor aus der uebergebenen
+	 * Liste.
+	 * 
+	 * @param zuLoeschenderKorridor
+	 * @param listeKorridore
+	 * @return
+	 */
+	public ArrayList<Korridor> loescheKorriorAusListe(
+			Korridor zuLoeschenderKorridor, ArrayList<Korridor> listeKorridore) {
+		ArrayList<Korridor> saubereListe = new ArrayList<Korridor>();
+		for (Korridor korridor : listeKorridore) {
+			if (zuLoeschenderKorridor != korridor) {
+				saubereListe.add(korridor);
 			}
 		}
 		return saubereListe;
@@ -482,6 +542,32 @@ public class Karte {
 			}
 		}
 		return netzMittelpunkt;
+	}
+
+	/**
+	 * Methode sortiert die Liste aufsteigend nach ihren Abstaenden.
+	 * 
+	 * @param listeOrte
+	 * @return
+	 */
+	public ArrayList<Ort> sortiereListeNachAbstand(Ort bezugsOrt,
+			ArrayList<Ort> listeOrte) {
+		ArrayList<Ort> sortierteOrte = new ArrayList<Ort>();
+		int anfangsSize = listeOrte.size();
+		while (sortierteOrte.size() < anfangsSize) {
+			double distanz = Double.MAX_VALUE;
+			Ort verglOrt = null;
+			for (Ort ort : listeOrte) {
+				double verglDistanz = ermittleOrtsdistanz(bezugsOrt, ort);
+				if (verglDistanz < distanz) {
+					distanz = verglDistanz;
+					verglOrt = ort;
+				}
+			}
+			sortierteOrte.add(verglOrt);
+			listeOrte.remove(verglOrt);
+		}
+		return sortierteOrte;
 	}
 
 	/**
