@@ -2,17 +2,15 @@ Java_Hausarbeit_TeamTitans
 ==========================
 Rep für unsere Hausarbeit.
 Team Titans.
-Progress: 35%
+Progress: 50%
 ==========================
 ToDo:
 
--Flugrouten vervollständigen
-
--GUI vervollständigen
+-GUI anpassung. Treffen wir die Aufgabenstellung?
 
 -Weitere Optimierung des Netzes
 
--Allgemeinen Programmablauf in Main erstellen.
+-Ablauf in Main. Bitte checken, ob er zur Aufgabenstellung passt.
   
 ABGABE : 11.6.2014
 
