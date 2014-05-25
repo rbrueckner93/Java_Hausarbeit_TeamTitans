@@ -71,6 +71,10 @@ public class Korridor {
 	public String getKennung() {
 		return kennung;
 	}
+	
+	public void setKennung(String kennung) {
+		this.kennung = kennung;
+	}
 
 	public Ort bestimmeAnderenOrt(Ort bekanntesEnde) {
 		Ort ermittelterOrt;
