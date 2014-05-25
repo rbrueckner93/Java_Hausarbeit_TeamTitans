@@ -130,19 +130,19 @@ public class Karte {
 			// Sortieren der Liste RingOrte aufsteigend nach ihrer Distanz
 			Ort mittigsterOrt = getMittigstenOrt(ohneASL);
 			ringOrte = sortiereListeNachAbstand(mittigsterOrt, ringOrte);
-			//Sortierung abgeschlossen.
+			// Sortierung abgeschlossen.
 			Ort ringstart = ringOrte.get(0);
 			ArrayList<Ort> verbleibendeRingOrte = new ArrayList<Ort>();
 			for (Ort ort : ringOrte) {
 				verbleibendeRingOrte.add(ort);
 			}
-			//Erstellung des Rings.
+			// Erstellung des Rings.
 			for (int index = 0; index < ringOrte.size(); index++) {
 				if (index == (ringOrte.size() - 1)) {
-//					eingerichteteKorridore.add(new Korridor(
-//							ringOrte.get(index), ringstart,
-//							Korridor.KENNUNG_ENFC));
-//					verbleibendeRingOrte.remove(ringOrte.get(index));
+					// eingerichteteKorridore.add(new Korridor(
+					// ringOrte.get(index), ringstart,
+					// Korridor.KENNUNG_ENFC));
+					// verbleibendeRingOrte.remove(ringOrte.get(index));
 					break;
 				} else {
 					eingerichteteKorridore.add(new Korridor(
@@ -548,6 +548,8 @@ public class Karte {
 	 * Methode sortiert die Liste aufsteigend nach ihren Abstaenden.
 	 * 
 	 * @param listeOrte
+	 * @param bezugsOrt
+	 *            Ort zu dem der Abstand gemessen wird.
 	 * @return
 	 */
 	public ArrayList<Ort> sortiereListeNachAbstand(Ort bezugsOrt,
@@ -571,10 +573,65 @@ public class Karte {
 	}
 
 	/**
-	 * uebergabe der Liste Auswertung der Anzahl nach Art (uebergabeparameter
-	 * ist Art des zu analysierenden Korridors)
+	 * Methode versucht einen Korridor definiert durch 2 Orte auf einen best.
+	 * Typ zu setzten.
+	 * 
+	 * @param ortA
+	 *            Ort des Korridors
+	 * @param ortB
+	 *            Ort des Korridors
+	 * @param korridorTyp
+	 *            Angabe welcher Typ eingerichtet werden soll.
+	 * @return 1 bei Erfolg, 0 wenn Korridor nicht gefunden. -1 bei
+	 *         Nichtupgrade.
+	 * @author Nils
+	 */
+	public int upgradeKorridor(Ort ortA, Ort ortB, String korridorTyp) {
+		for (Korridor korridor : ortA.angebundeneKorridore) {
+			if (korridor.ortB == ortB) {
+				if (istEinrichtbarerKorridor(ortA, ortB, korridorTyp)) {
+					korridor.setKennung(korridorTyp);
+					return 1;
+				}
+				return -1;
+			}
+		}
+		return 0;
+	}
+
+	/**
+	 * Methode noch nicht fertig. NICHT BENUTZEN!!
+	 * @param ausgangsOrt
+	 * @param ringOrte
+	 * @return
+	 */
+	public double getRelevanzgradZweig(Ort ausgangsOrt, ArrayList<Ort> ringOrte) {
+		double gesamtRelevanzgrad = ausgangsOrt.relevanzGrad;
+		ArrayList<Ort> ersteZweigOrte = new ArrayList<Ort>();
+		for (Korridor korridor : ausgangsOrt.angebundeneKorridore) {
+			if (!ringOrte.contains(korridor.bestimmeAnderenOrt(ausgangsOrt))) {
+				ersteZweigOrte.add(korridor.bestimmeAnderenOrt(ausgangsOrt));
+			}
+		}
+		return gesamtRelevanzgrad;
+	}
+
+	/*
+	 * Ringfindungsheuristik. Montag mal Diskutieren public
+	 * ArrayList<ArrayList<Ort>> findeRingStrukturen(ArrayList<Ort> listeOrte){
+	 * for (int x = 0; x < 200; x++){ for (int y = 0; y <100; y++){ for (Ort
+	 * verglOrt : listeOrte){ ArrayList<Ort> aktuelleRingOrte = new
+	 * ArrayList<Ort>(); double aktuelleDistanz = Math.sqrt((Math.pow((x -
+	 * verglOrt.koordX), 2)+Math.pow((y - verglOrt.koordY), 2))); for (Ort
+	 * moeglicherRingOrt : listeOrte){ double verglDistanz =
+	 * Math.sqrt((Math.pow((x - moeglicherRingOrt.koordX), 2)+Math.pow((y -
+	 * moeglicherRingOrt.koordY), 2))); if (verglDistanz < (1.1*aktuelleDistanz)
+	 * || verglDistanz > (0.9*aktuelleDistanz)){
+	 * aktuelleRingOrte.add(moeglicherRingOrt); } } // Check der Liste. } } } }
 	 */
 
+	// Hier folgen 4 Methoden zur Ermittlung der Anzahl von eingerichteten
+	// Korridotypen.
 	public int ermittleAnzahlHLSTKorridore() {
 		int anzahlHLST = 0;
 		for (Korridor korridor : eingerichteteKorridore) {
