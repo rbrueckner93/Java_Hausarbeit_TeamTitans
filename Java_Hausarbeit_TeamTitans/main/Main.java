@@ -34,11 +34,13 @@ public class Main {
 		karte.setBudget(budget);
 		kartenVerarbeiter.verarbeiteKartendatei();
 		// karte.erstelleNetz();
+		gui.zeigeBaukosten(karte);
 		File aktuelleTestdatei = gui.frageNachTestdatei();
 		TestdateiHandler testVerarbeiter = new TestdateiHandler(
 				aktuelleTestdatei, sim, karte);
 		testVerarbeiter.verarbeiteTestdatei();
 		sim.simuliere();
+		gui.zeigeNutzkosten(sim);
 		int endOption = gui.frageNachEndoption();
 		if (endOption == 1) {
 			NetzdateiHandler kartenSchreiber = new NetzdateiHandler(karte);
@@ -60,7 +62,13 @@ public class Main {
 					karte);
 			testVerarbeiter.verarbeiteTestdatei();
 			sim.simuliere();
+			gui.zeigeNutzkosten(sim);
 			endOption = gui.frageNachEndoption();
+			if (endOption == 0) {
+				simSchreiber.schreibeSimulationsDatei();
+				sim.routen.clear();
+				System.exit(0);
+			}
 			if (endOption == 1) {
 				simSchreiber.schreibeSimulationsDatei();
 				sim.routen.clear();
