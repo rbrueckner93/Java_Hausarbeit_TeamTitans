@@ -2,8 +2,11 @@ package main;
 
 import java.io.File;
 
+import javax.annotation.processing.FilerException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * @author FechnerL
@@ -73,7 +76,10 @@ public class Benutzerinterface {
 		JOptionPane.showMessageDialog(null,
 				"Bitte waehlen Sie nun eine Testdatei aus.");
 		File testdateiFile;
+		FileFilter txtfilter = new FileNameExtensionFilter("Testdatei", "txt");
 		JFileChooser chooser = new JFileChooser();
+		chooser.addChoosableFileFilter(txtfilter);
+		chooser.setFileFilter(txtfilter);
 
 		while (true) {
 
@@ -81,6 +87,11 @@ public class Benutzerinterface {
 
 			if (status == JFileChooser.APPROVE_OPTION) {
 				testdateiFile = chooser.getSelectedFile();
+				int dateiEndung = testdateiFile.getName().indexOf(".txt");
+				if (dateiEndung == -1){
+					JOptionPane.showMessageDialog(null, "Falsche Dateiendung der Datei");
+					continue;
+				}
 				if (testdateiFile.isFile() && testdateiFile.canRead()) {
 					return testdateiFile;
 				} else {
@@ -174,7 +185,10 @@ public class Benutzerinterface {
 		JOptionPane.showMessageDialog(null,
 				"Bitte waehlen Sie eine Kartendatei aus.");
 		File kartenfile;
+		FileFilter txtfilter = new FileNameExtensionFilter("Kartendatei", "txt");
 		JFileChooser chooser = new JFileChooser();
+		chooser.addChoosableFileFilter(txtfilter);
+		chooser.setFileFilter(txtfilter);
 
 		while (true) {
 
@@ -182,6 +196,11 @@ public class Benutzerinterface {
 
 			if (status == JFileChooser.APPROVE_OPTION) {
 				kartenfile = chooser.getSelectedFile();
+				int dateiEndung = kartenfile.getName().indexOf(".txt");
+				if (dateiEndung == -1){
+					JOptionPane.showMessageDialog(null, "Falsche Dateiendung der Datei");
+					continue;
+				}
 				if (kartenfile.isFile() && kartenfile.canRead()) {
 					return kartenfile;
 				} else {
