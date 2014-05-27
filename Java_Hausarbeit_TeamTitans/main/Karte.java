@@ -92,12 +92,9 @@ public class Karte {
 	 */
 	public void erstelleNetz() {
 		verbindeAuslandsorte();
-		// erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
-		// orte));
-		erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
-				orte));
-		// erstelleSternSTND(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
-		// orte));
+		erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,orte));
+		//erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
+		//		orte));
 	}
 
 	/**
@@ -177,24 +174,28 @@ public class Karte {
 	 */
 	public void erstelleSternENFC(ArrayList<Ort> ohneASL) {
 		try {
-			Integer[] mittelpunkt = berechneNetzMittelpunkt(ohneASL);
-			Ort sternMittelpunkt = null;
-			double distanz = Double.MAX_VALUE;
-			for (Ort ort : ohneASL) {
-				double distanzOrt = Math.sqrt(Math.pow(
-						(mittelpunkt[0] - ort.koordX), 2)
-						+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
-				if (distanzOrt < distanz) {
-					distanz = distanzOrt;
-					sternMittelpunkt = ort;
+			double kennwertMitte = Double.MAX_VALUE;
+			Ort sternMitte = getMittigstenOrt(ohneASL);
+			for (Ort moeglicheMitte : ohneASL) {
+				double distanzSumme = 0;
+				for (Ort andererOrt : ohneASL) {
+					distanzSumme += (ermittleOrtsdistanz(moeglicheMitte,
+							andererOrt) * relevanzGradOrtmitASL(andererOrt));
+				}
+				double aktuellerKennwertMitte = (distanzSumme / relevanzGradOrtmitASL(moeglicheMitte));
+				if (aktuellerKennwertMitte < kennwertMitte){
+					kennwertMitte = aktuellerKennwertMitte;
+					sternMitte = moeglicheMitte;
 				}
 			}
+			// Aufbau des Sterns.
 			for (Ort ortA : ohneASL) {
-				if (ortA != sternMittelpunkt) {
-					eingerichteteKorridore.add(new Korridor(sternMittelpunkt,
+				if (ortA != sternMitte) {
+					eingerichteteKorridore.add(new Korridor(sternMitte,
 							ortA, Korridor.KENNUNG_ENFC));
 				}
 			}
+			// Upgrade einzelner Korridore.
 		} catch (UngueltigerOrt e) {
 		}
 	}
@@ -569,6 +570,7 @@ public class Karte {
 
 	/**
 	 * Methode noch nicht fertig. NICHT BENUTZEN!!
+	 * 
 	 * @param ausgangsOrt
 	 * @param ringOrte
 	 * @return
@@ -584,19 +586,21 @@ public class Karte {
 		return gesamtRelevanzgrad;
 	}
 
-	/*
-	 * Ringfindungsheuristik. Montag mal Diskutieren public
-	 * ArrayList<ArrayList<Ort>> findeRingStrukturen(ArrayList<Ort> listeOrte){
-	 * for (int x = 0; x < 200; x++){ for (int y = 0; y <100; y++){ for (Ort
-	 * verglOrt : listeOrte){ ArrayList<Ort> aktuelleRingOrte = new
-	 * ArrayList<Ort>(); double aktuelleDistanz = Math.sqrt((Math.pow((x -
-	 * verglOrt.koordX), 2)+Math.pow((y - verglOrt.koordY), 2))); for (Ort
-	 * moeglicherRingOrt : listeOrte){ double verglDistanz =
-	 * Math.sqrt((Math.pow((x - moeglicherRingOrt.koordX), 2)+Math.pow((y -
-	 * moeglicherRingOrt.koordY), 2))); if (verglDistanz < (1.1*aktuelleDistanz)
-	 * || verglDistanz > (0.9*aktuelleDistanz)){
-	 * aktuelleRingOrte.add(moeglicherRingOrt); } } // Check der Liste. } } } }
+	/**
+	 * Methode addiert die angebundenen ASL Ort mit ihrer Relevanz drauf.
+	 * @param gewaelterOrt
+	 * @return
 	 */
+	public double relevanzGradOrtmitASL(Ort gewaelterOrt) {
+		double gesamtRelevanzGrad = gewaelterOrt.relevanzGrad;
+		for (Korridor korridor : gewaelterOrt.angebundeneKorridore) {
+			Ort ort = korridor.bestimmeAnderenOrt(gewaelterOrt);
+			if (ort.kennung == Ort.KENNUNG_AUSLANDSVERBINDUNG) {
+				gesamtRelevanzGrad += ort.relevanzGrad;
+			}
+		}
+		return gesamtRelevanzGrad;
+	}
 
 	// Hier folgen 4 Methoden zur Ermittlung der Anzahl von eingerichteten
 	// Korridortypen.
@@ -619,8 +623,8 @@ public class Karte {
 		int anzahlSTND = ermittleAnzahlKorridore("STND");
 		return anzahlSTND;
 	}
-	
-	public int ermittleAnzahlKorridore(String kennung){
+
+	public int ermittleAnzahlKorridore(String kennung) {
 		int anzahl = 0;
 		for (Korridor korridor : eingerichteteKorridore) {
 			if (korridor.getKennung().equals(kennung)) {
@@ -629,8 +633,9 @@ public class Karte {
 		}
 		return anzahl;
 	}
-	//Ab hier folgen die Methoden zur Feldgestützten Analyse der Karte.
-	
+
+	// Ab hier folgen die Methoden zur Feldgestützten Analyse der Karte.
+
 	public int anzahlOrteInFelderListe(ArrayList<Feld> felderLi) {
 		int anzahl = 0;
 		for (Feld felda : felderLi) {

@@ -33,7 +33,7 @@ public class Main {
 		double budget = gui.abfrageBudget();
 		karte.setBudget(budget);
 		kartenVerarbeiter.verarbeiteKartendatei();
-		// karte.erstelleNetz();
+		karte.erstelleNetz();
 		gui.zeigeBaukosten(karte);
 		File aktuelleTestdatei = gui.frageNachTestdatei();
 		TestdateiHandler testVerarbeiter = new TestdateiHandler(
