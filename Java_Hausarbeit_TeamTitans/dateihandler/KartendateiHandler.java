@@ -116,6 +116,10 @@ public class KartendateiHandler extends Datei {
 	 */
 	public static int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size()) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfang = text.get(beginn).indexOf(DATEI_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -170,6 +174,10 @@ public class KartendateiHandler extends Datei {
 		}
 		beginn++;
 		while (beginn < text.size()) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfangAktuelleZeile = text.get(beginn).indexOf(
 					DATEI_BEGINN_MARKER);
 			if (anfangAktuelleZeile != -1) {
@@ -211,6 +219,10 @@ public class KartendateiHandler extends Datei {
 	public boolean DatensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
 		while (beginn < text.size()) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -237,6 +249,10 @@ public class KartendateiHandler extends Datei {
 	 */
 	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size() - 1) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -293,6 +309,10 @@ public class KartendateiHandler extends Datei {
 		beginn++;
 		// Schritt in nächste Zeile.
 		while (beginn < text.size()) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfangAktuelleZeile = text.get(beginn).indexOf(
 					DATENSATZ_BEGINN_MARKER);
 			if (anfangAktuelleZeile != -1) {
@@ -363,6 +383,9 @@ public class KartendateiHandler extends Datei {
 		// Erstellt einen zusammenhängenden String.
 		String datensatz = "";
 		for (int i = beginnZeile; i <= endeZeile; i++) {
+			if (istKommentarZeile(text.get(i))) {
+				continue;
+			}
 			datensatz += text.get(i);
 		}
 		System.out.println(datensatz);
@@ -509,4 +532,11 @@ public class KartendateiHandler extends Datei {
 		String dateiName = datei.getName().substring(0, dateiEndung);
 		return dateiName;
 	}
+	
+	public static boolean istKommentarZeile(String zeile){
+		if (zeile.indexOf(KOMMENTARMARKER) == -1 || zeile.indexOf(KOMMENTARMARKER) > 0) {
+			return false;
+		}
+	return true;
+}
 }
