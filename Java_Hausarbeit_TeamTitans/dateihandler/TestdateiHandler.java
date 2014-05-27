@@ -50,7 +50,7 @@ public class TestdateiHandler extends Datei {
 	}
 
 	public void verarbeiteTestdatei() {
-		// Einlesen der Datei. Liefert pro Zeile einn StringObjekt im Array.
+		// Einlesen der Datei. Liefert pro Zeile ein StringObjekt im Array.
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
 		aktuelleSimulation.nameTestdatei = getDateiNamen(aktuelleTestdatei);
 		// Checken ob Marker vorhanden.
@@ -95,6 +95,10 @@ public class TestdateiHandler extends Datei {
 	 */
 	public static int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size()) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfang = text.get(beginn).indexOf(DATEI_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -151,6 +155,10 @@ public class TestdateiHandler extends Datei {
 		}
 		beginn++;
 		while (beginn < text.size()) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfangAktuelleZeile = text.get(beginn).indexOf(
 					DATEI_BEGINN_MARKER);
 			if (anfangAktuelleZeile != -1) {
@@ -192,6 +200,10 @@ public class TestdateiHandler extends Datei {
 	public boolean DatensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
 		while (beginn < text.size()) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -218,6 +230,10 @@ public class TestdateiHandler extends Datei {
 	 */
 	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size() - 1) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -274,6 +290,10 @@ public class TestdateiHandler extends Datei {
 		}
 		beginn++;
 		while (beginn < text.size()) {
+			if (istKommentarZeile(text.get(beginn))) {
+				beginn++;
+				continue;
+			}
 			int anfangAktuelleZeile = text.get(beginn).indexOf(
 					DATENSATZ_BEGINN_MARKER);
 			if (anfangAktuelleZeile != -1) {
@@ -372,6 +392,9 @@ public class TestdateiHandler extends Datei {
 		// Erstellt einen zusammenhängenden String.
 		String datensatz = "";
 		for (int i = beginnZeile; i <= endeZeile; i++) {
+			if (istKommentarZeile(text.get(i))) {
+				continue;
+			}
 			datensatz += text.get(i);
 		}
 		System.out.println(datensatz);
@@ -407,5 +430,12 @@ public class TestdateiHandler extends Datei {
 		}
 		String dateiName = datei.getName().substring(0, dateiEndung);
 		return dateiName;
+	}
+	
+	public static boolean istKommentarZeile(String zeile){
+			if (zeile.indexOf(KOMMENTARMARKER) == -1 || zeile.indexOf(KOMMENTARMARKER) > 0) {
+				return false;
+			}
+		return true;
 	}
 }
