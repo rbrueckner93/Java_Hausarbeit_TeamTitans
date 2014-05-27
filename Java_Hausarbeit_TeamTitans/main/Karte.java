@@ -200,38 +200,6 @@ public class Karte {
 	}
 
 	/**
-	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Standard
-	 * Korridoren.
-	 * 
-	 * @param ohneASL
-	 *            Liste mit Orten, aber ohne Auslandsorten.
-	 * @author Nils
-	 */
-	public void erstelleSternSTND(ArrayList<Ort> ohneASL) {
-		try {
-			Integer[] mittelpunkt = berechneNetzMittelpunkt(ohneASL);
-			Ort sternMittelpunkt = null;
-			double distanz = Double.MAX_VALUE;
-			for (Ort ort : ohneASL) {
-				double distanzOrt = Math.sqrt(Math.pow(
-						(mittelpunkt[0] - ort.koordX), 2)
-						+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
-				if (distanzOrt < distanz) {
-					distanz = distanzOrt;
-					sternMittelpunkt = ort;
-				}
-			}
-			for (Ort ortA : ohneASL) {
-				if (ortA != sternMittelpunkt) {
-					eingerichteteKorridore.add(new Korridor(sternMittelpunkt,
-							ortA, Korridor.KENNUNG_STND));
-				}
-			}
-		} catch (UngueltigerOrt e) {
-		}
-	}
-
-	/**
 	 * Diese Methode entfernt einen ganzen OrtTyp aus einer Liste.
 	 * 
 	 * @param kennung
@@ -631,50 +599,38 @@ public class Karte {
 	 */
 
 	// Hier folgen 4 Methoden zur Ermittlung der Anzahl von eingerichteten
-	// Korridotypen.
+	// Korridortypen.
 	public int ermittleAnzahlHLSTKorridore() {
-		int anzahlHLST = 0;
-		for (Korridor korridor : eingerichteteKorridore) {
-			if (korridor.getKennung().equals("HLST")) {
-				anzahlHLST += 1;
-			}
-		}
+		int anzahlHLST = ermittleAnzahlKorridore("HLST");
 		return anzahlHLST;
 	}
 
 	public int ermittleAnzahlSICHKorridore() {
-		int anzahlSICH = 0;
-		for (Korridor korridor : eingerichteteKorridore) {
-
-			if (korridor.getKennung().equals("SICH")) {
-				anzahlSICH += 1;
-			}
-		}
+		int anzahlSICH = ermittleAnzahlKorridore("SICH");
 		return anzahlSICH;
 	}
 
 	public int ermittleAnzahlENFCKorridore() {
-		int anzahlENFC = 0;
-		for (Korridor korridor : eingerichteteKorridore) {
-
-			if (korridor.getKennung().equals("ENFC")) {
-				anzahlENFC += 1;
-			}
-		}
+		int anzahlENFC = ermittleAnzahlKorridore("ENFC");
 		return anzahlENFC;
 	}
 
 	public int ermittleAnzahlSTNDKorridore() {
-		int anzahlSTND = 0;
-		for (Korridor korridor : eingerichteteKorridore) {
-
-			if (korridor.getKennung().equals("STND")) {
-				anzahlSTND += 1;
-			}
-		}
+		int anzahlSTND = ermittleAnzahlKorridore("STND");
 		return anzahlSTND;
 	}
-
+	
+	public int ermittleAnzahlKorridore(String kennung){
+		int anzahl = 0;
+		for (Korridor korridor : eingerichteteKorridore) {
+			if (korridor.getKennung().equals(kennung)) {
+				anzahl += 1;
+			}
+		}
+		return anzahl;
+	}
+	//Ab hier folgen die Methoden zur Feldgestützten Analyse der Karte.
+	
 	public int anzahlOrteInFelderListe(ArrayList<Feld> felderLi) {
 		int anzahl = 0;
 		for (Feld felda : felderLi) {

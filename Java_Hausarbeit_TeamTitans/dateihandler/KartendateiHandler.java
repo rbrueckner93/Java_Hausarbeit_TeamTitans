@@ -88,6 +88,9 @@ public class KartendateiHandler extends Datei {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
 			System.exit(0);
 		}
+		if (!DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)){
+			JOptionPane.showMessageDialog(null, "Kein auswertbarer Datensatz in der Datei gefunden");
+		}
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
 			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
