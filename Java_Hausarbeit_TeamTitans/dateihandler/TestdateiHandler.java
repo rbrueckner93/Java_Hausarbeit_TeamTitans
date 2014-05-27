@@ -56,13 +56,16 @@ public class TestdateiHandler extends Datei {
 		// Checken ob Marker vorhanden.
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
-			JOptionPane.showMessageDialog(null, "Fehlender Datei BeginnMarker");
+			JOptionPane.showMessageDialog(null, "Fehlender Datei Beginn Marker");
 			System.exit(0);
 		}
 		int dateiEnde = findeDateiEndeMarker(dateiAnfang, geleseneDaten);
 		if (dateiEnde == -1) {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
 			System.exit(0);
+		}
+		if (!DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)){
+			JOptionPane.showMessageDialog(null, "Kein auswertbarer Datensatz in der Datei gefunden");
 		}
 		//Eigentliche Auswertung des gefundenen Datensatzes.
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
