@@ -11,6 +11,7 @@ import dateihandler.KartendateiHandler;
 import dateihandler.NetzdateiHandler;
 import dateihandler.SimulationsdateiHandler;
 import dateihandler.TestdateiHandler;
+import exceptions.DateiSyntaxFehler;
 import exceptions.OrtNichtVorhanden;
 import exceptions.UngueltigerOrt;
 
@@ -22,23 +23,40 @@ import exceptions.UngueltigerOrt;
  */
 public class Main {
 	public static void main(String[] args) {
+		boolean dateiLesenErfolgreich = true;
 		Benutzerinterface gui = new Benutzerinterface();
 		Karte karte = new Karte();
 		Simulator sim = new Simulator();
 		SimulationsdateiHandler simSchreiber = new SimulationsdateiHandler(sim);
 		gui.begruessung();
-		File kartenDatei = gui.frageNachKartendatei();
-		KartendateiHandler kartenVerarbeiter = new KartendateiHandler(karte,
-				kartenDatei);
 		double budget = gui.abfrageBudget();
 		karte.setBudget(budget);
-		kartenVerarbeiter.verarbeiteKartendatei();
+		do {
+			try {
+				File kartenDatei = gui.frageNachKartendatei();
+				KartendateiHandler kartenVerarbeiter = new KartendateiHandler(
+						karte, kartenDatei);
+				kartenVerarbeiter.verarbeiteKartendatei();
+				dateiLesenErfolgreich = true;
+			} catch (DateiSyntaxFehler e) {
+				e.zeigeFehlernachricht();
+				dateiLesenErfolgreich = false;
+			}
+		} while (!dateiLesenErfolgreich);
 		karte.erstelleNetz();
 		gui.zeigeBaukosten(karte);
-		File aktuelleTestdatei = gui.frageNachTestdatei();
-		TestdateiHandler testVerarbeiter = new TestdateiHandler(
-				aktuelleTestdatei, sim, karte);
-		testVerarbeiter.verarbeiteTestdatei();
+		do {
+			try {
+				File aktuelleTestdatei = gui.frageNachTestdatei();
+				TestdateiHandler testVerarbeiter = new TestdateiHandler(
+						aktuelleTestdatei, sim, karte);
+				testVerarbeiter.verarbeiteTestdatei();
+				dateiLesenErfolgreich = true;
+			} catch (DateiSyntaxFehler e) {
+				e.zeigeFehlernachricht();
+				dateiLesenErfolgreich = false;
+			}
+		} while (!dateiLesenErfolgreich);
 		sim.simuliere();
 		gui.zeigeNutzkosten(sim);
 		int endOption = gui.frageNachEndoption();
@@ -53,14 +71,22 @@ public class Main {
 			simSchreiber.schreibeSimulationsDatei();
 			sim.routen.clear();
 			System.exit(0);
-		} else 	if ( endOption == 2){
+		} else if (endOption == 2) {
 			System.exit(0);
 		}
 		while (endOption == 1) {
-			aktuelleTestdatei = gui.frageNachTestdatei();
-			testVerarbeiter = new TestdateiHandler(aktuelleTestdatei, sim,
-					karte);
-			testVerarbeiter.verarbeiteTestdatei();
+			do {
+				try {
+					File aktuelleTestdatei = gui.frageNachTestdatei();
+					TestdateiHandler testVerarbeiter = new TestdateiHandler(
+							aktuelleTestdatei, sim, karte);
+					testVerarbeiter.verarbeiteTestdatei();
+					dateiLesenErfolgreich = true;
+				} catch (DateiSyntaxFehler e) {
+					e.zeigeFehlernachricht();
+					dateiLesenErfolgreich = false;
+				}
+			} while (!dateiLesenErfolgreich);
 			sim.simuliere();
 			gui.zeigeNutzkosten(sim);
 			endOption = gui.frageNachEndoption();
@@ -73,7 +99,7 @@ public class Main {
 				simSchreiber.schreibeSimulationsDatei();
 				sim.routen.clear();
 			}
-			if ( endOption == 2){
+			if (endOption == 2) {
 				System.exit(0);
 			}
 		}
