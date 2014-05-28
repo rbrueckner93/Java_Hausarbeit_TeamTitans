@@ -147,7 +147,7 @@ public class Benutzerinterface {
 	 * Nach der Erstellung des Netzes durch Korridore wird der Anwender gefragt,
 	 * ob das Netz gespeichert und das Programm beendet werden soll. Bei Ja wird
 	 * Karte gespeichert und das Programm geschlossen. Bei Nein fährt das
-	 * Programm fort und fragt nach einer Testdatei. Ja entspricht 0, Nein 1
+	 * Programm fort und fragt nach einer Testdatei. Ja übergibt 0 und Nein 1
 	 * 
 	 * @return
 	 */
