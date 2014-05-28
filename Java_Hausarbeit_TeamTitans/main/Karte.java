@@ -180,7 +180,7 @@ public class Karte {
 				double distanzSumme = 0;
 				for (Ort andererOrt : ohneASL) {
 					distanzSumme += (ermittleOrtsdistanz(moeglicheMitte,
-							andererOrt) * relevanzGradOrtmitASL(andererOrt));
+							andererOrt) / relevanzGradOrtmitASL(andererOrt));
 				}
 				double aktuellerKennwertMitte = (distanzSumme / relevanzGradOrtmitASL(moeglicheMitte));
 				if (aktuellerKennwertMitte < kennwertMitte){
