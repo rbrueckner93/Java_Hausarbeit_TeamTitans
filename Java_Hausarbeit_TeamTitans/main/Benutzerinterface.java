@@ -10,17 +10,21 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * @author FechnerL
- * lukas erzeugt in einigen Methoden Instanzen von JFileChooser, auf dieser
- * waehlt er eine Datei aus, faengt exceptions und gibt ein objekt vom Typ File
- * (frage nach kartendatei, frage nach Testdatei ) zurueck.
+ * Die Klasse Benutzerinterface ist fuer die Kommunikation des Programms mit dem Nutzer zustaendig.
+ * Hierzu gehoert einerseits das Fragen nach Dateien oder bestimmten Informationen, deren Ueberpruefung und die Weitergabe
+ * Andererseits sind auch die Methoden fuer die Ausgabe an den Anwender beinhaltet.
  */
 public class Benutzerinterface {
 
 	/**
-	 * durch system.getproperties("User.Home") am Beginn des Programmes gesetzt.
+	 * Durch system.getproperties("User.Home") am Beginn des Programmes gesetzt.
 	 */
 	public static final String standardpfad = System.getProperty("user.home");
 
+	
+	public Benutzerinterface() {
+	}
+	
 	/**
 	 * Begruessung des Anwenders bei Start des Programms
 	 */
@@ -30,7 +34,52 @@ public class Benutzerinterface {
 	}
 
 	/**
-	 * Einlesen und ueberpruefen des Budgets: ganzzahlig und positiv
+	 * Fragt den Anwender nach einer Kartendatei, um diese zur Auswertung weiterzugeben.
+	 * Prueft, ob es sich tatsaechlich um eine Textatei handelt und ob auf die Datei zugegriffen werden kann.
+	 */
+	public File frageNachKartendatei() {
+
+		JOptionPane.showMessageDialog(null,
+				"Bitte waehlen Sie eine Kartendatei aus.");
+		File kartenfile;
+		FileFilter txtfilter = new FileNameExtensionFilter("Kartendatei", "txt");
+		JFileChooser chooser = new JFileChooser();
+		chooser.addChoosableFileFilter(txtfilter);
+		chooser.setFileFilter(txtfilter);
+
+		while (true) {
+
+			int status = chooser.showOpenDialog(null);
+
+			if (status == JFileChooser.APPROVE_OPTION) {
+				kartenfile = chooser.getSelectedFile();
+				int dateiEndung = kartenfile.getName().indexOf(".txt");
+				if (dateiEndung == -1){
+					JOptionPane.showMessageDialog(null, "Falsche Dateiendung der Datei");
+					continue;
+				}
+				if (kartenfile.isFile() && kartenfile.canRead()) {
+					return kartenfile;
+				} else {
+					JOptionPane.showMessageDialog(null,
+							"Sie sollten eine Kartendatei auswaehlen");
+				}
+			} else {
+				int beenden;
+				beenden = JOptionPane.showConfirmDialog(null,
+						"Wirklich beenden?", "Abbruch",
+						JOptionPane.YES_NO_OPTION);
+				if (beenden == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+
+			}
+		}
+	}
+
+	
+	/**
+	 * Einlesen und Ueberpruefen des Budgets: ganzzahlig und positiv
 	 */
 	public double abfrageBudget() {
 		String budgetEingabe;
@@ -69,9 +118,26 @@ public class Benutzerinterface {
 		}
 	}
 
+
 	/**
-	 * fragt nach Testdatei, faengt alle Exceptions,
+	 * Ermittelt Baukosten der aktuellen Karte und zeigt dem Anwender diese. Zusaetzlich wird dem Anwender
+	 * eine Auflistung der gebauten Korridore, gruppiert nach ihrer Art, ausgegeben.
+	 * 
+	 * @param aktuelleKarte
 	 */
+	public void zeigeBaukosten(Karte aktuelleKarte) {
+		double baukosten = aktuelleKarte.ermittleGesamteBaukosten();
+		JOptionPane.showMessageDialog(null, "Die Baukosten betragen "
+				+ baukosten + " Geldeinheiten. \nFolgende Korridore wurden gebaut: \nEinfache Korridore: " +
+		aktuelleKarte.ermittleAnzahlENFCKorridore() + "\nStandardkorridore: " + aktuelleKarte.ermittleAnzahlSTNDKorridore() 
+		+ "\nHochleistungskorridore: " + aktuelleKarte.ermittleAnzahlHLSTKorridore() +
+		"\nSicherheitskorridore: " + 	aktuelleKarte.ermittleAnzahlSICHKorridore());		
+	}
+	
+	/**
+	* Fragt den Anwender nach einer Testdatei, um diese zur Auswertung weiterzugeben.
+	* Prueft, ob es sich tatsaechlich um eine Textdatei handelt und ob auf die Datei zugegriffen werden kann.
+	*/
 	public File frageNachTestdatei() {
 		JOptionPane.showMessageDialog(null,
 				"Bitte waehlen Sie nun eine Testdatei aus.");
@@ -124,31 +190,13 @@ public class Benutzerinterface {
 				+ " Geldeinheiten.");
 	}
 
-	/**
-	 * Ermittelt Baukosten der aktuellen Karte und zeigt dem Anwender diese. Zusaetzlich wird dem Anwender
-	 * eine Auflistung der gebauten Korridore, gruppiert nach ihrer Art, ausgegeben.
-	 * 
-	 * @param aktuelleKarte
-	 */
-	public void zeigeBaukosten(Karte aktuelleKarte) {
-		double baukosten = aktuelleKarte.ermittleGesamteBaukosten();
-		JOptionPane.showMessageDialog(null, "Die Baukosten betragen "
-				+ baukosten + " Geldeinheiten. \nFolgende Korridore wurden gebaut: \nEinfache Korridore: " +
-		aktuelleKarte.ermittleAnzahlENFCKorridore() + "\nStandardkorridore: " + aktuelleKarte.ermittleAnzahlSTNDKorridore() 
-		+ "\nHochleistungskorridore: " + aktuelleKarte.ermittleAnzahlHLSTKorridore() +
-		"\nSicherheitskorridore: " + 	aktuelleKarte.ermittleAnzahlSICHKorridore());
-		
-	
-		
-
-	}
-
-	public Benutzerinterface() {
-	}
 
 	/**
-	 * uebergibt 0 fuer Abspeichern und schliessen, 1 fuer Simulation speichern und
-	 * Karte mit anderen Testparametern simulieren und 2 fuer Programmabbruch
+	 * Fragt den Anwender nach dem weiteren Vorgehen, wobei es drei Moeglichkeiten gibt.
+	 * Uebergibt:
+	 * 0, Wenn die aktuelle Simulation als Datei gespeichert werden soll. 
+	 * 1, um die aktuelle Simulation zu speichern und zusaetzlich eine neue Simulation mit anderen Testparametern zu starten.
+	 * 2, um das Programm zu beenden.
 	 */
 	public int frageNachEndoption() {
 		int entscheidung;
@@ -176,48 +224,5 @@ public class Benutzerinterface {
 		}
 	}
 
-	/**
-	 * soll alle Exceptions abfangen, falls keine Datei uebergeben wird, sich
-	 * selbst neu aufrufen, falls abgebrochen wird, system.exit(0);
-	 */
-	public File frageNachKartendatei() {
-
-		JOptionPane.showMessageDialog(null,
-				"Bitte waehlen Sie eine Kartendatei aus.");
-		File kartenfile;
-		FileFilter txtfilter = new FileNameExtensionFilter("Kartendatei", "txt");
-		JFileChooser chooser = new JFileChooser();
-		chooser.addChoosableFileFilter(txtfilter);
-		chooser.setFileFilter(txtfilter);
-
-		while (true) {
-
-			int status = chooser.showOpenDialog(null);
-
-			if (status == JFileChooser.APPROVE_OPTION) {
-				kartenfile = chooser.getSelectedFile();
-				int dateiEndung = kartenfile.getName().indexOf(".txt");
-				if (dateiEndung == -1){
-					JOptionPane.showMessageDialog(null, "Falsche Dateiendung der Datei");
-					continue;
-				}
-				if (kartenfile.isFile() && kartenfile.canRead()) {
-					return kartenfile;
-				} else {
-					JOptionPane.showMessageDialog(null,
-							"Sie sollten eine Kartendatei auswaehlen");
-				}
-			} else {
-				int beenden;
-				beenden = JOptionPane.showConfirmDialog(null,
-						"Wirklich beenden?", "Abbruch",
-						JOptionPane.YES_NO_OPTION);
-				if (beenden == JOptionPane.YES_OPTION) {
-					System.exit(0);
-				}
-
-			}
-		}
-	}
 
 }
