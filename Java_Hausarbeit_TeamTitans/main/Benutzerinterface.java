@@ -26,7 +26,7 @@ public class Benutzerinterface {
 	}
 	
 	/**
-	 * Begruessung des Anwenders bei Start des Programms
+	 * Nach dem Start des Programms wird der Anwender begruesst.
 	 */
 	public void begruessung() {
 		JOptionPane.showMessageDialog(null,
