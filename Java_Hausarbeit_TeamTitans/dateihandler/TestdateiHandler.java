@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import exceptions.DateiSyntaxFehler;
 import exceptions.MerkmalMissing;
 import orte.Ort;
 import main.Flugroute;
@@ -49,7 +50,7 @@ public class TestdateiHandler extends Datei {
 		this.aktuelleKarte = aktuelleKarte;
 	}
 
-	public void verarbeiteTestdatei() {
+	public void verarbeiteTestdatei(){
 		// Einlesen der Datei. Liefert pro Zeile ein StringObjekt im Array.
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
 		aktuelleSimulation.nameTestdatei = getDateiNamen(aktuelleTestdatei);
@@ -65,6 +66,7 @@ public class TestdateiHandler extends Datei {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
 			System.exit(0);
 		}
+		checkLeeresDateiende(dateiEnde, geleseneDaten);
 		if (!DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
 			JOptionPane.showMessageDialog(null,
 					"Kein auswertbarer Datensatz in der Datei gefunden");
@@ -437,5 +439,17 @@ public class TestdateiHandler extends Datei {
 				return false;
 			}
 		return true;
+	}
+	
+	public void checkLeeresDateiende(int zeile, ArrayList<String> text){
+		zeile++;
+		while (zeile < text.size()){
+			if (text.get(zeile).equals("") || text.get(zeile).equals("\n")){
+				zeile++;
+				continue;
+			}
+			JOptionPane.showMessageDialog(null, "Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
+			return;
+		}
 	}
 }
