@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import exceptions.DateiSyntaxFehler;
 import exceptions.MerkmalMissing;
 import main.Karte;
 import orte.Auslandsverbindung;
@@ -61,8 +62,11 @@ public class KartendateiHandler extends Datei {
 
 	/**
 	 * Konstruktor der Datei und ein Objekt Karte benoetigt.
-	 * @param kartenInstanz          Zulesende Datei
-	 * @param aktuelleKartendatei    Kartenobjekt, das gefuellt wird.
+	 * 
+	 * @param kartenInstanz
+	 *            Zulesende Datei
+	 * @param aktuelleKartendatei
+	 *            Kartenobjekt, das gefuellt wird.
 	 * @author Nils
 	 */
 	public KartendateiHandler(Karte kartenInstanz, File aktuelleKartendatei) {
@@ -73,6 +77,7 @@ public class KartendateiHandler extends Datei {
 
 	/**
 	 * Methode liesst eine Datei ein und wertet diese Zeilenweise aus.
+	 * 
 	 * @author Nils
 	 */
 	public void verarbeiteKartendatei() {
@@ -80,16 +85,19 @@ public class KartendateiHandler extends Datei {
 		kartenInstanz.nameKartendatei = getDateiNamen(aktuelleKartendatei);
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
-			JOptionPane.showMessageDialog(null, "Fehlender Datei Beginn Marker");
+			JOptionPane
+					.showMessageDialog(null, "Fehlender Datei Beginn Marker");
 			System.exit(0);
 		}
 		int dateiEnde = findeDateiEndeMarker(dateiAnfang, geleseneDaten);
-		if (dateiEnde == -1){
+		if (dateiEnde == -1) {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
 			System.exit(0);
 		}
-		if (!DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)){
-			JOptionPane.showMessageDialog(null, "Kein auswertbarer Datensatz in der Datei gefunden");
+		checkLeeresDateiende(dateiEnde, geleseneDaten);
+		if (!DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
+			JOptionPane.showMessageDialog(null,
+					"Kein auswertbarer Datensatz in der Datei gefunden");
 		}
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
@@ -107,11 +115,13 @@ public class KartendateiHandler extends Datei {
 		}
 	}
 
-
 	/**
 	 * Sucht einen DateibeginnMarker.
-	 * @param beginn Zeile ab der Gesucht werden soll
-	 * @param text ArrayList von Strings, in der gesucht werden soll.
+	 * 
+	 * @param beginn
+	 *            Zeile ab der Gesucht werden soll
+	 * @param text
+	 *            ArrayList von Strings, in der gesucht werden soll.
 	 * @return Integer der Zeile mit Befund. Sonst -1
 	 */
 	public static int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
@@ -138,9 +148,13 @@ public class KartendateiHandler extends Datei {
 	}
 
 	/**
-	 * Sucht nach einem Dateiende Marker. Beachtet dabei, dass im laufenden Text welche auftauchen können.
-	 * @param beginn Zeile ab der gesucht werden soll.
-	 * @param text ArrayList in der gesucht werden soll.
+	 * Sucht nach einem Dateiende Marker. Beachtet dabei, dass im laufenden Text
+	 * welche auftauchen können.
+	 * 
+	 * @param beginn
+	 *            Zeile ab der gesucht werden soll.
+	 * @param text
+	 *            ArrayList in der gesucht werden soll.
 	 * @return Integer der Zeile mit Befund, sonst -1
 	 */
 	public static int findeDateiEndeMarker(int beginn, ArrayList<String> text) {
@@ -159,7 +173,7 @@ public class KartendateiHandler extends Datei {
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
 						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-								+ (beginn+1));
+								+ (beginn + 1));
 				System.exit(0);
 			}
 		}
@@ -188,7 +202,7 @@ public class KartendateiHandler extends Datei {
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
 							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-									+ (beginn+1));
+									+ (beginn + 1));
 					System.exit(0);
 				}
 			}
@@ -212,9 +226,11 @@ public class KartendateiHandler extends Datei {
 	/**
 	 * Sucht nach vorhandenem Datensatzbeginn. Kriterium um weiter auszuwerten.
 	 * 
-	 * @param beginn Zeile ab der gesucht werden soll.
-	 * @param text ArrayList String in denen gesucht wird.
-	 * @return	true bei Fund sonst false.
+	 * @param beginn
+	 *            Zeile ab der gesucht werden soll.
+	 * @param text
+	 *            ArrayList String in denen gesucht wird.
+	 * @return true bei Fund sonst false.
 	 */
 	public boolean DatensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
@@ -243,8 +259,10 @@ public class KartendateiHandler extends Datei {
 	/**
 	 * Findet DatensatzBeginn Marker im Text
 	 * 
-	 * @param beginn Zeile ab der gesucht werden soll.
-	 * @param text List von Strings in denen gesucht werden soll.
+	 * @param beginn
+	 *            Zeile ab der gesucht werden soll.
+	 * @param text
+	 *            List von Strings in denen gesucht werden soll.
 	 * @return Integer der Zeile. Sonst -1
 	 */
 	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
@@ -270,10 +288,15 @@ public class KartendateiHandler extends Datei {
 		return -1;
 
 	}
+
 	/**
-	 * Findet einen DatensatzEnde Marker. Ueberprueft dabei auf moegliche DatensatzBeginnMarker.
-	 * @param beginn Zeile in der begonnen werden soll.
-	 * @param text List von Strings in denen gesucht werden soll.
+	 * Findet einen DatensatzEnde Marker. Ueberprueft dabei auf moegliche
+	 * DatensatzBeginnMarker.
+	 * 
+	 * @param beginn
+	 *            Zeile in der begonnen werden soll.
+	 * @param text
+	 *            List von Strings in denen gesucht werden soll.
 	 * @return Integer der Zeile mit Befunf, sonst beginn Zeile.
 	 */
 	public static int findeDatensatzEndeMarker(int beginn,
@@ -293,7 +316,7 @@ public class KartendateiHandler extends Datei {
 			if (zutesten.equals(DATENSATZ_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
 						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-								+ (beginn+1));
+								+ (beginn + 1));
 				return 0;
 			}
 		}
@@ -323,7 +346,7 @@ public class KartendateiHandler extends Datei {
 				if (moeglicherstart.equals(DATENSATZ_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
 							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-									+ (beginn+1));
+									+ (beginn + 1));
 					return 0;
 				}
 			}
@@ -347,8 +370,10 @@ public class KartendateiHandler extends Datei {
 	/**
 	 * Wertet ein Datensatz nach einem spez. Merkmal aus.
 	 * 
-	 * @param wertBezeichner Spezifischer Bezeichner des Wertes.
-	 * @param zeile String in dem Merkmal stehen muss.
+	 * @param wertBezeichner
+	 *            Spezifischer Bezeichner des Wertes.
+	 * @param zeile
+	 *            String in dem Merkmal stehen muss.
 	 * @return Wert des gesuchten Merkmals als String
 	 */
 	public String getMerkmal(String wertBezeichner, String zeile)
@@ -366,7 +391,7 @@ public class KartendateiHandler extends Datei {
 		} else {
 			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
 					+ wertBezeichner + " in Datensatz der in Zeile "
-					+ (aktuelleZeile+1) + " beginnt");
+					+ (aktuelleZeile + 1) + " beginnt");
 		}
 		return null;
 	}
@@ -374,9 +399,12 @@ public class KartendateiHandler extends Datei {
 	/**
 	 * Wertet einen Datensatz aus und erstellt mögliches Objekt.
 	 * 
-	 * @param beginnZeile Startzeile des Datensatzes
-	 * @param endeZeile Endzeile des Datensatzes
-	 * @param text Liste aus Strings in dem der Datensatz steht.
+	 * @param beginnZeile
+	 *            Startzeile des Datensatzes
+	 * @param endeZeile
+	 *            Endzeile des Datensatzes
+	 * @param text
+	 *            Liste aus Strings in dem der Datensatz steht.
 	 */
 	public void werteDatensatzAus(int beginnZeile, int endeZeile,
 			ArrayList<String> text) {
@@ -400,7 +428,7 @@ public class KartendateiHandler extends Datei {
 			if (!mindestabstandEingehalten(xkoord, ykoord)) {
 				JOptionPane.showMessageDialog(null,
 						"Orte liegen zu dicht beeinander. Datensatz beginn in Zeile"
-								+ (aktuelleZeile+1));
+								+ (aktuelleZeile + 1));
 				System.exit(0);
 			}
 			// Restliche Auswertung.
@@ -437,13 +465,15 @@ public class KartendateiHandler extends Datei {
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
 					"Fehler in Merkmalen. Zahlen sind keine Zahlen. Datensatz ab Zeile "
-							+ (aktuelleZeile+1));
+							+ (aktuelleZeile + 1));
 			System.exit(0);
 		}
 	}
 
 	/**
-	 * Methode ueberprueft ob Orte den angegeben Abstand von 3 eingehalten haben.
+	 * Methode ueberprueft ob Orte den angegeben Abstand von 3 eingehalten
+	 * haben.
+	 * 
 	 * @param x
 	 * @param y
 	 * @return true, sonst false
@@ -464,7 +494,9 @@ public class KartendateiHandler extends Datei {
 
 	/**
 	 * Ueberorueft,ob X-Koordinate im Bereich der Karte liegt.
-	 * @param koord Integer der Koordinate.
+	 * 
+	 * @param koord
+	 *            Integer der Koordinate.
 	 */
 	public void koordinateCheckenX(int koord) {
 		if (koord > MAX_KOORD_X || koord < MIN_KOORD_X) {
@@ -472,14 +504,16 @@ public class KartendateiHandler extends Datei {
 					.showMessageDialog(
 							null,
 							"Ort liegt ausserhalb der erlaubten Karte - X Wert außerhalb \n In Datensatz ab Zeile "
-									+ (aktuelleZeile+1));
+									+ (aktuelleZeile + 1));
 			System.exit(0);
 		}
 	}
 
 	/**
-	 * Ueberorueft,ob  Y-Koordinate im Bereich der Karte liegt.
-	 * @param koord Integer der Koordinate.
+	 * Ueberorueft,ob Y-Koordinate im Bereich der Karte liegt.
+	 * 
+	 * @param koord
+	 *            Integer der Koordinate.
 	 */
 	public void koordinateCheckenY(int koord) {
 		if (koord > MAX_KOORD_Y || koord < MIN_KOORD_Y) {
@@ -487,7 +521,7 @@ public class KartendateiHandler extends Datei {
 					.showMessageDialog(
 							null,
 							"Ort liegt ausserhalb der erlaubten Karte - Y Wert außerhalb \n In Datensatz ab Zeile "
-									+ (aktuelleZeile+1));
+									+ (aktuelleZeile + 1));
 			System.exit(0);
 		}
 	}
@@ -517,26 +551,44 @@ public class KartendateiHandler extends Datei {
 		kartenInstanz.orte.add(new Auslandsverbindung(koordX, koordY, name,
 				passagierAufkommen, umschlagVolumen));
 	}
+
 	/**
-	 * Methode erzeugt einen String des aktuellen Dateinamens von der momentan ausgewerteten Datei.
-	 * Prueft zusaetzlich, ob es sich um eine txt Datei handelt.
-	 * @param Datei, die gerade ausgewertet wird.
+	 * Methode erzeugt einen String des aktuellen Dateinamens von der momentan
+	 * ausgewerteten Datei. Prueft zusaetzlich, ob es sich um eine txt Datei
+	 * handelt.
+	 * 
+	 * @param Datei
+	 *            , die gerade ausgewertet wird.
 	 * @return String des Dateinamens ohne suffix.
 	 */
-	public String getDateiNamen(File datei){
+	public String getDateiNamen(File datei) {
 		int dateiEndung = datei.getName().indexOf(".txt");
-		if (dateiEndung == -1){
-			JOptionPane.showMessageDialog(null, "Falsche Dateiendung der Datei");
+		if (dateiEndung == -1) {
+			JOptionPane
+					.showMessageDialog(null, "Falsche Dateiendung der Datei");
 			System.exit(0);
 		}
 		String dateiName = datei.getName().substring(0, dateiEndung);
 		return dateiName;
 	}
-	
-	public static boolean istKommentarZeile(String zeile){
-		if (zeile.indexOf(KOMMENTARMARKER) == -1 || zeile.indexOf(KOMMENTARMARKER) > 0) {
+
+	public static boolean istKommentarZeile(String zeile) {
+		if (zeile.indexOf(KOMMENTARMARKER) == -1
+				|| zeile.indexOf(KOMMENTARMARKER) > 0) {
 			return false;
 		}
-	return true;
-}
+		return true;
+	}
+	
+	public void checkLeeresDateiende(int zeile, ArrayList<String> text) {
+		zeile++;
+		while (zeile < text.size()){
+			if (text.get(zeile).equals("") || text.get(zeile).equals("\n")){
+				zeile++;
+				continue;
+			}
+			JOptionPane.showMessageDialog(null, "Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
+			return;
+		}
+	}
 }
