@@ -80,7 +80,7 @@ public class KartendateiHandler extends Datei {
 	 * 
 	 * @author Nils
 	 */
-	public void verarbeiteKartendatei() {
+	public void verarbeiteKartendatei() throws DateiSyntaxFehler{
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
 		kartenInstanz.nameKartendatei = getDateiNamen(aktuelleKartendatei);
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);

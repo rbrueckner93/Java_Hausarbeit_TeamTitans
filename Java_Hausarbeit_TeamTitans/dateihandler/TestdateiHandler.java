@@ -50,7 +50,7 @@ public class TestdateiHandler extends Datei {
 		this.aktuelleKarte = aktuelleKarte;
 	}
 
-	public void verarbeiteTestdatei(){
+	public void verarbeiteTestdatei() throws DateiSyntaxFehler{
 		// Einlesen der Datei. Liefert pro Zeile ein StringObjekt im Array.
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
 		aktuelleSimulation.nameTestdatei = getDateiNamen(aktuelleTestdatei);
