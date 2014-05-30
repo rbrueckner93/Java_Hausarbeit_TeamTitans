@@ -104,7 +104,7 @@ public class Korridor {
 		}
 	}
 
-	public double getNutzungskosten() {
+	public double getNutzungskostenProKm() {
 		if (kennung.equals(KENNUNG_ENFC)) {
 			return NUTZUNGSKOSTEN_ENFC;
 		} else if (kennung.equals(KENNUNG_HLST)) {

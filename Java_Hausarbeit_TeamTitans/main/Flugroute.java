@@ -178,7 +178,7 @@ public class Flugroute {
 	public double ermittleRoutennutzkosten() {
 		double kosten = 0.0;
 		for (Korridor relation : reiseListe) {
-			kosten = kosten + (relation.getNutzungskosten() * faktor);
+			kosten = kosten + ((relation.getNutzungskostenProKm()*relation.laenge) * faktor);
 		}
 		return kosten;
 	}

@@ -45,6 +45,12 @@ public class Main {
 		} while (!dateiLesenErfolgreich);
 		karte.erstelleNetz();
 		gui.zeigeBaukosten(karte);
+		int entscheidungNetzspeichern = gui.abfrageNetzSpeichern();
+		if (entscheidungNetzspeichern == 0){
+			NetzdateiHandler kartenSchreiber = new NetzdateiHandler(karte);
+			kartenSchreiber.schreibeNetzdatei();
+			System.exit(0);
+		}
 		do {
 			try {
 				File aktuelleTestdatei = gui.frageNachTestdatei();
