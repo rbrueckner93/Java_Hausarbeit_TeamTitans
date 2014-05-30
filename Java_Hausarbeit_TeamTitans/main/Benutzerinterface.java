@@ -9,10 +9,11 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- * @author FechnerL
- * Die Klasse Benutzerinterface ist fuer die Kommunikation des Programms mit dem Nutzer zustaendig.
- * Hierzu gehoert einerseits das Fragen nach Dateien oder bestimmten Informationen, deren Ueberpruefung und die Weitergabe
- * Andererseits sind auch die Methoden fuer die Ausgabe an den Anwender beinhaltet.
+ * @author FechnerL Die Klasse Benutzerinterface ist fuer die Kommunikation des
+ *         Programms mit dem Nutzer zustaendig. Hierzu gehoert einerseits das
+ *         Fragen nach Dateien oder bestimmten Informationen, deren
+ *         Ueberpruefung und die Weitergabe Andererseits sind auch die Methoden
+ *         fuer die Ausgabe an den Anwender beinhaltet.
  */
 public class Benutzerinterface {
 
@@ -21,10 +22,9 @@ public class Benutzerinterface {
 	 */
 	public static final String standardpfad = System.getProperty("user.home");
 
-	
 	public Benutzerinterface() {
 	}
-	
+
 	/**
 	 * Nach dem Start des Programms wird der Anwender begruesst.
 	 */
@@ -34,8 +34,9 @@ public class Benutzerinterface {
 	}
 
 	/**
-	 * Fragt den Anwender nach einer Kartendatei, um diese zur Auswertung weiterzugeben.
-	 * Prueft, ob es sich tatsaechlich um eine Textatei handelt und ob auf die Datei zugegriffen werden kann.
+	 * Fragt den Anwender nach einer Kartendatei, um diese zur Auswertung
+	 * weiterzugeben. Prueft, ob es sich tatsaechlich um eine Textatei handelt
+	 * und ob auf die Datei zugegriffen werden kann.
 	 */
 	public File frageNachKartendatei() {
 
@@ -54,8 +55,9 @@ public class Benutzerinterface {
 			if (status == JFileChooser.APPROVE_OPTION) {
 				kartenfile = chooser.getSelectedFile();
 				int dateiEndung = kartenfile.getName().indexOf(".txt");
-				if (dateiEndung == -1){
-					JOptionPane.showMessageDialog(null, "Falsche Dateiendung der Datei");
+				if (dateiEndung == -1) {
+					JOptionPane.showMessageDialog(null,
+							"Falsche Dateiendung der Datei");
 					continue;
 				}
 				if (kartenfile.isFile() && kartenfile.canRead()) {
@@ -77,7 +79,6 @@ public class Benutzerinterface {
 		}
 	}
 
-	
 	/**
 	 * Einlesen und Ueberpruefen des Budgets: ganzzahlig und positiv
 	 */
@@ -118,26 +119,68 @@ public class Benutzerinterface {
 		}
 	}
 
-
 	/**
-	 * Ermittelt Baukosten der aktuellen Karte und zeigt dem Anwender diese. Zusaetzlich wird dem Anwender
-	 * eine Auflistung der gebauten Korridore, gruppiert nach ihrer Art, ausgegeben.
+	 * Ermittelt Baukosten der aktuellen Karte und zeigt dem Anwender diese.
+	 * Zusaetzlich wird dem Anwender eine Auflistung der gebauten Korridore,
+	 * gruppiert nach ihrer Art, ausgegeben.
 	 * 
 	 * @param aktuelleKarte
 	 */
 	public void zeigeBaukosten(Karte aktuelleKarte) {
 		double baukosten = aktuelleKarte.ermittleGesamteBaukosten();
-		JOptionPane.showMessageDialog(null, "Die Baukosten betragen "
-				+ baukosten + " Geldeinheiten. \nFolgende Korridore wurden gebaut: \nEinfache Korridore: " +
-		aktuelleKarte.ermittleAnzahlENFCKorridore() + "\nStandardkorridore: " + aktuelleKarte.ermittleAnzahlSTNDKorridore() 
-		+ "\nHochleistungskorridore: " + aktuelleKarte.ermittleAnzahlHLSTKorridore() +
-		"\nSicherheitskorridore: " + 	aktuelleKarte.ermittleAnzahlSICHKorridore());		
+		JOptionPane
+				.showMessageDialog(
+						null,
+						"Die Baukosten betragen "
+								+ baukosten
+								+ " Geldeinheiten. \nFolgende Korridore wurden gebaut: \nEinfache Korridore: "
+								+ aktuelleKarte.ermittleAnzahlENFCKorridore()
+								+ "\nStandardkorridore: "
+								+ aktuelleKarte.ermittleAnzahlSTNDKorridore()
+								+ "\nHochleistungskorridore: "
+								+ aktuelleKarte.ermittleAnzahlHLSTKorridore()
+								+ "\nSicherheitskorridore: "
+								+ aktuelleKarte.ermittleAnzahlSICHKorridore());
 	}
-	
+
 	/**
-	* Fragt den Anwender nach einer Testdatei, um diese zur Auswertung weiterzugeben.
-	* Prueft, ob es sich tatsaechlich um eine Textdatei handelt und ob auf die Datei zugegriffen werden kann.
-	*/
+	 * Nach der Erstellung des Netzes durch Korridore wird der Anwender gefragt,
+	 * ob das Netz gespeichert und das Programm beendet werden soll. Bei Ja wird
+	 * Karte gespeichert und das Programm geschlossen. Bei Nein fährt das
+	 * Programm fort und fragt nach einer Testdatei. Ja übergibt 0 und Nein 1
+	 * 
+	 * @return
+	 */
+	public int abfrageNetzSpeichern() {
+		int entscheidung;
+
+		while (true) {
+			entscheidung = JOptionPane.showConfirmDialog(null,
+					"Wollen Sie das Netz speichern und beenden?",
+					"Speichern und beenden?", JOptionPane.YES_NO_OPTION);
+			if (entscheidung == -1) {
+
+				int beenden;
+				beenden = JOptionPane.showConfirmDialog(null,
+						"Wirklich beenden?", "Abbruch",
+						JOptionPane.YES_NO_OPTION);
+				if (beenden == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+
+			} else {
+				
+				return entscheidung;
+			}
+
+		}
+	}
+
+	/**
+	 * Fragt den Anwender nach einer Testdatei, um diese zur Auswertung
+	 * weiterzugeben. Prueft, ob es sich tatsaechlich um eine Textdatei handelt
+	 * und ob auf die Datei zugegriffen werden kann.
+	 */
 	public File frageNachTestdatei() {
 		JOptionPane.showMessageDialog(null,
 				"Bitte waehlen Sie nun eine Testdatei aus.");
@@ -154,8 +197,9 @@ public class Benutzerinterface {
 			if (status == JFileChooser.APPROVE_OPTION) {
 				testdateiFile = chooser.getSelectedFile();
 				int dateiEndung = testdateiFile.getName().indexOf(".txt");
-				if (dateiEndung == -1){
-					JOptionPane.showMessageDialog(null, "Falsche Dateiendung der Datei");
+				if (dateiEndung == -1) {
+					JOptionPane.showMessageDialog(null,
+							"Falsche Dateiendung der Datei");
 					continue;
 				}
 				if (testdateiFile.isFile() && testdateiFile.canRead()) {
@@ -190,12 +234,11 @@ public class Benutzerinterface {
 				+ " Geldeinheiten.");
 	}
 
-
 	/**
-	 * Fragt den Anwender nach dem weiteren Vorgehen, wobei es drei Moeglichkeiten gibt.
-	 * Uebergibt:
-	 * 0, Wenn die aktuelle Simulation als Datei gespeichert werden soll. 
-	 * 1, um die aktuelle Simulation zu speichern und zusaetzlich eine neue Simulation mit anderen Testparametern zu starten.
+	 * Fragt den Anwender nach dem weiteren Vorgehen, wobei es drei
+	 * Moeglichkeiten gibt. Uebergibt: 0, Wenn die aktuelle Simulation als Datei
+	 * gespeichert werden soll. 1, um die aktuelle Simulation zu speichern und
+	 * zusaetzlich eine neue Simulation mit anderen Testparametern zu starten.
 	 * 2, um das Programm zu beenden.
 	 */
 	public int frageNachEndoption() {
@@ -223,6 +266,5 @@ public class Benutzerinterface {
 			}
 		}
 	}
-
 
 }
