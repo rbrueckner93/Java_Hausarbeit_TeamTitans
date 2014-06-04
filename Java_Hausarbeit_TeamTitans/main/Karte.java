@@ -764,7 +764,6 @@ public class Karte {
 			felderOhneUeberschneidung.add(felderListe.get(max));
 			// Bereinigung der felderListe um das bereits akzeptierte Feld
 			felderListe.remove(max);
-			System.out.println(max);
 		}
 		return felderOhneUeberschneidung;
 	}
