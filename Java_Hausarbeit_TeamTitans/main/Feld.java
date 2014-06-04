@@ -1,7 +1,6 @@
 package main;
 
 import java.util.ArrayList;
-
 import orte.Ort;
 
 public class Feld {
@@ -22,55 +21,111 @@ public class Feld {
 	}
 
 	/**
+	 * Alle Orte in diesem Feld sollen ermittelt werden. Dabei werden ausser
+	 * passenden Koordinaten keine Anforderungen an einen Ort gestellt.
+	 * 
 	 * @author BruecknerR
 	 * @return eine ArrayList mit Orten, die sich in diesem Feld befinden
 	 */
-	public ArrayList<Ort> bestimmeOrteAusserASLImFeld() {
+	public ArrayList<Ort> bestimmeOrteImFeld() {
 		ArrayList<Ort> bestimmteOrte = new ArrayList<Ort>();
 		for (Ort o : kartenInstanz.orte) {
+			// wenn der gefundene Ort tatsaechlich in dem Feld oder auf seiner
+			// Grenze liegt
 			if (o.koordX < endX && o.koordX > startX && o.koordY < endY
 					&& o.koordY > startY)
-				if(o.kennung != Ort.KENNUNG_AUSLANDSVERBINDUNG) bestimmteOrte.add(o);
+				// fuege ihn den gefundenen Orten hinzu, die zurueckgegeben
+				// werden (s.u.)
+				bestimmteOrte.add(o);
 		}
-		//System.out.println(bestimmteOrte.size()+" lokalisiert."+startX+"|"+startY);
+		// TODO REMOVE DEBUG ONLY CODE
+		// System.out.println(bestimmteOrte.size() + " im Feld " + this
+		// + " lokalisiert." + startX + "|" + startY);
+		// END DEBUG ONLY CODE
 		return bestimmteOrte;
 	}
 
 	/**
-	 * @author BruecknerR
-	 * @param kantenlaenge
-	 * @param kantenlaenge
-	 * @param minOrte
-	 * @return eine ArrayList<ArrayList<Integer>>. Ein jedes Element der
-	 *         ArrayList stellt ein Feld dar. Es ist sichergestellt, dass die
-	 *         Felder sich nicht ueberlappen. In den einzelnen Feldern sind die
-	 *         Informationen wie folgt angeordnet: ArrayList mit int: (0):
-	 *         x-Beginn (1):x-Ende (2):y-Beginn (3):y-Ende
+	 * Fragt jeden Ort ob Relevanzgrad groesser als bislang gefundener Ort mit
+	 * hoechstem Relevanzgrad ist.
+	 * 
+	 * @author bruecknerr
+	 * @return Ort mit hoechstem Relevanzgrad im aktuellen Feld
 	 */
-	
+	public Ort wichtigsterOrtImFeld() {
+		Ort wichtigsterOrt = null;
+		if (!feldIstLeer()) {
+			System.out
+					.println("Da das Feld nicht leer ist, bestimme ich nun den...");
+			// setze initial wichtigsterOrt als das erste Elt. der Liste
+			wichtigsterOrt = bestimmeOrteImFeld().get(0);
+			for (Ort ort : bestimmeOrteImFeld()) {
+				// ueberschreibe jedes Mal, wenn ein Ort mit hoeherem RG
+				// gefunden
+				// wurde.
+				System.out.println("In der Liste stehen "
+						+ bestimmeOrteImFeld().size() + " Orte.");
+				System.out.println(ort.name + " wird untersucht.");
+				if (ort.getRelevanzGrad() > ermittleWichtigstenFeldOrt()
+						.getRelevanzGrad())
+					wichtigsterOrt = ort;
+			}
+		}
+		// TODO REMOVE DEBUG ONLY CODE
+		System.out.println("Ich werde " + wichtigsterOrt.name
+				+ " als wichtigsten Ort an den Commander melden.");
+		// END DEBUG ONLY CODE
+		return wichtigsterOrt;
+	}
+
+	// import aus Karte,
 
 	/**
+	 * 
+	 * @return Hauptort oder Umschlagpunkt eines Feldes mit hoechstem RG
+	 * @author bruecknerr
+	 */
+	public Ort ermittleWichtigstenFeldOrt() {
+		Ort wichtigsterOrt = null;
+		double revGradWichtigsterOrt = Double.MIN_VALUE;
+		for (Ort ort : bestimmeOrteImFeld()) {
+			if (((ort.kennung == Ort.KENNUNG_HAUPTORT) || (ort.kennung == Ort.KENNUNG_UMSCHLAGPUNKT))
+					&& (ort.getRelevanzGrad() > revGradWichtigsterOrt)) {
+				wichtigsterOrt = ort;
+				revGradWichtigsterOrt = ort.getRelevanzGrad();
+			}
+		}
+		return wichtigsterOrt;
+	}
+
+	public boolean feldIstLeer() {
+		return (bestimmeOrteImFeld().size() == 0);
+	}
+
+	/**
+	 * Eine Ueberpruefung findet auf
+	 * 
 	 * @author BruecknerR
 	 * @param feldB
 	 *            irgendein Feld.
-	 * @return true wenn es eine Schnittmenge der angegebenen Flaechen gibt
+	 * @return true wenn es eine Schnittmenge der enthaltenen Orte gibt.
 	 */
-		
-	public boolean ueberschneidungMitFeld(Feld feldB) {
-		// pruefe, ob die Felder einen x-Abschnitt gemeinsam haben
-		
-		boolean feldB_schneidetUnten = (startY < feldB.endY && startY > feldB.startY);
-		boolean feldB_schneidetOben = (endY < feldB.endY && endY > feldB.startY);
-		boolean feldB_schneidetLinks = (startX < feldB.endX && startX > feldB.startX);
-		boolean feldB_schneidetRechts = (endX < feldB.endX && endX > feldB.startX);
-		boolean direktUebereinander = (startX == feldB.startX);
-		boolean direktNebeneinander = (startY == feldB.startY);
-		boolean schneidenSich = ((feldB_schneidetOben || feldB_schneidetUnten || direktNebeneinander)&&(feldB_schneidetLinks || feldB_schneidetRechts || direktUebereinander));
-		
-		if(schneidenSich)
-		{	System.out.println("Ueberschneidung festgestellt.");
+	public boolean hatOrtsSchnittmengeMit(Feld feldB) {
+		/**
+		 * Eine Untersuchung der Orte im Feld entfaellt, wenn ein Objekt mit
+		 * sich selbst verglichen wird.
+		 */
+		if (feldB == this)
+			return true;
+		/**
+		 * Untersuchung jedes Ortes des einen Feldes auf Vorkommen in
+		 * feldB.bestimmeOrteImFeld() Bei der ersten gefundenen Uebereinstimmung
+		 * wird ein true zurueckgegeben.
+		 */
+		for (Ort ortA : bestimmeOrteImFeld()) {
+			if (feldB.bestimmeOrteImFeld().contains(ortA))
 				return true;
-			}
+		}
 		return false;
 	}
 
