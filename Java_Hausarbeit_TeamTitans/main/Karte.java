@@ -667,8 +667,7 @@ public class Karte {
 				|| (schrittweite < 1 || schrittweite > Math.min(
 						KARTE_GROESSE_X, KARTE_GROESSE_Y))
 				|| (vonLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y))
-				|| (bisLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)) || (abbruchBedingung > 0.34 * orte
-				.size()));
+				|| (bisLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)));
 		if (illegalArgument)
 			throw new IllegalArgumentException();
 
