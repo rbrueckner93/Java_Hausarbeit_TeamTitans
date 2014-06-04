@@ -92,9 +92,8 @@ public class Karte {
 	 */
 	public void erstelleNetz() {
 		verbindeAuslandsorte();
-		erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
-		// erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
-		// orte));
+		//erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3), entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
 	}
 
 	/**
@@ -102,38 +101,65 @@ public class Karte {
 	 * 
 	 * @param ohneASL
 	 */
-	public void erstelleRingStruktur(ArrayList<Ort> ohneASL) {
+	public void erstelleRingStruktur(ArrayList<Feld> relevanzFelder,
+			ArrayList<Ort> ohneASLOrte) {
+		ArrayList<Ort> ringOrte = new ArrayList<Ort>();
+		double hoechsterRG = 0;
+		// Aufsuchen der hoechsten Relevanz.
+		for (Ort ort : ohneASLOrte) {
+			double aktuellerRG = relevanzGradOrtmitASL(ort);
+			if (aktuellerRG > hoechsterRG) {
+				hoechsterRG = aktuellerRG;
+			}
+		}
+		// Erstellen einer Liste der vorhanden Ringorte.
+		head: for (double abwertFaktor = 1; abwertFaktor >= 0.6; abwertFaktor = (abwertFaktor-0.1)) {
+			while (ringOrte.size() < 4) {
+				for (Ort ort : ohneASLOrte) {
+					if (relevanzGradOrtmitASL(ort) >= (hoechsterRG * abwertFaktor)
+							&& !ringOrte.contains(ort)) {
+						ringOrte.add(ort);
+					}
+					if (ringOrte.size() < 4 && abwertFaktor == 0.6) {
+						System.out.println("Sehr wenige RingOrte Anzahl: "
+								+ ringOrte.size());
+						break head;
+					}
+				}
+			}
+		}
+		// Check der Relevanzfelder. Ist aus jedem Feld ein Ort enthalten. Sonst
+		// besten Ort adden.
+		if (relevanzFelder.size() > 0) {
+			for (Feld aktuellesFeld : relevanzFelder) {
+				for (Ort ort : ringOrte) {
+					if (!aktuellesFeld.bestimmeOrteImFeld().contains(ort)) {
+						Ort besterOrt = null;
+						double besterRG = 0;
+						for (Ort ortAusFeld : aktuellesFeld
+								.bestimmeOrteImFeld()) {
+							if (relevanzGradOrtmitASL(ortAusFeld) > besterRG) {
+								besterRG = relevanzGradOrtmitASL(ortAusFeld);
+								besterOrt = ortAusFeld;
+							}
+						}
+						ringOrte.add(besterOrt);
+					}
+				}
+			}
+		}
+		// Erstellen des Ringes.
+		// Sortieren der Liste RingOrte aufsteigend nach ihrer Distanz
+		Ort mittigsterOrt = getMittigstenOrt(ohneASLOrte);
+		ringOrte = sortiereListeNachAbstand(mittigsterOrt, ringOrte);
+		// Sortierung abgeschlossen.
+		Ort ringstart = ringOrte.get(0);
+		ArrayList<Ort> verbleibendeRingOrte = new ArrayList<Ort>();
+		for (Ort ort : ringOrte) {
+			verbleibendeRingOrte.add(ort);
+		}
+		// Erstellung des Rings.
 		try {
-			Integer[] mittelpunkt = berechneNetzMittelpunkt(ohneASL);
-			double distanz = Double.MAX_VALUE;
-			for (Ort ort : ohneASL) {
-				double distanzOrt = Math.sqrt(Math.pow(
-						(mittelpunkt[0] - ort.koordX), 2)
-						+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
-				if (distanzOrt < distanz) {
-					distanz = distanzOrt;
-				}
-			}
-			// Erstellung des Ringes
-			ArrayList<Ort> ringOrte = new ArrayList<Ort>();
-			for (Ort ort : ohneASL) {
-				double distanzOrt = Math.sqrt(Math.pow(
-						(mittelpunkt[0] - ort.koordX), 2)
-						+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
-				if (distanzOrt < (4.0 * distanz)) {
-					ringOrte.add(ort);
-				}
-			}
-			// Sortieren der Liste RingOrte aufsteigend nach ihrer Distanz
-			Ort mittigsterOrt = getMittigstenOrt(ohneASL);
-			ringOrte = sortiereListeNachAbstand(mittigsterOrt, ringOrte);
-			// Sortierung abgeschlossen.
-			Ort ringstart = ringOrte.get(0);
-			ArrayList<Ort> verbleibendeRingOrte = new ArrayList<Ort>();
-			for (Ort ort : ringOrte) {
-				verbleibendeRingOrte.add(ort);
-			}
-			// Erstellung des Rings.
 			for (int index = 0; index < ringOrte.size(); index++) {
 				if (index == (ringOrte.size() - 1)) {
 					// eingerichteteKorridore.add(new Korridor(
@@ -151,7 +177,7 @@ public class Karte {
 
 			}
 			// Hier erstellung der Liste verbleibenderOrte.
-			ArrayList<Ort> verbleibendeOrte = ohneASL;
+			ArrayList<Ort> verbleibendeOrte = ohneASLOrte;
 			for (Ort ortA : ringOrte) {
 				verbleibendeOrte.remove(ortA);
 			}
@@ -161,8 +187,10 @@ public class Karte {
 						Korridor.KENNUNG_ENFC));
 			}
 		} catch (UngueltigerOrt e) {
+
 		}
 	}
+		
 
 	/**
 	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Einfachen
