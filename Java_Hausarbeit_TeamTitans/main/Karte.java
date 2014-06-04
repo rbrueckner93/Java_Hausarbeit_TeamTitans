@@ -42,7 +42,7 @@ public class Karte {
 	 */
 
 	public static final int KARTE_GROESSE_X = 199;
-
+	public static final int MIN_ORTE_IM_FELD = 3;
 	public static final int KARTE_GROESSE_Y = 99;
 
 	/**
@@ -635,20 +635,49 @@ public class Karte {
 		return anzahl;
 	}
 
-	// Ab hier folgen die Methoden zur Feldgestützten Analyse der Karte.
+
 	// karte.ermittleRelevanteKonzentration(35, 75, 5, 3); eignet sich.
+	/**
+	 * 
+	 * @param vonLaenge
+	 * 					Beginn der Schleife, die sich alle Felder mit mind. dieser Kantenlaenge sucht
+	 * @param bisLaenge
+	 * 					Ende der Schleife
+	 * @param schrittweite
+	 * 					Groesse in km, um die die beiden Kanten eines Suchfeldes pro Iteration vergroessert werden.
+	 * @param abbruchBedingung
+	 * 					Schwellenwert, der bei Uebersteigen fuer einen Abbruch der Schleife sorgt: Anzahl von Feldern.
+	 * @return eine Liste von Feldern, die den o.g. Kriterien entsprechen
+	 * @throws IllegalArgumentException
+	 * 					Im Fall von ungueltigen Zahlenangaben fuer o.g. Werte.
+	 * @author bruecknerr
+	 */
 	public ArrayList<Feld> ermittleRelevanteKonzentration(int vonLaenge,
 			int bisLaenge, int schrittweite, int abbruchBedingung)
 			throws IllegalArgumentException {
+		/**
+		 * Da wichtige Teile der Schleife und ihrem Erfolg von den mitgegebenen
+		 * Argumenten abhaengen, wird mit dem boolschen Ausdruck illegalArgument
+		 * festgestellt, ob ein grober Fehler vorliegt:
+		 * 
+		 * Es waere unverhaeltnismaessig, Felder zu untersuchen, deren Laenge
+		 * groesser als die Abmasse der Karte sind.
+		 */
 		boolean illegalArgument = ((bisLaenge <= vonLaenge)
 				|| (schrittweite < 1 || schrittweite > Math.min(
 						KARTE_GROESSE_X, KARTE_GROESSE_Y))
 				|| (vonLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y))
-				|| (bisLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)) || (abbruchBedingung > 0.34 * orte
-				.size()));
+				|| (bisLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)));
 		if (illegalArgument)
 			throw new IllegalArgumentException();
+
 		ArrayList<Feld> relevanteKonzentrationsFelder = new ArrayList<Feld>();
+		/**
+		 * Fuer alle Feldgroessen wird nun ermittelt, welche Anzahl an
+		 * Konzentrationsfeldern zu ermitteln ist. Sobald eine Anzahl von
+		 * abbruchBedingung ueberschritten ist, werden die Felder, die diese
+		 * Bedingung ueberschritten haben, zurueckgegeben.
+		 */
 		for (int kantenlaenge = vonLaenge; kantenlaenge < bisLaenge; kantenlaenge += schrittweite) {
 			if (ermittleKonzentrationsfelder(kantenlaenge).size() > relevanteKonzentrationsFelder
 					.size()) {
@@ -661,40 +690,37 @@ public class Karte {
 					break;
 			}
 		}
-
 		return relevanteKonzentrationsFelder;
 	}
 
 	public ArrayList<Feld> ermittleKonzentrationsfelder(
 			int erstellerKantenlaenge) {
 		/**
-		 * in felderListe werden weiter unten die Felder geschrieben, die den
-		 * Kriterien entsprechen.
+		 * in felderOhneUeberschneidung werden diejenigen Felder geschrieben,
+		 * die letzlich auch zurueckgegeben werden. felderOhneUeberschneidung
+		 * ist eine Teilliste von felderListe, bereinigt um diejenigen Felder,
+		 * die Orte mit anderen Felder gemeinsam haben
+		 * (Unabhaenigkeitskriterium)
 		 */
-
+		ArrayList<Feld> felderOhneUeberschneidung = new ArrayList<Feld>();
+		/**
+		 * in felderListe werden weiter unten die Felder geschrieben, die den
+		 * Kriterien entsprechen. (bisher: sie beschreiben ein Quadrat, in
+		 * dessen Gebiet sich mindestens MIN_ORTE_IM_FELD Orte befinden.)
+		 */
 		ArrayList<Feld> felderListe = new ArrayList<Feld>();
+
+		/**
+		 * fuege alle erstellbaren Felder mit der gegebenen Kantenlaenge der
+		 * ArrayList hinzu, wenn diese das Kriterium erfuellen.
+		 */
 		for (int x = 0; (x + erstellerKantenlaenge) <= KARTE_GROESSE_X; x++) {
 			for (int y = 0; (y + erstellerKantenlaenge) <= KARTE_GROESSE_Y; y++) {
-				// wichtigenOrtGefunden = false;
 				Feld neuesFeld = new Feld(this, x, y, erstellerKantenlaenge);
-				if (neuesFeld.bestimmeOrteImFeld().size() >= 3) {
+				if (neuesFeld.bestimmeOrteImFeld().size() >= MIN_ORTE_IM_FELD)
 					felderListe.add(neuesFeld);
-
-					// TODO REMOVE DEBUG ONLY CODE
-					// System.out.println("Ich habe (" + neuesFeld.startX + "|"
-					// + neuesFeld.startY + "), (" + neuesFeld.endX + "|"
-					// + neuesFeld.endY
-					// + ") hinzugefuegt. Dort befinden sich "
-					// + neuesFeld.bestimmeOrteImFeld().size() + " Orte.");
-					// END DEBUG ONLY CODE
-				}
 			}
 		}
-
-		// durchsuche die ArrayList nach dem Maximum, mit dem begonnen wird
-		//
-		// ArrayList, in der der Rueckgabewert gespeichert wird
-		ArrayList<Feld> felderOhneUeberschneidung = new ArrayList<Feld>();
 
 		/**
 		 * loesche alle Felder aus der Liste, die sich mit dem aktuell am
@@ -702,34 +728,34 @@ public class Karte {
 		 */
 		while (felderListe.size() > 0) {
 			int max = 0;
-			// jedes Feld nach der Anzahl der Orte fragen, um Feld mit
-			// dichtester besiedlung zu ermitteln
+			/**
+			 * Ermittlung desjenigen Feldes der felderListe, das am meisten Orte
+			 * enthaelt. Felder, auf die dies zugetroffen hat, werden am Ende
+			 * eines Schleifendurchlaufs in die felderOhneUberlappung
+			 * aufgenommen.
+			 */
 			for (int index = 0; index < felderListe.size(); index++) {
 				if (felderListe.get(max).bestimmeOrteImFeld().size() < felderListe
 						.get(index).bestimmeOrteImFeld().size())
 					max = index;
 			}
-			// loesche jetzt alle felder in der Liste, deren flaeche sich
-			// mit
-			// der flaeche von der flaeche mit den meisten orten schneidet.
+			/**
+			 * Loeschen derjenigen Felder aus felderListe, die eine Schnittmenge
+			 * mit dem ueberlegenen Feld haben.
+			 */
 			for (int i = 0; i < felderListe.size(); i++) {
 				if ((i != max)
 						&& (felderListe.get(max)
 								.hatOrtsSchnittmengeMit(felderListe.get(i)))) {
-					// TODO REMOVE DEBUG ONLY CODE
-					// System.out.println("Es wird geloescht:"
-					// + felderListe.get(i));
-					// END DEBUG ONLY CODE
 					felderListe.remove(i);
 					i--;
 					/**
 					 * da die indizes beim loeschen eines Elt. aus einer
 					 * ArrayList veraendert werden, muss sichergestellt werden,
 					 * dass kein Element uebersprungen wird. der Zeiger auf das
-					 * feld mit den meisten elementen muss nur dann berichtigt
+					 * feld mit den meisten Elementen muss nur dann berichtigt
 					 * werden, wenn max > i und damit um 1 nach vorn rutscht
 					 */
-
 					if (i < max)
 						max--;
 				}
@@ -739,7 +765,6 @@ public class Karte {
 			// Bereinigung der felderListe um das bereits akzeptierte Feld
 			felderListe.remove(max);
 		}
-
 		return felderOhneUeberschneidung;
 	}
 }
