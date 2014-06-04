@@ -92,9 +92,9 @@ public class Karte {
 	 */
 	public void erstelleNetz() {
 		verbindeAuslandsorte();
-		erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,orte));
-		//erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
-		//		orte));
+		erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		// erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
+		// orte));
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class Karte {
 							andererOrt) / relevanzGradOrtmitASL(andererOrt));
 				}
 				double aktuellerKennwertMitte = (distanzSumme / relevanzGradOrtmitASL(moeglicheMitte));
-				if (aktuellerKennwertMitte < kennwertMitte){
+				if (aktuellerKennwertMitte < kennwertMitte) {
 					kennwertMitte = aktuellerKennwertMitte;
 					sternMitte = moeglicheMitte;
 				}
@@ -191,8 +191,8 @@ public class Karte {
 			// Aufbau des Sterns.
 			for (Ort ortA : ohneASL) {
 				if (ortA != sternMitte) {
-					eingerichteteKorridore.add(new Korridor(sternMitte,
-							ortA, Korridor.KENNUNG_ENFC));
+					eingerichteteKorridore.add(new Korridor(sternMitte, ortA,
+							Korridor.KENNUNG_ENFC));
 				}
 			}
 			// Upgrade einzelner Korridore.
@@ -588,13 +588,14 @@ public class Karte {
 
 	/**
 	 * Methode addiert die angebundenen ASL Ort mit ihrer Relevanz drauf.
-	 * @param gewaelterOrt
+	 * 
+	 * @param gewaehlterOrt
 	 * @return
 	 */
-	public double relevanzGradOrtmitASL(Ort gewaelterOrt) {
-		double gesamtRelevanzGrad = gewaelterOrt.relevanzGrad;
-		for (Korridor korridor : gewaelterOrt.angebundeneKorridore) {
-			Ort ort = korridor.bestimmeAnderenOrt(gewaelterOrt);
+	public double relevanzGradOrtmitASL(Ort gewaehlterOrt) {
+		double gesamtRelevanzGrad = gewaehlterOrt.relevanzGrad;
+		for (Korridor korridor : gewaehlterOrt.angebundeneKorridore) {
+			Ort ort = korridor.bestimmeAnderenOrt(gewaehlterOrt);
 			if (ort.kennung == Ort.KENNUNG_AUSLANDSVERBINDUNG) {
 				gesamtRelevanzGrad += ort.relevanzGrad;
 			}
@@ -635,64 +636,107 @@ public class Karte {
 	}
 
 	// Ab hier folgen die Methoden zur Feldgestützten Analyse der Karte.
-
-	public int anzahlOrteInFelderListe(ArrayList<Feld> felderLi) {
-		int anzahl = 0;
-		for (Feld felda : felderLi) {
-			anzahl += felda.bestimmeOrteAusserASLImFeld().size();
+	// karte.ermittleRelevanteKonzentration(35, 75, 5, 3); eignet sich.
+	public ArrayList<Feld> ermittleRelevanteKonzentration(int vonLaenge,
+			int bisLaenge, int schrittweite, int abbruchBedingung)
+			throws IllegalArgumentException {
+		boolean illegalArgument = ((bisLaenge <= vonLaenge)
+				|| (schrittweite < 1 || schrittweite > Math.min(
+						KARTE_GROESSE_X, KARTE_GROESSE_Y))
+				|| (vonLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y))
+				|| (bisLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)) || (abbruchBedingung > 0.34 * orte
+				.size()));
+		if (illegalArgument)
+			throw new IllegalArgumentException();
+		ArrayList<Feld> relevanteKonzentrationsFelder = new ArrayList<Feld>();
+		for (int kantenlaenge = vonLaenge; kantenlaenge < bisLaenge; kantenlaenge += schrittweite) {
+			if (ermittleKonzentrationsfelder(kantenlaenge).size() > relevanteKonzentrationsFelder
+					.size()) {
+				relevanteKonzentrationsFelder = ermittleKonzentrationsfelder(kantenlaenge);
+				/**
+				 * sobald der als Argument uebergebene Schwellenwert
+				 * ueberschritten ist, soll die Schleife abgebrochen werden.
+				 */
+				if (relevanteKonzentrationsFelder.size() > abbruchBedingung)
+					break;
+			}
 		}
-		return anzahl;
+
+		return relevanteKonzentrationsFelder;
 	}
 
-	public ArrayList<Feld> ermittleKonzentrationsfelder(int minOrte,
+	public ArrayList<Feld> ermittleKonzentrationsfelder(
 			int erstellerKantenlaenge) {
-		// in felderListe werden die Felder geschrieben, die den Kriterien
-		// entsprechen.
+		/**
+		 * in felderListe werden weiter unten die Felder geschrieben, die den
+		 * Kriterien entsprechen.
+		 */
+
 		ArrayList<Feld> felderListe = new ArrayList<Feld>();
 		for (int x = 0; (x + erstellerKantenlaenge) <= KARTE_GROESSE_X; x++) {
-			boolean etwasInX_Gefunden = false;
 			for (int y = 0; (y + erstellerKantenlaenge) <= KARTE_GROESSE_Y; y++) {
+				// wichtigenOrtGefunden = false;
 				Feld neuesFeld = new Feld(this, x, y, erstellerKantenlaenge);
-				if (neuesFeld.bestimmeOrteAusserASLImFeld().size() >= minOrte)
+				if (neuesFeld.bestimmeOrteImFeld().size() >= 3) {
 					felderListe.add(neuesFeld);
-				// System.out.println("Ich habe ("+neuesFeld.startX+"|"+neuesFeld.startY+"), ("+neuesFeld.endX+"|"+neuesFeld.endY+") hinzugefuegt. Dort befinden sich "+neuesFeld.bestimmeOrteImFeld().size()+" Orte.");
-				if (neuesFeld.bestimmeOrteAusserASLImFeld().size() == 0)
-					y += (erstellerKantenlaenge - 1);
-				etwasInX_Gefunden = true;
+
+					// TODO REMOVE DEBUG ONLY CODE
+					// System.out.println("Ich habe (" + neuesFeld.startX + "|"
+					// + neuesFeld.startY + "), (" + neuesFeld.endX + "|"
+					// + neuesFeld.endY
+					// + ") hinzugefuegt. Dort befinden sich "
+					// + neuesFeld.bestimmeOrteImFeld().size() + " Orte.");
+					// END DEBUG ONLY CODE
+				}
 			}
-			if (etwasInX_Gefunden = false)
-				x += erstellerKantenlaenge;
 		}
 
 		// durchsuche die ArrayList nach dem Maximum, mit dem begonnen wird
+		//
+		// ArrayList, in der der Rueckgabewert gespeichert wird
 		ArrayList<Feld> felderOhneUeberschneidung = new ArrayList<Feld>();
 
-		// loesche alle Felder aus der Liste, die sich mit dem aktuell am
-		// dichtesten besiedelten Ort ueberschneiden
+		/**
+		 * loesche alle Felder aus der Liste, die sich mit dem aktuell am
+		 * dichtesten besiedelten Ort ueberschneiden
+		 */
 		while (felderListe.size() > 0) {
 			int max = 0;
 			// jedes Feld nach der Anzahl der Orte fragen, um Feld mit
 			// dichtester besiedlung zu ermitteln
 			for (int index = 0; index < felderListe.size(); index++) {
-				if (felderListe.get(max).bestimmeOrteAusserASLImFeld().size() < felderListe
-						.get(index).bestimmeOrteAusserASLImFeld().size())
+				if (felderListe.get(max).bestimmeOrteImFeld().size() < felderListe
+						.get(index).bestimmeOrteImFeld().size())
 					max = index;
 			}
-			// loesche jetzt alle felder in der Liste, deren flaeche sich mit
+			// loesche jetzt alle felder in der Liste, deren flaeche sich
+			// mit
 			// der flaeche von der flaeche mit den meisten orten schneidet.
 			for (int i = 0; i < felderListe.size(); i++) {
 				if ((i != max)
 						&& (felderListe.get(max)
-								.ueberschneidungMitFeld(felderListe.get(i)))) {
-					System.out.println("Es wird gelÃ¶scht:"
-							+ felderListe.get(i));
+								.hatOrtsSchnittmengeMit(felderListe.get(i)))) {
+					// TODO REMOVE DEBUG ONLY CODE
+					// System.out.println("Es wird geloescht:"
+					// + felderListe.get(i));
+					// END DEBUG ONLY CODE
 					felderListe.remove(i);
 					i--;
+					/**
+					 * da die indizes beim loeschen eines Elt. aus einer
+					 * ArrayList veraendert werden, muss sichergestellt werden,
+					 * dass kein Element uebersprungen wird. der Zeiger auf das
+					 * feld mit den meisten elementen muss nur dann berichtigt
+					 * werden, wenn max > i und damit um 1 nach vorn rutscht
+					 */
+
 					if (i < max)
 						max--;
 				}
 			}
+			// Hinzufuegen des ermittelten Feldes zur Rueckgabeliste
 			felderOhneUeberschneidung.add(felderListe.get(max));
+			// Bereinigung der felderListe um das bereits akzeptierte Feld
 			felderListe.remove(max);
 		}
 
