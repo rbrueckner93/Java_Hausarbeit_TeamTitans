@@ -52,6 +52,7 @@ public class Korridor {
 		ermittleLaenge();
 		ueberpruefeOrtart(ortA);
 		ueberpruefeOrtart(ortB);
+		ueberpruefeOrtUngleichheit(ortA, ortB);
 		ortA.angebundeneKorridore.add(this);
 		ortB.angebundeneKorridore.add(this);
 	}
@@ -144,13 +145,13 @@ public class Korridor {
 					|| ortA.getClass() == Nebenort.class
 					|| ortA.getClass() == Umschlagpunkt.class) {
 			} else {
-				throw new UngueltigerOrt();
+				throw new UngueltigerOrt(ortA, ortB, KENNUNG_ENFC);
 			}
 		} else if (kennung.equals(KENNUNG_HLST)) {
 			if (ortA.getClass() == Hauptort.class
 					|| ortA.getClass() == Umschlagpunkt.class) {
 			} else {
-				throw new UngueltigerOrt();
+				throw new UngueltigerOrt(ortA, ortB, KENNUNG_HLST);
 			}
 		} else if (kennung.equals(KENNUNG_SICH)) {
 			if (ortA.getClass() == Hauptort.class
@@ -158,17 +159,24 @@ public class Korridor {
 					|| ortA.getClass() == Umschlagpunkt.class
 					|| ortA.getClass() == Auslandsverbindung.class) {
 			} else {
-				throw new UngueltigerOrt();
+				throw new UngueltigerOrt(ortA, ortB, KENNUNG_SICH);
 			}
 		} else if (kennung.equals(KENNUNG_STND)) {
 			if (ortA.getClass() == Hauptort.class
 					|| ortA.getClass() == Nebenort.class
 					|| ortA.getClass() == Umschlagpunkt.class) {
 			} else {
-				throw new UngueltigerOrt();
+				throw new UngueltigerOrt(ortA, ortB, KENNUNG_STND);
 			}
 		} else {
-			throw new UngueltigerOrt();
+			throw new UngueltigerOrt(ortA, ortB, "keineKennung");
 		}
 	}
+	
+	public void ueberpruefeOrtUngleichheit(Ort ortA, Ort ortB) throws UngueltigerOrt{
+		if(ortA == ortB){
+			throw new UngueltigerOrt(ortA, ortB, "OrtsGleichheit"); 
+		}
+	}
+	
 }
