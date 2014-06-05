@@ -92,9 +92,45 @@ public class Karte {
 	 */
 	public void erstelleNetz() {
 		verbindeAuslandsorte();
-		erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
-		// erstelleRingStruktur(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
-		// orte));
+		erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
+		 orte));
+		for(Korridor k : eingerichteteKorridore){
+			System.out.println(k.getBeschreibung()+k.getBaukosten());
+		}
+		//erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3),
+			//	entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		netzUpgrade();
+	}
+
+	public double getAbsKorridorRang(Korridor korridor) {
+		return korridor.laenge * korridor.ortA.getRelevanzGrad()
+				* korridor.ortB.getRelevanzGrad();
+	}
+
+	public void netzUpgrade() {
+		ArrayList<Korridor> nochUpgradebareK = new ArrayList<Korridor>();
+		for (Korridor k : eingerichteteKorridore) {
+			if (isUpgradeable(k)){
+				nochUpgradebareK.add(k);
+			}
+		}
+		while (ermittleGesamteBaukosten() < budget) {	
+			if (nochUpgradebareK.size() > 0) {
+				Korridor upgradeKandidat = nochUpgradebareK.get(0);
+				for (Korridor upgradebarerKorridor : nochUpgradebareK) {
+					if (getAbsKorridorRang(upgradebarerKorridor) > getAbsKorridorRang(upgradeKandidat))
+						{
+						upgradeKandidat = upgradebarerKorridor;
+						getAbsKorridorRang(upgradeKandidat);
+						}
+				}
+				upgradeKandidat.setKennung(upgradeKandidat
+						.getNextKennung());
+				if(!isUpgradeable(upgradeKandidat)) nochUpgradebareK.remove(upgradeKandidat);
+			}
+			else break;
+		}
+
 	}
 
 	/**
@@ -102,38 +138,66 @@ public class Karte {
 	 * 
 	 * @param ohneASL
 	 */
-	public void erstelleRingStruktur(ArrayList<Ort> ohneASL) {
+	private void erstelleRingStruktur(ArrayList<Feld> relevanzFelder,
+			ArrayList<Ort> ohneASLOrte) {
+		ArrayList<Ort> ringOrte = new ArrayList<Ort>();
+		double hoechsterRG = 0;
+		// Aufsuchen der hoechsten Relevanz.
+		for (Ort ort : ohneASLOrte) {
+			double aktuellerRG = relevanzGradOrtmitASL(ort);
+			if (aktuellerRG > hoechsterRG) {
+				hoechsterRG = aktuellerRG;
+			}
+		}
+		// Erstellen einer Liste der vorhanden Ringorte.
+		head: while (ringOrte.size() < 4) {
+			for (double abwertFaktor = 1; abwertFaktor >= 0.6; abwertFaktor = (abwertFaktor - 0.1)) {
+
+				for (Ort ort : ohneASLOrte) {
+					if (relevanzGradOrtmitASL(ort) >= (hoechsterRG * abwertFaktor)
+							&& !ringOrte.contains(ort)) {
+						ringOrte.add(ort);
+					}
+					if (ringOrte.size() < 4 && abwertFaktor < 0.61) {
+						System.out.println("Sehr wenige RingOrte Anzahl: "
+								+ ringOrte.size());
+						break head;
+					}
+				}
+			}
+		}
+		// Check der Relevanzfelder. Ist aus jedem Feld ein Ort enthalten. Sonst
+		// besten Ort adden.
+		if (relevanzFelder.size() > 0) {
+			for (Feld aktuellesFeld : relevanzFelder) {
+				for (Ort ort : ringOrte) {
+					if (!aktuellesFeld.bestimmeOrteImFeld().contains(ort)) {
+						Ort besterOrt = null;
+						double besterRG = 0;
+						for (Ort ortAusFeld : aktuellesFeld
+								.bestimmeOrteImFeld()) {
+							if (relevanzGradOrtmitASL(ortAusFeld) > besterRG) {
+								besterRG = relevanzGradOrtmitASL(ortAusFeld);
+								besterOrt = ortAusFeld;
+							}
+						}
+						ringOrte.add(besterOrt);
+					}
+				}
+			}
+		}
+		// Erstellen des Ringes.
+		// Sortieren der Liste RingOrte aufsteigend nach ihrer Distanz
+		Ort mittigsterOrt = getMittigstenOrt(ohneASLOrte);
+		ringOrte = sortiereListeNachAbstand(mittigsterOrt, ringOrte);
+		// Sortierung abgeschlossen.
+		Ort ringstart = ringOrte.get(0);
+		ArrayList<Ort> verbleibendeRingOrte = new ArrayList<Ort>();
+		for (Ort ort : ringOrte) {
+			verbleibendeRingOrte.add(ort);
+		}
+		// Erstellung des Rings.
 		try {
-			Integer[] mittelpunkt = berechneNetzMittelpunkt(ohneASL);
-			double distanz = Double.MAX_VALUE;
-			for (Ort ort : ohneASL) {
-				double distanzOrt = Math.sqrt(Math.pow(
-						(mittelpunkt[0] - ort.koordX), 2)
-						+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
-				if (distanzOrt < distanz) {
-					distanz = distanzOrt;
-				}
-			}
-			// Erstellung des Ringes
-			ArrayList<Ort> ringOrte = new ArrayList<Ort>();
-			for (Ort ort : ohneASL) {
-				double distanzOrt = Math.sqrt(Math.pow(
-						(mittelpunkt[0] - ort.koordX), 2)
-						+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
-				if (distanzOrt < (4.0 * distanz)) {
-					ringOrte.add(ort);
-				}
-			}
-			// Sortieren der Liste RingOrte aufsteigend nach ihrer Distanz
-			Ort mittigsterOrt = getMittigstenOrt(ohneASL);
-			ringOrte = sortiereListeNachAbstand(mittigsterOrt, ringOrte);
-			// Sortierung abgeschlossen.
-			Ort ringstart = ringOrte.get(0);
-			ArrayList<Ort> verbleibendeRingOrte = new ArrayList<Ort>();
-			for (Ort ort : ringOrte) {
-				verbleibendeRingOrte.add(ort);
-			}
-			// Erstellung des Rings.
 			for (int index = 0; index < ringOrte.size(); index++) {
 				if (index == (ringOrte.size() - 1)) {
 					// eingerichteteKorridore.add(new Korridor(
@@ -151,7 +215,7 @@ public class Karte {
 
 			}
 			// Hier erstellung der Liste verbleibenderOrte.
-			ArrayList<Ort> verbleibendeOrte = ohneASL;
+			ArrayList<Ort> verbleibendeOrte = ohneASLOrte;
 			for (Ort ortA : ringOrte) {
 				verbleibendeOrte.remove(ortA);
 			}
@@ -161,6 +225,7 @@ public class Karte {
 						Korridor.KENNUNG_ENFC));
 			}
 		} catch (UngueltigerOrt e) {
+
 		}
 	}
 
@@ -284,6 +349,13 @@ public class Karte {
 		}
 	}
 
+	public boolean isUpgradeable(Korridor k) {
+		String neueKorridorart = k.getNextKennung();
+		if (neueKorridorart != "") 
+			return istEinrichtbarerKorridor(k.ortA, k.ortB, neueKorridorart);
+		return false;
+	}
+
 	/**
 	 * Diese Methode prüft, ob der angegebene KorridorTyp zwischen den Orten
 	 * eingerichtet werden kann.
@@ -296,7 +368,11 @@ public class Karte {
 	 * @author Nils
 	 */
 	public boolean istEinrichtbarerKorridor(Ort ortA, Ort ortB,
-			String korridorTyp) {
+			String korridorTyp) throws IllegalArgumentException {
+		if (!(korridorTyp == Korridor.KENNUNG_ENFC
+				|| korridorTyp == Korridor.KENNUNG_SICH
+				|| korridorTyp == Korridor.KENNUNG_HLST || korridorTyp == Korridor.KENNUNG_STND))
+			throw new IllegalArgumentException();
 		if (korridorTyp.equals(Korridor.KENNUNG_ENFC)) {
 			if ((ortA.getKennung().equals(Ort.KENNUNG_HAUPTORT)
 					|| ortA.getKennung().equals(Ort.KENNUNG_NEBENORT) || ortA
@@ -635,21 +711,23 @@ public class Karte {
 		return anzahl;
 	}
 
-
 	// karte.ermittleRelevanteKonzentration(35, 75, 5, 3); eignet sich.
 	/**
 	 * 
 	 * @param vonLaenge
-	 * 					Beginn der Schleife, die sich alle Felder mit mind. dieser Kantenlaenge sucht
+	 *            Beginn der Schleife, die sich alle Felder mit mind. dieser
+	 *            Kantenlaenge sucht
 	 * @param bisLaenge
-	 * 					Ende der Schleife
+	 *            Ende der Schleife
 	 * @param schrittweite
-	 * 					Groesse in km, um die die beiden Kanten eines Suchfeldes pro Iteration vergroessert werden.
+	 *            Groesse in km, um die die beiden Kanten eines Suchfeldes pro
+	 *            Iteration vergroessert werden.
 	 * @param abbruchBedingung
-	 * 					Schwellenwert, der bei Uebersteigen fuer einen Abbruch der Schleife sorgt: Anzahl von Feldern.
+	 *            Schwellenwert, der bei Uebersteigen fuer einen Abbruch der
+	 *            Schleife sorgt: Anzahl von Feldern.
 	 * @return eine Liste von Feldern, die den o.g. Kriterien entsprechen
 	 * @throws IllegalArgumentException
-	 * 					Im Fall von ungueltigen Zahlenangaben fuer o.g. Werte.
+	 *             Im Fall von ungueltigen Zahlenangaben fuer o.g. Werte.
 	 * @author bruecknerr
 	 */
 	public ArrayList<Feld> ermittleRelevanteKonzentration(int vonLaenge,
@@ -666,8 +744,8 @@ public class Karte {
 		boolean illegalArgument = ((bisLaenge <= vonLaenge)
 				|| (schrittweite < 1 || schrittweite > Math.min(
 						KARTE_GROESSE_X, KARTE_GROESSE_Y))
-				|| (vonLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y))
-				|| (bisLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)));
+				|| (vonLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)) || (bisLaenge > Math
+				.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)));
 		if (illegalArgument)
 			throw new IllegalArgumentException();
 
