@@ -92,8 +92,10 @@ public class Karte {
 	 */
 	public void erstelleNetz() {
 		verbindeAuslandsorte();
-		//erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
-		erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3), entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		// erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
+		// orte));
+		erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3),
+				entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
 	}
 
 	/**
@@ -101,7 +103,7 @@ public class Karte {
 	 * 
 	 * @param ohneASL
 	 */
-	public void erstelleRingStruktur(ArrayList<Feld> relevanzFelder,
+	private void erstelleRingStruktur(ArrayList<Feld> relevanzFelder,
 			ArrayList<Ort> ohneASLOrte) {
 		ArrayList<Ort> ringOrte = new ArrayList<Ort>();
 		double hoechsterRG = 0;
@@ -113,14 +115,15 @@ public class Karte {
 			}
 		}
 		// Erstellen einer Liste der vorhanden Ringorte.
-		head: for (double abwertFaktor = 1; abwertFaktor >= 0.6; abwertFaktor = (abwertFaktor-0.1)) {
-			while (ringOrte.size() < 4) {
+		head: while (ringOrte.size() < 4) {
+			for (double abwertFaktor = 1; abwertFaktor >= 0.6; abwertFaktor = (abwertFaktor - 0.1)) {
+
 				for (Ort ort : ohneASLOrte) {
 					if (relevanzGradOrtmitASL(ort) >= (hoechsterRG * abwertFaktor)
 							&& !ringOrte.contains(ort)) {
 						ringOrte.add(ort);
 					}
-					if (ringOrte.size() < 4 && abwertFaktor == 0.6) {
+					if (ringOrte.size() < 4 && abwertFaktor < 0.61) {
 						System.out.println("Sehr wenige RingOrte Anzahl: "
 								+ ringOrte.size());
 						break head;
@@ -190,7 +193,6 @@ public class Karte {
 
 		}
 	}
-		
 
 	/**
 	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Einfachen
@@ -663,21 +665,23 @@ public class Karte {
 		return anzahl;
 	}
 
-
 	// karte.ermittleRelevanteKonzentration(35, 75, 5, 3); eignet sich.
 	/**
 	 * 
 	 * @param vonLaenge
-	 * 					Beginn der Schleife, die sich alle Felder mit mind. dieser Kantenlaenge sucht
+	 *            Beginn der Schleife, die sich alle Felder mit mind. dieser
+	 *            Kantenlaenge sucht
 	 * @param bisLaenge
-	 * 					Ende der Schleife
+	 *            Ende der Schleife
 	 * @param schrittweite
-	 * 					Groesse in km, um die die beiden Kanten eines Suchfeldes pro Iteration vergroessert werden.
+	 *            Groesse in km, um die die beiden Kanten eines Suchfeldes pro
+	 *            Iteration vergroessert werden.
 	 * @param abbruchBedingung
-	 * 					Schwellenwert, der bei Uebersteigen fuer einen Abbruch der Schleife sorgt: Anzahl von Feldern.
+	 *            Schwellenwert, der bei Uebersteigen fuer einen Abbruch der
+	 *            Schleife sorgt: Anzahl von Feldern.
 	 * @return eine Liste von Feldern, die den o.g. Kriterien entsprechen
 	 * @throws IllegalArgumentException
-	 * 					Im Fall von ungueltigen Zahlenangaben fuer o.g. Werte.
+	 *             Im Fall von ungueltigen Zahlenangaben fuer o.g. Werte.
 	 * @author bruecknerr
 	 */
 	public ArrayList<Feld> ermittleRelevanteKonzentration(int vonLaenge,
@@ -694,8 +698,8 @@ public class Karte {
 		boolean illegalArgument = ((bisLaenge <= vonLaenge)
 				|| (schrittweite < 1 || schrittweite > Math.min(
 						KARTE_GROESSE_X, KARTE_GROESSE_Y))
-				|| (vonLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y))
-				|| (bisLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)));
+				|| (vonLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)) || (bisLaenge > Math
+				.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)));
 		if (illegalArgument)
 			throw new IllegalArgumentException();
 
