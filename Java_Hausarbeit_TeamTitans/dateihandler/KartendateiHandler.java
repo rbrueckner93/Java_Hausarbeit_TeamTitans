@@ -36,6 +36,8 @@ public class KartendateiHandler extends Datei {
 
 	public int aktuelleZeile = 0;
 
+	public int ausgewerteteDatensaetze = 0;
+
 	/**
 	 * 0
 	 */
@@ -80,24 +82,26 @@ public class KartendateiHandler extends Datei {
 	 * 
 	 * @author Nils
 	 */
-	public void verarbeiteKartendatei() throws DateiSyntaxFehler{
+	public void verarbeiteKartendatei() throws DateiSyntaxFehler {
+		ausgewerteteDatensaetze = 0;
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
 		kartenInstanz.nameKartendatei = getDateiNamen(aktuelleKartendatei);
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
 			JOptionPane
 					.showMessageDialog(null, "Fehlender Datei Beginn Marker");
-			System.exit(0);
+			throw new DateiSyntaxFehler();
 		}
 		int dateiEnde = findeDateiEndeMarker(dateiAnfang, geleseneDaten);
 		if (dateiEnde == -1) {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
-			System.exit(0);
+			throw new DateiSyntaxFehler();
 		}
 		checkLeeresDateiende(dateiEnde, geleseneDaten);
 		if (!DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
 			JOptionPane.showMessageDialog(null,
 					"Kein auswertbarer Datensatz in der Datei gefunden");
+			throw new DateiSyntaxFehler();
 		}
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
@@ -110,9 +114,11 @@ public class KartendateiHandler extends Datei {
 			aktuelleZeile = datensatzEnde;
 			if (datensatzBeginn == datensatzEnde) {
 				aktuelleZeile += 1;
-				System.out.println(1);
 			}
 		}
+		JOptionPane.showMessageDialog(null, "Es wurden "
+				+ ausgewerteteDatensaetze
+				+ " Datensaetze erfolgreich eingelesen.");
 	}
 
 	/**
@@ -157,7 +163,8 @@ public class KartendateiHandler extends Datei {
 	 *            ArrayList in der gesucht werden soll.
 	 * @return Integer der Zeile mit Befund, sonst -1
 	 */
-	public static int findeDateiEndeMarker(int beginn, ArrayList<String> text) {
+	public static int findeDateiEndeMarker(int beginn, ArrayList<String> text)
+			throws DateiSyntaxFehler {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
 		int endeDateiBeginnMarker = text.get(beginn).indexOf(
@@ -171,10 +178,12 @@ public class KartendateiHandler extends Datei {
 			String zutesten = text.get(beginn).substring(anfangZeile1,
 					endeZeile1);
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
-				JOptionPane.showMessageDialog(null,
-						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-								+ (beginn + 1));
-				System.exit(0);
+				JOptionPane
+						.showMessageDialog(
+								null,
+								"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
+										+ (beginn + 1));
+				throw new DateiSyntaxFehler();
 			}
 		}
 		int anfangZeile11 = text.get(beginn).indexOf(DATEI_ENDE_MARKER);
@@ -200,10 +209,12 @@ public class KartendateiHandler extends Datei {
 				String moeglicherstart = text.get(beginn).substring(
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
-					JOptionPane.showMessageDialog(null,
-							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-									+ (beginn + 1));
-					System.exit(0);
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
+											+ (beginn + 1));
+					throw new DateiSyntaxFehler();
 				}
 			}
 			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
@@ -271,6 +282,10 @@ public class KartendateiHandler extends Datei {
 				beginn++;
 				continue;
 			}
+			// Hier fehlt ein Check auf Nicht angefangene Datensaetze!!
+			int moeglicherDatensatzEnde = text.get(beginn).indexOf(
+					DATENSATZ_ENDE_MARKER);
+			
 			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -300,7 +315,7 @@ public class KartendateiHandler extends Datei {
 	 * @return Integer der Zeile mit Befunf, sonst beginn Zeile.
 	 */
 	public static int findeDatensatzEndeMarker(int beginn,
-			ArrayList<String> text) {
+			ArrayList<String> text) throws DateiSyntaxFehler {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
 		int endeDateiBeginnMarker = text.get(beginn).indexOf(
@@ -314,10 +329,12 @@ public class KartendateiHandler extends Datei {
 			String zutesten = text.get(beginn).substring(anfangZeile1,
 					endeZeile1);
 			if (zutesten.equals(DATENSATZ_BEGINN_MARKER)) {
-				JOptionPane.showMessageDialog(null,
-						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-								+ (beginn + 1));
-				return 0;
+				JOptionPane
+						.showMessageDialog(
+								null,
+								"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
+										+ (beginn + 1));
+				throw new DateiSyntaxFehler();
 			}
 		}
 		int anfangZeile11 = text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER);
@@ -344,10 +361,12 @@ public class KartendateiHandler extends Datei {
 				String moeglicherstart = text.get(beginn).substring(
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATENSATZ_BEGINN_MARKER)) {
-					JOptionPane.showMessageDialog(null,
-							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
-									+ (beginn + 1));
-					return 0;
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
+											+ (beginn + 1));
+					throw new DateiSyntaxFehler();
 				}
 			}
 			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
@@ -377,12 +396,18 @@ public class KartendateiHandler extends Datei {
 	 * @return Wert des gesuchten Merkmals als String
 	 */
 	public String getMerkmal(String wertBezeichner, String zeile)
-			throws MerkmalMissing {
+			throws MerkmalMissing, DateiSyntaxFehler {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
 		if (anfang == -1) {
 			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
+		if (zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, ende) != -1) {
+			JOptionPane.showMessageDialog(null, "Merkmal \"" + wertBezeichner
+					+ "\" mehrfach im Datensatz ab Zeile "
+					+ (aktuelleZeile + 1) + " vorhanden.");
+			throw new DateiSyntaxFehler();
+		}
 		String inhaltMerkmal = zeile.substring(anfang, ende);
 		String[] merkmalsplit = inhaltMerkmal.split("\\"
 				+ BEZEICHNER_WERT_TRENNER);
@@ -407,7 +432,7 @@ public class KartendateiHandler extends Datei {
 	 *            Liste aus Strings in dem der Datensatz steht.
 	 */
 	public void werteDatensatzAus(int beginnZeile, int endeZeile,
-			ArrayList<String> text) {
+			ArrayList<String> text) throws DateiSyntaxFehler {
 		// Erstellt einen zusammenhängenden String.
 		String datensatz = "";
 		for (int i = beginnZeile; i <= endeZeile; i++) {
@@ -427,9 +452,9 @@ public class KartendateiHandler extends Datei {
 			koordinateCheckenY(ykoord);
 			if (!mindestabstandEingehalten(xkoord, ykoord)) {
 				JOptionPane.showMessageDialog(null,
-						"Orte liegen zu dicht beeinander. Datensatz beginn in Zeile"
+						"Orte liegen zu dicht beeinander. In Datensatz ab Zeile: "
 								+ (aktuelleZeile + 1));
-				System.exit(0);
+				throw new DateiSyntaxFehler();
 			}
 			// Restliche Auswertung.
 			String name = getMerkmal(BEZEICHNER_NAME, datensatz);
@@ -459,14 +484,15 @@ public class KartendateiHandler extends Datei {
 				erzeugeAuslandsverbindung(xkoord, ykoord, name,
 						umschlagVolumenASL, passagierAufkommen);
 			}
+			ausgewerteteDatensaetze++;
 		} catch (MerkmalMissing e) {
 			e.erzeugeMeldung();
 			System.exit(0);
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
-					"Fehler in Merkmalen. Zahlen sind keine Zahlen. Datensatz ab Zeile "
+					"Fehler in Merkmalen. Zahlen sind keine Zahlen. Datensatz ab Zeile: "
 							+ (aktuelleZeile + 1));
-			System.exit(0);
+			throw new DateiSyntaxFehler();
 		}
 	}
 
@@ -498,14 +524,14 @@ public class KartendateiHandler extends Datei {
 	 * @param koord
 	 *            Integer der Koordinate.
 	 */
-	public void koordinateCheckenX(int koord) {
+	public void koordinateCheckenX(int koord) throws DateiSyntaxFehler {
 		if (koord > MAX_KOORD_X || koord < MIN_KOORD_X) {
 			JOptionPane
 					.showMessageDialog(
 							null,
-							"Ort liegt ausserhalb der erlaubten Karte - X Wert außerhalb \n In Datensatz ab Zeile "
+							"Ort liegt ausserhalb der erlaubten Karte - X Wert außerhalb \n In Datensatz ab Zeile: "
 									+ (aktuelleZeile + 1));
-			System.exit(0);
+			throw new DateiSyntaxFehler();
 		}
 	}
 
@@ -515,14 +541,14 @@ public class KartendateiHandler extends Datei {
 	 * @param koord
 	 *            Integer der Koordinate.
 	 */
-	public void koordinateCheckenY(int koord) {
+	public void koordinateCheckenY(int koord) throws DateiSyntaxFehler {
 		if (koord > MAX_KOORD_Y || koord < MIN_KOORD_Y) {
 			JOptionPane
 					.showMessageDialog(
 							null,
-							"Ort liegt ausserhalb der erlaubten Karte - Y Wert außerhalb \n In Datensatz ab Zeile "
+							"Ort liegt ausserhalb der erlaubten Karte - Y Wert außerhalb \n In Datensatz ab Zeile: "
 									+ (aktuelleZeile + 1));
-			System.exit(0);
+			throw new DateiSyntaxFehler();
 		}
 	}
 
@@ -579,15 +605,16 @@ public class KartendateiHandler extends Datei {
 		}
 		return true;
 	}
-	
+
 	public void checkLeeresDateiende(int zeile, ArrayList<String> text) {
 		zeile++;
-		while (zeile < text.size()){
-			if (text.get(zeile).equals("") || text.get(zeile).equals("\n")){
+		while (zeile < text.size()) {
+			if (text.get(zeile).equals("") || text.get(zeile).equals("\n")) {
 				zeile++;
 				continue;
 			}
-			JOptionPane.showMessageDialog(null, "Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
+			JOptionPane.showMessageDialog(null,
+					"Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
 			return;
 		}
 	}

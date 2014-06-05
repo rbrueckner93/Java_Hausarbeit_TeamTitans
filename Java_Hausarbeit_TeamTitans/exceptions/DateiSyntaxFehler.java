@@ -6,10 +6,11 @@ public class DateiSyntaxFehler extends Exception{
 	
 	int zeile;
 
-	public DateiSyntaxFehler(int fehlercode, int zeile) {
-		super();
-		this.fehlercode = fehlercode;
-		this.zeile = zeile;
+	public DateiSyntaxFehler() {
+//		int fehlercode, int zeile
+//		super();
+//		this.fehlercode = fehlercode;
+//		this.zeile = zeile;
 	}
 
 	public void zeigeFehlernachricht(){

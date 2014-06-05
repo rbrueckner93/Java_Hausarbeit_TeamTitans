@@ -227,9 +227,13 @@ public class Benutzerinterface {
 	 * 
 	 * @param aktuelleSimulation
 	 */
-	public void zeigeNutzkosten(Simulator aktuelleSimulation) {
+	public void zeigeNutzkosten(Simulator aktuelleSimulation, Karte aktuelleKarte) {
 
 		double kosten = aktuelleSimulation.ermittleNutzkosten();
+		if (aktuelleKarte.ermittleGesamteBaukosten() > aktuelleKarte.getBudget()){
+			double budgetUeberschreitung = (aktuelleKarte.ermittleGesamteBaukosten() - aktuelleKarte.getBudget());
+			kosten += budgetUeberschreitung;
+		}
 		JOptionPane.showMessageDialog(null, "Die Nutzkosten betragen " + kosten
 				+ " Geldeinheiten.");
 	}

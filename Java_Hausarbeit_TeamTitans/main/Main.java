@@ -40,6 +40,7 @@ public class Main {
 				dateiLesenErfolgreich = true;
 			} catch (DateiSyntaxFehler e) {
 				e.zeigeFehlernachricht();
+				karte.orte.clear();
 				dateiLesenErfolgreich = false;
 			}
 		} while (!dateiLesenErfolgreich);
@@ -60,11 +61,12 @@ public class Main {
 				dateiLesenErfolgreich = true;
 			} catch (DateiSyntaxFehler e) {
 				e.zeigeFehlernachricht();
+				sim.routen.clear();
 				dateiLesenErfolgreich = false;
 			}
 		} while (!dateiLesenErfolgreich);
 		sim.simuliere();
-		gui.zeigeNutzkosten(sim);
+		gui.zeigeNutzkosten(sim, karte);
 		int endOption = gui.frageNachEndoption();
 		if (endOption == 1) {
 			NetzdateiHandler kartenSchreiber = new NetzdateiHandler(karte);
@@ -90,11 +92,12 @@ public class Main {
 					dateiLesenErfolgreich = true;
 				} catch (DateiSyntaxFehler e) {
 					e.zeigeFehlernachricht();
+					sim.routen.clear();
 					dateiLesenErfolgreich = false;
 				}
 			} while (!dateiLesenErfolgreich);
 			sim.simuliere();
-			gui.zeigeNutzkosten(sim);
+			gui.zeigeNutzkosten(sim, karte);
 			endOption = gui.frageNachEndoption();
 			if (endOption == 0) {
 				simSchreiber.schreibeSimulationsDatei();
