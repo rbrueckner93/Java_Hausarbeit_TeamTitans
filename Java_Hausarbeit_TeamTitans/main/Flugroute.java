@@ -7,11 +7,13 @@ import korridore.Korridor;
 import orte.Ort;
 
 /**
- * @author BruecknerR ... wird erst bei Nutzung=Testdateieinlesen erstellt mit
- *         Start, Ziel, Faktor. Sucht sich nach Aufforderung durch
- *         ermittleBesteRoute (nicht schon bei Initialisierung) ihren eigenen
- *         optimalen Weg, und schreibt diesen in der reiseListe fest und stellt
- *         die Nutzkosten in ermittleRoutennutzkosten fest.
+ * wird erst bei Nutzung=Testdateieinlesen erstellt mit
+ * Start, Ziel, Faktor. Sucht sich nach Aufforderung durch
+ * ermittleBesteRoute (nicht schon bei Initialisierung) ihren eigenen
+ * optimalen Weg, und schreibt diesen in der reiseListe fest und stellt
+ * die Nutzkosten in ermittleRoutennutzkosten fest.
+ * 
+ * @author BruecknerR
  */
 public class Flugroute {
 	public Ort ziel;
@@ -52,7 +54,7 @@ public class Flugroute {
 		 */
 		ArrayList<Flugroute> flugroutenInArbeit = new ArrayList<Flugroute>();
 		/**
-		 * moeglicheFlugrouten speichert diejenigen Routen ab, über die ohne
+		 * moeglicheFlugrouten speichert diejenigen Routen ab, ï¿½ber die ohne
 		 * doppelt angeflogene Orte das ziel erreicht werden kann
 		 */
 		ArrayList<Flugroute> moeglicheFlugrouten = new ArrayList<Flugroute>();
@@ -140,7 +142,7 @@ public class Flugroute {
 		}
 
 		/**
-		 * Nimm die günstigste und gib sie zurück.
+		 * Nimm die gï¿½nstigste und gib sie zurï¿½ck.
 		 */
 		while (moeglicheFlugrouten.size() > 1) {
 			for (int i = 0; i < moeglicheFlugrouten.size(); i++) {
@@ -202,7 +204,7 @@ public class Flugroute {
 	}
 
 	/**
-	 * gibt eine ArrayList von Orten zurück, die die Reihenfolge von Reise-Hops
+	 * gibt eine ArrayList von Orten zurï¿½ck, die die Reihenfolge von Reise-Hops
 	 * ausgibt. aus der ArrayList<Korridor> mit ortA und ortB muss also nach dem
 	 * Ort des ersten Korridors gesucht werden, der herkunft entspricht. im
 	 * zweiten korridor wird festgestellt, welcher ort nicht dem zweiten ort des
