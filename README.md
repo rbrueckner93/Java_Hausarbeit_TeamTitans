@@ -24,7 +24,7 @@ ToDo:
 - was passiert bei Spezialfaellen:
 - - nur ASL
 - - weniger 4 Orte
-- - 
+- - nur ein ort in Kartendatei
   
 ABGABE : 11.6.2014
 
