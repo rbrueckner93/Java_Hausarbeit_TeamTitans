@@ -11,11 +11,16 @@ ToDo:
 - alles ordentlich kommentieren
 - GUI anpassung. Treffen wir die Aufgabenstellung?
 - Weitere Optimierung des Netzes
-- Ablauf in Main. Bitte checken, ob er zur Aufgabenstellung passt.
 - Kommentararten ueberpruefen
-- private / public
+- private / public (Methode: alles per s/r auf private, dann Fehler durch ruecksetzen beheben.)
 - getters/setters nutzen, keine fremden Attribute!
 - bei Nutzungskosten DELTA/Baukosten aufschlagen!
+- woher kommt die Meldung "Meldung" mit leerem Text?
+- Karte die Methode getNiedrigstenRelevanzGrad
+- Karte die Methode getKorridorArtRang
+- Karte die Methode getAbsKorridorRang
+- Karte die Methode getRelativenRG
+
 - was passiert bei Spezialfaellen:
 - - nur ASL
 - - weniger 4 Orte
