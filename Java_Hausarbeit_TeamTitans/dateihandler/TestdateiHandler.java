@@ -34,6 +34,10 @@ public class TestdateiHandler extends Datei {
 
 	int aktuelleZeile = 0;
 
+	public int ausgewerteteDatensaetze = 0;
+
+	public int mitFaktorDefault = 0;
+
 	/**
 	 * Konstruktor. Bekommt von der Mainmethode eine lesbare Testdatei vom typ
 	 * File und ein Objekt der Klasse Simulator.
@@ -50,7 +54,9 @@ public class TestdateiHandler extends Datei {
 		this.aktuelleKarte = aktuelleKarte;
 	}
 
-	public void verarbeiteTestdatei() throws DateiSyntaxFehler{
+	public void verarbeiteTestdatei() throws DateiSyntaxFehler {
+		ausgewerteteDatensaetze = 0;
+		mitFaktorDefault = 0;
 		// Einlesen der Datei. Liefert pro Zeile ein StringObjekt im Array.
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
 		aktuelleSimulation.nameTestdatei = getDateiNamen(aktuelleTestdatei);
@@ -59,17 +65,18 @@ public class TestdateiHandler extends Datei {
 		if (dateiAnfang == -1) {
 			JOptionPane
 					.showMessageDialog(null, "Fehlender Datei Beginn Marker");
-			System.exit(0);
+			throw new DateiSyntaxFehler();
 		}
 		int dateiEnde = findeDateiEndeMarker(dateiAnfang, geleseneDaten);
 		if (dateiEnde == -1) {
 			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
-			System.exit(0);
+			throw new DateiSyntaxFehler();
 		}
 		checkLeeresDateiende(dateiEnde, geleseneDaten);
 		if (!DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
 			JOptionPane.showMessageDialog(null,
 					"Kein auswertbarer Datensatz in der Datei gefunden");
+			throw new DateiSyntaxFehler();
 		}
 		// Eigentliche Auswertung des gefundenen Datensatzes.
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
@@ -85,6 +92,10 @@ public class TestdateiHandler extends Datei {
 				aktuelleZeile += 1;
 			}
 		}
+		JOptionPane.showMessageDialog(null, "Es wurden "
+				+ ausgewerteteDatensaetze
+				+ " Datensaetze erfolgreich eingelesen. \n" + mitFaktorDefault
+				+ " davon mit Faktor 1");
 	}
 
 	/**
@@ -126,7 +137,7 @@ public class TestdateiHandler extends Datei {
 	 * @param marker
 	 * @return
 	 */
-	public static int findeDateiEndeMarker(int beginn, ArrayList<String> text) {
+	public static int findeDateiEndeMarker(int beginn, ArrayList<String> text) throws DateiSyntaxFehler {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
 		int endeDateiBeginnMarker = text.get(beginn).indexOf(
@@ -141,9 +152,9 @@ public class TestdateiHandler extends Datei {
 					endeZeile1);
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
-						"Dateibeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
+						"Dateibeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
 								+ (beginn + 1));
-				System.exit(0);
+				throw new DateiSyntaxFehler();
 			}
 		}
 		int anfangZeile11 = text.get(beginn).indexOf(DATEI_ENDE_MARKER);
@@ -170,9 +181,9 @@ public class TestdateiHandler extends Datei {
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
-							"Dateibeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
+							"Dateibeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
 									+ (beginn + 1));
-					System.exit(0);
+					throw new DateiSyntaxFehler();
 				}
 			}
 			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
@@ -261,7 +272,7 @@ public class TestdateiHandler extends Datei {
 	 * @return
 	 */
 	public static int findeDatensatzEndeMarker(int beginn,
-			ArrayList<String> text) {
+			ArrayList<String> text) throws DateiSyntaxFehler {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
 		int endeDateiBeginnMarker = text.get(beginn).indexOf(
@@ -276,9 +287,9 @@ public class TestdateiHandler extends Datei {
 					endeZeile1);
 			if (zutesten.equals(DATENSATZ_BEGINN_MARKER)) {
 				JOptionPane.showMessageDialog(null,
-						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
+						"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
 								+ (beginn + 1));
-				return 0;
+				throw new DateiSyntaxFehler();
 			}
 		}
 		int anfangZeile11 = text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER);
@@ -305,9 +316,9 @@ public class TestdateiHandler extends Datei {
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATENSATZ_BEGINN_MARKER)) {
 					JOptionPane.showMessageDialog(null,
-							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Zeile: "
+							"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
 									+ (beginn + 1));
-					return 0;
+					throw new DateiSyntaxFehler();
 				}
 			}
 			int anfangAktuelleZeile1 = text.get(beginn).indexOf(
@@ -335,12 +346,18 @@ public class TestdateiHandler extends Datei {
 	 * @throws MerkmalMissing
 	 */
 	public String getMerkmal(String wertBezeichner, String zeile)
-			throws MerkmalMissing {
+			throws MerkmalMissing, DateiSyntaxFehler{
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
 		if (anfang == -1) {
 			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
+		if (zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, ende) != -1) {
+			JOptionPane.showMessageDialog(null, "Merkmal \"" + wertBezeichner
+					+ "\" mehrfach im Datensatz ab Zeile "
+					+ (aktuelleZeile + 1) + " vorhanden.");
+			throw new DateiSyntaxFehler();
+		}
 		String inhaltMerkmal = zeile.substring(anfang, ende);
 		String[] merkmalsplit = inhaltMerkmal.split("\\"
 				+ BEZEICHNER_WERT_TRENNER);
@@ -376,13 +393,13 @@ public class TestdateiHandler extends Datei {
 			}
 		}
 		if (ortHerkunft == null) {
-			JOptionPane.showMessageDialog(null, "Flugroute von " +nameHerkunft+" nach "+nameZiel+ " nicht erzeugbar - "
-					+ nameHerkunft +
-					" nicht auf Karte");
+			JOptionPane.showMessageDialog(null, "Flugroute von " + nameHerkunft
+					+ " nach " + nameZiel + " nicht erzeugbar - "
+					+ nameHerkunft + " nicht auf Karte");
 		} else if (ortZiel == null) {
-			JOptionPane.showMessageDialog(null, "Flugroute von " +nameHerkunft+" nach "+nameZiel+ " nicht erzeugbar - "
-					+ nameZiel +
-					" nicht auf Karte");
+			JOptionPane.showMessageDialog(null, "Flugroute von " + nameHerkunft
+					+ " nach " + nameZiel + " nicht erzeugbar - " + nameZiel
+					+ " nicht auf Karte");
 		} else {
 			aktuelleSimulation.routen.add(new Flugroute(ortZiel, ortHerkunft,
 					faktor));
@@ -390,7 +407,7 @@ public class TestdateiHandler extends Datei {
 	}
 
 	public void werteDatensatzAus(int beginnZeile, int endeZeile,
-			ArrayList<String> text) {
+			ArrayList<String> text) throws DateiSyntaxFehler{
 		// Erstellt einen zusammenhängenden String.
 		String datensatz = "";
 		for (int i = beginnZeile; i <= endeZeile; i++) {
@@ -408,8 +425,10 @@ public class TestdateiHandler extends Datei {
 				int faktor = Integer.parseInt(getMerkmal(BEZEICHNER_FAKTOR,
 						datensatz));
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktor);
+				ausgewerteteDatensaetze++;
 			} catch (MerkmalMissing e) {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktorDefault);
+				mitFaktorDefault++;
 			}
 		} catch (MerkmalMissing e) {
 			e.erzeugeMeldung();
@@ -418,7 +437,7 @@ public class TestdateiHandler extends Datei {
 			JOptionPane.showMessageDialog(null,
 					"Merkmale enthalten keine Zahlen. Im Datensatz ab "
 							+ (aktuelleZeile + 1));
-			System.exit(0);
+			throw new DateiSyntaxFehler();
 		}
 
 	}
@@ -433,22 +452,24 @@ public class TestdateiHandler extends Datei {
 		String dateiName = datei.getName().substring(0, dateiEndung);
 		return dateiName;
 	}
-	
-	public static boolean istKommentarZeile(String zeile){
-			if (zeile.indexOf(KOMMENTARMARKER) == -1 || zeile.indexOf(KOMMENTARMARKER) > 0) {
-				return false;
-			}
+
+	public static boolean istKommentarZeile(String zeile) {
+		if (zeile.indexOf(KOMMENTARMARKER) == -1
+				|| zeile.indexOf(KOMMENTARMARKER) > 0) {
+			return false;
+		}
 		return true;
 	}
-	
-	public void checkLeeresDateiende(int zeile, ArrayList<String> text){
+
+	public void checkLeeresDateiende(int zeile, ArrayList<String> text) {
 		zeile++;
-		while (zeile < text.size()){
-			if (text.get(zeile).equals("") || text.get(zeile).equals("\n")){
+		while (zeile < text.size()) {
+			if (text.get(zeile).equals("") || text.get(zeile).equals("\n")) {
 				zeile++;
 				continue;
 			}
-			JOptionPane.showMessageDialog(null, "Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
+			JOptionPane.showMessageDialog(null,
+					"Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
 			return;
 		}
 	}
