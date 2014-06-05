@@ -16,6 +16,10 @@ ToDo:
 - private / public
 - getters/setters nutzen, keine fremden Attribute!
 - bei Nutzungskosten DELTA/Baukosten aufschlagen!
+- was passiert bei Spezialfaellen:
+- - nur ASL
+- - weniger 4 Orte
+- - 
   
 ABGABE : 11.6.2014
 
