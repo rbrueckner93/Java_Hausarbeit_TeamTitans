@@ -108,18 +108,13 @@ public class Korridor {
 		return "";
 	}
 
-	public Ort bestimmeAnderenOrt(Ort bekanntesEnde) {
-		Ort ermittelterOrt;
+	public Ort bestimmeAnderenOrt(Ort bekanntesEnde) throws IllegalArgumentException{
 		if (ortA == bekanntesEnde) {
-			ermittelterOrt = ortB;
+			return ortB;
 		} else if (ortB == bekanntesEnde) {
-			ermittelterOrt = ortA;
-		} else {
-			ermittelterOrt = null;
+			return ortA;
 		}
-		// hier vielleicht auch ne Exception oder sowas?
-
-		return ermittelterOrt;
+		throw new IllegalArgumentException();
 	}
 
 	public double getBaukosten() {
