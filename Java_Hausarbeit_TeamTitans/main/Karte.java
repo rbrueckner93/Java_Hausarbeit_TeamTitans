@@ -92,10 +92,45 @@ public class Karte {
 	 */
 	public void erstelleNetz() {
 		verbindeAuslandsorte();
-		// erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
-		// orte));
-		erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3),
-				entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
+		 orte));
+		for(Korridor k : eingerichteteKorridore){
+			System.out.println(k.getBeschreibung()+k.getBaukosten());
+		}
+		//erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3),
+			//	entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		netzUpgrade();
+	}
+
+	public double getAbsKorridorRang(Korridor korridor) {
+		return korridor.laenge * korridor.ortA.getRelevanzGrad()
+				* korridor.ortB.getRelevanzGrad();
+	}
+
+	public void netzUpgrade() {
+		ArrayList<Korridor> nochUpgradebareK = new ArrayList<Korridor>();
+		for (Korridor k : eingerichteteKorridore) {
+			if (isUpgradeable(k)){
+				nochUpgradebareK.add(k);
+			}
+		}
+		while (ermittleGesamteBaukosten() < budget) {	
+			if (nochUpgradebareK.size() > 0) {
+				Korridor upgradeKandidat = nochUpgradebareK.get(0);
+				for (Korridor upgradebarerKorridor : nochUpgradebareK) {
+					if (getAbsKorridorRang(upgradebarerKorridor) > getAbsKorridorRang(upgradeKandidat))
+						{
+						upgradeKandidat = upgradebarerKorridor;
+						getAbsKorridorRang(upgradeKandidat);
+						}
+				}
+				upgradeKandidat.setKennung(upgradeKandidat
+						.getNextKennung());
+				if(!isUpgradeable(upgradeKandidat)) nochUpgradebareK.remove(upgradeKandidat);
+			}
+			else break;
+		}
+
 	}
 
 	/**
@@ -314,6 +349,13 @@ public class Karte {
 		}
 	}
 
+	public boolean isUpgradeable(Korridor k) {
+		String neueKorridorart = k.getNextKennung();
+		if (neueKorridorart != "") 
+			return istEinrichtbarerKorridor(k.ortA, k.ortB, neueKorridorart);
+		return false;
+	}
+
 	/**
 	 * Diese Methode prüft, ob der angegebene KorridorTyp zwischen den Orten
 	 * eingerichtet werden kann.
@@ -326,7 +368,11 @@ public class Karte {
 	 * @author Nils
 	 */
 	public boolean istEinrichtbarerKorridor(Ort ortA, Ort ortB,
-			String korridorTyp) {
+			String korridorTyp) throws IllegalArgumentException {
+		if (!(korridorTyp == Korridor.KENNUNG_ENFC
+				|| korridorTyp == Korridor.KENNUNG_SICH
+				|| korridorTyp == Korridor.KENNUNG_HLST || korridorTyp == Korridor.KENNUNG_STND))
+			throw new IllegalArgumentException();
 		if (korridorTyp.equals(Korridor.KENNUNG_ENFC)) {
 			if ((ortA.getKennung().equals(Ort.KENNUNG_HAUPTORT)
 					|| ortA.getKennung().equals(Ort.KENNUNG_NEBENORT) || ortA

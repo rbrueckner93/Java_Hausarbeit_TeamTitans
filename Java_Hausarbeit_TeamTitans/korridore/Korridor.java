@@ -1,5 +1,7 @@
 package korridore;
 
+import java.util.ArrayList;
+
 import exceptions.UngueltigerOrt;
 import orte.Auslandsverbindung;
 import orte.Hauptort;
@@ -72,9 +74,38 @@ public class Korridor {
 	public String getKennung() {
 		return kennung;
 	}
-	
+
 	public void setKennung(String kennung) {
 		this.kennung = kennung;
+	}
+
+	public int getKorridorArtRang(String kennung) throws IllegalArgumentException{
+		if(kennung == KENNUNG_HLST || kennung == KENNUNG_SICH) throw new IllegalArgumentException();
+		switch (kennung) {
+		case KENNUNG_ENFC:
+			return 1;
+		case KENNUNG_STND:
+			return 2;
+		}
+		return 0;
+	}
+
+	public String getNextKennung() {
+		switch (getKennung()) {
+		case Korridor.KENNUNG_HLST: {
+			return "";
+		}
+		case Korridor.KENNUNG_SICH: {
+			return "";
+		}
+		case Korridor.KENNUNG_ENFC: {
+			return Korridor.KENNUNG_STND;
+		}
+		case Korridor.KENNUNG_STND: {
+			return Korridor.KENNUNG_HLST;
+		}
+		}
+		return "";
 	}
 
 	public Ort bestimmeAnderenOrt(Ort bekanntesEnde) {
@@ -172,11 +203,12 @@ public class Korridor {
 			throw new UngueltigerOrt(ortA, ortB, "keineKennung");
 		}
 	}
-	
-	public void ueberpruefeOrtUngleichheit(Ort ortA, Ort ortB) throws UngueltigerOrt{
-		if(ortA == ortB){
-			throw new UngueltigerOrt(ortA, ortB, "OrtsGleichheit"); 
+
+	public void ueberpruefeOrtUngleichheit(Ort ortA, Ort ortB)
+			throws UngueltigerOrt {
+		if (ortA == ortB) {
+			throw new UngueltigerOrt(ortA, ortB, "OrtsGleichheit");
 		}
 	}
-	
+
 }
