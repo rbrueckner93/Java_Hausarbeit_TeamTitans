@@ -18,9 +18,9 @@ ToDo:
 - Dateihandler meckert nicht bei ungueltigen Zeichen  vor kartendateistart
 - identische ortsnamen duerfen nicht existieren
 - was passiert bei Spezialfaellen:
-- - nur ASL
+- - nur ASL (erledigt --> dann ein Stern aus SICH erstellt)
 - - weniger 4 Orte
-- - nur ein ort in Kartendatei
+- - nur ein ort in Kartendatei (nur 1 oder kein Ort wird abgefangen und als Massage ausgegeben) 
   
 ABGABE : 11.6.2014
 
