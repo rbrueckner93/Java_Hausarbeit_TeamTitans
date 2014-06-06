@@ -22,18 +22,13 @@ import orte.Umschlagpunkt;
  * 
  * -bekommt eine Methode, die das Netz erzeugt. Eine uebergabe an den
  * Datenhandler speichert das Netz als Textdatei.
+ * 
+ * @author handritschkp, tollen, bruecknerr, fechnerl
  */
 
 public class Karte {
-	/* {author=HandritschkP} */
-
-	/**
-	 * Wird per JOptionPane abgefragt. von Lukas
-	 */
 	public static double budget;
-
 	public ArrayList<Ort> orte;
-
 	public ArrayList<Korridor> eingerichteteKorridore;
 
 	/**
@@ -88,6 +83,7 @@ public class Karte {
 
 	public void erstelleTrigonRing(ArrayList<Ort> ringOrte) {
 		try {
+			System.out.println(ringOrte.size());
 			if (ringOrte.size() > 2) {
 				int mitteX = berechneNetzMittelpunkt(ringOrte)[0];
 				int mitteY = berechneNetzMittelpunkt(ringOrte)[1];
@@ -98,12 +94,14 @@ public class Karte {
 					nichtVerbunden.add(a);
 				}
 				Ort partnerSucher = ringOrte.get(0);
+				Ort ersterOrt = ringOrte.get(0);
+				nichtVerbunden.remove(0);
 				Ort winkelPartner = null;
-				double winkeldelta;
+				double winkelMin;
 				double neuesDelta;
 
 				while (nichtVerbunden.size() > 1) {
-					winkeldelta = Double.MAX_VALUE;
+					winkelMin = Double.MAX_VALUE;
 					for (Ort moeglicherPartner : ringOrte) {
 						if ((moeglicherPartner != partnerSucher)
 								&& (!schonVerbunden.contains(moeglicherPartner))) {
@@ -129,24 +127,24 @@ public class Karte {
 																	mitteX,
 																	mitteY,
 																	moeglicherPartner))));
-							if (neuesDelta < winkeldelta) {
-								winkeldelta = neuesDelta;
+							if (neuesDelta < winkelMin) {
+								winkelMin = neuesDelta;
 								winkelPartner = moeglicherPartner;
 							}
 						}
 					}
-					if (winkelPartner != null) {
+					if (nichtVerbunden.size() > 1) {
 						eingerichteteKorridore.add(new Korridor(partnerSucher,
-								winkelPartner, "SICH"));
+								winkelPartner, Korridor.KENNUNG_ENFC));
 						schonVerbunden.add(partnerSucher);
 						nichtVerbunden.remove(partnerSucher);
 						partnerSucher = winkelPartner;
-						System.out.println(partnerSucher.name+" > "+winkelPartner+ "d="+winkeldelta);
+						System.out.println(partnerSucher.name + " > "
+								+ winkelPartner + "d=" + winkelMin);
 					}
 				}
-				if (winkelPartner != null)
-					eingerichteteKorridore.add(new Korridor(winkelPartner,
-							ringOrte.get(0), "SICH"));
+				eingerichteteKorridore.add(new Korridor(nichtVerbunden.get(0),
+						ersterOrt, Korridor.KENNUNG_ENFC));
 			}
 		} catch (UngueltigerOrt e) {
 			// TODO Auto-generated catch block
@@ -170,33 +168,30 @@ public class Karte {
 			winkel = 2 * Math.PI - winkel;
 		// genau ueber Bezug
 		if (punktX == bezugX && punktY > bezugY)
-			winkel = 0.5*Math.PI;
+			winkel = 0.5 * Math.PI;
 		// genau unter Bezug
 		if (punktX == bezugX && punktY < bezugY)
-			winkel = 1.5*Math.PI;
+			winkel = 1.5 * Math.PI;
 		// genau rechts Bezug
 		if (punktX > bezugX && punktY == bezugY)
 			winkel = 0;
-		//genau links Bezug
+		// genau links Bezug
 		if (punktX < bezugX && punktY == bezugY)
 			winkel = Math.PI;
 		return Math.toDegrees(winkel);
 	}
-	
-	
+
 	/**
 	 * Hauptmethode der Klasse Karte. Hier werden alle notwendigen Schritte zur
 	 * Netzerstellung ausgeführt.
 	 */
 	public void erstelleNetz() {
 		verbindeAuslandsorte();
-		erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
-		 orte));
-		for(Korridor k : eingerichteteKorridore){
-			System.out.println(k.getBeschreibung()+k.getBaukosten());
-		}
-		//erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3),
-			//	entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		// erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
+		// orte));
+
+		erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3),
+				entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
 		netzUpgrade();
 	}
 
@@ -208,25 +203,24 @@ public class Karte {
 	public void netzUpgrade() {
 		ArrayList<Korridor> nochUpgradebareK = new ArrayList<Korridor>();
 		for (Korridor k : eingerichteteKorridore) {
-			if (isUpgradeable(k)){
+			if (isUpgradeable(k)) {
 				nochUpgradebareK.add(k);
 			}
 		}
-		while (ermittleGesamteBaukosten() < budget) {	
+		while (ermittleGesamteBaukosten() < budget) {
 			if (nochUpgradebareK.size() > 0) {
 				Korridor upgradeKandidat = nochUpgradebareK.get(0);
 				for (Korridor upgradebarerKorridor : nochUpgradebareK) {
-					if (getAbsKorridorRang(upgradebarerKorridor) > getAbsKorridorRang(upgradeKandidat))
-						{
+					if (getAbsKorridorRang(upgradebarerKorridor) > getAbsKorridorRang(upgradeKandidat)) {
 						upgradeKandidat = upgradebarerKorridor;
 						getAbsKorridorRang(upgradeKandidat);
-						}
+					}
 				}
-				upgradeKandidat.setKennung(upgradeKandidat
-						.getNextKennung());
-				if(!isUpgradeable(upgradeKandidat)) nochUpgradebareK.remove(upgradeKandidat);
-			}
-			else break;
+				upgradeKandidat.setKennung(upgradeKandidat.getNextKennung());
+				if (!isUpgradeable(upgradeKandidat))
+					nochUpgradebareK.remove(upgradeKandidat);
+			} else
+				break;
 		}
 
 	}
@@ -249,71 +243,59 @@ public class Karte {
 		}
 		// Erstellen einer Liste der vorhanden Ringorte.
 		head: while (ringOrte.size() < 4) {
-			for (double abwertFaktor = 1; abwertFaktor >= 0.6; abwertFaktor = (abwertFaktor - 0.1)) {
+			for (double abwertFaktor = 1; abwertFaktor >= 0.1; abwertFaktor = (abwertFaktor - 0.05)) {
 
 				for (Ort ort : ohneASLOrte) {
 					if (relevanzGradOrtmitASL(ort) >= (hoechsterRG * abwertFaktor)
 							&& !ringOrte.contains(ort)) {
 						ringOrte.add(ort);
 					}
-					if (ringOrte.size() < 4 && abwertFaktor < 0.61) {
+					if (abwertFaktor < 0.11) {
 						System.out.println("Sehr wenige RingOrte Anzahl: "
 								+ ringOrte.size());
 						break head;
 					}
 				}
+				if (ringOrte.size() > 3) {
+					break head;
+				}
 			}
 		}
 		// Check der Relevanzfelder. Ist aus jedem Feld ein Ort enthalten. Sonst
 		// besten Ort adden.
+		ArrayList<Ort> hinzuzufuegendeOrte = new ArrayList<Ort>();
 		if (relevanzFelder.size() > 0) {
 			for (Feld aktuellesFeld : relevanzFelder) {
-				for (Ort ort : ringOrte) {
-					if (!aktuellesFeld.bestimmeOrteImFeld().contains(ort)) {
-						Ort besterOrt = null;
-						double besterRG = 0;
-						for (Ort ortAusFeld : aktuellesFeld
-								.bestimmeOrteImFeld()) {
-							if (relevanzGradOrtmitASL(ortAusFeld) > besterRG) {
-								besterRG = relevanzGradOrtmitASL(ortAusFeld);
-								besterOrt = ortAusFeld;
-							}
-						}
-						ringOrte.add(besterOrt);
+				boolean enthalten = false;
+				for (Ort ort : aktuellesFeld.bestimmeOrteImFeld()) {
+					if (ringOrte.contains(ort)) {
+						enthalten = true;
 					}
 				}
-			}
-		}
-		// Erstellen des Ringes.
-		// Sortieren der Liste RingOrte aufsteigend nach ihrer Distanz
-		Ort mittigsterOrt = getMittigstenOrt(ohneASLOrte);
-		ringOrte = sortiereListeNachAbstand(mittigsterOrt, ringOrte);
-		// Sortierung abgeschlossen.
-		Ort ringstart = ringOrte.get(0);
-		ArrayList<Ort> verbleibendeRingOrte = new ArrayList<Ort>();
-		for (Ort ort : ringOrte) {
-			verbleibendeRingOrte.add(ort);
-		}
-		// Erstellung des Rings.
-		try {
-			for (int index = 0; index < ringOrte.size(); index++) {
-				if (index == (ringOrte.size() - 1)) {
-					// eingerichteteKorridore.add(new Korridor(
-					// ringOrte.get(index), ringstart,
-					// Korridor.KENNUNG_ENFC));
-					// verbleibendeRingOrte.remove(ringOrte.get(index));
-					break;
-				} else {
-					eingerichteteKorridore.add(new Korridor(
-							ringOrte.get(index), findeDichtestenOrtzuDiesem(
-									ringOrte.get(index), verbleibendeRingOrte),
-							Korridor.KENNUNG_ENFC));
-					verbleibendeRingOrte.remove(ringOrte.get(index));
+				if (!enthalten) {
+					Ort besterOrt = null;
+					double besterRG = 0;
+					for (Ort ortAusFeld : aktuellesFeld.bestimmeOrteImFeld()) {
+						if (relevanzGradOrtmitASL(ortAusFeld) > besterRG) {
+							besterRG = relevanzGradOrtmitASL(ortAusFeld);
+							besterOrt = ortAusFeld;
+						}
+					}
+					hinzuzufuegendeOrte.add(besterOrt);
 				}
-
 			}
-			// Hier erstellung der Liste verbleibenderOrte.
-			ArrayList<Ort> verbleibendeOrte = ohneASLOrte;
+			for (Ort add : hinzuzufuegendeOrte) {
+				ringOrte.add(add);
+			}
+		}
+
+		// Erstellen des Ringes.
+		erstelleTrigonRing(ringOrte);
+
+		// Hier erstellung der Liste verbleibenderOrte.
+		try {
+			ArrayList<Ort> verbleibendeOrte = new ArrayList<Ort>();
+			verbleibendeOrte = ohneASLOrte;
 			for (Ort ortA : ringOrte) {
 				verbleibendeOrte.remove(ortA);
 			}
@@ -449,7 +431,7 @@ public class Karte {
 
 	public boolean isUpgradeable(Korridor k) {
 		String neueKorridorart = k.getNextKennung();
-		if (neueKorridorart != "") 
+		if (neueKorridorart != "")
 			return istEinrichtbarerKorridor(k.ortA, k.ortB, neueKorridorart);
 		return false;
 	}

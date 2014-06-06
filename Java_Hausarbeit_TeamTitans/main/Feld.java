@@ -42,6 +42,31 @@ public class Feld {
 	}
 
 	/**
+	 * Fragt jeden Ort ob Relevanzgrad groesser als bislang gefundener Ort mit
+	 * hoechstem Relevanzgrad ist.
+	 * 
+	 * @author bruecknerr
+	 * @return Ort mit hoechstem Relevanzgrad im aktuellen Feld
+	 * @deprecated
+	 */
+	public Ort wichtigsterOrtImFeld() {
+		Ort wichtigsterOrt = null;
+		if (bestimmeOrteImFeld().size()>0) {
+			// setze initial wichtigsterOrt als das erste Elt. der Liste
+			wichtigsterOrt = bestimmeOrteImFeld().get(0);
+			for (Ort ort : bestimmeOrteImFeld()) {
+				/*
+				 * ueberschreibe jedes Mal, wenn ein Ort mit hoeherem RG
+				 * gefunden wurde.
+				 */
+				if (ort.getRelevanzGrad() > wichtigsterOrt.getRelevanzGrad())
+					wichtigsterOrt = ort;
+			}
+		}
+		return wichtigsterOrt;
+	}
+
+	/**
 	 * @author BruecknerR
 	 * @param feldB
 	 *            irgendein Feld.
