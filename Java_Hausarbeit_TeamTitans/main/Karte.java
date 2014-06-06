@@ -2,6 +2,8 @@ package main;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import exceptions.UngueltigerOrt;
 import korridore.Korridor;
 import orte.Auslandsverbindung;
@@ -145,9 +147,9 @@ public class Karte {
 				}
 				eingerichteteKorridore.add(new Korridor(nichtVerbunden.get(0),
 						ersterOrt, Korridor.KENNUNG_ENFC));
-			}
-			else if(ringOrte.size() == 2){
-				eingerichteteKorridore.add(new Korridor(ringOrte.get(0), ringOrte.get(1), Korridor.KENNUNG_ENFC));
+			} else if (ringOrte.size() == 2) {
+				eingerichteteKorridore.add(new Korridor(ringOrte.get(0),
+						ringOrte.get(1), Korridor.KENNUNG_ENFC));
 			}
 		} catch (UngueltigerOrt e) {
 			// TODO Auto-generated catch block
@@ -189,10 +191,45 @@ public class Karte {
 	 * Netzerstellung ausgeführt.
 	 */
 	public void erstelleNetz() {
-		verbindeAuslandsorte();
-		// erstelleSternENFC(entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG,
-		// orte));
+		/*
+		 * Sonderfall1 Wenn kein einziger Ort in eingelesen wurde, wird Benutzer
+		 * informiert und Programm beendet.
+		 */
+		if (orte.size() == 0) {
+			JOptionPane
+					.showMessageDialog(null,
+							"Leider war kein Ort in Ihrer Kartendatei! /n Das Programm wird beendet.");
+			System.exit(0);
+		}
+		/*
+		 * Sonderfall2 Wenn genau nur ein Ort eingelesen wurde, wird der
+		 * Benutzer informiert, eine Netzerstellung macht keinen Sinn und das
+		 * Programm beendet
+		 */
+		if (orte.size() == 1) {
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"Leider war nur ein Ort in Ihrer Kartendatei! /n Ein Netz zu erstellen macht keinen Sinn./n Das Programm wird beendet.");
+			System.exit(0);
+		}
 
+		/*
+		 * Sonderfall2 Wenn ausschliesslich Auslandsverbindungen eingelesen
+		 * wurden, wird ein Stern aus Sicherheitskorridoren erstellt.
+		 */
+		boolean alleASLOrt = true;
+		for (Ort ort : orte) {
+			if (!ort.getKennung().equals(Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
+				alleASLOrt = false;
+			}
+		}
+		if (alleASLOrt) {
+			erstelleSternSICH(orte);
+		}
+
+		// Ablauf bei "gewoehnlicher" Karte.
+		verbindeAuslandsorte();
 		erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3),
 				entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
 		netzUpgrade();
@@ -294,7 +331,6 @@ public class Karte {
 
 		// Erstellen des Ringes.
 		erstelleTrigonRing(ringOrte);
-
 		// Hier erstellung der Liste verbleibenderOrte.
 		try {
 			ArrayList<Ort> verbleibendeOrte = new ArrayList<Ort>();
@@ -313,38 +349,29 @@ public class Karte {
 	}
 
 	/**
-	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Einfachen
+	 * Erstellt einen Stern vom mittigsten Ort des Netztes mit Sicherheits
 	 * Korridoren.
 	 * 
-	 * @param ohneASL
-	 *            Liste mit Orten, aber ohne Auslandsorten.
-	 * @author Nils
+	 * @param liste
+	 *            Liste aller Orte
+	 * 
+	 * @author Patrick
 	 */
-	public void erstelleSternENFC(ArrayList<Ort> ohneASL) {
+	public void erstelleSternSICH(ArrayList<Ort> liste) {
+		Ort sternMitte = sucheOrtMitHoechstenRelevanzGrad(liste);
 		try {
-			double kennwertMitte = Double.MAX_VALUE;
-			Ort sternMitte = getMittigstenOrt(ohneASL);
-			for (Ort moeglicheMitte : ohneASL) {
-				double distanzSumme = 0;
-				for (Ort andererOrt : ohneASL) {
-					distanzSumme += (ermittleOrtsdistanz(moeglicheMitte,
-							andererOrt) / relevanzGradOrtmitASL(andererOrt));
-				}
-				double aktuellerKennwertMitte = (distanzSumme / relevanzGradOrtmitASL(moeglicheMitte));
-				if (aktuellerKennwertMitte < kennwertMitte) {
-					kennwertMitte = aktuellerKennwertMitte;
-					sternMitte = moeglicheMitte;
-				}
-			}
-			// Aufbau des Sterns.
-			for (Ort ortA : ohneASL) {
+			for (Ort ortA : liste) {
 				if (ortA != sternMitte) {
 					eingerichteteKorridore.add(new Korridor(sternMitte, ortA,
-							Korridor.KENNUNG_ENFC));
+							Korridor.KENNUNG_SICH));
 				}
 			}
-			// Upgrade einzelner Korridore.
 		} catch (UngueltigerOrt e) {
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"Erstellung des Sicherheitskorridor nicht moeglich /n Das Programm wird beendet");
+			System.exit(0);
 		}
 	}
 

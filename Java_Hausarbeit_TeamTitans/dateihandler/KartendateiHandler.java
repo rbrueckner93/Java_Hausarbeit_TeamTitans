@@ -103,6 +103,13 @@ public class KartendateiHandler extends Datei {
 					"Kein auswertbarer Datensatz in der Datei gefunden");
 			throw new DateiSyntaxFehler();
 		}
+		if (!DatensatzMarkiererGleichwertig(dateiAnfang, geleseneDaten)) {
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"Achtung! - Es fehlen Datensatzmarkierer zur korrekten Auswertung der Datei.\nOder es stehen 2 identsiche Marker in einer Zeile.");
+			throw new DateiSyntaxFehler();
+		}
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
 			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
@@ -143,6 +150,9 @@ public class KartendateiHandler extends Datei {
 			}
 			int ende = text.get(beginn).indexOf(DATEI_BEGINN_MARKER)
 					+ DATEI_BEGINN_MARKER.length();
+			if (anfang != 0) {
+				return -1;
+			}
 			String zeile = text.get(beginn).substring(anfang, ende);
 			if (zeile.equals(DATEI_BEGINN_MARKER)) {
 				return beginn;
@@ -178,17 +188,18 @@ public class KartendateiHandler extends Datei {
 			String zutesten = text.get(beginn).substring(anfangZeile1,
 					endeZeile1);
 			if (zutesten.equals(DATEI_BEGINN_MARKER)) {
-				JOptionPane
-						.showMessageDialog(
-								null,
-								"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
-										+ (beginn + 1));
+				JOptionPane.showMessageDialog(null,
+						"Weiteren Datei Beginn Marker gefunden. In Zeile: "
+								+ (beginn + 1));
 				throw new DateiSyntaxFehler();
 			}
 		}
 		int anfangZeile11 = text.get(beginn).indexOf(DATEI_ENDE_MARKER);
 		if (anfangZeile11 != -1) {
 			int endeZeile11 = anfangZeile11 + DATEI_ENDE_MARKER.length();
+			if (anfangZeile11 != 0) {
+				return -1;
+			}
 			String test = text.get(beginn)
 					.substring(anfangZeile11, endeZeile11);
 			if (test.equals(DATEI_ENDE_MARKER)) {
@@ -209,11 +220,9 @@ public class KartendateiHandler extends Datei {
 				String moeglicherstart = text.get(beginn).substring(
 						anfangAktuelleZeile, endeAktuelleZeile);
 				if (moeglicherstart.equals(DATEI_BEGINN_MARKER)) {
-					JOptionPane
-							.showMessageDialog(
-									null,
-									"Datensatzbeginn gefunden, ohne das Vorheriger beendet wurde.  In Datensatz ab Zeile: "
-											+ (beginn + 1));
+					JOptionPane.showMessageDialog(null,
+							"Weiteren Datei Beginn Marker gefunden. In Zeile: "
+									+ (beginn + 1));
 					throw new DateiSyntaxFehler();
 				}
 			}
@@ -222,6 +231,9 @@ public class KartendateiHandler extends Datei {
 			if (anfangAktuelleZeile1 != -1) {
 				int endeAktuelleZeile1 = anfangAktuelleZeile1
 						+ DATEI_ENDE_MARKER.length();
+				if (anfangAktuelleZeile1 != 0) {
+					return -1;
+				}
 				String zeile = text.get(beginn).substring(anfangAktuelleZeile1,
 						endeAktuelleZeile1);
 				if (zeile.equals(DATEI_ENDE_MARKER)) {
@@ -232,6 +244,43 @@ public class KartendateiHandler extends Datei {
 			continue;
 		}
 		return -1;
+	}
+
+	public boolean DatensatzMarkiererGleichwertig(int startZeile,
+			ArrayList<String> text) throws DateiSyntaxFehler {
+		int anzahlDatensatzBeginnMarker = 0;
+		int anzahlDatensatzEndeMarker = 0;
+		int durchlaufBeginnMarker = startZeile;
+		int durchlaufEndeMarker = startZeile;
+		while (durchlaufBeginnMarker < text.size()) {
+			int datensatzbeginn = text.get(durchlaufBeginnMarker).indexOf(
+					DATENSATZ_BEGINN_MARKER);
+			if (datensatzbeginn == -1) {
+				durchlaufBeginnMarker++;
+				continue;
+			}
+			if (datensatzbeginn >= 0) {
+				anzahlDatensatzBeginnMarker++;
+				durchlaufBeginnMarker++;
+			}
+		}
+		while (durchlaufEndeMarker < text.size()) {
+			int datensatzEnde = text.get(durchlaufEndeMarker).indexOf(
+					DATENSATZ_ENDE_MARKER);
+			if (datensatzEnde == -1) {
+				durchlaufEndeMarker++;
+				continue;
+			}
+			if (datensatzEnde >= 0) {
+				anzahlDatensatzEndeMarker++;
+				durchlaufEndeMarker++;
+			}
+		}
+		if (anzahlDatensatzBeginnMarker == anzahlDatensatzEndeMarker) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -282,10 +331,6 @@ public class KartendateiHandler extends Datei {
 				beginn++;
 				continue;
 			}
-			// Hier fehlt ein Check auf Nicht angefangene Datensaetze!!
-			int moeglicherDatensatzEnde = text.get(beginn).indexOf(
-					DATENSATZ_ENDE_MARKER);
-			
 			int anfang = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER);
 			if (anfang == -1) {
 				beginn++;
@@ -411,8 +456,15 @@ public class KartendateiHandler extends Datei {
 		String inhaltMerkmal = zeile.substring(anfang, ende);
 		String[] merkmalsplit = inhaltMerkmal.split("\\"
 				+ BEZEICHNER_WERT_TRENNER);
+		// Check ob Merkmal Inhalt besitzt
+		if (merkmalsplit.length == 1) {
+			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
+		}
+		if (merkmalsplit[1].isEmpty()) {
+			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
+		}
 		if (merkmalsplit[0].equals(MERKMAL_BEGINN + wertBezeichner)) {
-			return merkmalsplit[1];
+			return merkmalsplit[1].trim();
 		} else {
 			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
 					+ wertBezeichner + " in Datensatz der in Zeile "
@@ -441,7 +493,6 @@ public class KartendateiHandler extends Datei {
 			}
 			datensatz += text.get(i);
 		}
-		System.out.println(datensatz);
 		try {
 			int xkoord = Integer.parseInt(getMerkmal(BEZEICHNER_X_KOORDINATE,
 					datensatz));
@@ -458,8 +509,23 @@ public class KartendateiHandler extends Datei {
 			}
 			// Restliche Auswertung.
 			String name = getMerkmal(BEZEICHNER_NAME, datensatz);
+			// Check ob Name einzigartig ist.
+			boolean nameEinzigartig = true;
+			for (Ort ort : kartenInstanz.orte) {
+				if (name.equals(ort.name)) {
+					nameEinzigartig = false;
+				}
+			}
+			if (!nameEinzigartig) {
+				JOptionPane.showMessageDialog(null, "Name des Ortes \"" + name
+						+ "\" schon vorhanden. In Datensatz ab Zeile: "
+						+ (aktuelleZeile + 1));
+				throw new DateiSyntaxFehler();
+			}
+			// Auswertung der Kennung.
 			String kennung = getMerkmal(BEZEICHNER_KENNUNG, datensatz);
-
+			// Je nach Kennung wird nun der Rest ausgewertet und dieser Ort
+			// erstellt.
 			switch (kennung) {
 			case Ort.KENNUNG_HAUPTORT:
 				int einwohnerZahl = Integer.parseInt(getMerkmal(
