@@ -2,7 +2,7 @@ package exceptions;
 
 import javax.swing.JOptionPane;
 
-public class MerkmalMissing extends Exception{
+public class MerkmalMissing extends Exception {
 	
 	String merkmal;
 	int zeile;
@@ -13,7 +13,8 @@ public class MerkmalMissing extends Exception{
 		this.zeile = zeile;
 	}
 		
-	public void erzeugeMeldung(){
-		JOptionPane.showMessageDialog(null, "Fehlendes oder Defektes Merkmal " +merkmal+"\n Datensatz beginn in Zeile "+(zeile+1));
+	public void erzeugeMeldung() throws DateiSyntaxFehler{
+		JOptionPane.showMessageDialog(null, "Fehlendes oder Defektes Merkmal \"" +merkmal+"\"\nIn Datensatz ab Zeile: "+(zeile+1));
+		throw new DateiSyntaxFehler();
 	}
 }
