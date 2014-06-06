@@ -86,6 +86,104 @@ public class Karte {
 		return eingerichteteKorridore;
 	}
 
+	public void erstelleTrigonRing(ArrayList<Ort> ringOrte) {
+		try {
+			if (ringOrte.size() > 2) {
+				int mitteX = berechneNetzMittelpunkt(ringOrte)[0];
+				int mitteY = berechneNetzMittelpunkt(ringOrte)[1];
+
+				ArrayList<Ort> nichtVerbunden = new ArrayList<Ort>();
+				ArrayList<Ort> schonVerbunden = new ArrayList<Ort>();
+				for (Ort a : ringOrte) {
+					nichtVerbunden.add(a);
+				}
+				Ort partnerSucher = ringOrte.get(0);
+				Ort winkelPartner = null;
+				double winkeldelta;
+				double neuesDelta;
+
+				while (nichtVerbunden.size() > 1) {
+					winkeldelta = Double.MAX_VALUE;
+					for (Ort moeglicherPartner : ringOrte) {
+						if ((moeglicherPartner != partnerSucher)
+								&& (!schonVerbunden.contains(moeglicherPartner))) {
+							neuesDelta = Math
+									.min(Math.abs(ermittleWinkel(mitteX,
+											mitteY, partnerSucher)
+											+ 360.0
+											- ermittleWinkel(mitteX, mitteY,
+													moeglicherPartner)),
+											Math.min(
+													Math.abs(ermittleWinkel(
+															mitteX, mitteY,
+															partnerSucher)
+															- ermittleWinkel(
+																	mitteX,
+																	mitteY,
+																	moeglicherPartner)
+															+ 360.0),
+													Math.abs(ermittleWinkel(
+															mitteX, mitteY,
+															partnerSucher)
+															- ermittleWinkel(
+																	mitteX,
+																	mitteY,
+																	moeglicherPartner))));
+							if (neuesDelta < winkeldelta) {
+								winkeldelta = neuesDelta;
+								winkelPartner = moeglicherPartner;
+							}
+						}
+					}
+					if (winkelPartner != null) {
+						eingerichteteKorridore.add(new Korridor(partnerSucher,
+								winkelPartner, "SICH"));
+						schonVerbunden.add(partnerSucher);
+						nichtVerbunden.remove(partnerSucher);
+						partnerSucher = winkelPartner;
+						System.out.println(partnerSucher.name+" > "+winkelPartner+ "d="+winkeldelta);
+					}
+				}
+				if (winkelPartner != null)
+					eingerichteteKorridore.add(new Korridor(winkelPartner,
+							ringOrte.get(0), "SICH"));
+			}
+		} catch (UngueltigerOrt e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public double ermittleWinkel(int bezugX, int bezugY, Ort ort) {
+		int punktY = ort.koordY;
+		int punktX = ort.koordX;
+		double winkel = Math.atan2(Math.abs(punktY - bezugY),
+				Math.abs(punktX - bezugX));
+		// II. Quadrant
+		if (punktX < bezugX && punktY > bezugY)
+			winkel = Math.PI - winkel;
+		// III. Quadrant
+		if (punktX < bezugX && punktY < bezugY)
+			winkel = Math.PI + winkel;
+		// IV. Quadrant
+		if (punktX > bezugX && punktY < bezugY)
+			winkel = 2 * Math.PI - winkel;
+		// genau ueber Bezug
+		if (punktX == bezugX && punktY > bezugY)
+			winkel = 0.5*Math.PI;
+		// genau unter Bezug
+		if (punktX == bezugX && punktY < bezugY)
+			winkel = 1.5*Math.PI;
+		// genau rechts Bezug
+		if (punktX > bezugX && punktY == bezugY)
+			winkel = 0;
+		//genau links Bezug
+		if (punktX < bezugX && punktY == bezugY)
+			winkel = Math.PI;
+		return Math.toDegrees(winkel);
+	}
+	
+	
 	/**
 	 * Hauptmethode der Klasse Karte. Hier werden alle notwendigen Schritte zur
 	 * Netzerstellung ausgeführt.
