@@ -14,7 +14,6 @@ ToDo:
 - Kommentararten ueberpruefen
 - private / public (Methode: alles per s/r auf private, dann Fehler durch ruecksetzen beheben.)
 - getters/setters nutzen, keine fremden Attribute!
-- bei Nutzungskosten DELTA/Baukosten aufschlagen!
 - woher kommt die Meldung "Meldung" mit leerem Text?
 - Dateihandler meckert nicht bei ungueltigen Zeichen  vor kartendateistart
 - identische ortsnamen duerfen nicht existieren
