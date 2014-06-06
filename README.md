@@ -16,11 +16,8 @@ ToDo:
 - getters/setters nutzen, keine fremden Attribute!
 - bei Nutzungskosten DELTA/Baukosten aufschlagen!
 - woher kommt die Meldung "Meldung" mit leerem Text?
-- Karte die Methode getNiedrigstenRelevanzGrad
-- Karte die Methode getKorridorArtRang
-- Karte die Methode getAbsKorridorRang
-- Karte die Methode getRelativenRG
-
+- Dateihandler meckert nicht bei ungueltigen Zeichen  vor kartendateistart
+- identische ortsnamen duerfen nicht existieren
 - was passiert bei Spezialfaellen:
 - - nur ASL
 - - weniger 4 Orte
