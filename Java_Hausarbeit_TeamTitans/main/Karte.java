@@ -146,6 +146,9 @@ public class Karte {
 				eingerichteteKorridore.add(new Korridor(nichtVerbunden.get(0),
 						ersterOrt, Korridor.KENNUNG_ENFC));
 			}
+			else if(ringOrte.size() == 2){
+				eingerichteteKorridore.add(new Korridor(ringOrte.get(0), ringOrte.get(1), Korridor.KENNUNG_ENFC));
+			}
 		} catch (UngueltigerOrt e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -250,7 +253,7 @@ public class Karte {
 							&& !ringOrte.contains(ort)) {
 						ringOrte.add(ort);
 					}
-					if (abwertFaktor < 0.11) {
+					if (abwertFaktor < 0.15 || ringOrte.size() == orte.size()) {
 						System.out.println("Sehr wenige RingOrte Anzahl: "
 								+ ringOrte.size());
 						break head;
