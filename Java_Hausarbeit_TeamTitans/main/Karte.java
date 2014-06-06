@@ -83,7 +83,17 @@ public class Karte {
 		return eingerichteteKorridore;
 	}
 
-	public void erstelleTrigonRing(ArrayList<Ort> ringOrte) {
+	/**
+	 * Erstellt einen Ring auf Basis der Informationen mitgegebener Orte: Mit
+	 * dem Mittelpunkt der Ortsmenge werden Steigungsdreiecke gebildet. Mit
+	 * einer Unterscheidung der Quadranten in ermittleWinkel ist es moeglich,
+	 * alle Winkel miteinander zu vergleichen. Ziel ist die moeglichst optimale
+	 * Erstellung eines Kreisrings.
+	 * 
+	 * @param ringOrte
+	 * @author bruecknerr
+	 */
+	private void erstelleTrigonRing(ArrayList<Ort> ringOrte) {
 		try {
 			System.out.println(ringOrte.size());
 			if (ringOrte.size() > 2) {
@@ -96,17 +106,25 @@ public class Karte {
 					nichtVerbunden.add(a);
 				}
 				Ort partnerSucher = ringOrte.get(0);
+				// Damit der Polygonzug am Ende geschlossen wird, muss der
+				// Anfang gemerkt werden
 				Ort ersterOrt = ringOrte.get(0);
 				nichtVerbunden.remove(0);
 				Ort winkelPartner = null;
 				double winkelMin;
 				double neuesDelta;
-
+				/*
+				 * Aufsuchen einer minimalen Winkelabweichung
+				 */
 				while (nichtVerbunden.size() > 1) {
 					winkelMin = Double.MAX_VALUE;
 					for (Ort moeglicherPartner : ringOrte) {
 						if ((moeglicherPartner != partnerSucher)
 								&& (!schonVerbunden.contains(moeglicherPartner))) {
+							/*
+							 * mehrere Bedingungen, um dem Bereich um die 0 Grad
+							 * herum gerecht zu werden
+							 */
 							neuesDelta = Math
 									.min(Math.abs(ermittleWinkel(mitteX,
 											mitteY, partnerSucher)
@@ -141,13 +159,17 @@ public class Karte {
 						schonVerbunden.add(partnerSucher);
 						nichtVerbunden.remove(partnerSucher);
 						partnerSucher = winkelPartner;
-						System.out.println(partnerSucher.name + " > "
-								+ winkelPartner + "d=" + winkelMin);
 					}
 				}
+				/*
+				 * Ring schliessen.
+				 */
 				eingerichteteKorridore.add(new Korridor(nichtVerbunden.get(0),
 						ersterOrt, Korridor.KENNUNG_ENFC));
 			} else if (ringOrte.size() == 2) {
+				/*
+				 * kein Ring moeglich, es entsteht ein Korridor
+				 */
 				eingerichteteKorridore.add(new Korridor(ringOrte.get(0),
 						ringOrte.get(1), Korridor.KENNUNG_ENFC));
 			}
@@ -157,7 +179,18 @@ public class Karte {
 		}
 	}
 
-	public double ermittleWinkel(int bezugX, int bezugY, Ort ort) {
+	/**
+	 * @param bezugX
+	 *            Beginn des Steigungsdreiecks X
+	 * @param bezugY
+	 *            Beginn des Steigungsdreiecks Y
+	 * @param ort
+	 *             dessen Winkel bestimmt werden soll
+	 * @return Winkel eines durch einen Punkt und einen Ort beschriebenen
+	 *         Steigungsdreiecks in Grad
+	 * @author bruecknerr
+	 */
+	private double ermittleWinkel(int bezugX, int bezugY, Ort ort) {
 		int punktY = ort.koordY;
 		int punktX = ort.koordX;
 		double winkel = Math.atan2(Math.abs(punktY - bezugY),
@@ -235,12 +268,12 @@ public class Karte {
 		netzUpgrade();
 	}
 
-	public double getAbsKorridorRang(Korridor korridor) {
+	private double getAbsKorridorRang(Korridor korridor) {
 		return korridor.laenge * korridor.ortA.getRelevanzGrad()
 				* korridor.ortB.getRelevanzGrad();
 	}
 
-	public void netzUpgrade() {
+	private void netzUpgrade() {
 		ArrayList<Korridor> nochUpgradebareK = new ArrayList<Korridor>();
 		for (Korridor k : eingerichteteKorridore) {
 			if (isUpgradeable(k)) {
@@ -385,7 +418,7 @@ public class Karte {
 	 * @return Liste ohne diesen OrtTyp.
 	 * @author Nils
 	 */
-	public ArrayList<Ort> entferneOrtTyp(String kennung, ArrayList<Ort> liste) {
+	private ArrayList<Ort> entferneOrtTyp(String kennung, ArrayList<Ort> liste) {
 		ArrayList<Ort> ohneOrte = new ArrayList<Ort>();
 		for (Ort ort : liste) {
 			if (!ort.kennung.equals(kennung)) {
@@ -405,7 +438,7 @@ public class Karte {
 	 *            Liste mit Orten, in der der dichteste gesucht werden soll.
 	 * @return Objekt des Typs Ort, der am dichtesten liegt.
 	 */
-	public Ort findeDichtestenOrtzuDiesem(Ort bezugsOrt,
+	private Ort findeDichtestenOrtzuDiesem(Ort bezugsOrt,
 			ArrayList<Ort> listeOrte) {
 		Ort dichtesterOrt = null;
 		double distanz = Double.MAX_VALUE;
@@ -429,7 +462,7 @@ public class Karte {
 	 * 
 	 * @author Nils
 	 */
-	public void verbindeAuslandsorte() {
+	private void verbindeAuslandsorte() {
 		try {
 			ArrayList<Ort> aslOrte = new ArrayList<Ort>();
 			Ort ortVB = null;
@@ -459,7 +492,7 @@ public class Karte {
 		}
 	}
 
-	public boolean isUpgradeable(Korridor k) {
+	private boolean isUpgradeable(Korridor k) {
 		String neueKorridorart = k.getNextKennung();
 		if (neueKorridorart != "")
 			return istEinrichtbarerKorridor(k.ortA, k.ortB, neueKorridorart);
@@ -477,7 +510,7 @@ public class Karte {
 	 * @return true, wenn möglich. Sonst false.
 	 * @author Nils
 	 */
-	public boolean istEinrichtbarerKorridor(Ort ortA, Ort ortB,
+	private boolean istEinrichtbarerKorridor(Ort ortA, Ort ortB,
 			String korridorTyp) throws IllegalArgumentException {
 		if (!(korridorTyp == Korridor.KENNUNG_ENFC
 				|| korridorTyp == Korridor.KENNUNG_SICH
@@ -546,7 +579,7 @@ public class Karte {
 	 * @return Laenge im Wert double
 	 */
 
-	public double ermittleOrtsdistanz(Ort orteins, Ort ortzwei) {
+	private double ermittleOrtsdistanz(Ort orteins, Ort ortzwei) {
 		double laengeQuadrat = Math.pow(orteins.koordX - ortzwei.koordX, 2)
 				+ Math.pow(orteins.koordY - ortzwei.koordY, 2);
 		double laenge = (Math.sqrt(laengeQuadrat));
@@ -561,7 +594,7 @@ public class Karte {
 	 *            aller zu ueberoruefenden Orte
 	 * @return
 	 */
-	public Ort sucheOrtMitHoechstenRelevanzGrad(ArrayList<Ort> liste) {
+	private Ort sucheOrtMitHoechstenRelevanzGrad(ArrayList<Ort> liste) {
 
 		Ort hoechster = liste.get(0);
 		for (int i = 1; i < liste.size(); i++) {
@@ -610,7 +643,7 @@ public class Karte {
 	 * @return Integer Array der Laenge 2 || Pos 0 = x-Wert. Pos 1 = y-Wert.
 	 * @author Nils
 	 */
-	public Integer[] berechneNetzMittelpunkt(ArrayList<Ort> vorhandeneOrte) {
+	private Integer[] berechneNetzMittelpunkt(ArrayList<Ort> vorhandeneOrte) {
 		Integer[] koord = new Integer[2];
 		double distanz = Double.MAX_VALUE;
 		for (int xkoord = 0; xkoord < 200; xkoord++) {
@@ -642,6 +675,7 @@ public class Karte {
 	 *            Liste aus der der Ort entfernt werden soll.
 	 * @return Ursprungsliste ohne den angegeben Ort.
 	 * @author Nils
+	 * @deprecated
 	 */
 	public ArrayList<Ort> loescheOrtAusListe(Ort zuLoeschenOrt,
 			ArrayList<Ort> listeDerOrte) {
@@ -661,6 +695,7 @@ public class Karte {
 	 * @param zuLoeschenderKorridor
 	 * @param listeKorridore
 	 * @return
+	 * @deprecated
 	 */
 	public ArrayList<Korridor> loescheKorriorAusListe(
 			Korridor zuLoeschenderKorridor, ArrayList<Korridor> listeKorridore) {
@@ -740,8 +775,9 @@ public class Karte {
 	 * @return 1 bei Erfolg, 0 wenn Korridor nicht gefunden. -1 bei
 	 *         Nichtupgrade.
 	 * @author Nils
+	 * @deprecated
 	 */
-	public int upgradeKorridor(Ort ortA, Ort ortB, String korridorTyp) {
+	private int upgradeKorridor(Ort ortA, Ort ortB, String korridorTyp) {
 		for (Korridor korridor : ortA.angebundeneKorridore) {
 			if (korridor.ortB == ortB) {
 				if (istEinrichtbarerKorridor(ortA, ortB, korridorTyp)) {
@@ -760,6 +796,7 @@ public class Karte {
 	 * @param ausgangsOrt
 	 * @param ringOrte
 	 * @return
+	 * @deprecated
 	 */
 	public double getRelevanzgradZweig(Ort ausgangsOrt, ArrayList<Ort> ringOrte) {
 		double gesamtRelevanzgrad = ausgangsOrt.relevanzGrad;
