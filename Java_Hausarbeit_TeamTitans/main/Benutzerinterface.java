@@ -20,7 +20,7 @@ public class Benutzerinterface {
 	/**
 	 * Durch system.getproperties("User.Home") am Beginn des Programmes gesetzt.
 	 */
-	public static final String standardpfad = System.getProperty("user.home");
+	public static final String standardpfad = System.getProperty("user.home")+"\\DeerOne";
 
 	public Benutzerinterface() {
 	}

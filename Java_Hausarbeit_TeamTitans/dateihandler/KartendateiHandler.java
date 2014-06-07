@@ -33,6 +33,7 @@ public class KartendateiHandler extends Datei {
 	public static final String BEZEICHNER_EINWOHNERZAHL = "population";
 	public static final String BEZEICHNER_UMSCHLAGVOLUMEN = "turnover";
 	public static final String BEZEICHNER_PASSAGIERAUFKOMMEN = "passengers";
+	public static final int MIN_ORTABSTAND = 3;
 
 	public int aktuelleZeile = 0;
 
@@ -108,7 +109,6 @@ public class KartendateiHandler extends Datei {
 					.showMessageDialog(
 							null,
 							"Achtung! - Es fehlen Datensatzmarkierer zur korrekten Auswertung der Datei.\nOder es stehen 2 identsiche Marker in einer Zeile.");
-			throw new DateiSyntaxFehler();
 		}
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
@@ -553,7 +553,6 @@ public class KartendateiHandler extends Datei {
 			ausgewerteteDatensaetze++;
 		} catch (MerkmalMissing e) {
 			e.erzeugeMeldung();
-			System.exit(0);
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
 					"Fehler in Merkmalen. Zahlen sind keine Zahlen. Datensatz ab Zeile: "
@@ -576,7 +575,7 @@ public class KartendateiHandler extends Datei {
 				double distanz = Math.sqrt((Math.pow((x - ortB.koordX), 2))
 						+ Math.pow((y - ortB.koordY), 2));
 				// Hier steht der Mindestabstand.
-				if (distanz < 3) {
+				if (distanz < MIN_ORTABSTAND) {
 					return false;
 				}
 			}
