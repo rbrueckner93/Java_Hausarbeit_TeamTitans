@@ -6,16 +6,7 @@ import javax.swing.JOptionPane;
 
 import exceptions.UngueltigerOrt;
 import korridore.Korridor;
-import orte.Auslandsverbindung;
-import orte.Hauptort;
-import orte.Nebenort;
-//import orte.Auslandsverbindung;
-//import orte.Hauptort;
-//import orte.Nebenort;
 import orte.Ort;
-//import orte.Umschlagpunkt;
-//import sun.awt.UngrabEvent;
-import orte.Umschlagpunkt;
 
 /**
  * @author handritschkp, tollen, bruecknerr, fechnerl

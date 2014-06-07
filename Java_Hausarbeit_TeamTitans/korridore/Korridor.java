@@ -1,6 +1,5 @@
 package korridore;
 
-import java.util.ArrayList;
 
 import exceptions.UngueltigerOrt;
 import orte.Auslandsverbindung;

@@ -2,7 +2,6 @@ package main;
 
 import java.io.File;
 
-import javax.annotation.processing.FilerException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;

@@ -1,19 +1,11 @@
 package main;
 
 import java.io.File;
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-
-import korridore.Korridor;
-import orte.Ort;
 import dateihandler.KartendateiHandler;
 import dateihandler.NetzdateiHandler;
 import dateihandler.SimulationsdateiHandler;
 import dateihandler.TestdateiHandler;
 import exceptions.DateiSyntaxFehler;
-import exceptions.OrtNichtVorhanden;
-import exceptions.UngueltigerOrt;
 
 /**
  * Diese Klasse beinhaltet den Gesamtablauf des Simulators inklusive aller
