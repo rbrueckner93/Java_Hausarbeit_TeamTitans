@@ -114,4 +114,35 @@ public class Datei {
 			return;
 		}
 	}
+	
+	/**
+	 * Check ob Zeile eine Kommentarzeile ist.
+	 * @param zeile 
+	 * @return true bei Kommentarzeile, sonst false.
+	 */
+	public static boolean istKommentarZeile(String zeile) {
+		if (zeile.indexOf(KOMMENTARMARKER) == -1
+				|| zeile.indexOf(KOMMENTARMARKER) > 0) {
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * Guckt, ob nach dem DateiendeMarker noch text steht.
+	 * @param zeile Zeile des DateiendeMarker
+	 * @param text Text; der ausgewertet werden soll.
+	 */
+	public void checkLeeresDateiende(int zeile, ArrayList<String> text) {
+		zeile++;
+		while (zeile < text.size()) {
+			if (text.get(zeile).equals("") || text.get(zeile).equals("\n")) {
+				zeile++;
+				continue;
+			}
+			JOptionPane.showMessageDialog(null,
+					"Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
+			return;
+		}
+	}
 }

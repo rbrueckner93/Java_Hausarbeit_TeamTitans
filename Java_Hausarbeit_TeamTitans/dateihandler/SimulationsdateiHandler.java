@@ -31,12 +31,13 @@ public class SimulationsdateiHandler extends Datei {
 	 * @param fertigeSimulation
 	 * @author Nils
 	 */
-
 	public SimulationsdateiHandler(Simulator fertigeSimulation) {
 		super();
 		this.fertigeSimulation = fertigeSimulation;
 	}
-
+	/**
+	 * Methode erzeugt einen schreibbaren Stream und schreibt diesen in eine Datei.
+	 */
 	public void schreibeSimulationsDatei() {
 		Datei.schreibeDatei(erstelleOutputStreamSim(), erstelleDateiNameSim());
 	}
@@ -70,9 +71,13 @@ public class SimulationsdateiHandler extends Datei {
 		fertigerText.add(DATEI_ENDE_MARKER);
 		return fertigerText;
 	}
-
+	
+	/**
+	 * Erstellt den fertigen Dateinamen für die Simulationsdatei.
+	 * @return String aus Dateinamen + Suffix
+	 */
 	private String erstelleDateiNameSim() {
-		String dateiname = fertigeSimulation.nameTestdatei + DATEI_SUFFIX;
+		String dateiname = fertigeSimulation.getNameTestdatei() + DATEI_SUFFIX;
 		return dateiname;
 	}
 

@@ -21,9 +21,13 @@ public class MerkmalMissing extends Exception {
 		this.zeile = zeile;
 	}
 
+	/**
+	 * Erzeugt eine Fehlermeldung fuer den User.
+	 * @throws DateiSyntaxFehler
+	 */
 	public void erzeugeMeldung() throws DateiSyntaxFehler {
 		JOptionPane.showMessageDialog(null,
-				"Fehlendes oder Defektes Merkmal \"" + merkmal
+				"Fehlendes oder defektes Merkmal \"" + merkmal
 						+ "\"\nIn Datensatz ab Zeile: " + (zeile + 1));
 		throw new DateiSyntaxFehler();
 	}

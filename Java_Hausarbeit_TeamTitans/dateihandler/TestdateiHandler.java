@@ -15,11 +15,12 @@ import main.Karte;
 import main.Simulator;
 
 /**
- * @author TolleN Beschreibung erhaelt eine Datei (die Informationen ueber
- *         Flugrouten enthaelt), erhaelt ein Objekt vom Typ Simulator. schreibt
- *         die in der Datei befindlichen Informationen nach einer Pruefung durch
- *         eine methode pruefeDatei von TestdateiHandler in die ArrayList routen
- *         des uebergebenen Simulator-Objektes.
+ *Erhaelt eine Datei (die Informationen ueber
+ *Flugrouten enthaelt), erhaelt ein Objekt vom Typ Simulator. schreibt
+ *die in der Datei befindlichen Informationen nach einer Pruefung durch
+ *eine methode pruefeDatei von TestdateiHandler in die ArrayList routen
+ *des uebergebenen Simulator-Objektes.
+ *@author TolleN
  */
 public class TestdateiHandler extends Datei {
 	public static final String DATEI_BEGINN_MARKER = ">->test";
@@ -31,22 +32,23 @@ public class TestdateiHandler extends Datei {
 	public static final String BEZEICHNER_ZIEL = "destination";
 	public static final String BEZEICHNER_FAKTOR = "factor";
 	public static final int DEFAULT_FAKTOR = 1;
-	public File aktuelleTestdatei;
-	public Simulator aktuelleSimulation;
-	public Karte aktuelleKarte;
+	private File aktuelleTestdatei;
+	private Simulator aktuelleSimulation;
+	private Karte aktuelleKarte;
 
-	int aktuelleZeile = 0;
+	private int aktuelleZeile = 0;
 
-	public int ausgewerteteDatensaetze = 0;
+	private int ausgewerteteDatensaetze = 0;
 
-	public int mitFaktorDefault = 0;
+	private int mitFaktorDefault = 0;
 
 	/**
 	 * Konstruktor. Bekommt von der Mainmethode eine lesbare Testdatei vom typ
 	 * File und ein Objekt der Klasse Simulator.
 	 * 
-	 * @param aktuelleTestdatei
-	 * @param aktuelleSimulation
+	 * @param aktuelleTestdatei Testdatei die ausgewertet wird
+	 * @param aktuelleSimulation Simulation, die Routen eingeschrieben bekommt.
+	 * @param aktuelleKarte Karte, auf der die Simulation ausgefuehrt wird.
 	 */
 
 	public TestdateiHandler(File aktuelleTestdatei,
@@ -115,7 +117,7 @@ public class TestdateiHandler extends Datei {
 	 * @param marker
 	 * @return
 	 */
-	public static int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
+	private  int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size()) {
 			if (istKommentarZeile(text.get(beginn))) {
 				beginn++;
@@ -149,7 +151,7 @@ public class TestdateiHandler extends Datei {
 	 * @param marker
 	 * @return
 	 */
-	public static int findeDateiEndeMarker(int beginn, ArrayList<String> text)
+	private int findeDateiEndeMarker(int beginn, ArrayList<String> text)
 			throws DateiSyntaxFehler {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
@@ -226,8 +228,14 @@ public class TestdateiHandler extends Datei {
 		return -1;
 	}
 	
-	public boolean datensatzMarkiererGleichwertig(int startZeile,
-			ArrayList<String> text) throws DateiSyntaxFehler {
+	/**
+	 * Guckt, ob die Anzahl gestarteter und geschlossener Datensaetze identsich ist.
+	 * @param startZeile
+	 * @param text Text der ausgewertet werden soll
+	 * @return true oder false 
+	 */
+	private boolean datensatzMarkiererGleichwertig(int startZeile,
+			ArrayList<String> text) {
 		int anzahlDatensatzBeginnMarker = 0;
 		int anzahlDatensatzEndeMarker = 0;
 		int durchlaufBeginnMarker = startZeile;
@@ -264,13 +272,13 @@ public class TestdateiHandler extends Datei {
 	}
 
 	/**
-	 * Liefert true zurück wenn noch ein Auswertbarer Datensatz vorhanden ist.
+	 * Liefert true zurück wenn noch ein auswertbarer Datensatz vorhanden ist.
 	 * 
 	 * @param beginn
 	 * @param text
 	 * @return
 	 */
-	public boolean datensatzBeginnMarkerVorhanden(int beginn,
+	private boolean datensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
 		while (beginn < text.size()) {
 			if (istKommentarZeile(text.get(beginn))) {
@@ -295,13 +303,12 @@ public class TestdateiHandler extends Datei {
 	}
 
 	/**
-	 * 
-	 * @param beginn
-	 * @param text
-	 * @param marker
-	 * @return
+	 * Findet die Zeile mit einem Datensatzbeginnmarker. Beruecksichtigt moegliche Datensatzendemarker.
+	 * @param beginn Zeile, ab der gesucht werden soll.
+	 * @param text Text, der ausgewertet werden soll.
+	 * @return Zeile mit Fund.
 	 */
-	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
+	private int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size() - 1) {
 			if (istKommentarZeile(text.get(beginn))) {
 				beginn++;
@@ -326,12 +333,12 @@ public class TestdateiHandler extends Datei {
 	}
 
 	/**
-	 * 
-	 * @param beginn
-	 * @param text
-	 * @return
+	 * Findet die Zeile, in der ein Datensatzendemarker steht. Beachtet auftretende Beginnmarker.
+	 * @param beginn Zeile, ab der gesucht werden soll.
+	 * @param text Text, der ausgewertet werden soll.
+	 * @return Zeile mit Befund.
 	 */
-	public static int findeDatensatzEndeMarker(int beginn,
+	private int findeDatensatzEndeMarker(int beginn,
 			ArrayList<String> text) throws DateiSyntaxFehler {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
@@ -403,13 +410,14 @@ public class TestdateiHandler extends Datei {
 	}
 
 	/**
-	 * 
-	 * @param wertBezeichner
-	 * @param zeile
-	 * @return
-	 * @throws MerkmalMissing
+	 * Wertet eine Datensatz nach einem spezifischen Merkmal aus.
+	 * @param wertBezeichner Bezeichner des Merkmals, das ausgewertet werden soll.
+	 * @param zeile Start des Datensatzes
+	 * @return String des Merkmalwertes
+	 * @throws MerkmalMissing Wenn ein problem mit dem Merkmal auftritt
+	 * @throws DateiSyntaxFehler Wenn der syntax verletzt wurde.
 	 */
-	public String getMerkmal(String wertBezeichner, String zeile)
+	private String getMerkmal(String wertBezeichner, String zeile)
 			throws MerkmalMissing, DateiSyntaxFehler {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
 		if (anfang == -1) {
@@ -444,14 +452,14 @@ public class TestdateiHandler extends Datei {
 
 	/**
 	 * Erzeugt eine Flugroute.
-	 * 
-	 * @param nameHerkunft
-	 * @param nameZiel
-	 * @param faktor
+	 * Ueberprueft dabei die existenz der Orte und den Faktor.
+	 * @param nameHerkunft Ort des Abflugs
+	 * @param nameZiel Ort des Ziels
+	 * @param faktor Haeufigkeit der Nutzung
 	 */
-	public void erzeugeFlugrouten(String nameHerkunft, String nameZiel,
+	private void erzeugeFlugrouten(String nameHerkunft, String nameZiel,
 			int faktor) {
-		ArrayList<Ort> erstellteOrte = aktuelleKarte.orte;
+		ArrayList<Ort> erstellteOrte = aktuelleKarte.getListeAllerOrte();
 		Ort ortHerkunft = null;
 		Ort ortZiel = null;
 		for (Ort gewaelterOrt : erstellteOrte) {
@@ -477,7 +485,14 @@ public class TestdateiHandler extends Datei {
 		}
 	}
 
-	public void werteDatensatzAus(int beginnZeile, int endeZeile,
+	/**
+	 * Wertet einen Datensatz nach allen Merkmalen aus und erstellt dann ein Objekt anhand der Daten.
+	 * @param beginnZeile Beginn des Datensatzes
+	 * @param endeZeile Ende des Datensatzes
+	 * @param text Text in dem der Datensatz steht
+	 * @throws DateiSyntaxFehler Fehler der auftritt, wenn der Syntax verletzt wurde.
+	 */
+	private void werteDatensatzAus(int beginnZeile, int endeZeile,
 			ArrayList<String> text) throws DateiSyntaxFehler {
 		// Erstellt einen zusammenhängenden String.
 		String datensatz = "";
@@ -510,35 +525,20 @@ public class TestdateiHandler extends Datei {
 
 	}
 
-	public String getDateiNamen(File datei) {
+	/**
+	 * Extrahiert den Dateinamen aus der uebergebenen Datei. Checkt dabei auf korrektes Dateiformat.
+	 * @param datei
+	 * @return
+	 */
+	private String getDateiNamen(File datei) throws DateiSyntaxFehler {
 		int dateiEndung = datei.getName().indexOf(".txt");
 		if (dateiEndung == -1) {
 			JOptionPane
 					.showMessageDialog(null, "Falsche Dateiendung der Datei");
-			System.exit(0);
+			throw new DateiSyntaxFehler();
 		}
 		String dateiName = datei.getName().substring(0, dateiEndung);
 		return dateiName;
 	}
 
-	public static boolean istKommentarZeile(String zeile) {
-		if (zeile.indexOf(KOMMENTARMARKER) == -1
-				|| zeile.indexOf(KOMMENTARMARKER) > 0) {
-			return false;
-		}
-		return true;
-	}
-
-	public void checkLeeresDateiende(int zeile, ArrayList<String> text) {
-		zeile++;
-		while (zeile < text.size()) {
-			if (text.get(zeile).equals("") || text.get(zeile).equals("\n")) {
-				zeile++;
-				continue;
-			}
-			JOptionPane.showMessageDialog(null,
-					"Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
-			return;
-		}
-	}
 }
