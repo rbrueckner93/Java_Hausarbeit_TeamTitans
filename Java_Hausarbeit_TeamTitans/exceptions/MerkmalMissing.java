@@ -2,8 +2,16 @@ package exceptions;
 
 import javax.swing.JOptionPane;
 
+/**
+ * Exception die ein Fehlendes Merkmal meldet. Benötigt zur korrekten erzeugung
+ * einer Fehlermeldung die Merkmalbezeichnung und das aktuelle Element der
+ * ArrayList.
+ * 
+ * @author Nils
+ * 
+ */
 public class MerkmalMissing extends Exception {
-	
+
 	String merkmal;
 	int zeile;
 
@@ -12,9 +20,11 @@ public class MerkmalMissing extends Exception {
 		this.merkmal = merkmal;
 		this.zeile = zeile;
 	}
-		
-	public void erzeugeMeldung() throws DateiSyntaxFehler{
-		JOptionPane.showMessageDialog(null, "Fehlendes oder Defektes Merkmal \"" +merkmal+"\"\nIn Datensatz ab Zeile: "+(zeile+1));
+
+	public void erzeugeMeldung() throws DateiSyntaxFehler {
+		JOptionPane.showMessageDialog(null,
+				"Fehlendes oder Defektes Merkmal \"" + merkmal
+						+ "\"\nIn Datensatz ab Zeile: " + (zeile + 1));
 		throw new DateiSyntaxFehler();
 	}
 }
