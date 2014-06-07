@@ -42,6 +42,10 @@ public class Datei {
 			FileReader fileReader = new FileReader(aktuelleDatei);
 			BufferedReader reader = new BufferedReader(fileReader);
 			while (reader.ready()) {
+				/*
+				 * Liesst die Datei und schreibt eine Zeile in ein Element der ArrayList. 
+				 * Dabei werden Leerzeichen vorne und hinten entfernt.
+				 */
 				zeilen.add(reader.readLine().trim());
 			}
 			reader.close();
