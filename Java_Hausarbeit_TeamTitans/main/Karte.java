@@ -354,8 +354,11 @@ public class Karte {
 
 		// Ablauf bei "gewoehnlicher" Karte.
 		verbindeAuslandsorte();
-		erstelleRingStruktur(ermittleRelevanteKonzentration(BEGINN_FELDABTASTUNG, END_FELDABTASTUNG, SCHRITTE_FELDABTASTUNG, MIN_ORTE_IM_FELD),
-		entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		erstelleRingStruktur(
+				ermittleRelevanteKonzentration(BEGINN_FELDABTASTUNG,
+						END_FELDABTASTUNG, SCHRITTE_FELDABTASTUNG,
+						MIN_ORTE_IM_FELD),
+				entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
 		netzUpgrade();
 	}
 
@@ -481,7 +484,7 @@ public class Karte {
 	 * 
 	 * @author Patrick
 	 */
-	public void erstelleSternSICH(ArrayList<Ort> liste) {
+	private void erstelleSternSICH(ArrayList<Ort> liste) {
 		Ort sternMitte = sucheOrtMitHoechstenRelevanzGrad(liste);
 		try {
 			for (Ort ortA : liste) {
@@ -549,40 +552,43 @@ public class Karte {
 	}
 
 	/**
-	 * Diese Methode verbindet alle ASL Orte mit dem nächsten nicht ASL Ort.
-	 * 
+	 * Verbinden aller ASL Orte mit dem naechsten nicht ASL Ort.
 	 * @author Nils
 	 */
 	private void verbindeAuslandsorte() {
 		try {
 			ArrayList<Ort> aslOrte = new ArrayList<Ort>();
-			Ort ortVB = null;
+			Ort naechsterOrt = null;
 			for (Ort ortA : orte) {
 				if (ortA.kennung.equals(Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
 					aslOrte.add(ortA);
 				}
 			}
 			for (Ort ortASL : aslOrte) {
-				double distanz = Double.MAX_VALUE;
-				for (Ort ortNOTasl : orte) {
-					if (ortNOTasl.kennung
+				double minDistanz = Double.MAX_VALUE;
+				for (Ort nichtASL_Ort : orte) {
+					if (nichtASL_Ort.kennung
 							.equals(Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
 						continue;
 					}
-					double distanzVergleich = ermittleOrtsdistanz(ortASL,
-							ortNOTasl);
-					if (distanzVergleich < distanz) {
-						distanz = distanzVergleich;
-						ortVB = ortNOTasl;
+					double distanzEinOrt = ermittleOrtsdistanz(ortASL,
+							nichtASL_Ort);
+					if (distanzEinOrt < minDistanz) {
+						minDistanz = distanzEinOrt;
+						naechsterOrt = nichtASL_Ort;
 					}
 				}
-				eingerichteteKorridore.add(new Korridor(ortASL, ortVB,
+				eingerichteteKorridore.add(new Korridor(ortASL, naechsterOrt,
 						Korridor.KENNUNG_SICH));
 			}
 		} catch (UngueltigerOrt e) {
 		}
 	}
 
+	/**
+	 * @param k	zu Korridor
+	 * @return
+	 */
 	private boolean isUpgradeable(Korridor k) {
 		String neueKorridorart = k.getNextKennung();
 		if (neueKorridorart != "")
@@ -591,23 +597,23 @@ public class Karte {
 	}
 
 	/**
-	 * Diese Methode prüft, ob der angegebene KorridorTyp zwischen den Orten
-	 * eingerichtet werden kann.
-	 * 
 	 * @param ortA
 	 * @param ortB
-	 * @param Typ
+	 * @param korridorKennung
 	 *            des einzurichtenden Korridors
-	 * @return true, wenn möglich. Sonst false.
-	 * @author Nils
+	 * @return Einrichtbarkeit als boolschen Wert.
+
+	 * @throws IllegalArgumentException
+	 *             falls die Kennung nicht zulaessig ist
+	 * @author tollen
 	 */
 	private boolean istEinrichtbarerKorridor(Ort ortA, Ort ortB,
-			String korridorTyp) throws IllegalArgumentException {
-		if (!(korridorTyp == Korridor.KENNUNG_ENFC
-				|| korridorTyp == Korridor.KENNUNG_SICH
-				|| korridorTyp == Korridor.KENNUNG_HLST || korridorTyp == Korridor.KENNUNG_STND))
+			String korridorKennung) throws IllegalArgumentException {
+		if (!(korridorKennung == Korridor.KENNUNG_ENFC
+				|| korridorKennung == Korridor.KENNUNG_SICH
+				|| korridorKennung == Korridor.KENNUNG_HLST || korridorKennung == Korridor.KENNUNG_STND))
 			throw new IllegalArgumentException();
-		if (korridorTyp.equals(Korridor.KENNUNG_ENFC)) {
+		if (korridorKennung.equals(Korridor.KENNUNG_ENFC)) {
 			if ((ortA.getKennung().equals(Ort.KENNUNG_HAUPTORT)
 					|| ortA.getKennung().equals(Ort.KENNUNG_NEBENORT) || ortA
 					.getKennung().equals(Ort.KENNUNG_UMSCHLAGPUNKT))
@@ -619,7 +625,7 @@ public class Karte {
 				return false;
 			}
 		}
-		if (korridorTyp.equals(Korridor.KENNUNG_HLST)) {
+		if (korridorKennung.equals(Korridor.KENNUNG_HLST)) {
 			if ((ortA.getKennung().equals(Ort.KENNUNG_HAUPTORT) || ortA
 					.getKennung().equals(Ort.KENNUNG_UMSCHLAGPUNKT))
 					&& (ortB.getKennung().equals(Ort.KENNUNG_HAUPTORT) || ortB
@@ -629,7 +635,7 @@ public class Karte {
 				return false;
 			}
 		}
-		if (korridorTyp.equals(Korridor.KENNUNG_SICH)) {
+		if (korridorKennung.equals(Korridor.KENNUNG_SICH)) {
 			if ((ortA.getKennung().equals(Ort.KENNUNG_HAUPTORT)
 					|| ortA.getKennung().equals(Ort.KENNUNG_NEBENORT)
 					|| ortA.getKennung().equals(Ort.KENNUNG_UMSCHLAGPUNKT) || ortA
@@ -645,7 +651,7 @@ public class Karte {
 				return false;
 			}
 		}
-		if (korridorTyp.equals(Korridor.KENNUNG_STND)) {
+		if (korridorKennung.equals(Korridor.KENNUNG_STND)) {
 			if ((ortA.getKennung().equals(Ort.KENNUNG_HAUPTORT)
 					|| ortA.getKennung().equals(Ort.KENNUNG_NEBENORT) || ortA
 					.getKennung().equals(Ort.KENNUNG_UMSCHLAGPUNKT))
@@ -663,11 +669,9 @@ public class Karte {
 	/**
 	 * Ermittelt Ortsdistanz fuer andere Methoden. Rundet die Distanz.
 	 * 
-	 * @param Ort
-	 *            eins
-	 * @param ort
-	 *            zwei
-	 * @return Laenge im Wert double
+	 * @param orteins
+	 * @param ortzwei
+	 * @return Distanz der angegebenen Orte
 	 */
 
 	private double ermittleOrtsdistanz(Ort orteins, Ort ortzwei) {
@@ -678,12 +682,9 @@ public class Karte {
 	}
 
 	/**
-	 * Bekommt eine Liste mit orten und gibt den mit hoechsten Relevanzgrad
-	 * zurück. Ort mit hoechsten Relevanzgrad aber nei Auslandsverbindung.
-	 * 
-	 * @param Liste
-	 *            aller zu ueberoruefenden Orte
-	 * @return
+	 * @param liste
+	 *            der zu untersuchenden Orte
+	 * @return Ort mit maximalem Relevanzgrad der keine Auslandsverbindung ist
 	 */
 	private Ort sucheOrtMitHoechstenRelevanzGrad(ArrayList<Ort> liste) {
 
@@ -712,10 +713,7 @@ public class Karte {
 	}
 
 	/**
-	 * Geht Liste der der eingerichteten Korridore durch und summiert die
-	 * Baukosten und gibt diese aus.
-	 * 
-	 * @return Summe aller Baukosten.
+	 * @return Summe aller Baukosten der Korridore dieser Karteninstanz.
 	 */
 	public double ermittleGesamteBaukosten() {
 		int gesamtKosten = 0;
@@ -726,187 +724,43 @@ public class Karte {
 	}
 
 	/**
-	 * Berechnet die fiktiven x und y Koordinaten des Punktes mit geringster
-	 * Abstandssumme zu allen Orten. Im Bereich x(0-199) und y(0-99)
+	 * Berechnung der x- und y-Koordinate des Punktes mit geringster
+	 * Abstandssumme zu allen Orten. Im Bereich x(0-KARTE_GROESSE_X) und
+	 * y(0-KARTE_GROESSE_Y)
 	 * 
-	 * @param vorhandeneOrte
+	 * @param ortsListe
 	 *            Liste der vorhandenen Orte.
-	 * @return Integer Array der Laenge 2 || Pos 0 = x-Wert. Pos 1 = y-Wert.
-	 * @author Nils
+	 * @return Integer[] mit Laenge 2 || [0] = x-Wert. [1] = y-Wert.
+	 * @author tollen, bruecknerr
 	 */
-	private Integer[] berechneNetzMittelpunkt(ArrayList<Ort> vorhandeneOrte) {
-		Integer[] koord = new Integer[2];
+	private Integer[] berechneNetzMittelpunkt(ArrayList<Ort> ortsListe) {
+		Integer[] mittelpunkt = new Integer[2];
 		double distanz = Double.MAX_VALUE;
-		for (int xkoord = 0; xkoord < 200; xkoord++) {
-			for (int ykoord = 0; ykoord < 100; ykoord++) {
-				double gesamtdistanz = 0;
-				for (Ort ort : vorhandeneOrte) {
+		for (int xKoordinate = 0; xKoordinate <= KARTE_GROESSE_X; xKoordinate++) {
+			for (int yKoordinate = 0; yKoordinate <= KARTE_GROESSE_Y; yKoordinate++) {
+				double distanzSumme = 0;
+				for (Ort ort : ortsListe) {
 					double distanzSchleife = Math.sqrt(Math.pow(
-							(xkoord - ort.koordX), 2)
-							+ Math.pow((ykoord - ort.koordY), 2));
-					gesamtdistanz += distanzSchleife;
+							(xKoordinate - ort.koordX), 2)
+							+ Math.pow((yKoordinate - ort.koordY), 2));
+					distanzSumme += distanzSchleife;
 				}
-				if (gesamtdistanz < distanz) {
-					distanz = gesamtdistanz;
-					koord[0] = xkoord;
-					koord[1] = ykoord;
-				}
-			}
-		}
-		return koord;
-	}
-
-	/**
-	 * Löscht einen bestimmten Ort aus einer uebergeben Liste. Verändert Liste
-	 * nicht, wenn Ort nicht in Liste.
-	 * 
-	 * @param zuLöschenOrt
-	 *            Ort der gelöscht werden soll.
-	 * @param listeDerOrte
-	 *            Liste aus der der Ort entfernt werden soll.
-	 * @return Ursprungsliste ohne den angegeben Ort.
-	 * @author Nils
-	 * @deprecated
-	 */
-	public ArrayList<Ort> loescheOrtAusListe(Ort zuLoeschenOrt,
-			ArrayList<Ort> listeDerOrte) {
-		ArrayList<Ort> saubereListe = new ArrayList<Ort>();
-		for (Ort ort : listeDerOrte) {
-			if (zuLoeschenOrt != ort) {
-				saubereListe.add(ort);
-			}
-		}
-		return saubereListe;
-	}
-
-	/**
-	 * Diese Methode loescht den angegebenen Korridor aus der uebergebenen
-	 * Liste.
-	 * 
-	 * @param zuLoeschenderKorridor
-	 * @param listeKorridore
-	 * @return
-	 * @deprecated
-	 */
-	public ArrayList<Korridor> loescheKorriorAusListe(
-			Korridor zuLoeschenderKorridor, ArrayList<Korridor> listeKorridore) {
-		ArrayList<Korridor> saubereListe = new ArrayList<Korridor>();
-		for (Korridor korridor : listeKorridore) {
-			if (zuLoeschenderKorridor != korridor) {
-				saubereListe.add(korridor);
-			}
-		}
-		return saubereListe;
-	}
-
-	/**
-	 * Methode liefert den Ort eines Netztes zurück, der am dichtestens am
-	 * fiktiven Mittelpunkt des Netzes liegt.
-	 * 
-	 * @param orteDesNetzes
-	 *            Liste alle Orte im Netz.
-	 * @return Objekt des Types Ort, liegt am dichtesten am fiktiven
-	 *         Mittelpunkt.
-	 * @author Nils
-	 */
-	public Ort getMittigstenOrt(ArrayList<Ort> orteDesNetzes) {
-		Integer[] mittelpunkt = berechneNetzMittelpunkt(orteDesNetzes);
-		Ort netzMittelpunkt = null;
-		double distanz = Double.MAX_VALUE;
-		for (Ort ort : orteDesNetzes) {
-			double distanzZuOrt = Math.sqrt(Math.pow(
-					(mittelpunkt[0] - ort.koordX), 2)
-					+ Math.pow((mittelpunkt[1] - ort.koordY), 2));
-			if (distanzZuOrt < distanz) {
-				distanz = distanzZuOrt;
-				netzMittelpunkt = ort;
-			}
-		}
-		return netzMittelpunkt;
-	}
-
-	/**
-	 * Methode sortiert die Liste aufsteigend nach ihren Abstaenden.
-	 * 
-	 * @param listeOrte
-	 * @param bezugsOrt
-	 *            Ort zu dem der Abstand gemessen wird.
-	 * @return
-	 */
-	public ArrayList<Ort> sortiereListeNachAbstand(Ort bezugsOrt,
-			ArrayList<Ort> listeOrte) {
-		ArrayList<Ort> sortierteOrte = new ArrayList<Ort>();
-		int anfangsSize = listeOrte.size();
-		while (sortierteOrte.size() < anfangsSize) {
-			double distanz = Double.MAX_VALUE;
-			Ort verglOrt = null;
-			for (Ort ort : listeOrte) {
-				double verglDistanz = ermittleOrtsdistanz(bezugsOrt, ort);
-				if (verglDistanz < distanz) {
-					distanz = verglDistanz;
-					verglOrt = ort;
+				if (distanzSumme < distanz) {
+					distanz = distanzSumme;
+					mittelpunkt[0] = xKoordinate;
+					mittelpunkt[1] = yKoordinate;
 				}
 			}
-			sortierteOrte.add(verglOrt);
-			listeOrte.remove(verglOrt);
 		}
-		return sortierteOrte;
+		return mittelpunkt;
 	}
 
 	/**
-	 * Methode versucht einen Korridor definiert durch 2 Orte auf einen best.
-	 * Typ zu setzten.
-	 * 
-	 * @param ortA
-	 *            Ort des Korridors
-	 * @param ortB
-	 *            Ort des Korridors
-	 * @param korridorTyp
-	 *            Angabe welcher Typ eingerichtet werden soll.
-	 * @return 1 bei Erfolg, 0 wenn Korridor nicht gefunden. -1 bei
-	 *         Nichtupgrade.
-	 * @author Nils
-	 * @deprecated
-	 */
-	private int upgradeKorridor(Ort ortA, Ort ortB, String korridorTyp) {
-		for (Korridor korridor : ortA.angebundeneKorridore) {
-			if (korridor.ortB == ortB) {
-				if (istEinrichtbarerKorridor(ortA, ortB, korridorTyp)) {
-					korridor.setKennung(korridorTyp);
-					return 1;
-				}
-				return -1;
-			}
-		}
-		return 0;
-	}
-
-	/**
-	 * Methode noch nicht fertig. NICHT BENUTZEN!!
-	 * 
-	 * @param ausgangsOrt
-	 * @param ringOrte
-	 * @return
-	 * @deprecated
-	 */
-	public double getRelevanzgradZweig(Ort ausgangsOrt, ArrayList<Ort> ringOrte) {
-		double gesamtRelevanzgrad = ausgangsOrt.relevanzGrad;
-		ArrayList<Ort> ersteZweigOrte = new ArrayList<Ort>();
-		for (Korridor korridor : ausgangsOrt.angebundeneKorridore) {
-			if (!ringOrte.contains(korridor.bestimmeAnderenOrt(ausgangsOrt))) {
-				ersteZweigOrte.add(korridor.bestimmeAnderenOrt(ausgangsOrt));
-			}
-		}
-		return gesamtRelevanzgrad;
-	}
-
-	/**
-	 * Methode addiert die angebundenen ASL Ort mit ihrer Relevanz drauf.
-	 * 
 	 * @param gewaehlterOrt
-	 * @return
+	 * @return Summe der Relevanzgrade von gewahlterOrt und dessen angebundenen
+	 *         Auslandsverbindungen
 	 */
-	public double relevanzGradOrtmitASL(Ort gewaehlterOrt) {
+	private double relevanzGradOrtmitASL(Ort gewaehlterOrt) {
 		double gesamtRelevanzGrad = gewaehlterOrt.relevanzGrad;
 		for (Korridor korridor : gewaehlterOrt.angebundeneKorridore) {
 			Ort ort = korridor.bestimmeAnderenOrt(gewaehlterOrt);
@@ -917,29 +771,48 @@ public class Karte {
 		return gesamtRelevanzGrad;
 	}
 
-	// Hier folgen 4 Methoden zur Ermittlung der Anzahl von eingerichteten
-	// Korridortypen.
+	/**
+	 * @return Anzahl der Korridore mit dem Typ Hochleistungskorridor in dieser
+	 *         Karteninstanz
+	 */
 	public int ermittleAnzahlHLSTKorridore() {
-		int anzahlHLST = ermittleAnzahlKorridore("HLST");
+		int anzahlHLST = ermittleAnzahlKorridore(Korridor.KENNUNG_HLST);
 		return anzahlHLST;
 	}
 
+	/**
+	 * @return Anzahl der Korridore mit dem Typ Sicherheitskorridor in dieser
+	 *         Karteninstanz
+	 */
 	public int ermittleAnzahlSICHKorridore() {
-		int anzahlSICH = ermittleAnzahlKorridore("SICH");
+		int anzahlSICH = ermittleAnzahlKorridore(Korridor.KENNUNG_SICH);
 		return anzahlSICH;
 	}
 
+	/**
+	 * @return Anzahl der Korridore mit dem Typ Einfacher Korridor in dieser
+	 *         Karteninstanz
+	 */
 	public int ermittleAnzahlENFCKorridore() {
-		int anzahlENFC = ermittleAnzahlKorridore("ENFC");
+		int anzahlENFC = ermittleAnzahlKorridore(Korridor.KENNUNG_ENFC);
 		return anzahlENFC;
 	}
 
+	/**
+	 * @return Anzahl der Korridore mit dem Typ Standardkorridor in dieser
+	 *         Karteninstanz
+	 */
 	public int ermittleAnzahlSTNDKorridore() {
-		int anzahlSTND = ermittleAnzahlKorridore("STND");
+		int anzahlSTND = ermittleAnzahlKorridore(Korridor.KENNUNG_STND);
 		return anzahlSTND;
 	}
 
-	public int ermittleAnzahlKorridore(String kennung) {
+	/**
+	 * @param kennung
+	 *            Kennung der Korridorart
+	 * @return Anzahl der Korridore mit angebebenem Typ in dieser Karteninstanz
+	 */
+	private int ermittleAnzahlKorridore(String kennung) {
 		int anzahl = 0;
 		for (Korridor korridor : eingerichteteKorridore) {
 			if (korridor.getKennung().equals(kennung)) {
@@ -949,7 +822,6 @@ public class Karte {
 		return anzahl;
 	}
 
-	
 	/**
 	 * @param vonLaenge
 	 *            Beginn der Schleife, die sich alle Felder mit mind. dieser
@@ -967,40 +839,34 @@ public class Karte {
 	 *             Im Fall von ungueltigen Zahlenangaben fuer o.g. Werte.
 	 * @author bruecknerr
 	 */
-	public ArrayList<Feld> ermittleRelevanteKonzentration(int vonLaenge,
+	private ArrayList<Feld> ermittleRelevanteKonzentration(int vonLaenge,
 			int bisLaenge, int schrittweite, int abbruchBedingung)
 			throws IllegalArgumentException {
-		/**
+		/*
 		 * Da wichtige Teile der Schleife und ihrem Erfolg von den mitgegebenen
-		 * Argumenten abhaengen, wird mit dem boolschen Ausdruck illegalArgument
-		 * festgestellt, ob ein grober Fehler vorliegt:
+		 * Argumenten abhaengen, wird festgestellt, ob ein grober Fehler
+		 * vorliegt:
 		 * 
-		 * Es waere unverhaeltnismaessig, Felder zu untersuchen, deren Laenge
-		 * groesser als die Abmasse der Karte sind.
+		 * Es ist nicht vorgesehen, Felder zu untersuchen, deren Laenge groesser
+		 * als die Karte an sich sind.
 		 */
-		boolean illegalArgument = ((bisLaenge <= vonLaenge)
-				|| (schrittweite < 1 || schrittweite > Math.min(
-						KARTE_GROESSE_X, KARTE_GROESSE_Y))
-				|| (vonLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)) || (bisLaenge > Math
-				.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)));
-		if (illegalArgument)
+		if (schrittweite > Math.min(KARTE_GROESSE_X, KARTE_GROESSE_Y)
+				|| vonLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y)
+				|| bisLaenge <= vonLaenge || schrittweite < 1
+				|| bisLaenge > Math.max(KARTE_GROESSE_X, KARTE_GROESSE_Y))
 			throw new IllegalArgumentException();
 
 		ArrayList<Feld> relevanteKonzentrationsFelder = new ArrayList<Feld>();
-		/**
-		 * Fuer alle Feldgroessen wird nun ermittelt, welche Anzahl an
-		 * Konzentrationsfeldern zu ermitteln ist. Sobald eine Anzahl von
-		 * abbruchBedingung ueberschritten ist, werden die Felder, die diese
-		 * Bedingung ueberschritten haben, zurueckgegeben.
+		/*
+		 * Fuer alle Feldgroessen wird ermittelt, welche Anzahl an
+		 * Konzentrationsfeldern ermittelt werden kann. Sobald eine Anzahl von
+		 * abbruchBedingung ueberschritten ist, werden die Felder, die zum
+		 * Ueberschreiten dieser Bedingung gefuehrt haben, zurueckgegeben.
 		 */
 		for (int kantenlaenge = vonLaenge; kantenlaenge < bisLaenge; kantenlaenge += schrittweite) {
 			if (ermittleKonzentrationsfelder(kantenlaenge).size() > relevanteKonzentrationsFelder
 					.size()) {
 				relevanteKonzentrationsFelder = ermittleKonzentrationsfelder(kantenlaenge);
-				/**
-				 * sobald der als Argument uebergebene Schwellenwert
-				 * ueberschritten ist, soll die Schleife abgebrochen werden.
-				 */
 				if (relevanteKonzentrationsFelder.size() > abbruchBedingung)
 					break;
 			}
@@ -1008,25 +874,25 @@ public class Karte {
 		return relevanteKonzentrationsFelder;
 	}
 
-	public ArrayList<Feld> ermittleKonzentrationsfelder(
+	/**
+	 * 
+	 * @param erstellerKantenlaenge
+	 * @return Eine Teilliste von felderListe, bereinigt um diejenigen Felder,
+	 *         die Orte mit ueberlegenen Feldern gemeinsam haben
+	 *         (Unabhaenigkeitskriterium).
+	 * @author bruecknerr
+	 */
+	private ArrayList<Feld> ermittleKonzentrationsfelder(
 			int erstellerKantenlaenge) {
-		/**
-		 * in felderOhneUeberschneidung werden diejenigen Felder geschrieben,
-		 * die letzlich auch zurueckgegeben werden. felderOhneUeberschneidung
-		 * ist eine Teilliste von felderListe, bereinigt um diejenigen Felder,
-		 * die Orte mit anderen Felder gemeinsam haben
-		 * (Unabhaenigkeitskriterium)
-		 */
-		ArrayList<Feld> felderOhneUeberschneidung = new ArrayList<Feld>();
-		/**
-		 * in felderListe werden weiter unten die Felder geschrieben, die den
-		 * Kriterien entsprechen. (bisher: sie beschreiben ein Quadrat, in
-		 * dessen Gebiet sich mindestens MIN_ORTE_IM_FELD Orte befinden.)
+		/*
+		 * In felderListe werden weiter unten diejenigen Felder geschrieben, die
+		 * den Kriterien entsprechen. Sie beschreiben ein quadratische Flaeche,
+		 * in dessen Gebiet sich mindestens MIN_ORTE_IM_FELD Orte befinden.
 		 */
 		ArrayList<Feld> felderListe = new ArrayList<Feld>();
-
-		/**
-		 * fuege alle erstellbaren Felder mit der gegebenen Kantenlaenge der
+		ArrayList<Feld> unabhaengigeFelder = new ArrayList<Feld>();
+		/*
+		 * Fuege alle erstellbaren Felder mit der gegebenen Kantenlaenge der
 		 * ArrayList hinzu, wenn diese das Kriterium erfuellen.
 		 */
 		for (int x = 0; (x + erstellerKantenlaenge) <= KARTE_GROESSE_X; x++) {
@@ -1037,13 +903,13 @@ public class Karte {
 			}
 		}
 
-		/**
+		/*
 		 * loesche alle Felder aus der Liste, die sich mit dem aktuell am
-		 * dichtesten besiedelten Ort ueberschneiden
+		 * dichtesten besiedelten Feld Orte teilen
 		 */
 		while (felderListe.size() > 0) {
 			int max = 0;
-			/**
+			/*
 			 * Ermittlung desjenigen Feldes der felderListe, das am meisten Orte
 			 * enthaelt. Felder, auf die dies zugetroffen hat, werden am Ende
 			 * eines Schleifendurchlaufs in die felderOhneUberlappung
@@ -1054,32 +920,32 @@ public class Karte {
 						.get(index).bestimmeOrteImFeld().size())
 					max = index;
 			}
-			/**
-			 * Loeschen derjenigen Felder aus felderListe, die eine Schnittmenge
-			 * mit dem ueberlegenen Feld haben.
+			/*
+			 * Loeschen derjenigen Felder aus felderListe, deren Ortslisten eine
+			 * Schnittmenge mit der Ortsliste des ueberlegenen Feldes haben.
 			 */
 			for (int i = 0; i < felderListe.size(); i++) {
 				if ((i != max)
 						&& (felderListe.get(max)
 								.hatOrtsSchnittmengeMit(felderListe.get(i)))) {
-					felderListe.remove(i);
-					i--;
-					/**
-					 * da die indizes beim loeschen eines Elt. aus einer
+					/*
+					 * da die indizes beim loeschen eines Elementes aus einer
 					 * ArrayList veraendert werden, muss sichergestellt werden,
-					 * dass kein Element uebersprungen wird. der Zeiger auf das
-					 * feld mit den meisten Elementen muss nur dann berichtigt
+					 * dass kein Element uebersprungen wird. Der Zeiger auf das
+					 * Feld mit den meisten Elementen muss nur dann berichtigt
 					 * werden, wenn max > i und damit um 1 nach vorn rutscht
 					 */
+					felderListe.remove(i);
+					i--;
 					if (i < max)
 						max--;
 				}
 			}
 			// Hinzufuegen des ermittelten Feldes zur Rueckgabeliste
-			felderOhneUeberschneidung.add(felderListe.get(max));
+			unabhaengigeFelder.add(felderListe.get(max));
 			// Bereinigung der felderListe um das bereits akzeptierte Feld
 			felderListe.remove(max);
 		}
-		return felderOhneUeberschneidung;
+		return unabhaengigeFelder;
 	}
 }
