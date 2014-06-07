@@ -112,7 +112,6 @@ public class Benutzerinterface {
 				budget = Double.parseDouble(budgetEingabe);
 
 				if (budget > 0) {
-					System.out.println(budget);
 					return budget;
 				} else {
 					JOptionPane.showMessageDialog(null,
