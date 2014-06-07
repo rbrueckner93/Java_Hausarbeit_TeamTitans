@@ -41,7 +41,11 @@ public class Karte {
 	public static final int KARTE_GROESSE_X = 199;
 	public static final int MIN_ORTE_IM_FELD = 3;
 	public static final int KARTE_GROESSE_Y = 99;
-
+	public static final int SCHWELLFAKTOR_QUERVERBINDUNG = 3;
+	public static final int BEGINN_FELDABTASTUNG = 35;
+	public static final int END_FELDABTASTUNG = 75;
+	public static final int SCHRITTE_FELDABTASTUNG = 5;
+	public static final int MINORT_FELDABTASTUNG = 3;
 	/**
 	 * speichert den Namen der KartendateiHandler, auf deren Basis das Netz
 	 * erzeugt wird beziehungsweise wurde. der Name der NetzdateiHandler soll
@@ -102,6 +106,7 @@ public class Karte {
 
 				ArrayList<Ort> nichtVerbunden = new ArrayList<Ort>();
 				ArrayList<Ort> schonVerbunden = new ArrayList<Ort>();
+				ArrayList<Korridor> ringKorridore = new ArrayList<Korridor>();
 				for (Ort a : ringOrte) {
 					nichtVerbunden.add(a);
 				}
@@ -109,6 +114,7 @@ public class Karte {
 				// Damit der Polygonzug am Ende geschlossen wird, muss der
 				// Anfang gemerkt werden
 				Ort ersterOrt = ringOrte.get(0);
+
 				nichtVerbunden.remove(0);
 				Ort winkelPartner = null;
 				double winkelMin;
@@ -154,8 +160,10 @@ public class Karte {
 						}
 					}
 					if (nichtVerbunden.size() > 1) {
-						eingerichteteKorridore.add(new Korridor(partnerSucher,
-								winkelPartner, Korridor.KENNUNG_ENFC));
+						Korridor naechstesStueck = new Korridor(partnerSucher,
+								winkelPartner, Korridor.KENNUNG_ENFC);
+						eingerichteteKorridore.add(naechstesStueck);
+						ringKorridore.add(naechstesStueck);
 						schonVerbunden.add(partnerSucher);
 						nichtVerbunden.remove(partnerSucher);
 						partnerSucher = winkelPartner;
@@ -164,8 +172,80 @@ public class Karte {
 				/*
 				 * Ring schliessen.
 				 */
-				eingerichteteKorridore.add(new Korridor(nichtVerbunden.get(0),
-						ersterOrt, Korridor.KENNUNG_ENFC));
+				Korridor letztesStueck = new Korridor(nichtVerbunden.get(0),
+						ersterOrt, Korridor.KENNUNG_ENFC);
+				eingerichteteKorridore.add(letztesStueck);
+				ringKorridore.add(letztesStueck);
+
+				/*
+				 * Ueberpruefen, ob der Polygonzug sehr lang wurde und damit
+				 * Querverbindungen notwendig werden, um ein sinnvolles Netz zu
+				 * erhalten.
+				 */
+				double ringLaenge = 0.0;
+				for (Korridor k : ringKorridore) {
+					ringLaenge += k.getLaenge();
+				}
+				/*
+				 * an dieser Stelle im Programm ist ohnehin garantiert, dass
+				 * mind. 3 ringOrte vorhanden sind. es wird jetzt die groesste
+				 * Wegersparnis ausgerechnet, die mit dem hinzufuegen eines
+				 * zusaetzlichen Korridores erzielt werden kann.
+				 */
+				while (ringLaenge > Math.min(KARTE_GROESSE_X, KARTE_GROESSE_Y) * 2) {
+					Korridor hoechsterErsparniskorridor = new Korridor(
+							ringOrte.get(0), ringOrte.get(1),
+							Korridor.KENNUNG_ENFC);
+					double besteErsparnis = 0.0;
+					for (Ort r1 : ringOrte) {
+						for (Ort r2 : ringOrte) {
+							if (r1 != r2) {
+								Korridor moeglicheQuerK = new Korridor(r1, r2,
+										Korridor.KENNUNG_ENFC);
+								double ringZug = 0;
+								Ort hop = r1;
+								Ort lastHop = null;
+								Korridor move = null;
+								while (true) {
+									for (Korridor k : hop
+											.getAngebundeneKorridore()) {
+										/*
+										 * ASL_ausschliesen
+										 */
+										if (k.bestimmeAnderenOrt(hop)
+												.getKennung() != Ort.KENNUNG_AUSLANDSVERBINDUNG
+												&& k.bestimmeAnderenOrt(hop) != lastHop) {
+											move = k;
+											break;
+										}
+									}
+									ringZug += move.getLaenge();
+									lastHop = hop;
+									hop = move.bestimmeAnderenOrt(hop);
+									if (hop == r2)
+										break;
+								}
+								if (ringZug > 0.5 * ringLaenge)
+									ringZug = ringLaenge - ringZug;
+
+								double moeglicheErsparnis = ringZug
+										- moeglicheQuerK.getLaenge();
+								if (moeglicheErsparnis > besteErsparnis
+										&& !korridorExistent(moeglicheQuerK)) {
+									besteErsparnis = moeglicheErsparnis;
+									hoechsterErsparniskorridor = moeglicheQuerK;
+								}
+							}
+						}
+					}
+					if ((besteErsparnis / hoechsterErsparniskorridor
+							.getLaenge()) > SCHWELLFAKTOR_QUERVERBINDUNG) {
+						eingerichteteKorridore.add(hoechsterErsparniskorridor);
+					} else {
+						break;
+					}
+				}
+
 			} else if (ringOrte.size() == 2) {
 				/*
 				 * kein Ring moeglich, es entsteht ein Korridor
@@ -179,13 +259,22 @@ public class Karte {
 		}
 	}
 
+	private boolean korridorExistent(Korridor k) {
+		for (Korridor q : eingerichteteKorridore) {
+			if ((q.ortA == k.ortA && q.ortB == k.ortB)
+					|| (q.ortA == k.ortB && q.ortB == k.ortA))
+				return true;
+		}
+		return false;
+	}
+
 	/**
 	 * @param bezugX
 	 *            Beginn des Steigungsdreiecks X
 	 * @param bezugY
 	 *            Beginn des Steigungsdreiecks Y
 	 * @param ort
-	 *             dessen Winkel bestimmt werden soll
+	 *            dessen Winkel bestimmt werden soll
 	 * @return Winkel eines durch einen Punkt und einen Ort beschriebenen
 	 *         Steigungsdreiecks in Grad
 	 * @author bruecknerr
@@ -231,7 +320,7 @@ public class Karte {
 		if (orte.size() == 0) {
 			JOptionPane
 					.showMessageDialog(null,
-							"Leider war kein Ort in Ihrer Kartendatei! /n Das Programm wird beendet.");
+							"Es befindet sich kein Ort in Ihrer Kartendatei! /n Das Programm wird beendet.");
 			System.exit(0);
 		}
 		/*
@@ -243,7 +332,7 @@ public class Karte {
 			JOptionPane
 					.showMessageDialog(
 							null,
-							"Leider war nur ein Ort in Ihrer Kartendatei! /n Ein Netz zu erstellen macht keinen Sinn./n Das Programm wird beendet.");
+							"Es befindet sich nur ein Ort in Ihrer Kartendatei! /n Eine Netzplanung ist nicht sinnvoll./n Das Programm wird beendet.");
 			System.exit(0);
 		}
 
@@ -251,20 +340,22 @@ public class Karte {
 		 * Sonderfall2 Wenn ausschliesslich Auslandsverbindungen eingelesen
 		 * wurden, wird ein Stern aus Sicherheitskorridoren erstellt.
 		 */
-		boolean alleASLOrt = true;
+		boolean nur_ASL_Vorhanden = true;
 		for (Ort ort : orte) {
 			if (!ort.getKennung().equals(Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
-				alleASLOrt = false;
+				nur_ASL_Vorhanden = false;
 			}
 		}
-		if (alleASLOrt) {
+		if (nur_ASL_Vorhanden) {
 			erstelleSternSICH(orte);
+			netzUpgrade();
+			return;
 		}
 
 		// Ablauf bei "gewoehnlicher" Karte.
 		verbindeAuslandsorte();
-		erstelleRingStruktur(ermittleRelevanteKonzentration(35, 75, 5, 3),
-				entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		erstelleRingStruktur(ermittleRelevanteKonzentration(BEGINN_FELDABTASTUNG, END_FELDABTASTUNG, SCHRITTE_FELDABTASTUNG, MIN_ORTE_IM_FELD),
+		entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
 		netzUpgrade();
 	}
 
@@ -858,9 +949,8 @@ public class Karte {
 		return anzahl;
 	}
 
-	// karte.ermittleRelevanteKonzentration(35, 75, 5, 3); eignet sich.
+	
 	/**
-	 * 
 	 * @param vonLaenge
 	 *            Beginn der Schleife, die sich alle Felder mit mind. dieser
 	 *            Kantenlaenge sucht
