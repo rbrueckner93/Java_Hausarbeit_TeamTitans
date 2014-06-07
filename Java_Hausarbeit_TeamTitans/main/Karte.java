@@ -29,7 +29,7 @@ import orte.Umschlagpunkt;
  */
 
 public class Karte {
-	public static double budget;
+	public double budget;
 	public ArrayList<Ort> orte;
 	public ArrayList<Korridor> eingerichteteKorridore;
 
@@ -62,12 +62,12 @@ public class Karte {
 		eingerichteteKorridore = new ArrayList<Korridor>();
 	}
 
-	public static double getBudget() {
+	public double getBudget() {
 		return budget;
 	}
 
-	public static void setBudget(double budget) {
-		Karte.budget = budget;
+	public void setBudget(double budget) {
+		this.budget = budget;
 	}
 
 	public String getNameKartendateiHandler() {
