@@ -25,9 +25,10 @@ public class Ort {
 	/**
 	 * ein erstellter Korridor wird in den beiden beteiligten Orten in ihrer
 	 * Liste angebundeneKorridore referenziert. in dieser Liste befinden sich
-	 * also alle an den ort angebundenen korridore, sobald diese erstellt sind (
+	 * alle an den Ort angebundenen Korridore, sobald diese erstellt sind (
 	 * sie sind referenziert, nicht mit new Korridor() definiert!
 	 */
+	
 	public ArrayList<Korridor> angebundeneKorridore;
 
 	public Ort(int koordX, int koordY, String name) {
@@ -37,28 +38,21 @@ public class Ort {
 		this.name = name;
 		angebundeneKorridore = new ArrayList<Korridor>();
 	}
-
 	
 	public double getRelevanzGrad() {
 		return relevanzGrad;
 	}
 
-
 	public void setRelevanzGrad(double relevanzGrad) {
 		this.relevanzGrad = relevanzGrad;
 	}
 
-
 	public String getKennung() {
 		return kennung;
 	}
-
-
+	
 	public ArrayList<Korridor> getAngebundeneKorridore() {
 		return angebundeneKorridore;
 	}
-
-
-
 
 }
