@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
  */
 public class MerkmalMissing extends Exception {
 
-	String merkmal;
-	int zeile;
+	private String merkmal;
+	private int zeile;
 
 	public MerkmalMissing(String merkmal, int zeile) {
 		super("Merkmal nicht gefunden im Datensatz");
