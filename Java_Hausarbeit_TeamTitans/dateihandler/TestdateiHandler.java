@@ -76,19 +76,19 @@ public class TestdateiHandler extends Datei {
 			throw new DateiSyntaxFehler();
 		}
 		checkLeeresDateiende(dateiEnde, geleseneDaten);
-		if (!DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
+		if (!datensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)) {
 			JOptionPane.showMessageDialog(null,
 					"Kein auswertbarer Datensatz in der Datei gefunden");
 			throw new DateiSyntaxFehler();
 		}
-		if (!DatensatzMarkiererGleichwertig(dateiAnfang, geleseneDaten)) {
+		if (!datensatzMarkiererGleichwertig(dateiAnfang, geleseneDaten)) {
 			JOptionPane
 					.showMessageDialog(
 							null,
 							"Achtung! - Es fehlen Datensatzmarkierer zur korrekten Auswertung der Datei.\nOder es stehen 2 identsiche Marker in einer Zeile.");
 		}
 		// Eigentliche Auswertung des gefundenen Datensatzes.
-		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
+		while (datensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
 				&& aktuelleZeile < dateiEnde) {
 			int datensatzBeginn = findeDatensatzBeginnMarker(aktuelleZeile,
 					geleseneDaten);
@@ -226,7 +226,7 @@ public class TestdateiHandler extends Datei {
 		return -1;
 	}
 	
-	public boolean DatensatzMarkiererGleichwertig(int startZeile,
+	public boolean datensatzMarkiererGleichwertig(int startZeile,
 			ArrayList<String> text) throws DateiSyntaxFehler {
 		int anzahlDatensatzBeginnMarker = 0;
 		int anzahlDatensatzEndeMarker = 0;
@@ -270,7 +270,7 @@ public class TestdateiHandler extends Datei {
 	 * @param text
 	 * @return
 	 */
-	public boolean DatensatzBeginnMarkerVorhanden(int beginn,
+	public boolean datensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
 		while (beginn < text.size()) {
 			if (istKommentarZeile(text.get(beginn))) {
