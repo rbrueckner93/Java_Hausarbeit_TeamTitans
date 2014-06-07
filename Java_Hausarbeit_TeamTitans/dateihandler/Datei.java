@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import exceptions.DateiSyntaxFehler;
 import main.Benutzerinterface;
 
 /**
@@ -65,6 +66,7 @@ public class Datei {
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,
 			String neuerDateiname) {
 			File neuerOrdner = new File(Benutzerinterface.STANDARDPFAD + "\\");
+			//Check, ob der Ordner in den geschrieben werden soll existiert
 			if (!neuerOrdner.exists()) {
 				int entscheidung = JOptionPane
 						.showConfirmDialog(
@@ -74,14 +76,17 @@ public class Datei {
 										+ "\" nicht vorhanden.\nSoll dieser erstellt werden?",
 								"Ornder erstellen?", JOptionPane.YES_NO_OPTION);
 				if (entscheidung == JOptionPane.YES_OPTION) {
+					//Erstellt den Ordner nach User-Entscheidung
 					neuerOrdner.mkdir();
 				}
 				if (entscheidung == JOptionPane.NO_OPTION) {
+					//Abbruch der Methode
 					return;
 				}
 			}
 		File neueDatei = new File(Benutzerinterface.STANDARDPFAD + "\\"
 				+ neuerDateiname +"."+ STANDARD_DATEITYP);
+		//Prueft ob die Datei bereits existiert
 		if (neueDatei.exists()) {
 			int entscheidung = JOptionPane
 					.showConfirmDialog(
@@ -94,14 +99,17 @@ public class Datei {
 									+ "\" existiert bereits.\nSoll sie ueberschrieben werden?",
 							"Datei speichern?", JOptionPane.YES_NO_OPTION);
 			if (entscheidung == JOptionPane.NO_OPTION) {
+				//Abbruch der Methode
 				return;
 			}
 			if (entscheidung == JOptionPane.YES_OPTION) {
+				//Springt weiter zur erstellung der Datei und anschliessenden Schreiben.
 			}
 		}
 		try {
 			neueDatei.createNewFile();
 			PrintStream writer = new PrintStream(neueDatei);
+			//Schreibt jede Zeile in die neue Datei.
 			for (String zeile : zuSchreibenderText) {
 				writer.println(zeile);
 			}
@@ -144,5 +152,25 @@ public class Datei {
 					"Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
 			return;
 		}
+	}
+	
+	/**
+	 * Methode erzeugt einen String des aktuellen Dateinamens von der momentan
+	 * ausgewerteten Datei. Prueft zusaetzlich, ob es sich um eine txt Datei
+	 * handelt.
+	 * 
+	 * @param Datei
+	 *            , die gerade ausgewertet wird.
+	 * @return String des Dateinamens ohne suffix.
+	 */
+	public String getDateiNamen(File datei) throws DateiSyntaxFehler{
+		int dateiEndung = datei.getName().indexOf("."+STANDARD_DATEITYP);
+		if (dateiEndung == -1) {
+			JOptionPane
+					.showMessageDialog(null, "Falsche Dateiendung der Datei");
+			throw new DateiSyntaxFehler();
+		}
+		String dateiName = datei.getName().substring(0, dateiEndung);
+		return dateiName;
 	}
 }

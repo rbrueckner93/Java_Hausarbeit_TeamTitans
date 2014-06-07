@@ -1,13 +1,14 @@
 package dateihandler;
 
 import java.util.ArrayList;
-import main.Flugroute;
-import main.Simulator;
+
+import simulation.Flugroute;
+import simulation.Simulator;
 
 /**
- * @author TolleN Beschreibung aufgrund eines ihr uebergebenen Simulators
- *         erstellt SimulationsdateiHandler eine Datei, die Informationen ueber
- *         die durchgefuehrte Simulation enthaelt.
+ * Erstellt aus einem uebergebenen Simulator eine Textdatei, 
+ * die alle Flugrouten mit ihrer spez. Reiseliste enthaelt.
+ * @author TolleN
  */
 public class SimulationsdateiHandler extends Datei {
 	/* {author=TolleN} */
@@ -51,6 +52,9 @@ public class SimulationsdateiHandler extends Datei {
 		ArrayList<String> fertigerText = new ArrayList<String>();
 		fertigerText.add(DATEI_BEGINN_MARKER);
 		fertigerText.add("");
+		/*
+		 * Durchlaeuft die Liste aller Flugrouten und schreibt die Merkmale.
+		 */
 		for (Flugroute aktuelleFlugroute : fertigeSimulation.getRouten()) {
 			fertigerText.add(DATENSATZ_BEGINN_MARKER);
 			fertigerText.add(MERKMAL_BEGINN + BEZEICHNER_START

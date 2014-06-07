@@ -1,11 +1,11 @@
-package main;
+package simulation;
 
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import netz.Korridor;
 import exceptions.OrtNichtVorhanden;
-import korridore.Korridor;
 import orte.Ort;
 
 /**
@@ -212,6 +212,8 @@ public class Flugroute {
 	}
 
 	/**
+	 * Methode wertet die Reiseliste einer Flugroute aus und schreibt 
+	 * die Ortsnamen mit ";" getrennt in eine String
 	 * @author BruecknerR
 	 * @return String mit Semikolon-getrennten Ortsnamen wird von Dateihandler
 	 *         verwendet

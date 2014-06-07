@@ -1,4 +1,4 @@
-package korridore;
+package netz;
 
 
 import exceptions.UngueltigerOrt;

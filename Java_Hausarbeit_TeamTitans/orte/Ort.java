@@ -2,7 +2,7 @@ package orte;
 
 import java.util.ArrayList;
 
-import korridore.Korridor;
+import netz.Korridor;
 
 public class Ort {
 	/* {author=TolleN, HandritschkP} */

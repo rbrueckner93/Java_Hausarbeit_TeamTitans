@@ -1,11 +1,10 @@
-package main;
+package netz;
 
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import exceptions.UngueltigerOrt;
-import korridore.Korridor;
 import orte.Ort;
 
 /**

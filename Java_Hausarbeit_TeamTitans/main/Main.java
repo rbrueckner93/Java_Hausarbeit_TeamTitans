@@ -1,6 +1,9 @@
 package main;
 
 import java.io.File;
+
+import simulation.Simulator;
+import netz.Karte;
 import dateihandler.KartendateiHandler;
 import dateihandler.NetzdateiHandler;
 import dateihandler.SimulationsdateiHandler;
@@ -11,10 +14,10 @@ import exceptions.DateiSyntaxFehler;
  * Diese Klasse beinhaltet den Gesamtablauf des Simulators inklusive aller
  * Interaktionen mit dem User. Ermoeglicht das einlesen einer Karte und deren
  * Netzerstellung Ermoeglicht nur das Abspeichern der Netzdatei. Ermoeglicht das
- * einlesen und imulieren einr Testdatei mit abspeichern der Ergebnisse.
+ * einlesen und simulieren einer Testdatei mit abspeichern der Ergebnisse.
  * Ermoeglicht eine Einschaetzung der Netzqualitaet.
  * 
- * @author BruecknerR, FechnerL, HandritschkP, TolleN
+ * @author TolleN
  */
 public class Main {
 	public static void main(String[] args) {
@@ -45,6 +48,7 @@ public class Main {
 				kartenVerarbeiter.verarbeiteKartendatei();
 				dateiLesenErfolgreich = true;
 			} catch (DateiSyntaxFehler e) {
+				//Leeren der Ortsliste, um Orte, die bereits erstellt wurden, loszuwerden.
 				karte.getOrte().clear();
 				dateiLesenErfolgreich = false;
 			}
