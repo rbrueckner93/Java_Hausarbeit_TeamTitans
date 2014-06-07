@@ -186,12 +186,8 @@ public class Flugroute {
 		}
 
 		if (moeglicheFlugrouten.size() == 1) {
-			System.out.println("Optimum gefunden!");
 			reiseListe = moeglicheFlugrouten.get(0).reiseListe;
-			for (Korridor k : reiseListe) {
-				System.out.println(">>" + k.getOrtA() + ">>" + k.getOrtB() + ">>"
-						+ k.getLaenge() + ">>");
-			}
+			//TODO Hier war ein reiner Debug ausgabe der Flugroute Warum?
 		}
 	}
 
