@@ -9,9 +9,9 @@ import korridore.Korridor;
 import orte.Ort;
 
 /**
- * wird erst bei Nutzung = Testdateieinlesen erstellt mit Start, Ziel, Faktor.
- * Sucht sich nach Aufforderung durch ermittleBesteRoute (nicht schon bei
- * Initialisierung) ihren eigenen optimalen Weg, und schreibt diesen in der
+ * Wird erst bei Nutzung, dem Testdateieinlesen erstellt mit Start, Ziel und
+ * Faktor. Sucht sich nach Aufforderung durch ermittleBesteRoute (nicht schon
+ * bei Initialisierung) ihren eigenen optimalen Weg, und schreibt diesen in der
  * reiseListe fest und stellt die Nutzkosten in ermittleRoutennutzkosten fest.
  * 
  * @author BruecknerR
@@ -41,11 +41,11 @@ public class Flugroute {
 	}
 
 	/**
-	 * besteRoute wird auf einer Flugroute ausgefuehrt. sie dient dazu, den
+	 * besteRoute wird auf einer Flugroute ausgefuehrt. Sie dient dazu, den
 	 * besten Weg von A nach B zu finden, wobei lediglich die entstehenden
 	 * Nutzungskosten zugrunde gelegt werden.
 	 * 
-	 * anhand unterschiedlicher Korridorkombinationen ermitteln
+	 * Beste Route anhand unterschiedlicher Korridorkombinationen ermitteln.
 	 */
 
 	public void ermittleBesteRoute() {
@@ -119,13 +119,13 @@ public class Flugroute {
 					}
 
 					/**
-					 * wenn ermittleAnderenOrt(verbindung, weg.ziel nicht in
+					 * Wenn ermittleAnderenOrt(verbindung, weg.ziel nicht in
 					 * weg.erzeugeOrtsListe vorkommt und
-					 * ermittleAnderenOrt(verbindung, weg.ziel) gleich ziel ist,
+					 * ermittleAnderenOrt(verbindung, weg.ziel) gleich Ziel ist,
 					 * wird er nirgendwo hingeschrieben.
 					 * 
-					 * alle flugrouten, die nun uebrig sind, werden geloescht.
-					 * alsbald wird der zaehler um 1 verringert, um kein Elt. zu
+					 * Alle Flugrouten, die uebrig sind, werden geloescht.
+					 * Alsbald wird der zaehler um 1 verringert, um kein Elt. zu
 					 * ueberspringen.
 					 */
 					//
@@ -138,7 +138,7 @@ public class Flugroute {
 		}
 
 		/**
-		 * Nimm die guenstigste und gib sie zurueck.
+		 * Nimm die guenstigste Flugroute und gib sie zurueck.
 		 */
 
 		while (moeglicheFlugrouten.size() > 1) {
@@ -165,14 +165,12 @@ public class Flugroute {
 
 	/**
 	 * Multipliziert Nutzungshaeufigkeit einer Route mit den Nutzungskosten der
-	 * beteiligten Korridore. gibt ein double-wert zurueck.
+	 * beteiligten Korridore. Gibt ein double-wert zurueck.
 	 * 
 	 * Die einmaligen Nutzungskosten muessen nicht separat ermittelt werden, da
 	 * sowohl bei der Wahl der Korridore als auch der Ermittlung der
 	 * Gesamtkosten nur die Gesamtkosten der Nutzung einer Route von Bedeutung
-	 * sind.
-	 * 
-	 * dabei werden korridor.ermittleLaenge(); und korridor.NUTZUNGSKOSTEN
+	 * sind. Dabei werden korridor.ermittleLaenge(); und korridor.NUTZUNGSKOSTEN
 	 * herangezogen.
 	 */
 
@@ -206,13 +204,13 @@ public class Flugroute {
 	}
 
 	/**
-	 * gibt eine ArrayList von Orten zurueck, die die Reihenfolge von Reise-Hops
-	 * ausgibt. aus der ArrayList<Korridor> mit ortA und ortB muss also nach dem
-	 * Ort des ersten Korridors gesucht werden, der herkunft entspricht. im
-	 * zweiten korridor wird festgestellt, welcher ort nicht dem zweiten ort des
-	 * ersten korridors entspricht usw., sodass der letzte ort in der reiseliste
-	 * ziel entspricht. eine ueberpruefung muss natuerlich stattfinden. sie ist
-	 * eine direkte ableitung aus reiseListe ArrayList<Korridor>
+	 * Gibt eine ArrayList von Orten zurueck, die die Reihenfolge von Reise-Hops
+	 * ausgibt. Aus der ArrayList<Korridor> mit ortA und ortB muss also nach dem
+	 * Ort des ersten Korridors gesucht werden, der Herkunft entspricht. im
+	 * zweiten Korridor wird festgestellt, welcher Ort nicht dem zweiten Ort des
+	 * ersten Korridors entspricht usw., sodass der letzte Ort in der reiseliste
+	 * dem Ziel entspricht. eine Ueberpruefung muss natuerlich stattfinden. Sie
+	 * ist eine direkte Ableitung aus reiseListe ArrayList<Korridor>
 	 * 
 	 */
 	private ArrayList<Ort> erzeugeOrtsListe() throws OrtNichtVorhanden {
