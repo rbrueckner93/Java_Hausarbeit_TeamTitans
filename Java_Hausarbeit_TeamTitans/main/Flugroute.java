@@ -7,11 +7,10 @@ import korridore.Korridor;
 import orte.Ort;
 
 /**
- * wird erst bei Nutzung=Testdateieinlesen erstellt mit
- * Start, Ziel, Faktor. Sucht sich nach Aufforderung durch
- * ermittleBesteRoute (nicht schon bei Initialisierung) ihren eigenen
- * optimalen Weg, und schreibt diesen in der reiseListe fest und stellt
- * die Nutzkosten in ermittleRoutennutzkosten fest.
+ * wird erst bei Nutzung=Testdateieinlesen erstellt mit Start, Ziel, Faktor.
+ * Sucht sich nach Aufforderung durch ermittleBesteRoute (nicht schon bei
+ * Initialisierung) ihren eigenen optimalen Weg, und schreibt diesen in der
+ * reiseListe fest und stellt die Nutzkosten in ermittleRoutennutzkosten fest.
  * 
  * @author BruecknerR
  */
@@ -102,20 +101,13 @@ public class Flugroute {
 									neueFlugroute.reiseListe.add(add);
 								}
 								neueFlugroute.reiseListe.add(verbindung);
-								if (neuesZiel != ziel) {
-									flugroutenInArbeit.add(neueFlugroute);
-								}
 								if (neuesZiel == ziel) {
 									moeglicheFlugrouten.add(neueFlugroute);
+								} else {
+									flugroutenInArbeit.add(neueFlugroute);
 								}
 
 							}
-							// Diente nur Debug-Zwecken
-							else {
-								System.out
-										.println("Es wurde eine Route nicht aufgenommen, da sie zu einer Kreisroute wurde.");
-							}
-
 						}
 					} catch (OrtNichtVorhanden e) {
 						System.out.println("OrtNichtvorhanden tauchte auf...");
@@ -132,8 +124,6 @@ public class Flugroute {
 					 * alsbald wird der zaehler um 1 verringert, um kein Elt. zu
 					 * ueberspringen.
 					 */
-					//
-
 				}
 				flugroutenInArbeit.remove(routen);
 				routen--;
@@ -142,7 +132,7 @@ public class Flugroute {
 		}
 
 		/**
-		 * Nimm die g�nstigste und gib sie zur�ck.
+		 * Nimm die guenstigste und gib sie zurueck.
 		 */
 		while (moeglicheFlugrouten.size() > 1) {
 			for (int i = 0; i < moeglicheFlugrouten.size(); i++) {
@@ -156,14 +146,12 @@ public class Flugroute {
 
 		}
 
-		if (moeglicheFlugrouten.size() == 1) {
-			System.out.println("Optimum gefunden!");
+		/*
+		 * die Reiseliste der ermittelten Route wird nun in die eigene
+		 * Reiseliste geschrieben.
+		 */
+		if (moeglicheFlugrouten.size() == 1)
 			reiseListe = moeglicheFlugrouten.get(0).reiseListe;
-			for (Korridor k : reiseListe) {
-				System.out.println(">>" + k.ortA + ">>" + k.ortB + ">>"
-						+ k.laenge + ">>");
-			}
-		}
 	}
 
 	/**
@@ -180,7 +168,8 @@ public class Flugroute {
 	public double ermittleRoutennutzkosten() {
 		double kosten = 0.0;
 		for (Korridor relation : reiseListe) {
-			kosten = kosten + ((relation.getNutzungskostenProKm()*relation.laenge) * faktor);
+			kosten = kosten
+					+ ((relation.getNutzungskostenProKm() * relation.laenge) * faktor);
 		}
 		return kosten;
 	}
@@ -204,13 +193,14 @@ public class Flugroute {
 	}
 
 	/**
-	 * gibt eine ArrayList von Orten zur�ck, die die Reihenfolge von Reise-Hops
-	 * ausgibt. aus der ArrayList<Korridor> mit ortA und ortB muss also nach dem
-	 * Ort des ersten Korridors gesucht werden, der herkunft entspricht. im
-	 * zweiten korridor wird festgestellt, welcher ort nicht dem zweiten ort des
-	 * ersten korridors entspricht usw., sodass der letzte ort in der reiseliste
-	 * ziel entspricht. eine ueberpruefung muss natuerlich stattfinden. sie ist
-	 * eine direkte ableitung aus reiseListe ArrayList<Korridor>
+	 * gibt eine ArrayList von Orten zurueck, die die Reihenfolge von
+	 * Reise-Hops ausgibt. aus der ArrayList<Korridor> mit ortA und ortB muss
+	 * also nach dem Ort des ersten Korridors gesucht werden, der herkunft
+	 * entspricht. im zweiten korridor wird festgestellt, welcher ort nicht dem
+	 * zweiten ort des ersten korridors entspricht usw., sodass der letzte ort
+	 * in der reiseliste ziel entspricht. eine ueberpruefung muss natuerlich
+	 * stattfinden. sie ist eine direkte ableitung aus reiseListe
+	 * ArrayList<Korridor>
 	 * 
 	 */
 	public ArrayList<Ort> erzeugeOrtsListe() throws OrtNichtVorhanden {
