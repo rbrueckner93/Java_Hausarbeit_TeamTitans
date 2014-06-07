@@ -25,7 +25,6 @@ public class KartendateiHandler extends Datei {
 	public static final String DATEI_ENDE_MARKER = "<-<map";
 	public static final String DATENSATZ_BEGINN_MARKER = ">->loc";
 	public static final String DATENSATZ_ENDE_MARKER = "<-<loc";
-	public static ArrayList<String> GUELTIGE_BEZEICHNER;
 	public static final String BEZEICHNER_X_KOORDINATE = "x";
 	public static final String BEZEICHNER_Y_KOORDINATE = "y";
 	public static final String BEZEICHNER_NAME = "name";
@@ -34,37 +33,21 @@ public class KartendateiHandler extends Datei {
 	public static final String BEZEICHNER_UMSCHLAGVOLUMEN = "turnover";
 	public static final String BEZEICHNER_PASSAGIERAUFKOMMEN = "passengers";
 	public static final int MIN_ORTABSTAND = 3;
-
-	public int aktuelleZeile = 0;
-
-	public int ausgewerteteDatensaetze = 0;
-
-	/**
-	 * 0
-	 */
 	public static final int MIN_KOORD_X = 0;
-
-	/**
-	 * 199
-	 */
 	public static final int MAX_KOORD_X = 199;
-
-	/**
-	 * 0
-	 */
 	public static final int MIN_KOORD_Y = 0;
-
-	/**
-	 * 99
-	 */
 	public static final int MAX_KOORD_Y = 99;
 
-	public Karte kartenInstanz;
+	private int aktuelleZeile = 0;
 
-	public File aktuelleKartendatei;
+	private int anzahlAusgewerteteDatensaetze = 0;
+
+	private Karte kartenInstanz;
+
+	private File aktuelleKartendatei;
 
 	/**
-	 * Konstruktor der Datei und ein Objekt Karte benoetigt.
+	 * Konstruktor der eine Datei und ein Objekt Karte benoetigt.
 	 * 
 	 * @param kartenInstanz
 	 *            Zulesende Datei
@@ -84,9 +67,10 @@ public class KartendateiHandler extends Datei {
 	 * @author Nils
 	 */
 	public void verarbeiteKartendatei() throws DateiSyntaxFehler {
-		ausgewerteteDatensaetze = 0;
+		anzahlAusgewerteteDatensaetze = 0;
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
-		kartenInstanz.nameKartendatei = getDateiNamen(aktuelleKartendatei);
+		kartenInstanz
+				.setNameKartendateiHandler(getDateiNamen(aktuelleKartendatei));
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
 			JOptionPane
@@ -124,7 +108,7 @@ public class KartendateiHandler extends Datei {
 			}
 		}
 		JOptionPane.showMessageDialog(null, "Es wurden "
-				+ ausgewerteteDatensaetze
+				+ anzahlAusgewerteteDatensaetze
 				+ " Datensaetze erfolgreich eingelesen.");
 	}
 
@@ -137,7 +121,7 @@ public class KartendateiHandler extends Datei {
 	 *            ArrayList von Strings, in der gesucht werden soll.
 	 * @return Integer der Zeile mit Befund. Sonst -1
 	 */
-	public static int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
+	private static int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size()) {
 			if (istKommentarZeile(text.get(beginn))) {
 				beginn++;
@@ -165,7 +149,7 @@ public class KartendateiHandler extends Datei {
 
 	/**
 	 * Sucht nach einem Dateiende Marker. Beachtet dabei, dass im laufenden Text
-	 * welche auftauchen können.
+	 * Datei Beginn Marker auftauchen können.
 	 * 
 	 * @param beginn
 	 *            Zeile ab der gesucht werden soll.
@@ -173,7 +157,7 @@ public class KartendateiHandler extends Datei {
 	 *            ArrayList in der gesucht werden soll.
 	 * @return Integer der Zeile mit Befund, sonst -1
 	 */
-	public static int findeDateiEndeMarker(int beginn, ArrayList<String> text)
+	private static int findeDateiEndeMarker(int beginn, ArrayList<String> text)
 			throws DateiSyntaxFehler {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
@@ -246,7 +230,16 @@ public class KartendateiHandler extends Datei {
 		return -1;
 	}
 
-	public boolean datensatzMarkiererGleichwertig(int startZeile,
+	/**
+	 * Guckt, ob die Anzahl gestarteter und geschlossener Datensaetze identsich
+	 * ist.
+	 * 
+	 * @param startZeile
+	 * @param text
+	 *            Text der ausgewertet werden soll
+	 * @return true oder false
+	 */
+	private boolean datensatzMarkiererGleichwertig(int startZeile,
 			ArrayList<String> text) throws DateiSyntaxFehler {
 		int anzahlDatensatzBeginnMarker = 0;
 		int anzahlDatensatzEndeMarker = 0;
@@ -292,7 +285,7 @@ public class KartendateiHandler extends Datei {
 	 *            ArrayList String in denen gesucht wird.
 	 * @return true bei Fund sonst false.
 	 */
-	public boolean datensatzBeginnMarkerVorhanden(int beginn,
+	private boolean datensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
 		while (beginn < text.size()) {
 			if (istKommentarZeile(text.get(beginn))) {
@@ -325,7 +318,7 @@ public class KartendateiHandler extends Datei {
 	 *            List von Strings in denen gesucht werden soll.
 	 * @return Integer der Zeile. Sonst -1
 	 */
-	public int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
+	private int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size() - 1) {
 			if (istKommentarZeile(text.get(beginn))) {
 				beginn++;
@@ -359,7 +352,7 @@ public class KartendateiHandler extends Datei {
 	 *            List von Strings in denen gesucht werden soll.
 	 * @return Integer der Zeile mit Befunf, sonst beginn Zeile.
 	 */
-	public static int findeDatensatzEndeMarker(int beginn,
+	private static int findeDatensatzEndeMarker(int beginn,
 			ArrayList<String> text) throws DateiSyntaxFehler {
 		// Ueberprueft die Zeile, in der bereits ein BeginnMarker gefunden
 		// wurde, auf einen weiteren.
@@ -432,15 +425,18 @@ public class KartendateiHandler extends Datei {
 	}
 
 	/**
-	 * Wertet ein Datensatz nach einem spez. Merkmal aus.
+	 * * Wertet ein Datensatz nach einem spez. Merkmal aus.
 	 * 
 	 * @param wertBezeichner
 	 *            Spezifischer Bezeichner des Wertes.
 	 * @param zeile
 	 *            String in dem Merkmal stehen muss.
 	 * @return Wert des gesuchten Merkmals als String
+	 * @throws MerkmalMissing
+	 *             Fehler bei fehlendem oder defektem merkmal
+	 * @throws DateiSyntaxFehler
 	 */
-	public String getMerkmal(String wertBezeichner, String zeile)
+	private String getMerkmal(String wertBezeichner, String zeile)
 			throws MerkmalMissing, DateiSyntaxFehler {
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
 		if (anfang == -1) {
@@ -474,7 +470,7 @@ public class KartendateiHandler extends Datei {
 	}
 
 	/**
-	 * Wertet einen Datensatz aus und erstellt mögliches Objekt.
+	 * * Wertet einen Datensatz aus und erstellt mögliches Objekt.
 	 * 
 	 * @param beginnZeile
 	 *            Startzeile des Datensatzes
@@ -482,8 +478,9 @@ public class KartendateiHandler extends Datei {
 	 *            Endzeile des Datensatzes
 	 * @param text
 	 *            Liste aus Strings in dem der Datensatz steht.
+	 * @throws DateiSyntaxFehler
 	 */
-	public void werteDatensatzAus(int beginnZeile, int endeZeile,
+	private void werteDatensatzAus(int beginnZeile, int endeZeile,
 			ArrayList<String> text) throws DateiSyntaxFehler {
 		// Erstellt einen zusammenhängenden String.
 		String datensatz = "";
@@ -549,8 +546,14 @@ public class KartendateiHandler extends Datei {
 						BEZEICHNER_PASSAGIERAUFKOMMEN, datensatz));
 				erzeugeAuslandsverbindung(xkoord, ykoord, name,
 						umschlagVolumenASL, passagierAufkommen);
+				break;
+			default:
+				JOptionPane.showMessageDialog(null,
+						"Ort besitzt unbekannte Kennung. In Datensatz ab Zeile: "
+								+ (aktuelleZeile + 1));
+				throw new DateiSyntaxFehler();
 			}
-			ausgewerteteDatensaetze++;
+			anzahlAusgewerteteDatensaetze++;
 		} catch (MerkmalMissing e) {
 			e.erzeugeMeldung();
 		} catch (NumberFormatException f) {
@@ -565,11 +568,11 @@ public class KartendateiHandler extends Datei {
 	 * Methode ueberprueft ob Orte den angegeben Abstand von 3 eingehalten
 	 * haben.
 	 * 
-	 * @param x
-	 * @param y
+	 * @param x Koordinate
+	 * @param y	Koordinate
 	 * @return true, sonst false
 	 */
-	public boolean mindestabstandEingehalten(int x, int y) {
+	private boolean mindestabstandEingehalten(int x, int y) {
 		if (kartenInstanz.orte.size() != 0) {
 			for (Ort ortB : kartenInstanz.orte) {
 				double distanz = Math.sqrt((Math.pow((x - ortB.koordX), 2))
@@ -589,7 +592,7 @@ public class KartendateiHandler extends Datei {
 	 * @param koord
 	 *            Integer der Koordinate.
 	 */
-	public void koordinateCheckenX(int koord) throws DateiSyntaxFehler {
+	private void koordinateCheckenX(int koord) throws DateiSyntaxFehler {
 		if (koord > MAX_KOORD_X || koord < MIN_KOORD_X) {
 			JOptionPane
 					.showMessageDialog(
@@ -606,7 +609,7 @@ public class KartendateiHandler extends Datei {
 	 * @param koord
 	 *            Integer der Koordinate.
 	 */
-	public void koordinateCheckenY(int koord) throws DateiSyntaxFehler {
+	private void koordinateCheckenY(int koord) throws DateiSyntaxFehler {
 		if (koord > MAX_KOORD_Y || koord < MIN_KOORD_Y) {
 			JOptionPane
 					.showMessageDialog(
@@ -619,25 +622,25 @@ public class KartendateiHandler extends Datei {
 
 	// Hier stehen die 4 Methoden zur Erzeugung der 4 verschiedenen Orte.
 	// @author Nils
-	public void erzeugeHauptort(int koordX, int koordY, String name,
+	private void erzeugeHauptort(int koordX, int koordY, String name,
 			int anzahlEinwohner) {
 		kartenInstanz.orte.add(new Hauptort(koordX, koordY, name,
 				anzahlEinwohner));
 	}
 
-	public void erzeugeNebenort(int koordX, int koordY, String name,
+	private void erzeugeNebenort(int koordX, int koordY, String name,
 			int anzahlEinwohner) {
 		kartenInstanz.orte.add(new Nebenort(koordX, koordY, name,
 				anzahlEinwohner));
 	}
 
-	public void erzeugeUmschlagpunkt(int koordX, int koordY, String name,
+	private void erzeugeUmschlagpunkt(int koordX, int koordY, String name,
 			double umschlagVolumen) {
 		kartenInstanz.orte.add(new Umschlagpunkt(koordX, koordY, name,
 				umschlagVolumen));
 	}
 
-	public void erzeugeAuslandsverbindung(int koordX, int koordY, String name,
+	private void erzeugeAuslandsverbindung(int koordX, int koordY, String name,
 			double umschlagVolumen, int passagierAufkommen) {
 		kartenInstanz.orte.add(new Auslandsverbindung(koordX, koordY, name,
 				passagierAufkommen, umschlagVolumen));
@@ -652,7 +655,7 @@ public class KartendateiHandler extends Datei {
 	 *            , die gerade ausgewertet wird.
 	 * @return String des Dateinamens ohne suffix.
 	 */
-	public String getDateiNamen(File datei) {
+	private String getDateiNamen(File datei) {
 		int dateiEndung = datei.getName().indexOf(".txt");
 		if (dateiEndung == -1) {
 			JOptionPane
@@ -663,24 +666,4 @@ public class KartendateiHandler extends Datei {
 		return dateiName;
 	}
 
-	public static boolean istKommentarZeile(String zeile) {
-		if (zeile.indexOf(KOMMENTARMARKER) == -1
-				|| zeile.indexOf(KOMMENTARMARKER) > 0) {
-			return false;
-		}
-		return true;
-	}
-
-	public void checkLeeresDateiende(int zeile, ArrayList<String> text) {
-		zeile++;
-		while (zeile < text.size()) {
-			if (text.get(zeile).equals("") || text.get(zeile).equals("\n")) {
-				zeile++;
-				continue;
-			}
-			JOptionPane.showMessageDialog(null,
-					"Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
-			return;
-		}
-	}
 }
