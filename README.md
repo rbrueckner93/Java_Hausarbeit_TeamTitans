@@ -7,7 +7,6 @@ Progress: 65%
 ToDo:
 
 - Spezialfälle + Extremfälle! Fehleranalyse
-- keine Konsolenausgaben im Master! (Flugroute Ruben)
 - auskommentierten Code (Debugging-Code) entfernen
 - Kommentararten ueberpruefen
 - Package Aufteilung besprechen.
