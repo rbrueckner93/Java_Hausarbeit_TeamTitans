@@ -8,17 +8,20 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import dateihandler.Datei;
+
 /**
- * @author FechnerL Die Klasse Benutzerinterface ist fuer die Kommunikation des
- *         Programms mit dem Nutzer zustaendig. Hierzu gehoert einerseits das
+ * @author FechnerL 
+ * 		   Die Klasse Benutzerinterface ist fuer die Kommunikation des
+ *         Programms mit dem Anwender zustaendig. Hierzu gehoert einerseits das
  *         Fragen nach Dateien oder bestimmten Informationen, deren
- *         Ueberpruefung und die Weitergabe Andererseits sind auch die Methoden
+ *         Ueberpruefung und die Weitergabe. Andererseits sind auch die Methoden
  *         fuer die Ausgabe an den Anwender beinhaltet.
  */
 public class Benutzerinterface {
 
 	/**
-	 * Durch system.getproperties("User.Home") am Beginn des Programmes gesetzt.
+	 * Hier wird der Standardpfad gesetzt, um mit diesem später die Dateiauswahl durchzuführen.
 	 */
 	public static final String STANDARDPFAD = System.getProperty("user.home")
 			+ "\\deerone";
@@ -56,7 +59,7 @@ public class Benutzerinterface {
 
 			if (status == JFileChooser.APPROVE_OPTION) {
 				kartenfile = chooser.getSelectedFile();
-				int dateiEndung = kartenfile.getName().indexOf(".txt");
+				int dateiEndung = kartenfile.getName().indexOf(Datei.STANDARD_DATEITYP);
 				if (dateiEndung == -1) {
 					JOptionPane.showMessageDialog(null,
 							"Falsche Dateiendung der Datei");
@@ -82,7 +85,8 @@ public class Benutzerinterface {
 	}
 
 	/**
-	 * Einlesen und Ueberpruefen des Budgets: ganzzahlig und positiv
+	 * Der Anwender wird nach dem zur Verfuegung stehenden Budget gefragt. nach der Eingabe wird geprueft, ob
+	 * dieses ganzzahlig und positiv ist.
 	 */
 	public double abfrageBudget() {
 		String budgetEingabe;
@@ -123,7 +127,7 @@ public class Benutzerinterface {
 	}
 
 	/**
-	 * Ermittelt Baukosten der aktuellen Karte und zeigt dem Anwender diese.
+	 * Ermittelt die Baukosten des Netzes zur aktuellen Karte und zeigt dem Anwender diese.
 	 * Zusaetzlich wird dem Anwender eine Auflistung der gebauten Korridore,
 	 * gruppiert nach ihrer Art, ausgegeben.
 	 * 
@@ -157,10 +161,11 @@ public class Benutzerinterface {
 	 * Nach der Erstellung des Netzes durch Korridore wird der Anwender gefragt,
 	 * ob das Netz gespeichert und das Programm beendet werden soll. Bei Ja wird
 	 * Karte gespeichert und das Programm geschlossen. Bei Nein fährt das
-	 * Programm fort und fragt nach einer Testdatei. Ja uebergibt 0 und Nein 1
+	 * Programm fort und fragt nach einer Testdatei. 
 	 * 
 	 * @return
 	 */
+	//Ja uebergibt 0 und Nein 1
 	public int abfrageNetzSpeichern() {
 		int entscheidung;
 
@@ -179,7 +184,7 @@ public class Benutzerinterface {
 				}
 
 			} else {
-
+				
 				return entscheidung;
 			}
 
@@ -195,7 +200,7 @@ public class Benutzerinterface {
 		JOptionPane.showMessageDialog(null,
 				"Bitte waehlen Sie eine Testdatei aus.");
 		File testdateiFile;
-		FileFilter txtfilter = new FileNameExtensionFilter("Testdatei", "txt");
+		FileFilter txtfilter = new FileNameExtensionFilter("Testdatei", Datei.STANDARD_DATEITYP);
 		JFileChooser chooser = new JFileChooser(STANDARDPFAD);
 		chooser.addChoosableFileFilter(txtfilter);
 		chooser.setFileFilter(txtfilter);
@@ -260,7 +265,7 @@ public class Benutzerinterface {
 	 * Fragt den Anwender nach dem weiteren Vorgehen, wobei es drei
 	 * Moeglichkeiten gibt. Uebergibt: 0, Wenn die aktuelle Simulation als Datei
 	 * gespeichert werden soll. 1, um die aktuelle Simulation zu speichern und
-	 * zusaetzlich eine neue Simulation mit anderen Testparametern zu starten.
+	 * zusaetzlich eine neue Simulation mit anderen Testparametern zu starten und
 	 * 2, um das Programm zu beenden.
 	 */
 	public int frageNachEndoption() {
