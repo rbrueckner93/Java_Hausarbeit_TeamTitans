@@ -6,11 +6,22 @@ Progress: 65%
 ==========================
 ToDo:
 
-- keine Konsolenausgaben im Master! (Flugroute Ruben) (Budget Lukas)
+- Spezialfälle + Extremfälle! Fehleranalyse
+- keine Konsolenausgaben im Master! (Flugroute Ruben)
 - auskommentierten Code (Debugging-Code) entfernen
 - Kommentararten ueberpruefen
 - Package Aufteilung besprechen.
 - UML up2date
+- Flussdiagramme
+    - Main Patrick
+    - Netzerstellung Ruben
+    - Dateieinlesen Nils
+    - Flugrouten Patrick
+- Erweiterbarkeit
+- Docu durchlesen
+- JavaDoc
+
+
 
 ABGABE : 11.6.2014
 
