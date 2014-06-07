@@ -193,7 +193,7 @@ public class Benutzerinterface {
 	 */
 	public File frageNachTestdatei() {
 		JOptionPane.showMessageDialog(null,
-				"Bitte waehlen Sie nun eine Testdatei aus.");
+				"Bitte waehlen Sie eine Testdatei aus.");
 		File testdateiFile;
 		FileFilter txtfilter = new FileNameExtensionFilter("Testdatei", "txt");
 		JFileChooser chooser = new JFileChooser(STANDARDPFAD);
