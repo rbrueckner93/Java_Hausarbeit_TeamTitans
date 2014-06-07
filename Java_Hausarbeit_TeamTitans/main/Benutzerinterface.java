@@ -7,6 +7,8 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import simulation.Simulator;
+import netz.Karte;
 import dateihandler.Datei;
 
 /**

@@ -4,12 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+
+import netz.Karte;
 import exceptions.DateiSyntaxFehler;
 import exceptions.MerkmalMissing;
 import orte.Ort;
-import main.Flugroute;
-import main.Karte;
-import main.Simulator;
+import simulation.Flugroute;
+import simulation.Simulator;
 
 /**
  *Erhaelt eine Datei (die Informationen ueber
@@ -100,9 +101,9 @@ public class TestdateiHandler extends Datei {
 				aktuelleZeile += 1;
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Es wurden "
+		JOptionPane.showMessageDialog(null, "Es wurde/en "
 				+ ausgewerteteDatensaetze
-				+ " Datensaetze erfolgreich eingelesen. \n" + mitFaktorDefault
+				+ " Datensatz/Datensaetze erfolgreich eingelesen. \n" + mitFaktorDefault
 				+ " davon mit Faktor 1");
 	}
 
@@ -166,7 +167,7 @@ public class TestdateiHandler extends Datei {
 				JOptionPane
 						.showMessageDialog(
 								null,
-								"Weiteren Datei Beginn Marker gefunden. In Zeile: "
+								"Weiterer Datei Beginn Marker gefunden. In Zeile: "
 										+ (beginn + 1));
 				throw new DateiSyntaxFehler();
 			}
@@ -200,7 +201,7 @@ public class TestdateiHandler extends Datei {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									"Weiteren Datei Beginn Marker gefunden. In Zeile: "
+									"Weiterer Datei Beginn Marker gefunden. In Zeile: "
 											+ (beginn + 1));
 					throw new DateiSyntaxFehler();
 				}
@@ -405,44 +406,57 @@ public class TestdateiHandler extends Datei {
 		}
 		return beginn;
 	}
-
+	
 	/**
-	 * Wertet eine Datensatz nach einem spezifischen Merkmal aus.
-	 * @param wertBezeichner Bezeichner des Merkmals, das ausgewertet werden soll.
-	 * @param zeile Start des Datensatzes
-	 * @return String des Merkmalwertes
-	 * @throws MerkmalMissing Wenn ein problem mit dem Merkmal auftritt
-	 * @throws DateiSyntaxFehler Wenn der syntax verletzt wurde.
+	 * * Wertet ein Datensatz nach einem spez. Merkmal aus.
+	 * 
+	 * @param wertBezeichner
+	 *            Spezifischer Bezeichner des Wertes.
+	 * @param zeile
+	 *            String in dem Merkmal stehen muss. Muss der komplette
+	 *            Datensatz sein.
+	 * @return Wert des gesuchten Merkmals als String
+	 * @throws MerkmalMissing
+	 *             Fehler bei fehlendem oder defektem merkmal
+	 * @throws DateiSyntaxFehler
 	 */
 	private String getMerkmal(String wertBezeichner, String zeile)
 			throws MerkmalMissing, DateiSyntaxFehler {
+		// Index des Merkmalbeginns. Check mit "[" vorran gestellt um
+		// Leerzeichen dazwischen auszuschliessen.
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
+		// Check ob Merkmal gefunden wurde.
 		if (anfang == -1) {
 			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
+		// Index des Ende des Merkmals
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
+		// Check, ob das Merkmal einzigartig im Datensatz ist
 		if (zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, ende) != -1) {
 			JOptionPane.showMessageDialog(null, "Merkmal \"" + wertBezeichner
 					+ "\" mehrfach im Datensatz ab Zeile "
 					+ (aktuelleZeile + 1) + " vorhanden.");
 			throw new DateiSyntaxFehler();
 		}
+		// Extrahieren des spezifischen Merkmals
 		String inhaltMerkmal = zeile.substring(anfang, ende);
+		// Ausplitten des Merkmals in Bezeichner und Wert
 		String[] merkmalsplit = inhaltMerkmal.split("\\"
 				+ BEZEICHNER_WERT_TRENNER);
 		// Check ob Merkmal Inhalt besitzt
-		if (merkmalsplit.length == 1){
+		if (merkmalsplit.length == 1) {
 			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
 		if (merkmalsplit[1].isEmpty()) {
 			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
+		// Check auf Korrektes Merkmal und anschließende Rückgabe.
 		if (merkmalsplit[0].equals(MERKMAL_BEGINN + wertBezeichner)) {
 			return merkmalsplit[1].trim();
 		} else {
-			JOptionPane.showMessageDialog(null, "Fehler im Merkmal. "
-					+ wertBezeichner + "Im Datensatz ab Zeile "
-					+ (aktuelleZeile + 1));
+			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
+					+ wertBezeichner + " in Datensatz der in Zeile "
+					+ (aktuelleZeile + 1) + " beginnt");
 		}
 		return null;
 	}
@@ -459,6 +473,7 @@ public class TestdateiHandler extends Datei {
 		ArrayList<Ort> erstellteOrte = aktuelleKarte.getListeAllerOrte();
 		Ort ortHerkunft = null;
 		Ort ortZiel = null;
+		//Auswahl welche Ort Ziel welcher Ort Start ist.
 		for (Ort gewaelterOrt : erstellteOrte) {
 			if (gewaelterOrt.getName().equals(nameHerkunft)) {
 				ortHerkunft = gewaelterOrt;
@@ -468,6 +483,7 @@ public class TestdateiHandler extends Datei {
 				ortZiel = gewaelterOrt;
 			}
 		}
+		//Check, ob Orte der zuerstellenden Flugroute auf Karte vorhanden sind.
 		if (ortHerkunft == null) {
 			JOptionPane.showMessageDialog(null, "Flugroute von " + nameHerkunft
 					+ " nach " + nameZiel + " nicht erzeugbar - "
@@ -477,6 +493,7 @@ public class TestdateiHandler extends Datei {
 					+ " nach " + nameZiel + " nicht erzeugbar - " + nameZiel
 					+ " nicht auf Karte");
 		} else {
+			//Erstellung der Flugroute und adden zur Liste im aktuellen Simulator.
 			aktuelleSimulation.getRouten().add(new Flugroute(ortZiel, ortHerkunft,
 					faktor));
 		}
@@ -491,7 +508,7 @@ public class TestdateiHandler extends Datei {
 	 */
 	private void werteDatensatzAus(int beginnZeile, int endeZeile,
 			ArrayList<String> text) throws DateiSyntaxFehler {
-		// Erstellt einen zusammenhängenden String.
+		// Erstellt einen zusammenhängenden String des gesamten Datensatzes.
 		String datensatz = "";
 		for (int i = beginnZeile; i <= endeZeile; i++) {
 			if (istKommentarZeile(text.get(i))) {
@@ -499,6 +516,7 @@ public class TestdateiHandler extends Datei {
 			}
 			datensatz += text.get(i);
 		}
+		//Auswerten der 3 Merkmale
 		try {
 			String nameOrtHerkunft = getMerkmal(BEZEICHNER_START, datensatz);
 			String nameOrtZiel = getMerkmal(BEZEICHNER_ZIEL, datensatz);
@@ -508,11 +526,15 @@ public class TestdateiHandler extends Datei {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktor);
 				ausgewerteteDatensaetze++;
 			} catch (MerkmalMissing e) {
+				//Hier wird die Flugroute mit dem Daefault Faktoe erstellt, weil kein gueltiger Faktor gefunden wurde.
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, DEFAULT_FAKTOR);
+				//Hochzaehlen, um den User Info zu geben.
 				mitFaktorDefault++;
 			}
+			//Fehler bei Merkmalauswertung
 		} catch (MerkmalMissing e) {
 			e.erzeugeMeldung();
+			//Fehler bei Umwandlung der Zahlen
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
 					"Merkmale enthalten keine Zahlen. Im Datensatz ab "
@@ -521,21 +543,4 @@ public class TestdateiHandler extends Datei {
 		}
 
 	}
-
-	/**
-	 * Extrahiert den Dateinamen aus der uebergebenen Datei. Checkt dabei auf korrektes Dateiformat.
-	 * @param datei
-	 * @return
-	 */
-	private String getDateiNamen(File datei) throws DateiSyntaxFehler {
-		int dateiEndung = datei.getName().indexOf(".txt");
-		if (dateiEndung == -1) {
-			JOptionPane
-					.showMessageDialog(null, "Falsche Dateiendung der Datei");
-			throw new DateiSyntaxFehler();
-		}
-		String dateiName = datei.getName().substring(0, dateiEndung);
-		return dateiName;
-	}
-
 }

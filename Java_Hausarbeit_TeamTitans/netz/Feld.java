@@ -1,6 +1,7 @@
-package main;
+package netz;
 
 import java.util.ArrayList;
+
 import orte.Ort;
 
 public class Feld {

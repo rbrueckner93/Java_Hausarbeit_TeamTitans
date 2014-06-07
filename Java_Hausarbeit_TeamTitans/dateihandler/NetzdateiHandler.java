@@ -2,14 +2,12 @@ package dateihandler;
 
 import java.util.ArrayList;
 
-import korridore.Korridor;
-import main.Karte;
+import netz.Karte;
+import netz.Korridor;
 
 /**
- * 
+ * Schreibt alle Korridore eine uebergebenen Karte in eine Textdatei.
  * @author TolleN
- * Beschreibung
- *
  */
 
 public class NetzdateiHandler extends Datei {
@@ -46,6 +44,9 @@ public class NetzdateiHandler extends Datei {
 		ArrayList<String> fertigerText = new ArrayList<String>();
 		fertigerText.add(DATEI_BEGINN_MARKER);
 		fertigerText.add("");
+		/*
+		 * Durchlaufen aller Korridore um sie mit allen Merkmalen zu schreiben.
+		 */
 		for (Korridor aktuellerKorridor : fertigesNetz.getEingerichteteKorridore()){
 			fertigerText.add(DATENSATZ_BEGINN_MARKER);
 			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_START+BEZEICHNER_WERT_TRENNER+aktuellerKorridor.getOrtA().getName()+MERKMAL_ENDE);
