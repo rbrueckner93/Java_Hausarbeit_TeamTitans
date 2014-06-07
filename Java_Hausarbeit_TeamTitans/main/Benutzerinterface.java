@@ -20,7 +20,9 @@ public class Benutzerinterface {
 	/**
 	 * Durch system.getproperties("User.Home") am Beginn des Programmes gesetzt.
 	 */
-	public static final String STANDARDPFAD = System.getProperty("user.home")+"\\DeerOne";
+	public static final String STANDARDPFAD = System.getProperty("user.home")
+			+ "\\deerone";
+	public static final String WAEHRUNG = "EUR";
 
 	public Benutzerinterface() {
 	}
@@ -89,7 +91,8 @@ public class Benutzerinterface {
 			try {
 
 				budgetEingabe = JOptionPane
-						.showInputDialog("Wie hoch ist das Budget fuer den Netzbau?");
+						.showInputDialog("Wie hoch ist das Budget fuer den Netzbau in "
+								+ WAEHRUNG + " ?");
 
 				if (budgetEingabe == null) {
 					int beenden;
@@ -128,12 +131,19 @@ public class Benutzerinterface {
 	 */
 	public void zeigeBaukosten(Karte aktuelleKarte) {
 		double baukosten = aktuelleKarte.ermittleGesamteBaukosten();
+		
+		//Runden von baukosten auf 2 Nachkommastellen
+		baukosten = baukosten * 100;
+		baukosten = Math.round(baukosten);
+		baukosten = baukosten / 100;
+		
 		JOptionPane
 				.showMessageDialog(
 						null,
 						"Die Baukosten betragen "
-								+ baukosten
-								+ " Geldeinheiten. \nFolgende Korridore wurden gebaut: \nEinfache Korridore: "
+								+ baukosten + " " 
+								+ WAEHRUNG
+								+ " . \nFolgende Korridore wurden gebaut: \nEinfache Korridore: "
 								+ aktuelleKarte.ermittleAnzahlENFCKorridore()
 								+ "\nStandardkorridore: "
 								+ aktuelleKarte.ermittleAnzahlSTNDKorridore()
@@ -169,7 +179,7 @@ public class Benutzerinterface {
 				}
 
 			} else {
-				
+
 				return entscheidung;
 			}
 
@@ -227,15 +237,23 @@ public class Benutzerinterface {
 	 * 
 	 * @param aktuelleSimulation
 	 */
-	public void zeigeNutzkosten(Simulator aktuelleSimulation, Karte aktuelleKarte) {
+	public void zeigeNutzkosten(Simulator aktuelleSimulation,
+			Karte aktuelleKarte) {
 
 		double kosten = aktuelleSimulation.ermittleNutzkosten();
-		if (aktuelleKarte.ermittleGesamteBaukosten() > aktuelleKarte.getBudget()){
-			double budgetUeberschreitung = (aktuelleKarte.ermittleGesamteBaukosten() - aktuelleKarte.getBudget());
+		if (aktuelleKarte.ermittleGesamteBaukosten() > aktuelleKarte
+				.getBudget()) {
+			double budgetUeberschreitung = (aktuelleKarte
+					.ermittleGesamteBaukosten() - aktuelleKarte.getBudget());
 			kosten += budgetUeberschreitung;
 		}
+		// kosten auf 2 Nachkommastellen runden
+		kosten = kosten * 100;
+		kosten = Math.round(kosten);
+		kosten = kosten / 100;
+		
 		JOptionPane.showMessageDialog(null, "Die Nutzkosten betragen " + kosten
-				+ " Geldeinheiten.");
+				+ WAEHRUNG + ".");
 	}
 
 	/**
