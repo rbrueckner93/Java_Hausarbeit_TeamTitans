@@ -3,18 +3,14 @@ package main;
 import java.util.ArrayList;
 
 /**
- * @author BruecknerR Das berechnete Netz wird anhand einer Testdatei berechnet
- *         hinsichtlich der anfallenden Kosten.
+ * Berechnet ein gegebenes Netz anhand einer Datei mit voraussichtlichen
+ * Belastungen der Relationen hinsichtlich der anfallenden Kosten.
+ * 
+ * @author BruecknerR
  */
 public class Simulator {
-
 	// Alle angelegten Routen werden in einer Liste gespeichert
 	public ArrayList<Flugroute> routen;
-
-	/**
-	 * speichert die Information ueber die verwendete Testdatei fuer die
-	 * Simulation.
-	 */
 	public String nameTestdatei;
 
 	public Simulator() {
@@ -26,25 +22,22 @@ public class Simulator {
 		return nameTestdatei;
 	}
 
-	public void setNameTestdateiHandler(String nameTestdatei) {
+	public void setNameTestdatei(String nameTestdatei) {
 		this.nameTestdatei = nameTestdatei;
 	}
 
 	/**
-	 * fuehrt auf jeder Route, sich in seiner liste routen befindet,
+	 * fuehrt auf jeder Route, sich in der Liste routen der Instanz befindet,
 	 * route.ermittleBesteRoute() aus.
 	 */
 	public void simuliere() {
 		for (Flugroute route : routen) {
-			// Debug only.
-			// System.out.println("Ermittle Route von "+route.herkunft.name+" nach "+route.ziel.name);
 			route.ermittleBesteRoute();
-			// System.out.println("=================================================================");
 		}
 	}
 
 	/**
-	 * mit dieser Methode werden die Nutzkosten aller Routen aufsummiert.
+	 * @return Summe aller Routennutzungskostenkosten
 	 */
 	public double ermittleNutzkosten() {
 		double nutzkosten = 0.0;
