@@ -21,6 +21,7 @@ public class Datei {
 	public static final String MERKMAL_BEGINN = "[";
 	public static final String MERKMAL_ENDE = "]";
 	public static final String BEZEICHNER_WERT_TRENNER = "|";
+	public static final String STANDARD_DATEITYP = ".txt";
 
 	/**
 	 * Methode die eine gegebene Datei Zeilenweise ausliest und ein Array von
@@ -56,8 +57,8 @@ public class Datei {
 	 */
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,
 			String neuerDateiname) {
-		File neueDatei = new File(Benutzerinterface.standardpfad+ "\\"
-				+ neuerDateiname + ".txt");
+		File neueDatei = new File(Benutzerinterface.STANDARDPFAD+ "\\"
+				+ neuerDateiname + STANDARD_DATEITYP);
 		try {
 			PrintStream writer = new PrintStream(neueDatei);
 			for (String zeile : zuSchreibenderText) {

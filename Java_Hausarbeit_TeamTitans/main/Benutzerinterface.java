@@ -20,7 +20,7 @@ public class Benutzerinterface {
 	/**
 	 * Durch system.getproperties("User.Home") am Beginn des Programmes gesetzt.
 	 */
-	public static final String standardpfad = System.getProperty("user.home")+"\\DeerOne";
+	public static final String STANDARDPFAD = System.getProperty("user.home")+"\\DeerOne";
 
 	public Benutzerinterface() {
 	}
@@ -44,7 +44,7 @@ public class Benutzerinterface {
 				"Bitte waehlen Sie eine Kartendatei aus.");
 		File kartenfile;
 		FileFilter txtfilter = new FileNameExtensionFilter("Kartendatei", "txt");
-		JFileChooser chooser = new JFileChooser();
+		JFileChooser chooser = new JFileChooser(STANDARDPFAD);
 		chooser.addChoosableFileFilter(txtfilter);
 		chooser.setFileFilter(txtfilter);
 
@@ -186,7 +186,7 @@ public class Benutzerinterface {
 				"Bitte waehlen Sie nun eine Testdatei aus.");
 		File testdateiFile;
 		FileFilter txtfilter = new FileNameExtensionFilter("Testdatei", "txt");
-		JFileChooser chooser = new JFileChooser();
+		JFileChooser chooser = new JFileChooser(STANDARDPFAD);
 		chooser.addChoosableFileFilter(txtfilter);
 		chooser.setFileFilter(txtfilter);
 
