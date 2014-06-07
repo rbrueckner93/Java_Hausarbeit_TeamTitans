@@ -9,9 +9,9 @@ wenn ein unerlaubter Ort bei einem Korridor genutzt wird.
 
 
 public class UngueltigerOrt extends Exception {
-	Ort ortA;
-	Ort ortB;
-	String korridorArt;
+	private Ort ortA;
+	private Ort ortB;
+	private String korridorArt;
 	
 	public UngueltigerOrt(Ort ortA, Ort ortB, String korridorArt) {
 		super("FalscherOrt_benutzt:"+ortA.getKennung()+", "+ortB.getKennung()+" sollten fuer einen "+korridorArt+" genutzt werden.");

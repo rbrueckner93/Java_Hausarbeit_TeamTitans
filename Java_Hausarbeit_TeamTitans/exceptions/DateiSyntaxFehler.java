@@ -2,9 +2,9 @@ package exceptions;
 
 public class DateiSyntaxFehler extends Exception{
 	
-	int fehlercode;
+	private int fehlercode;
 	
-	int zeile;
+	private int zeile;
 	/**
 	 * Exception die einen fehler im Dateiformat anzeigt.
 	 * @author Nils
