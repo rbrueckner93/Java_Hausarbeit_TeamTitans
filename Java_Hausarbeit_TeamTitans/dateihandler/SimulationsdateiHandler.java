@@ -17,28 +17,19 @@ public class SimulationsdateiHandler extends Datei {
 	public static final String DATENSATZ_BEGINN_MARKER = ">->route";
 	public static final String DATENSATZ_ENDE_MARKER = "<-<route";
 	public static final String DATEI_SUFFIX = "_sim";
-	public static ArrayList<String> GUELTIGE_BEZEICHNER;
 	public static final String BEZEICHNER_START = "start";
 	public static final String BEZEICHNER_ZIEL = "end";
-	// Wird nicht mehr benötigt.
-	// public static final char REISELISTE_TEILER = ';';
 
-	/**
-	 * Aneinanderreihung aller Orte auf dem Weg der Flugroute
-	 */
 	public static final String BEZEICHNER_REISELISTE = "travellist";
 
 	public static final String BEZEICHNER_FAKTOR = "factor";
 
-	/**
-	 * Uebergabe der Informationen, die durch den Simulator gesammelt wurden.
-	 */
 	public Simulator fertigeSimulation;
 
 	/**
 	 * Konstruktor. Bekommt ein fertiges Objekt der Klasse Simulator uebergeben.
-	 * 
 	 * @param fertigeSimulation
+	 * @author Nils
 	 */
 
 	public SimulationsdateiHandler(Simulator fertigeSimulation) {
@@ -51,10 +42,11 @@ public class SimulationsdateiHandler extends Datei {
 	}
 
 	/**
-	 * Methode erzeugt einen AusgabeStream der den Regeln folgt. benätigt
+	 * Methode erzeugt einen AusgabeStream der den Regeln folgt. Benoetigt
 	 * lediglich eine liste aller erstellten Flugrouten.
+	 * @return ArrayList<String> Jedes Eelement entspricht einer Zeile.
 	 */
-	public ArrayList<String> erstelleOutputStreamSim() {
+	private ArrayList<String> erstelleOutputStreamSim() {
 		ArrayList<String> fertigerText = new ArrayList<String>();
 		fertigerText.add(DATEI_BEGINN_MARKER);
 		fertigerText.add("");
@@ -79,7 +71,7 @@ public class SimulationsdateiHandler extends Datei {
 		return fertigerText;
 	}
 
-	public String erstelleDateiNameSim() {
+	private String erstelleDateiNameSim() {
 		String dateiname = fertigeSimulation.nameTestdatei + DATEI_SUFFIX;
 		return dateiname;
 	}
