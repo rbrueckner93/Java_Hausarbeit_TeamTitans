@@ -14,7 +14,7 @@ public class UngueltigerOrt extends Exception {
 	String korridorArt;
 	
 	public UngueltigerOrt(Ort ortA, Ort ortB, String korridorArt) {
-		super("FalscherOrt_benutzt:"+ortA.kennung+", "+ortB.kennung+" sollten fuer einen "+korridorArt+" genutzt werden.");
+		super("FalscherOrt_benutzt:"+ortA.getKennung()+", "+ortB.getKennung()+" sollten fuer einen "+korridorArt+" genutzt werden.");
 		this.ortA = ortA;
 		this.ortB = ortB;
 		this.korridorArt = korridorArt;

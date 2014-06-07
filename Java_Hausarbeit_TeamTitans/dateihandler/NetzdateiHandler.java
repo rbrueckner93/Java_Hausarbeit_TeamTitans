@@ -46,10 +46,10 @@ public class NetzdateiHandler extends Datei {
 		ArrayList<String> fertigerText = new ArrayList<String>();
 		fertigerText.add(DATEI_BEGINN_MARKER);
 		fertigerText.add("");
-		for (Korridor aktuellerKorridor : fertigesNetz.eingerichteteKorridore){
+		for (Korridor aktuellerKorridor : fertigesNetz.getEingerichteteKorridore()){
 			fertigerText.add(DATENSATZ_BEGINN_MARKER);
-			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_START+BEZEICHNER_WERT_TRENNER+aktuellerKorridor.getOrtA().name+MERKMAL_ENDE);
-			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_ZIEL+BEZEICHNER_WERT_TRENNER+aktuellerKorridor.getOrtB().name+MERKMAL_ENDE);
+			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_START+BEZEICHNER_WERT_TRENNER+aktuellerKorridor.getOrtA().getName()+MERKMAL_ENDE);
+			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_ZIEL+BEZEICHNER_WERT_TRENNER+aktuellerKorridor.getOrtB().getName()+MERKMAL_ENDE);
 			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_KORRIDOR_KENNUNG+BEZEICHNER_WERT_TRENNER+aktuellerKorridor.getKennung()+MERKMAL_ENDE);
 			fertigerText.add(DATENSATZ_ENDE_MARKER);
 		}

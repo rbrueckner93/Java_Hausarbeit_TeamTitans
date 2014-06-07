@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import orte.Ort;
 
 public class Feld {
-	public int startX;
-	public int endX;
-	public int startY;
-	public int endY;
-	public int kantenlaenge;
-	public Karte kartenInstanz;
+	private int startX;
+	private int endX;
+	private int startY;
+	private int endY;
+	private int kantenlaenge;
+	private Karte kartenInstanz;
 
 	public Feld(Karte kartenInstanz, int startX, int startY, int kantenlaenge) {
 		this.startX = startX;
@@ -29,13 +29,13 @@ public class Feld {
 	 */
 	public ArrayList<Ort> bestimmeOrteImFeld() {
 		ArrayList<Ort> bestimmteOrte = new ArrayList<Ort>();
-		for (Ort o : kartenInstanz.orte) {
+		for (Ort o : kartenInstanz.getOrte()) {
 			/**
 			 * liegt der gerade untersuchte Ort innerhalb der spezifizierten
 			 * Grenzen?
 			 */
-			if (o.koordX < endX && o.koordX > startX && o.koordY < endY
-					&& o.koordY > startY)
+			if (o.getKoordX() < endX && o.getKoordX() > startX && o.getKoordY() < endY
+					&& o.getKoordY() > startY)
 				bestimmteOrte.add(o);
 		}
 		return bestimmteOrte;

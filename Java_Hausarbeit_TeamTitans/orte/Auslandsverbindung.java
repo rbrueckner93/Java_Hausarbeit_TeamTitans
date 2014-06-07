@@ -7,9 +7,9 @@ package orte;
 public class Auslandsverbindung extends Ort {
 	/* {author=TolleN, HandritschkP} */
 
-	public int passagierAufkommen;
+	private int passagierAufkommen;
 
-	public double umschlagVolumen;
+	private double umschlagVolumen;
 
 	public static final String BESCHREIBUNG = "Auslandsverbindung";
 	
@@ -19,23 +19,13 @@ public class Auslandsverbindung extends Ort {
 		this.passagierAufkommen = passagierAufkommen;
 		this.umschlagVolumen = umschlagVolumen;
 		berechneRelevanzGrad();
-		setKennung();
-	}
-
-	public double getRelevanzGrad() {
-		return relevanzGrad;
+		setKennung(KENNUNG_AUSLANDSVERBINDUNG);
 	}
 
 	/**
 	 * relevanzGrad=(umschlagVolumen+3*passagierAufkommen)/1000000
 	 */
-	public void berechneRelevanzGrad() {
+	private void berechneRelevanzGrad() {
 		setRelevanzGrad(((umschlagVolumen + (3 * passagierAufkommen)) / 1000000));
-	}
-	/**
-	 * Setzt die Kennung Klassenspezifisch.
-	 */
-	public void setKennung() {
-		kennung = KENNUNG_AUSLANDSVERBINDUNG;
 	}
 }

@@ -30,9 +30,9 @@ public class Karte {
 	public static final int END_FELDABTASTUNG = 75;
 	public static final int SCHRITTE_FELDABTASTUNG = 5;
 	public static final int MINORT_FELDABTASTUNG = 3;
-	public ArrayList<Ort> orte;
-	public ArrayList<Korridor> eingerichteteKorridore;
-	public String nameKartendatei;
+	private ArrayList<Ort> orte;
+	private ArrayList<Korridor> eingerichteteKorridore;
+	private String nameKartendatei;
 
 	public Karte() {
 		super();
@@ -62,6 +62,19 @@ public class Karte {
 
 	public ArrayList<Korridor> getEingerichteteKorridore() {
 		return eingerichteteKorridore;
+	}
+	
+
+	public ArrayList<Ort> getOrte() {
+		return orte;
+	}
+
+	public void setOrte(ArrayList<Ort> orte) {
+		this.orte = orte;
+	}
+
+	public void setEingerichteteKorridore(ArrayList<Korridor> eingerichteteKorridore) {
+		this.eingerichteteKorridore = eingerichteteKorridore;
 	}
 
 	/**
@@ -281,8 +294,8 @@ public class Karte {
 	 * @author bruecknerr
 	 */
 	private double ermittleWinkel(int bezugX, int bezugY, Ort ort) {
-		int punktY = ort.koordY;
-		int punktX = ort.koordX;
+		int punktY = ort.getKoordY();
+		int punktX = ort.getKoordX();
 		double winkel = Math.atan2(Math.abs(punktY - bezugY),
 				Math.abs(punktX - bezugX));
 		// II. Quadrant
@@ -358,8 +371,8 @@ public class Karte {
 	 *         Entfernung
 	 */
 	private double getAbsKorridorRang(Korridor korridor) {
-		return korridor.getLaenge() * korridor.ortA.getRelevanzGrad()
-				* korridor.ortB.getRelevanzGrad();
+		return korridor.getLaenge() * korridor.getOrtA().getRelevanzGrad()
+				* korridor.getOrtB().getRelevanzGrad();
 	}
 
 	/**
@@ -519,7 +532,7 @@ public class Karte {
 	private ArrayList<Ort> entferneOrtTyp(String kennung, ArrayList<Ort> liste) {
 		ArrayList<Ort> ohneOrte = new ArrayList<Ort>();
 		for (Ort ort : liste) {
-			if (!ort.kennung.equals(kennung)) {
+			if (!ort.getKennung().equals(kennung)) {
 				ohneOrte.add(ort);
 			}
 		}
@@ -545,8 +558,8 @@ public class Karte {
 				continue;
 			}
 			double distanzOrt = Math.sqrt(Math.pow(
-					(bezugsOrt.koordX - ort.koordX), 2)
-					+ Math.pow((bezugsOrt.koordY - ort.koordY), 2));
+					(bezugsOrt.getKoordX() - ort.getKoordX()), 2)
+					+ Math.pow((bezugsOrt.getKoordY() - ort.getKoordY()), 2));
 			if (distanzOrt < distanz) {
 				distanz = distanzOrt;
 				dichtesterOrt = ort;
@@ -565,14 +578,14 @@ public class Karte {
 			ArrayList<Ort> aslOrte = new ArrayList<Ort>();
 			Ort naechsterOrt = null;
 			for (Ort ortA : orte) {
-				if (ortA.kennung.equals(Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
+				if (ortA.getKennung().equals(Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
 					aslOrte.add(ortA);
 				}
 			}
 			for (Ort ortASL : aslOrte) {
 				double minDistanz = Double.MAX_VALUE;
 				for (Ort nichtASL_Ort : orte) {
-					if (nichtASL_Ort.kennung
+					if (nichtASL_Ort.getKennung()
 							.equals(Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
 						continue;
 					}
@@ -598,7 +611,7 @@ public class Karte {
 	private boolean isUpgradeable(Korridor k) {
 		String neueKorridorart = k.getNextKennung();
 		if (neueKorridorart != "")
-			return istEinrichtbarerKorridor(k.ortA, k.ortB, neueKorridorart);
+			return istEinrichtbarerKorridor(k.getOrtA(), k.getOrtB(), neueKorridorart);
 		return false;
 	}
 
@@ -681,8 +694,8 @@ public class Karte {
 	 */
 
 	private double ermittleOrtsdistanz(Ort orteins, Ort ortzwei) {
-		double laengeQuadrat = Math.pow(orteins.koordX - ortzwei.koordX, 2)
-				+ Math.pow(orteins.koordY - ortzwei.koordY, 2);
+		double laengeQuadrat = Math.pow(orteins.getKoordX() - ortzwei.getKoordX(), 2)
+				+ Math.pow(orteins.getKoordY() - ortzwei.getKoordY(), 2);
 		double laenge = (Math.sqrt(laengeQuadrat));
 		return laenge;
 	}
@@ -698,7 +711,7 @@ public class Karte {
 		for (int i = 1; i < liste.size(); i++) {
 
 			if (hoechster.getRelevanzGrad() < liste.get(i).getRelevanzGrad()
-					&& !(hoechster.kennung.equals("ASL"))) {
+					&& !(hoechster.getKennung().equals("ASL"))) {
 				hoechster = liste.get(i);
 			}
 		}
@@ -747,8 +760,8 @@ public class Karte {
 				double distanzSumme = 0;
 				for (Ort ort : ortsListe) {
 					double distanzSchleife = Math.sqrt(Math.pow(
-							(xKoordinate - ort.koordX), 2)
-							+ Math.pow((yKoordinate - ort.koordY), 2));
+							(xKoordinate - ort.getKoordX()), 2)
+							+ Math.pow((yKoordinate - ort.getKoordY()), 2));
 					distanzSumme += distanzSchleife;
 				}
 				if (distanzSumme < distanz) {
@@ -767,11 +780,11 @@ public class Karte {
 	 *         Auslandsverbindungen
 	 */
 	private double relevanzGradOrtmitASL(Ort gewaehlterOrt) {
-		double gesamtRelevanzGrad = gewaehlterOrt.relevanzGrad;
-		for (Korridor korridor : gewaehlterOrt.angebundeneKorridore) {
+		double gesamtRelevanzGrad = gewaehlterOrt.getRelevanzGrad();
+		for (Korridor korridor : gewaehlterOrt.getAngebundeneKorridore()) {
 			Ort ort = korridor.bestimmeAnderenOrt(gewaehlterOrt);
-			if (ort.kennung == Ort.KENNUNG_AUSLANDSVERBINDUNG) {
-				gesamtRelevanzGrad += ort.relevanzGrad;
+			if (ort.getKennung() == Ort.KENNUNG_AUSLANDSVERBINDUNG) {
+				gesamtRelevanzGrad += ort.getRelevanzGrad();
 			}
 		}
 		return gesamtRelevanzGrad;

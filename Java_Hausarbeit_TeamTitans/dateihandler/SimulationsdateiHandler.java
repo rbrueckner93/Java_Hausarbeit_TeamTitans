@@ -51,19 +51,19 @@ public class SimulationsdateiHandler extends Datei {
 		ArrayList<String> fertigerText = new ArrayList<String>();
 		fertigerText.add(DATEI_BEGINN_MARKER);
 		fertigerText.add("");
-		for (Flugroute aktuelleFlugroute : fertigeSimulation.routen) {
+		for (Flugroute aktuelleFlugroute : fertigeSimulation.getRouten()) {
 			fertigerText.add(DATENSATZ_BEGINN_MARKER);
 			fertigerText.add(MERKMAL_BEGINN + BEZEICHNER_START
-					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.herkunft.name
+					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.getHerkunft().getName()
 					+ MERKMAL_ENDE);
 			fertigerText.add(MERKMAL_BEGINN + BEZEICHNER_ZIEL
-					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.ziel.name
+					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.getZiel().getName()
 					+ MERKMAL_ENDE);
 			fertigerText.add(MERKMAL_BEGINN+BEZEICHNER_REISELISTE+BEZEICHNER_WERT_TRENNER
 					+ aktuelleFlugroute.erzeugeTextausgabeReiseroute()
 					+ MERKMAL_ENDE);
 			fertigerText.add(MERKMAL_BEGINN + BEZEICHNER_FAKTOR
-					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.faktor
+					+ BEZEICHNER_WERT_TRENNER + aktuelleFlugroute.getFaktor()
 					+ MERKMAL_ENDE);
 			fertigerText.add(DATENSATZ_ENDE_MARKER);
 		}

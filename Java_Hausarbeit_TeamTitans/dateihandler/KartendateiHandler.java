@@ -70,7 +70,7 @@ public class KartendateiHandler extends Datei {
 		anzahlAusgewerteteDatensaetze = 0;
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
 		kartenInstanz
-				.setNameKartendateiHandler(getDateiNamen(aktuelleKartendatei));
+				.setNameKartendatei(getDateiNamen(aktuelleKartendatei));
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
 			JOptionPane
@@ -508,8 +508,8 @@ public class KartendateiHandler extends Datei {
 			String name = getMerkmal(BEZEICHNER_NAME, datensatz);
 			// Check ob Name einzigartig ist.
 			boolean nameEinzigartig = true;
-			for (Ort ort : kartenInstanz.orte) {
-				if (name.equals(ort.name)) {
+			for (Ort ort : kartenInstanz.getOrte()) {
+				if (name.equals(ort.getName())) {
 					nameEinzigartig = false;
 				}
 			}
@@ -573,10 +573,10 @@ public class KartendateiHandler extends Datei {
 	 * @return true, sonst false
 	 */
 	private boolean mindestabstandEingehalten(int x, int y) {
-		if (kartenInstanz.orte.size() != 0) {
-			for (Ort ortB : kartenInstanz.orte) {
-				double distanz = Math.sqrt((Math.pow((x - ortB.koordX), 2))
-						+ Math.pow((y - ortB.koordY), 2));
+		if (kartenInstanz.getOrte().size() != 0) {
+			for (Ort ortB : kartenInstanz.getOrte()) {
+				double distanz = Math.sqrt((Math.pow((x - ortB.getKoordX()), 2))
+						+ Math.pow((y - ortB.getKoordY()), 2));
 				// Hier steht der Mindestabstand.
 				if (distanz < MIN_ORTABSTAND) {
 					return false;
@@ -624,25 +624,25 @@ public class KartendateiHandler extends Datei {
 	// @author Nils
 	private void erzeugeHauptort(int koordX, int koordY, String name,
 			int anzahlEinwohner) {
-		kartenInstanz.orte.add(new Hauptort(koordX, koordY, name,
+		kartenInstanz.getOrte().add(new Hauptort(koordX, koordY, name,
 				anzahlEinwohner));
 	}
 
 	private void erzeugeNebenort(int koordX, int koordY, String name,
 			int anzahlEinwohner) {
-		kartenInstanz.orte.add(new Nebenort(koordX, koordY, name,
+		kartenInstanz.getOrte().add(new Nebenort(koordX, koordY, name,
 				anzahlEinwohner));
 	}
 
 	private void erzeugeUmschlagpunkt(int koordX, int koordY, String name,
 			double umschlagVolumen) {
-		kartenInstanz.orte.add(new Umschlagpunkt(koordX, koordY, name,
+		kartenInstanz.getOrte().add(new Umschlagpunkt(koordX, koordY, name,
 				umschlagVolumen));
 	}
 
 	private void erzeugeAuslandsverbindung(int koordX, int koordY, String name,
 			double umschlagVolumen, int passagierAufkommen) {
-		kartenInstanz.orte.add(new Auslandsverbindung(koordX, koordY, name,
+		kartenInstanz.getOrte().add(new Auslandsverbindung(koordX, koordY, name,
 				passagierAufkommen, umschlagVolumen));
 	}
 

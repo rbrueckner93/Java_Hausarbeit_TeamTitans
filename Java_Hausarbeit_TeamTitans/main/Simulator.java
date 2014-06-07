@@ -10,8 +10,8 @@ import java.util.ArrayList;
  */
 public class Simulator {
 	// Alle angelegten Routen werden in einer Liste gespeichert
-	public ArrayList<Flugroute> routen;
-	public String nameTestdatei;
+	private ArrayList<Flugroute> routen;
+	private String nameTestdatei;
 
 	public Simulator() {
 		super();
@@ -24,6 +24,14 @@ public class Simulator {
 
 	public void setNameTestdatei(String nameTestdatei) {
 		this.nameTestdatei = nameTestdatei;
+	}
+	
+	public ArrayList<Flugroute> getRouten() {
+		return routen;
+	}
+
+	public void setRouten(ArrayList<Flugroute> routen) {
+		this.routen = routen;
 	}
 
 	/**

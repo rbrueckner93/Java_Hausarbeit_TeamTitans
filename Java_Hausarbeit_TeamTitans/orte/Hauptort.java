@@ -3,7 +3,7 @@ package orte;
 public class Hauptort extends Ort {
 	/* {author=TolleN, HandritschkP} */
 
-	public int anzahlEinwohner;
+	private int anzahlEinwohner;
 
 	public static final String BESCHREIBUNG = "Hauptort";
 	
@@ -17,7 +17,7 @@ public class Hauptort extends Ort {
 		super(koordX, koordY, name);
 		this.anzahlEinwohner = anzahlEinwohner;
 		berechneRelevanzGrad();
-		setKennung();
+		setKennung(KENNUNG_HAUPTORT);
 	}
 
 	/**
@@ -26,13 +26,5 @@ public class Hauptort extends Ort {
 	
 	private void berechneRelevanzGrad() {
 		setRelevanzGrad((anzahlEinwohner / 15000));
-	}
-
-	/**
-	 * Setzt die Kennung Klassenspezifisch.
-	 */
-	
-	public void setKennung() {
-		kennung = KENNUNG_HAUPTORT;
 	}
 }
