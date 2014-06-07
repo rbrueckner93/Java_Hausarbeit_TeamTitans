@@ -18,43 +18,21 @@ import orte.Ort;
 import orte.Umschlagpunkt;
 
 /**
- * Die Karte ist
- * 
- * -zunaechst baut die karte ein Netz in sternform auf, indem die Relevanzgrade
- * 
- * -bekommt eine Methode, die das Netz erzeugt. Eine uebergabe an den
- * Datenhandler speichert das Netz als Textdatei.
- * 
  * @author handritschkp, tollen, bruecknerr, fechnerl
  */
-
 public class Karte {
-	public double budget;
-	public ArrayList<Ort> orte;
-	public ArrayList<Korridor> eingerichteteKorridore;
-
-	/**
-	 * gibt die Breite der Karte an, sodass die Positionen 0 bis kartenGroesseX
-	 * moeglich sind.
-	 */
-
+	public static double budget;
 	public static final int KARTE_GROESSE_X = 199;
 	public static final int MIN_ORTE_IM_FELD = 3;
 	public static final int KARTE_GROESSE_Y = 99;
-	public static final int SCHWELLFAKTOR_QUERVERBINDUNG = 3;
+	public static double SCHWELLFAKTOR_QUERVERBINDUNG = 2.65;
 	public static final int BEGINN_FELDABTASTUNG = 35;
 	public static final int END_FELDABTASTUNG = 75;
 	public static final int SCHRITTE_FELDABTASTUNG = 5;
 	public static final int MINORT_FELDABTASTUNG = 3;
-	/**
-	 * speichert den Namen der KartendateiHandler, auf deren Basis das Netz
-	 * erzeugt wird beziehungsweise wurde. der Name der NetzdateiHandler soll
-	 * KartendateiHandler_net sein, was ein solches Vorgehen notwendig macht.
-	 */
+	public ArrayList<Ort> orte;
+	public ArrayList<Korridor> eingerichteteKorridore;
 	public String nameKartendatei;
-
-	// Konstruktor der Karte. Nichts wird gesetzt. Weitere Aenderungen ueber
-	// setters.
 
 	public Karte() {
 		super();
@@ -67,16 +45,15 @@ public class Karte {
 	}
 
 	public void setBudget(double budget) {
-		this.budget = budget;
+		Karte.budget = budget;
 	}
 
-	public String getNameKartendateiHandler() {
+	public String getNameKartendatei() {
 		return nameKartendatei;
 	}
 
-	public void setNameKartendateiHandler(String nameKartendateiHandler) {
-		this.nameKartendatei = nameKartendateiHandler;
-
+	public void setNameKartendatei(String nameKartendatei) {
+		this.nameKartendatei = nameKartendatei;
 	}
 
 	public ArrayList<Ort> getListeAllerOrte() {
@@ -89,10 +66,9 @@ public class Karte {
 
 	/**
 	 * Erstellt einen Ring auf Basis der Informationen mitgegebener Orte: Mit
-	 * dem Mittelpunkt der Ortsmenge werden Steigungsdreiecke gebildet. Mit
-	 * einer Unterscheidung der Quadranten in ermittleWinkel ist es moeglich,
-	 * alle Winkel miteinander zu vergleichen. Ziel ist die moeglichst optimale
-	 * Erstellung eines Kreisrings.
+	 * dem Mittelpunkt der Ortsmenge werden Steigungsdreiecke gebildet.
+	 * 
+	 * Ziel ist die moeglichst optimale Erstellung eines Kreisrings.
 	 * 
 	 * @param ringOrte
 	 * @author bruecknerr
@@ -104,32 +80,39 @@ public class Karte {
 				int mitteX = berechneNetzMittelpunkt(ringOrte)[0];
 				int mitteY = berechneNetzMittelpunkt(ringOrte)[1];
 
+				// Ausgangspunkt der Ringbildung ist eine Liste aller ringOrte
 				ArrayList<Ort> nichtVerbunden = new ArrayList<Ort>();
-				ArrayList<Ort> schonVerbunden = new ArrayList<Ort>();
-				ArrayList<Korridor> ringKorridore = new ArrayList<Korridor>();
 				for (Ort a : ringOrte) {
 					nichtVerbunden.add(a);
 				}
-				Ort partnerSucher = ringOrte.get(0);
-				// Damit der Polygonzug am Ende geschlossen wird, muss der
-				// Anfang gemerkt werden
+
+				ArrayList<Ort> schonVerbunden = new ArrayList<Ort>();
+				ArrayList<Korridor> ringKorridore = new ArrayList<Korridor>();
+				/*
+				 * Damit der Polygonzug am Ende geschlossen wird, muss der
+				 * Anfang gespeichert werden
+				 */
 				Ort ersterOrt = ringOrte.get(0);
 
+				// Der aktuell behandelte Ort, partnerSucher, gilt mit Start des
+				// Ablaufs als verbunden.
+				Ort partnerSucher = ringOrte.get(0);
+				schonVerbunden.add(ringOrte.get(0));
 				nichtVerbunden.remove(0);
+
 				Ort winkelPartner = null;
 				double winkelMin;
 				double neuesDelta;
-				/*
-				 * Aufsuchen einer minimalen Winkelabweichung
-				 */
+				// Aufsuchen einer minimalen Winkelabweichung
 				while (nichtVerbunden.size() > 1) {
 					winkelMin = Double.MAX_VALUE;
 					for (Ort moeglicherPartner : ringOrte) {
 						if ((moeglicherPartner != partnerSucher)
 								&& (!schonVerbunden.contains(moeglicherPartner))) {
+
 							/*
-							 * mehrere Bedingungen, um dem Bereich um die 0 Grad
-							 * herum gerecht zu werden
+							 * mehrere Bedingungen, um dem Bereich um die 360
+							 * bzw. 0 Grad herum gerecht zu werden
 							 */
 							neuesDelta = Math
 									.min(Math.abs(ermittleWinkel(mitteX,
@@ -169,18 +152,16 @@ public class Karte {
 						partnerSucher = winkelPartner;
 					}
 				}
-				/*
-				 * Ring schliessen.
-				 */
+				// Ring schliessen.
 				Korridor letztesStueck = new Korridor(nichtVerbunden.get(0),
 						ersterOrt, Korridor.KENNUNG_ENFC);
 				eingerichteteKorridore.add(letztesStueck);
 				ringKorridore.add(letztesStueck);
 
 				/*
-				 * Ueberpruefen, ob der Polygonzug sehr lang wurde und damit
-				 * Querverbindungen notwendig werden, um ein sinnvolles Netz zu
-				 * erhalten.
+				 * Ueberpruefen, ob der Polygonzug sehr lang wurde: Sind
+				 * Querverbindungen notwendig, um ein sinnvolles Netz zu
+				 * erhalten?
 				 */
 				double ringLaenge = 0.0;
 				for (Korridor k : ringKorridore) {
@@ -197,43 +178,53 @@ public class Karte {
 							ringOrte.get(0), ringOrte.get(1),
 							Korridor.KENNUNG_ENFC);
 					double besteErsparnis = 0.0;
-					for (Ort r1 : ringOrte) {
-						for (Ort r2 : ringOrte) {
-							if (r1 != r2) {
-								Korridor moeglicheQuerK = new Korridor(r1, r2,
-										Korridor.KENNUNG_ENFC);
+					for (Ort ortA : ringOrte) {
+						for (Ort ortB : ringOrte) {
+							if (ortA != ortB) {
+								Korridor moeglicherQuerkorridor = new Korridor(
+										ortA, ortB, Korridor.KENNUNG_ENFC);
 								double ringZug = 0;
-								Ort hop = r1;
-								Ort lastHop = null;
-								Korridor move = null;
+								Ort schritt = ortA;
+								Ort letzterSchritt = null;
+								Korridor naechsterRingKorridor = null;
+								/*
+								 * Ermittlung der Wegstrecke zwischen ortA und
+								 * ortB auf dem Ring
+								 */
 								while (true) {
-									for (Korridor k : hop
+									for (Korridor verbindung : schritt
 											.getAngebundeneKorridore()) {
 										/*
-										 * ASL_ausschliesen
+										 * Naechsten Korridor im Ring bestimmen:
+										 * ASL ausschliesen, um auf dem Ring zu
+										 * bleiben
 										 */
-										if (k.bestimmeAnderenOrt(hop)
-												.getKennung() != Ort.KENNUNG_AUSLANDSVERBINDUNG
-												&& k.bestimmeAnderenOrt(hop) != lastHop) {
-											move = k;
+										if (verbindung.bestimmeAnderenOrt(
+												schritt).getKennung() != Ort.KENNUNG_AUSLANDSVERBINDUNG
+												&& verbindung
+														.bestimmeAnderenOrt(schritt) != letzterSchritt) {
+											naechsterRingKorridor = verbindung;
 											break;
 										}
 									}
-									ringZug += move.getLaenge();
-									lastHop = hop;
-									hop = move.bestimmeAnderenOrt(hop);
-									if (hop == r2)
+									ringZug += naechsterRingKorridor
+											.getLaenge();
+									letzterSchritt = schritt;
+									schritt = naechsterRingKorridor
+											.bestimmeAnderenOrt(schritt);
+									// Abbrechen, wenn ortB erreicht wurde.
+									if (schritt == ortB)
 										break;
 								}
 								if (ringZug > 0.5 * ringLaenge)
 									ringZug = ringLaenge - ringZug;
 
 								double moeglicheErsparnis = ringZug
-										- moeglicheQuerK.getLaenge();
+										- moeglicherQuerkorridor.getLaenge();
 								if (moeglicheErsparnis > besteErsparnis
-										&& !korridorExistent(moeglicheQuerK)) {
+										&& !korridorExistent(moeglicherQuerkorridor)) {
 									besteErsparnis = moeglicheErsparnis;
-									hoechsterErsparniskorridor = moeglicheQuerK;
+									hoechsterErsparniskorridor = moeglicherQuerkorridor;
 								}
 							}
 						}
@@ -247,22 +238,32 @@ public class Karte {
 				}
 
 			} else if (ringOrte.size() == 2) {
-				/*
-				 * kein Ring moeglich, es entsteht ein Korridor
-				 */
+				// kein Ring moeglich, es entsteht ein Korridor
 				eingerichteteKorridore.add(new Korridor(ringOrte.get(0),
 						ringOrte.get(1), Korridor.KENNUNG_ENFC));
 			}
 		} catch (UngueltigerOrt e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"Es trat ein ungueltiger Ort bei der Erstellung von Korridoren auf. \n Bitte wenden Sie sich an die Herausgeber des Programmes.");
+			System.exit(0);
 		}
 	}
 
+	/**
+	 * 
+	 * @param k
+	 *            Korridor, von dem ueberprueft wird, ob es bereits einen
+	 *            Korridor zwischen den angegebenen Orten gibt.
+	 * @return Existenz eines geometrisch identischen Korridors als boolschen
+	 *         Wert
+	 */
 	private boolean korridorExistent(Korridor k) {
 		for (Korridor q : eingerichteteKorridore) {
-			if ((q.ortA == k.ortA && q.ortB == k.ortB)
-					|| (q.ortA == k.ortB && q.ortB == k.ortA))
+			if ((q.getOrtA() == k.getOrtA() && q.getOrtB() == k.getOrtB())
+					|| (q.getOrtA() == k.getOrtB() && q.getOrtB() == k
+							.getOrtA()))
 				return true;
 		}
 		return false;
@@ -310,25 +311,14 @@ public class Karte {
 
 	/**
 	 * Hauptmethode der Klasse Karte. Hier werden alle notwendigen Schritte zur
-	 * Netzerstellung ausgeführt.
+	 * Netzerstellung ausgefÃ¼hrt.
 	 */
 	public void erstelleNetz() {
-		/*
-		 * Sonderfall1 Wenn kein einziger Ort in eingelesen wurde, wird Benutzer
-		 * informiert und Programm beendet.
-		 */
-		if (orte.size() == 0) {
-			JOptionPane
-					.showMessageDialog(null,
-							"Es befindet sich kein Ort in Ihrer Kartendatei! /n Das Programm wird beendet.");
-			System.exit(0);
-		}
-		/*
-		 * Sonderfall2 Wenn genau nur ein Ort eingelesen wurde, wird der
-		 * Benutzer informiert, eine Netzerstellung macht keinen Sinn und das
-		 * Programm beendet
-		 */
 		if (orte.size() == 1) {
+			/*
+			 * Wurde ein Ort eingelesen, wird der Benutzer informiert, dass eine
+			 * Netzerstellung keinen Sinn macht. Der Programm
+			 */
 			JOptionPane
 					.showMessageDialog(
 							null,
@@ -337,8 +327,8 @@ public class Karte {
 		}
 
 		/*
-		 * Sonderfall2 Wenn ausschliesslich Auslandsverbindungen eingelesen
-		 * wurden, wird ein Stern aus Sicherheitskorridoren erstellt.
+		 * Wenn ausschliesslich Auslandsverbindungen eingelesen wurden, wird ein
+		 * Stern aus Sicherheitskorridoren erstellt.
 		 */
 		boolean nur_ASL_Vorhanden = true;
 		for (Ort ort : orte) {
@@ -362,19 +352,33 @@ public class Karte {
 		netzUpgrade();
 	}
 
+	/**
+	 * @param korridor
+	 * @return Wert eines Korridors aufgrund seiner angebundenen Orte und deren
+	 *         Entfernung
+	 */
 	private double getAbsKorridorRang(Korridor korridor) {
-		return korridor.laenge * korridor.ortA.getRelevanzGrad()
+		return korridor.getLaenge() * korridor.ortA.getRelevanzGrad()
 				* korridor.ortB.getRelevanzGrad();
 	}
 
+	/**
+	 * Solange das Budget nicht ueberschritten wurde, versucht netzUpgrade,
+	 * wichtige Korridore in ihren Nutzungskosten zu verbessern.
+	 * 
+	 * @author bruecknerr
+	 */
 	private void netzUpgrade() {
 		ArrayList<Korridor> nochUpgradebareK = new ArrayList<Korridor>();
 		for (Korridor k : eingerichteteKorridore) {
 			if (isUpgradeable(k)) {
+				// nicht mehr upgradebare Korridore ausschliessen
 				nochUpgradebareK.add(k);
 			}
 		}
+
 		while (ermittleGesamteBaukosten() < budget) {
+
 			if (nochUpgradebareK.size() > 0) {
 				Korridor upgradeKandidat = nochUpgradebareK.get(0);
 				for (Korridor upgradebarerKorridor : nochUpgradebareK) {
@@ -553,6 +557,7 @@ public class Karte {
 
 	/**
 	 * Verbinden aller ASL Orte mit dem naechsten nicht ASL Ort.
+	 * 
 	 * @author Nils
 	 */
 	private void verbindeAuslandsorte() {
@@ -586,7 +591,8 @@ public class Karte {
 	}
 
 	/**
-	 * @param k	zu Korridor
+	 * @param k
+	 *            zu Korridor
 	 * @return
 	 */
 	private boolean isUpgradeable(Korridor k) {
@@ -602,7 +608,7 @@ public class Karte {
 	 * @param korridorKennung
 	 *            des einzurichtenden Korridors
 	 * @return Einrichtbarkeit als boolschen Wert.
-
+	 * 
 	 * @throws IllegalArgumentException
 	 *             falls die Kennung nicht zulaessig ist
 	 * @author tollen
