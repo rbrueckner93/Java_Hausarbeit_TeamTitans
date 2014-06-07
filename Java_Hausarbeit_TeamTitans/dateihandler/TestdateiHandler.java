@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import com.sun.xml.internal.fastinfoset.algorithm.DoubleEncodingAlgorithm;
+
 import exceptions.DateiSyntaxFehler;
 import exceptions.MerkmalMissing;
 import orte.Ort;
@@ -28,6 +30,7 @@ public class TestdateiHandler extends Datei {
 	public static final String BEZEICHNER_START = "origin";
 	public static final String BEZEICHNER_ZIEL = "destination";
 	public static final String BEZEICHNER_FAKTOR = "factor";
+	public static final int DEFAULT_FAKTOR = 1;
 	public File aktuelleTestdatei;
 	public Simulator aktuelleSimulation;
 	public Karte aktuelleKarte;
@@ -83,7 +86,6 @@ public class TestdateiHandler extends Datei {
 					.showMessageDialog(
 							null,
 							"Achtung! - Es fehlen Datensatzmarkierer zur korrekten Auswertung der Datei.\nOder es stehen 2 identsiche Marker in einer Zeile.");
-			throw new DateiSyntaxFehler();
 		}
 		// Eigentliche Auswertung des gefundenen Datensatzes.
 		while (DatensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)
@@ -485,9 +487,7 @@ public class TestdateiHandler extends Datei {
 			}
 			datensatz += text.get(i);
 		}
-		System.out.println(datensatz);
 		try {
-			int faktorDefault = 1;
 			String nameOrtHerkunft = getMerkmal(BEZEICHNER_START, datensatz);
 			String nameOrtZiel = getMerkmal(BEZEICHNER_ZIEL, datensatz);
 			try {
@@ -496,12 +496,11 @@ public class TestdateiHandler extends Datei {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktor);
 				ausgewerteteDatensaetze++;
 			} catch (MerkmalMissing e) {
-				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktorDefault);
+				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, DEFAULT_FAKTOR);
 				mitFaktorDefault++;
 			}
 		} catch (MerkmalMissing e) {
 			e.erzeugeMeldung();
-			System.exit(0);
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
 					"Merkmale enthalten keine Zahlen. Im Datensatz ab "
