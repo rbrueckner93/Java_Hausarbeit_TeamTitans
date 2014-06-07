@@ -18,7 +18,6 @@ public class NetzdateiHandler extends Datei {
 	public static final String DATENSATZ_BEGINN_MARKER = ">->connection";
 	public static final String DATENSATZ_ENDE_MARKER = "<-<connection";
 	public static final String DATEI_SUFFIX = "_net";
-	public static ArrayList<String> GUELTIGE_BEZEICHNER;
 	public static final String BEZEICHNER_START = "start";
 	public static final String BEZEICHNER_ZIEL = "end";
 	public static final String BEZEICHNER_KORRIDOR_KENNUNG = "kind";
