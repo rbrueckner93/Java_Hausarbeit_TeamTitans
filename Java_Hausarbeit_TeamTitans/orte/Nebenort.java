@@ -3,7 +3,7 @@ package orte;
 public class Nebenort extends Ort {
 	/* {author=TolleN, HandritschkP} */
 
-	public int anzahlEinwohner;
+	private int anzahlEinwohner;
 
 	public static final String BESCHREIBUNG = "Nebenort";
 	
@@ -18,7 +18,7 @@ public class Nebenort extends Ort {
 		super(koordX, koordY, name);
 		this.anzahlEinwohner = anzahlEinwohner;
 		berechneRelevanzGrad();
-		setKennung();
+		setKennung(KENNUNG_NEBENORT);
 	}
 
 	/**
@@ -31,13 +31,5 @@ public class Nebenort extends Ort {
 		} else {
 			setRelevanzGrad((anzahlEinwohner / 25000));
 		}
-	}
-	
-	/**
-	 * Setzt die Kennung Klassenspezifisch.
-	 */
-	
-	public void setKennung(){
-		kennung = KENNUNG_NEBENORT;
 	}
 }

@@ -17,7 +17,7 @@ public class Umschlagpunkt extends Ort {
 		super(koordX, koordY, name);
 		this.umschlagVolumen = umschlagVolumen;
 		berechneRelevanzGrad();
-		setKennung();
+		setKennung(KENNUNG_UMSCHLAGPUNKT);
 	}
 
 	/**
@@ -26,13 +26,4 @@ public class Umschlagpunkt extends Ort {
 	private void berechneRelevanzGrad() {
 		setRelevanzGrad((umschlagVolumen / 200000));
 	}
-	
-	/**
-	 * Setzt die Kennung Klassenspezifisch.
-	 */
-	
-	public void setKennung() {
-		kennung = KENNUNG_UMSCHLAGPUNKT;
-	}
-
 }

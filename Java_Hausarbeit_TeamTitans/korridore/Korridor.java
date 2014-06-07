@@ -19,9 +19,9 @@ import orte.Umschlagpunkt;
 public class Korridor {
 	/* {author=TolleN} */
 
-	public Ort ortA;
-	public Ort ortB;
-	public double laenge;
+	private Ort ortA;
+	private Ort ortB;
+	private double laenge;
 	private String kennung;
 
 	public static final double BAUKOSTEN_ENFC = 50000;
@@ -56,8 +56,8 @@ public class Korridor {
 		ueberpruefeOrtart(ortA);
 		ueberpruefeOrtart(ortB);
 		ueberpruefeOrtUngleichheit(ortA, ortB);
-		ortA.angebundeneKorridore.add(this);
-		ortB.angebundeneKorridore.add(this);
+		ortA.getAngebundeneKorridore().add(this);
+		ortB.getAngebundeneKorridore().add(this);
 	}
 
 	public double getLaenge() {
@@ -181,8 +181,8 @@ public class Korridor {
 	 */
 	
 	private void ermittleLaenge() {
-		double laengeQuadrat = Math.pow(ortA.koordX - ortB.koordX, 2)
-				+ Math.pow(ortA.koordY - ortB.koordY, 2);
+		double laengeQuadrat = Math.pow(ortA.getKoordX() - ortB.getKoordX(), 2)
+				+ Math.pow(ortA.getKoordY() - ortB.getKoordY(), 2);
 		laenge = (Math.sqrt(laengeQuadrat));
 	}
 

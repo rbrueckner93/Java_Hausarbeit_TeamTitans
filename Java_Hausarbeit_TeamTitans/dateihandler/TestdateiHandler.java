@@ -64,7 +64,7 @@ public class TestdateiHandler extends Datei {
 		mitFaktorDefault = 0;
 		// Einlesen der Datei. Liefert pro Zeile ein StringObjekt im Array.
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
-		aktuelleSimulation.nameTestdatei = getDateiNamen(aktuelleTestdatei);
+		aktuelleSimulation.setNameTestdatei(getDateiNamen(aktuelleTestdatei));
 		// Checken ob Marker vorhanden.
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
@@ -463,11 +463,11 @@ public class TestdateiHandler extends Datei {
 		Ort ortHerkunft = null;
 		Ort ortZiel = null;
 		for (Ort gewaelterOrt : erstellteOrte) {
-			if (gewaelterOrt.name.equals(nameHerkunft)) {
+			if (gewaelterOrt.getName().equals(nameHerkunft)) {
 				ortHerkunft = gewaelterOrt;
 
 			}
-			if (gewaelterOrt.name.equals(nameZiel)) {
+			if (gewaelterOrt.getName().equals(nameZiel)) {
 				ortZiel = gewaelterOrt;
 			}
 		}
@@ -480,7 +480,7 @@ public class TestdateiHandler extends Datei {
 					+ " nach " + nameZiel + " nicht erzeugbar - " + nameZiel
 					+ " nicht auf Karte");
 		} else {
-			aktuelleSimulation.routen.add(new Flugroute(ortZiel, ortHerkunft,
+			aktuelleSimulation.getRouten().add(new Flugroute(ortZiel, ortHerkunft,
 					faktor));
 		}
 	}

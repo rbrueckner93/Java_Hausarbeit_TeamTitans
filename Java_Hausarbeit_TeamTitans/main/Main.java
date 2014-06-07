@@ -53,7 +53,7 @@ public class Main {
 				kartenVerarbeiter.verarbeiteKartendatei();
 				dateiLesenErfolgreich = true;
 			} catch (DateiSyntaxFehler e) {
-				karte.orte.clear();
+				karte.getOrte().clear();
 				dateiLesenErfolgreich = false;
 			}
 		} while (!dateiLesenErfolgreich);
@@ -77,7 +77,7 @@ public class Main {
 				testVerarbeiter.verarbeiteTestdatei();
 				dateiLesenErfolgreich = true;
 			} catch (DateiSyntaxFehler e) {
-				sim.routen.clear();
+				sim.getRouten().clear();
 				dateiLesenErfolgreich = false;
 			}
 		} while (!dateiLesenErfolgreich);
@@ -94,7 +94,7 @@ public class Main {
 			kartenSchreiber.schreibeNetzdatei();
 			simSchreiber.schreibeSimulationsDatei();
 			//Leeren der Liste eingelesener Flugrouten um neue Flugrouten aufzunehmen.
-			sim.routen.clear();
+			sim.getRouten().clear();
 			// Speichern von beiden Dateien und Beendigung des Programms.
 		} else if (endOption == 0) {
 			NetzdateiHandler kartenSchreiber = new NetzdateiHandler(karte);
@@ -116,7 +116,7 @@ public class Main {
 					testVerarbeiter.verarbeiteTestdatei();
 					dateiLesenErfolgreich = true;
 				} catch (DateiSyntaxFehler e) {
-					sim.routen.clear();
+					sim.getRouten().clear();
 					dateiLesenErfolgreich = false;
 				}
 				// Schleife ermoeglicht das wiederholte Einlesen und Simulieren
@@ -130,12 +130,12 @@ public class Main {
 			endOption = gui.frageNachEndoption();
 			if (endOption == 0) {
 				simSchreiber.schreibeSimulationsDatei();
-				sim.routen.clear();
+				sim.getRouten().clear();
 				System.exit(0);
 			}
 			if (endOption == 1) {
 				simSchreiber.schreibeSimulationsDatei();
-				sim.routen.clear();
+				sim.getRouten().clear();
 			}
 			if (endOption == 2) {
 				System.exit(0);

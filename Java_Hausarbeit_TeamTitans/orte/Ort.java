@@ -12,15 +12,15 @@ public class Ort {
 	public static final String KENNUNG_UMSCHLAGPUNKT = "UMS";
 	public static final String KENNUNG_AUSLANDSVERBINDUNG = "ASL";
 
-	public int koordX;
+	private int koordX;
 
-	public int koordY;
+	private int koordY;
 
-	public String name;
+	private String name;
 
-	public String kennung;
+	private String kennung;
 	
-	public double relevanzGrad;
+	private double relevanzGrad;
 	
 	/**
 	 * ein erstellter Korridor wird in den beiden beteiligten Orten in ihrer
@@ -29,7 +29,7 @@ public class Ort {
 	 * sie sind referenziert, nicht mit new Korridor() definiert!
 	 */
 	
-	public ArrayList<Korridor> angebundeneKorridore;
+	private ArrayList<Korridor> angebundeneKorridore;
 
 	public Ort(int koordX, int koordY, String name) {
 		super();
@@ -38,7 +38,39 @@ public class Ort {
 		this.name = name;
 		angebundeneKorridore = new ArrayList<Korridor>();
 	}
-	
+
+	public int getKoordX() {
+		return koordX;
+	}
+
+	public void setKoordX(int koordX) {
+		this.koordX = koordX;
+	}
+
+	public int getKoordY() {
+		return koordY;
+	}
+
+	public void setKoordY(int koordY) {
+		this.koordY = koordY;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getKennung() {
+		return kennung;
+	}
+
+	public void setKennung(String kennung) {
+		this.kennung = kennung;
+	}
+
 	public double getRelevanzGrad() {
 		return relevanzGrad;
 	}
@@ -47,12 +79,14 @@ public class Ort {
 		this.relevanzGrad = relevanzGrad;
 	}
 
-	public String getKennung() {
-		return kennung;
-	}
-	
 	public ArrayList<Korridor> getAngebundeneKorridore() {
 		return angebundeneKorridore;
 	}
+
+	public void setAngebundeneKorridore(ArrayList<Korridor> angebundeneKorridore) {
+		this.angebundeneKorridore = angebundeneKorridore;
+	}
+	
+
 
 }
