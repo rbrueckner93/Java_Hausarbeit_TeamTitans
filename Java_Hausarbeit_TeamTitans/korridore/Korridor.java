@@ -10,11 +10,12 @@ import orte.Ort;
 import orte.Umschlagpunkt;
 
 /**
- * die den Unterklasse zugeordnete Methode ueberpruefeOrtart ueberprueft, ob die
+ * Die den Unterklasse zugeordnete Methode ueberpruefeOrtart ueberprueft, ob die
  * Orte A und B fuer die jeweiligen Orte zulaessig ist, wenn nicht, gibt die
- * Methode ein false zurueck. wird aufgerufen durch die initialisierung eines
- * jeden korridors.
+ * Methode ein false zurueck. Wird aufgerufen durch die Initialisierung eines
+ * jeden Korridors.
  */
+
 public class Korridor {
 	/* {author=TolleN} */
 
@@ -41,10 +42,10 @@ public class Korridor {
 	public static final String BESCHREIBUNG_STND = "Standardkorridor";
 
 	/**
-	 * Konstruktor für einen allgemeinen Korridor.
+	 * Konstruktor fÃ¼r einen allgemeinen Korridor.
 	 * 
-	 * @param ortA
-	 * @param ortB
+	 * @param ortA ein Ort des Korr.
+	 * @param ortB andere Ort des Korr. 
 	 */
 	public Korridor(Ort ortA, Ort ortB, String kennung) throws UngueltigerOrt {
 		super();
@@ -79,17 +80,11 @@ public class Korridor {
 		this.kennung = kennung;
 	}
 
-	public int getKorridorArtRang(String kennung) throws IllegalArgumentException{
-		if(kennung == KENNUNG_HLST || kennung == KENNUNG_SICH) throw new IllegalArgumentException();
-		switch (kennung) {
-		case KENNUNG_ENFC:
-			return 1;
-		case KENNUNG_STND:
-			return 2;
-		}
-		return 0;
-	}
-
+	/**
+	 * Wird aus Karte aufgerufen.
+	 * @return die naechst hoehere Kennung eine Korridors
+	 */
+	
 	public String getNextKennung() {
 		switch (getKennung()) {
 		case Korridor.KENNUNG_HLST: {
@@ -108,6 +103,14 @@ public class Korridor {
 		return "";
 	}
 
+	/**
+	 * Kann fuer einen Korridor aufgerufen werden und bekommt einen Ort dazu. 
+	 * Gibt dann den anderen Ort, der zu dem Korridor gehoert zurueck.
+	 * @param bekanntesEnde
+	 * @return den anderen Ort des Korridors
+	 * @throws IllegalArgumentException wird geworfen, wenn der uebergebene Ort gar nicht zu dem Korr. gehoert.
+	 */
+	
 	public Ort bestimmeAnderenOrt(Ort bekanntesEnde) throws IllegalArgumentException{
 		if (ortA == bekanntesEnde) {
 			return ortB;
@@ -117,6 +120,11 @@ public class Korridor {
 		throw new IllegalArgumentException();
 	}
 
+	/**
+	 * Fuer einen Korr. werden ueber die Kennung die Baukosten zurueckgegeben. 
+	 * @return die Baukosten des Korr.
+	 */
+	
 	public double getBaukosten() {
 		if (kennung.equals(KENNUNG_ENFC)) {
 			return BAUKOSTEN_ENFC;
@@ -131,6 +139,11 @@ public class Korridor {
 		}
 	}
 
+	/**
+	 *  Fuer einen Korr. werden ueber die Kennung die Nutzkosten pro km zurueckgegeben.
+	 * @return die Nutzkosten pro km 
+	 */
+	
 	public double getNutzungskostenProKm() {
 		if (kennung.equals(KENNUNG_ENFC)) {
 			return NUTZUNGSKOSTEN_ENFC;
@@ -145,6 +158,10 @@ public class Korridor {
 		}
 	}
 
+	/**
+	 *  Fuer einen Korr. wird ueber die Kennung die Beschreibung zurueckgegeben.
+	 * @return die Beschreibung 
+	 */
 	public String getBeschreibung() {
 		if (kennung.equals(KENNUNG_ENFC)) {
 			return BESCHREIBUNG_ENFC;
@@ -159,13 +176,24 @@ public class Korridor {
 		}
 	}
 
-	public void ermittleLaenge() {
+	/**
+	 * Methode nur von Konstruktor des Korridors aufgerufen. 
+	 */
+	
+	private void ermittleLaenge() {
 		double laengeQuadrat = Math.pow(ortA.koordX - ortB.koordX, 2)
 				+ Math.pow(ortA.koordY - ortB.koordY, 2);
 		laenge = (Math.sqrt(laengeQuadrat));
 	}
 
-	public void ueberpruefeOrtart(Ort ortA) throws UngueltigerOrt {
+	/**
+	 * Methode nur von Konstruktor des Korridors aufgerufen. 
+	 * 
+	 * @param ortA Ort der an den Korr. angebunden werden soll.
+	 * @throws UngueltigerOrt wenn der Ort nicht an die gewaehlte Korridorart agebunden werden kann. 
+	 */
+	
+	private void ueberpruefeOrtart(Ort ortA) throws UngueltigerOrt {
 		if (kennung.equals(KENNUNG_ENFC)) {
 			if (ortA.getClass() == Hauptort.class
 					|| ortA.getClass() == Nebenort.class
@@ -199,11 +227,17 @@ public class Korridor {
 		}
 	}
 
-	public void ueberpruefeOrtUngleichheit(Ort ortA, Ort ortB)
+	/**
+	 * Methode nur aus Konstruktor aufgerufen.
+	 * @param ortA ein Ort des Korr. der eingerichtet werden soll
+	 * @param ortB andere Ort des Korr. der eingerichtet werden soll
+	 * @throws UngueltigerOrt wird geworfen, wenn die beiden Orte der gleiche Ort sind 
+	 */
+	
+	private  void ueberpruefeOrtUngleichheit(Ort ortA, Ort ortB)
 			throws UngueltigerOrt {
 		if (ortA == ortB) {
 			throw new UngueltigerOrt(ortA, ortB, "OrtsGleichheit");
 		}
 	}
-
 }
