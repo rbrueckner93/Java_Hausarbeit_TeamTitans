@@ -79,7 +79,6 @@ public class Karte {
 	 */
 	private void erstelleTrigonRing(ArrayList<Ort> ringOrte) {
 		try {
-			System.out.println(ringOrte.size());
 			if (ringOrte.size() > 2) {
 				int mitteX = berechneNetzMittelpunkt(ringOrte)[0];
 				int mitteY = berechneNetzMittelpunkt(ringOrte)[1];
@@ -426,8 +425,6 @@ public class Karte {
 						ringOrte.add(ort);
 					}
 					if (abwertFaktor < 0.15 || ringOrte.size() == orte.size()) {
-						System.out.println("Sehr wenige RingOrte Anzahl: "
-								+ ringOrte.size());
 						break head;
 					}
 				}

@@ -69,9 +69,9 @@ public class Datei {
 				int entscheidung = JOptionPane
 						.showConfirmDialog(
 								null,
-								"Achtung - Ornder \""
+								"Achtung - Ordner \""
 										+ Benutzerinterface.STANDARDPFAD
-										+ "\" nicht vorhanden\nSoll dieser erstellt werden?",
+										+ "\" nicht vorhanden.\nSoll dieser erstellt werden?",
 								"Ornder erstellen?", JOptionPane.YES_NO_OPTION);
 				if (entscheidung == JOptionPane.YES_OPTION) {
 					neuerOrdner.mkdir();
@@ -91,7 +91,7 @@ public class Datei {
 									+ "\\"
 									+ neuerDateiname
 									+ "."+STANDARD_DATEITYP
-									+ "\" existiert bereits\nSoll sie ueberschrieben werden?",
+									+ "\" existiert bereits.\nSoll sie ueberschrieben werden?",
 							"Datei speichern?", JOptionPane.YES_NO_OPTION);
 			if (entscheidung == JOptionPane.NO_OPTION) {
 				return;
