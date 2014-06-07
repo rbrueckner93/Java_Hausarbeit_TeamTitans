@@ -39,7 +39,6 @@ public class Main {
 				kartenVerarbeiter.verarbeiteKartendatei();
 				dateiLesenErfolgreich = true;
 			} catch (DateiSyntaxFehler e) {
-				e.zeigeFehlernachricht();
 				karte.orte.clear();
 				dateiLesenErfolgreich = false;
 			}
@@ -60,7 +59,6 @@ public class Main {
 				testVerarbeiter.verarbeiteTestdatei();
 				dateiLesenErfolgreich = true;
 			} catch (DateiSyntaxFehler e) {
-				e.zeigeFehlernachricht();
 				sim.routen.clear();
 				dateiLesenErfolgreich = false;
 			}
@@ -91,7 +89,6 @@ public class Main {
 					testVerarbeiter.verarbeiteTestdatei();
 					dateiLesenErfolgreich = true;
 				} catch (DateiSyntaxFehler e) {
-					e.zeigeFehlernachricht();
 					sim.routen.clear();
 					dateiLesenErfolgreich = false;
 				}
