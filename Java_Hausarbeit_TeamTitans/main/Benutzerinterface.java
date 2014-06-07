@@ -200,7 +200,7 @@ public class Benutzerinterface {
 		JOptionPane.showMessageDialog(null,
 				"Bitte waehlen Sie eine Testdatei aus.");
 		File testdateiFile;
-		FileFilter txtfilter = new FileNameExtensionFilter("Testdatei", Datei.STANDARD_DATEITYP);
+		FileFilter txtfilter = new FileNameExtensionFilter("Testdatei", "txt");
 		JFileChooser chooser = new JFileChooser(STANDARDPFAD);
 		chooser.addChoosableFileFilter(txtfilter);
 		chooser.setFileFilter(txtfilter);
@@ -211,7 +211,7 @@ public class Benutzerinterface {
 
 			if (status == JFileChooser.APPROVE_OPTION) {
 				testdateiFile = chooser.getSelectedFile();
-				int dateiEndung = testdateiFile.getName().indexOf(".txt");
+				int dateiEndung = testdateiFile.getName().indexOf(Datei.STANDARD_DATEITYP);
 				if (dateiEndung == -1) {
 					JOptionPane.showMessageDialog(null,
 							"Falsche Dateiendung der Datei");

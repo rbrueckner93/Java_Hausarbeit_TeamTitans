@@ -21,7 +21,10 @@ public class Datei {
 	public static final String MERKMAL_BEGINN = "[";
 	public static final String MERKMAL_ENDE = "]";
 	public static final String BEZEICHNER_WERT_TRENNER = "|";
-	public static final String STANDARD_DATEITYP = ".txt";
+	/**
+	 * Dateieindung ohne Punkt
+	 */
+	public static final String STANDARD_DATEITYP = "txt";
 
 	/**
 	 * Methode die eine gegebene Datei Zeilenweise ausliest und ein Array von
@@ -78,7 +81,7 @@ public class Datei {
 				}
 			}
 		File neueDatei = new File(Benutzerinterface.STANDARDPFAD + "\\"
-				+ neuerDateiname + STANDARD_DATEITYP);
+				+ neuerDateiname +"."+ STANDARD_DATEITYP);
 		if (neueDatei.exists()) {
 			int entscheidung = JOptionPane
 					.showConfirmDialog(
@@ -87,7 +90,7 @@ public class Datei {
 									+ Benutzerinterface.STANDARDPFAD
 									+ "\\"
 									+ neuerDateiname
-									+ STANDARD_DATEITYP
+									+ "."+STANDARD_DATEITYP
 									+ "\" existiert bereits\nSoll sie ueberschrieben werden?",
 							"Datei speichern?", JOptionPane.YES_NO_OPTION);
 			if (entscheidung == JOptionPane.NO_OPTION) {
