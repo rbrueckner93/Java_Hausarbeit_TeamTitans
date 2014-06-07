@@ -4,9 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
-
-import com.sun.xml.internal.fastinfoset.algorithm.DoubleEncodingAlgorithm;
-
 import exceptions.DateiSyntaxFehler;
 import exceptions.MerkmalMissing;
 import orte.Ort;
