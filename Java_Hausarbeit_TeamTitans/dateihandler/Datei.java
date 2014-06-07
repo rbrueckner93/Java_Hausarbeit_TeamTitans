@@ -61,51 +61,54 @@ public class Datei {
 	 */
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,
 			String neuerDateiname) {
-		File neuerOrdner = new File(Benutzerinterface.STANDARDPFAD + "\\");
-		if (!neuerOrdner.exists()) {
-			int entscheidung = JOptionPane
-					.showConfirmDialog(
-							null,
-							"Ordner erstellen?",
-							"Achtung - Ornder "
-									+ Benutzerinterface.STANDARDPFAD
-									+ " nicht vorhanden\nSoll dieser erstellt werden oder nicht speichern?",
-							JOptionPane.YES_NO_OPTION);
-			if (entscheidung == JOptionPane.YES_OPTION) {
+			File neuerOrdner = new File(Benutzerinterface.STANDARDPFAD + "\\");
+			if (!neuerOrdner.exists()) {
+				int entscheidung = JOptionPane
+						.showConfirmDialog(
+								null,
+								"Achtung - Ornder \""
+										+ Benutzerinterface.STANDARDPFAD
+										+ "\" nicht vorhanden\nSoll dieser erstellt werden?",
+								"Ornder erstellen?", JOptionPane.YES_NO_OPTION);
+				if (entscheidung == JOptionPane.YES_OPTION) {
+					neuerOrdner.mkdir();
+				}
+				if (entscheidung == JOptionPane.NO_OPTION) {
+					return;
+				}
 			}
-			if (entscheidung == JOptionPane.NO_OPTION) {
-				return;
-			}
-		}
 		File neueDatei = new File(Benutzerinterface.STANDARDPFAD + "\\"
 				+ neuerDateiname + STANDARD_DATEITYP);
 		if (neueDatei.exists()) {
 			int entscheidung = JOptionPane
 					.showConfirmDialog(
 							null,
-							"Datei speichern?",
-							"Achtung - Datei "
+							"Achtung - Datei \""
 									+ Benutzerinterface.STANDARDPFAD
 									+ "\\"
 									+ neuerDateiname
 									+ STANDARD_DATEITYP
-									+ " existiert bereits\nSoll sie ueberschrieben werden?",
-							JOptionPane.YES_NO_OPTION);
+									+ "\" existiert bereits\nSoll sie ueberschrieben werden?",
+							"Datei speichern?", JOptionPane.YES_NO_OPTION);
 			if (entscheidung == JOptionPane.NO_OPTION) {
 				return;
 			}
 			if (entscheidung == JOptionPane.YES_OPTION) {
-				try {
-					PrintStream writer = new PrintStream(neueDatei);
-					for (String zeile : zuSchreibenderText) {
-						writer.println(zeile);
-					}
-					writer.close();
-				} catch (FileNotFoundException e) {
-					JOptionPane.showMessageDialog(null, "Datei nicht gefunden");
-					return;
-				}
 			}
+		}
+		try {
+			neueDatei.createNewFile();
+			PrintStream writer = new PrintStream(neueDatei);
+			for (String zeile : zuSchreibenderText) {
+				writer.println(zeile);
+			}
+			writer.close();
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Datei nicht gefunden");
+			return;
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Fehler bei Dateierstellung");
+			return;
 		}
 	}
 }
