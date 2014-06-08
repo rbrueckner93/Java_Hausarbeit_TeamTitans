@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import exceptions.NetzBauFehler;
 import exceptions.UngueltigerOrt;
 import orte.Ort;
 
@@ -146,7 +147,7 @@ public class Karte {
 					}
 					if (nichtVerbunden.size() > 1) {
 						Korridor naechstesStueck = new Korridor(partnerSucher,
-								winkelPartner, Korridor.KENNUNG_ENFC);
+								winkelPartner, Korridor.KENNUNG_ENFC,true);
 						eingerichteteKorridore.add(naechstesStueck);
 						ringKorridore.add(naechstesStueck);
 						schonVerbunden.add(partnerSucher);
@@ -156,7 +157,7 @@ public class Karte {
 				}
 				// Ring schliessen.
 				Korridor letztesStueck = new Korridor(nichtVerbunden.get(0),
-						ersterOrt, Korridor.KENNUNG_ENFC);
+						ersterOrt, Korridor.KENNUNG_ENFC,true);
 				eingerichteteKorridore.add(letztesStueck);
 				ringKorridore.add(letztesStueck);
 
@@ -244,7 +245,7 @@ public class Karte {
 			} else if (ringOrte.size() == 2) {
 				// kein Ring moeglich, es entsteht ein Korridor
 				eingerichteteKorridore.add(new Korridor(ringOrte.get(0),
-						ringOrte.get(1), Korridor.KENNUNG_ENFC));
+						ringOrte.get(1), Korridor.KENNUNG_ENFC,true));
 			}
 		} catch (UngueltigerOrt e) {
 			JOptionPane
@@ -318,7 +319,7 @@ public class Karte {
 	 * Hauptmethode der Klasse Karte. Hier werden alle notwendigen Schritte zur
 	 * Netzerstellung ausgef√ºhrt.
 	 */
-	public void erstelleNetz() {
+	public void erstelleNetz() throws NetzBauFehler{
 		if (orte.size() == 1) {
 			/*
 			 * Wurde ein Ort eingelesen, wird der Benutzer informiert, dass eine
@@ -354,7 +355,10 @@ public class Karte {
 						END_FELDABTASTUNG, SCHRITTE_FELDABTASTUNG,
 						MIN_ORTE_IM_FELD),
 				entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
+		//Ausbau des Netzes
 		netzUpgrade();
+		//Pruefung des eingerichteten Netzes
+		pruefeNetzBau(eingerichteteKorridore);
 	}
 
 	/**
@@ -475,7 +479,7 @@ public class Karte {
 			for (Ort ortA : verbleibendeOrte) {
 				eingerichteteKorridore.add(new Korridor(ortA,
 						findeDichtestenOrtzuDiesem(ortA, ringOrte),
-						Korridor.KENNUNG_ENFC));
+						Korridor.KENNUNG_ENFC,true));
 			}
 		} catch (UngueltigerOrt e) {
 
@@ -497,7 +501,7 @@ public class Karte {
 			for (Ort ortA : liste) {
 				if (ortA != sternMitte) {
 					eingerichteteKorridore.add(new Korridor(sternMitte, ortA,
-							Korridor.KENNUNG_SICH));
+							Korridor.KENNUNG_SICH,true));
 				}
 			}
 		} catch (UngueltigerOrt e) {
@@ -565,6 +569,7 @@ public class Karte {
 	 */
 	private void verbindeAuslandsorte() {
 		try {
+			//Erstellen einer Liste alle ASL Orte, die sich auf der Karte befinden
 			ArrayList<Ort> aslOrte = new ArrayList<Ort>();
 			Ort naechsterOrt = null;
 			for (Ort ortA : orte) {
@@ -572,9 +577,13 @@ public class Karte {
 					aslOrte.add(ortA);
 				}
 			}
+			// Durchgehen der ASL Orte 
 			for (Ort ortASL : aslOrte) {
+				//Finden des dichtesten Nicht ASL Ortes zu diesem Ort
 				double minDistanz = Double.MAX_VALUE;
+				//Durchlauf durch alle Orte der Karte.
 				for (Ort nichtASL_Ort : orte) {
+					//Check, ob der Ort auch kein ASL Ort ist
 					if (nichtASL_Ort.getKennung().equals(
 							Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
 						continue;
@@ -586,8 +595,9 @@ public class Karte {
 						naechsterOrt = nichtASL_Ort;
 					}
 				}
+				//Bau eines Korridores zwischen dem aktuellen ASL Ort und seinem dichtesten Partner.
 				eingerichteteKorridore.add(new Korridor(ortASL, naechsterOrt,
-						Korridor.KENNUNG_SICH));
+						Korridor.KENNUNG_SICH,true));
 			}
 		} catch (UngueltigerOrt e) {
 		}
@@ -964,5 +974,28 @@ public class Karte {
 			felderListe.remove(max);
 		}
 		return unabhaengigeFelder;
+	}
+	
+	/**
+	 * Diese Methode prueft den abschlieﬂenden Netzbau.
+	 * Bei korrekter Prpgrammierung sollte kein Fehler auftauchen
+	 * @param aktuellesNetz Netz, dass ueberpreuft werden soll
+	 * @throws NetzBauFehler spezifischer Fehler bei nicht korrketer einrichtung
+	 */
+	private void pruefeNetzBau(ArrayList<Korridor> aktuellesNetz) throws NetzBauFehler{
+		//Check, ob nur endgueltige Korridore eingerichtet wurden
+		for (Korridor k : eingerichteteKorridore){
+			if (!k.isEndgueltig()){
+				throw new NetzBauFehler(k, 0);
+			}
+		}
+		//Check, ob in angebundenKorridoren von Orten nur endgueltige Korridore stehen.
+		for (Ort ortA : orte){
+			for (Korridor k : ortA.getAngebundeneKorridore()){
+				if (!eingerichteteKorridore.contains(k)){
+					throw new NetzBauFehler(k,1);
+				}
+			}
+		}
 	}
 }

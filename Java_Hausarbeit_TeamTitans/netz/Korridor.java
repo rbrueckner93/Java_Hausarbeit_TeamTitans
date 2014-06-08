@@ -21,6 +21,7 @@ public class Korridor {
 	private Ort ortB;
 	private double laenge;
 	private String kennung;
+	private boolean endgueltig;
 
 	public static final double BAUKOSTEN_ENFC = 50000;
 	public static final double BAUKOSTEN_HLST = 350000;
@@ -56,28 +57,11 @@ public class Korridor {
 		this.ortA = ortA;
 		this.ortB = ortB;
 		this.kennung = kennung;
+		this.endgueltig = endgueltig;
 		ueberpruefeZulaessigkeit();
 		ermittleLaenge();
 		if (endgueltig)
 			aktiviere();
-	}
-
-	/**
-	 * Konstruktor eines endgueltigen Korridors.
-	 * 
-	 * @param ortA
-	 * @param ortB
-	 * @param kennung
-	 * @throws UngueltigerOrt
-	 */
-	public Korridor(Ort ortA, Ort ortB, String kennung) throws UngueltigerOrt {
-		super();
-		this.ortA = ortA;
-		this.ortB = ortB;
-		this.kennung = kennung;
-		ueberpruefeZulaessigkeit();
-		ermittleLaenge();
-		aktiviere();
 	}
 
 	private void ueberpruefeZulaessigkeit() throws UngueltigerOrt {
@@ -88,6 +72,10 @@ public class Korridor {
 
 	public double getLaenge() {
 		return laenge;
+	}
+	
+	public boolean isEndgueltig() {
+		return endgueltig;
 	}
 
 	public void aktiviere() {
