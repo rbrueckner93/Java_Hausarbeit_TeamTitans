@@ -19,7 +19,8 @@ public class NetzdateiHandler extends Datei {
 	public static final String BEZEICHNER_START = "start";
 	public static final String BEZEICHNER_ZIEL = "end";
 	public static final String BEZEICHNER_KORRIDOR_KENNUNG = "kind";
-	public Karte fertigesNetz;
+	
+	private Karte fertigesNetz;
 	/**
 	 * Konstruktor. Muss ein Objekt des Types Karte uebergeben bekommen.
 	 * @param fertigesNetz
