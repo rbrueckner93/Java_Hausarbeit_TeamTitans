@@ -68,12 +68,12 @@ public class TestdateiHandler extends Datei {
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
 			JOptionPane
-					.showMessageDialog(null, "Fehlender Datei Beginn Marker");
+					.showMessageDialog(null, "Fehlender Dateibeginn Marker");
 			throw new DateiSyntaxFehler();
 		}
 		int dateiEnde = findeDateiEndeMarker(dateiAnfang, geleseneDaten);
 		if (dateiEnde == -1) {
-			JOptionPane.showMessageDialog(null, "Fehlender Datei Ende Marker");
+			JOptionPane.showMessageDialog(null, "Fehlender Dateiende Marker");
 			throw new DateiSyntaxFehler();
 		}
 		checkLeeresDateiende(dateiEnde, geleseneDaten);

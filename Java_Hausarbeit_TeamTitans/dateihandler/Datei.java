@@ -144,7 +144,7 @@ public class Datei {
 	}
 	
 	/**
-	 * Guckt, ob nach dem DateiendeMarker noch text steht.
+	 * Guckt, ob nach dem DateiendeMarker noch Text steht.
 	 * @param zeile Zeile des DateiendeMarker
 	 * @param text Text; der ausgewertet werden soll.
 	 */
@@ -156,7 +156,7 @@ public class Datei {
 				continue;
 			}
 			JOptionPane.showMessageDialog(null,
-					"Achtung! - Weiterer Text nach Datei Ende Marker gefunden");
+					"Achtung! - Weiterer Text nach Dateiende Marker gefunden");
 			return;
 		}
 	}
