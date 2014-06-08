@@ -81,6 +81,7 @@ public class Korridor {
 	public void aktiviere() {
 		ortA.addAngebundenenKorridor(this);
 		ortB.addAngebundenenKorridor(this);
+		this.endgueltig = true;
 	}
 
 	public Ort getOrtA() {
