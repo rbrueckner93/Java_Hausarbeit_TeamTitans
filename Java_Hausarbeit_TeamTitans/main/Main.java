@@ -9,6 +9,7 @@ import dateihandler.NetzdateiHandler;
 import dateihandler.SimulationsdateiHandler;
 import dateihandler.TestdateiHandler;
 import exceptions.DateiSyntaxFehler;
+import exceptions.NetzBauFehler;
 
 /**
  * Diese Klasse beinhaltet den Gesamtablauf des Simulators inklusive aller
@@ -21,6 +22,7 @@ import exceptions.DateiSyntaxFehler;
  */
 public class Main {
 	public static void main(String[] args) {
+		try{
 		boolean dateiLesenErfolgreich = true;
 		// Erzeugung des Benutzerinterfaces.
 		Benutzerinterface gui = new Benutzerinterface();
@@ -137,6 +139,9 @@ public class Main {
 				System.exit(0);
 			}
 		}
-
+		} catch (NetzBauFehler e){
+			e.zeigeFehlernachrichtVerbindungsProblem();
+			System.exit(0);
+		}
 	}
 }

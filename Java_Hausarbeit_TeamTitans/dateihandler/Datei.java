@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import exceptions.DateiSyntaxFehler;
+import exceptions.MerkmalMissing;
 import main.Benutzerinterface;
 
 /**
@@ -26,6 +27,8 @@ public class Datei {
 	 * Dateieindung ohne Punkt
 	 */
 	public static final String STANDARD_DATEITYP = "txt";
+	
+	protected int aktuelleZeile = 0;
 
 	/**
 	 * Methode die eine gegebene Datei Zeilenweise ausliest und ein Array von
@@ -176,5 +179,59 @@ public class Datei {
 		}
 		String dateiName = datei.getName().substring(0, dateiEndung);
 		return dateiName;
+	}
+	
+	/**
+	 * * Wertet ein Datensatz nach einem spez. Merkmal aus.
+	 * 
+	 * @param wertBezeichner
+	 *            Spezifischer Bezeichner des Wertes.
+	 * @param zeile
+	 *            String in dem Merkmal stehen muss. Muss der komplette
+	 *            Datensatz sein.
+	 * @return Wert des gesuchten Merkmals als String
+	 * @throws MerkmalMissing
+	 *             Fehler bei fehlendem oder defektem merkmal
+	 * @throws DateiSyntaxFehler
+	 */
+	public String getMerkmal(String wertBezeichner, String zeile)
+			throws MerkmalMissing, DateiSyntaxFehler {
+		// Index des Merkmalbeginns. Check mit "[" vorran gestellt um
+		// Leerzeichen dazwischen auszuschliessen.
+		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
+		// Check ob Merkmal gefunden wurde.
+		if (anfang == -1) {
+			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
+		}
+		// Index des Ende des Merkmals
+		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
+		// Check, ob das Merkmal einzigartig im Datensatz ist
+		if (zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, ende) != -1) {
+			JOptionPane.showMessageDialog(null, "Merkmal \"" + wertBezeichner
+					+ "\" mehrfach im Datensatz ab Zeile "
+					+ (aktuelleZeile + 1) + " vorhanden.");
+			throw new DateiSyntaxFehler();
+		}
+		// Extrahieren des spezifischen Merkmals
+		String inhaltMerkmal = zeile.substring(anfang, ende);
+		// Ausplitten des Merkmals in Bezeichner und Wert
+		String[] merkmalsplit = inhaltMerkmal.split("\\"
+				+ BEZEICHNER_WERT_TRENNER);
+		// Check ob Merkmal Inhalt besitzt
+		if (merkmalsplit.length == 1) {
+			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
+		}
+		if (merkmalsplit[1].isEmpty()) {
+			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
+		}
+		// Check auf Korrektes Merkmal und anschließende Rückgabe.
+		if (merkmalsplit[0].equals(MERKMAL_BEGINN + wertBezeichner)) {
+			return merkmalsplit[1].trim();
+		} else {
+			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
+					+ wertBezeichner + " in Datensatz der in Zeile "
+					+ (aktuelleZeile + 1) + " beginnt");
+		}
+		return null;
 	}
 }

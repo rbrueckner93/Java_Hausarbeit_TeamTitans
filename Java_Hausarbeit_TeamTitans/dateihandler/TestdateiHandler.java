@@ -34,7 +34,7 @@ public class TestdateiHandler extends Datei {
 	private Simulator aktuelleSimulation;
 	private Karte aktuelleKarte;
 
-	private int aktuelleZeile = 0;
+	//private int aktuelleZeile = 0;
 
 	private int ausgewerteteDatensaetze = 0;
 
@@ -62,6 +62,7 @@ public class TestdateiHandler extends Datei {
 		mitFaktorDefault = 0;
 		// Einlesen der Datei. Liefert pro Zeile ein StringObjekt im Array.
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
+		aktuelleZeile = 0;
 		aktuelleSimulation.setNameTestdatei(getDateiNamen(aktuelleTestdatei));
 		// Checken ob Marker vorhanden.
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
@@ -407,59 +408,7 @@ public class TestdateiHandler extends Datei {
 		return beginn;
 	}
 	
-	/**
-	 * * Wertet ein Datensatz nach einem spez. Merkmal aus.
-	 * 
-	 * @param wertBezeichner
-	 *            Spezifischer Bezeichner des Wertes.
-	 * @param zeile
-	 *            String in dem Merkmal stehen muss. Muss der komplette
-	 *            Datensatz sein.
-	 * @return Wert des gesuchten Merkmals als String
-	 * @throws MerkmalMissing
-	 *             Fehler bei fehlendem oder defektem merkmal
-	 * @throws DateiSyntaxFehler
-	 */
-	private String getMerkmal(String wertBezeichner, String zeile)
-			throws MerkmalMissing, DateiSyntaxFehler {
-		// Index des Merkmalbeginns. Check mit "[" vorran gestellt um
-		// Leerzeichen dazwischen auszuschliessen.
-		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
-		// Check ob Merkmal gefunden wurde.
-		if (anfang == -1) {
-			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
-		}
-		// Index des Ende des Merkmals
-		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
-		// Check, ob das Merkmal einzigartig im Datensatz ist
-		if (zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, ende) != -1) {
-			JOptionPane.showMessageDialog(null, "Merkmal \"" + wertBezeichner
-					+ "\" mehrfach im Datensatz ab Zeile "
-					+ (aktuelleZeile + 1) + " vorhanden.");
-			throw new DateiSyntaxFehler();
-		}
-		// Extrahieren des spezifischen Merkmals
-		String inhaltMerkmal = zeile.substring(anfang, ende);
-		// Ausplitten des Merkmals in Bezeichner und Wert
-		String[] merkmalsplit = inhaltMerkmal.split("\\"
-				+ BEZEICHNER_WERT_TRENNER);
-		// Check ob Merkmal Inhalt besitzt
-		if (merkmalsplit.length == 1) {
-			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
-		}
-		if (merkmalsplit[1].isEmpty()) {
-			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
-		}
-		// Check auf Korrektes Merkmal und anschließende Rückgabe.
-		if (merkmalsplit[0].equals(MERKMAL_BEGINN + wertBezeichner)) {
-			return merkmalsplit[1].trim();
-		} else {
-			JOptionPane.showMessageDialog(null, "Fehler im Merkmal "
-					+ wertBezeichner + " in Datensatz der in Zeile "
-					+ (aktuelleZeile + 1) + " beginnt");
-		}
-		return null;
-	}
+	
 
 	/**
 	 * Erzeugt eine Flugroute.
