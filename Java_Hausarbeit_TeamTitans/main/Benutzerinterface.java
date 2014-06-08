@@ -12,11 +12,12 @@ import netz.Karte;
 import dateihandler.Datei;
 
 /**
- * @author FechnerL Die Klasse Benutzerinterface ist fuer die Kommunikation des
+ *  	   Die Klasse Benutzerinterface ist fuer die Kommunikation des
  *         Programms mit dem Anwender zustaendig. Hierzu gehoert einerseits das
  *         Fragen nach Dateien oder bestimmten Informationen, deren
  *         Ueberpruefung und die Weitergabe. Andererseits sind auch die Methoden
  *         fuer die Ausgabe an den Anwender beinhaltet.
+ *         @author FechnerL
  */
 public class Benutzerinterface {
 
