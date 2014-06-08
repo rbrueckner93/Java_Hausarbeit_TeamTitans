@@ -30,11 +30,12 @@ public class TestdateiHandler extends Datei {
 	public static final String BEZEICHNER_ZIEL = "destination";
 	public static final String BEZEICHNER_FAKTOR = "factor";
 	public static final int DEFAULT_FAKTOR = 1;
+	
 	private File aktuelleTestdatei;
+	
 	private Simulator aktuelleSimulation;
+	
 	private Karte aktuelleKarte;
-
-	//private int aktuelleZeile = 0;
 
 	private int ausgewerteteDatensaetze = 0;
 

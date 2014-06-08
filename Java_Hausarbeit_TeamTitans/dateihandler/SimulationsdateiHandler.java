@@ -20,12 +20,10 @@ public class SimulationsdateiHandler extends Datei {
 	public static final String DATEI_SUFFIX = "_sim";
 	public static final String BEZEICHNER_START = "start";
 	public static final String BEZEICHNER_ZIEL = "end";
-
 	public static final String BEZEICHNER_REISELISTE = "travellist";
-
 	public static final String BEZEICHNER_FAKTOR = "factor";
-
-	public Simulator fertigeSimulation;
+	
+	private Simulator fertigeSimulation;
 
 	/**
 	 * Konstruktor. Bekommt ein fertiges Objekt der Klasse Simulator uebergeben.
