@@ -46,7 +46,7 @@ public class Korridor {
 	 * @param ortA ein Ort des Korr.
 	 * @param ortB andere Ort des Korr. 
 	 */
-	public Korridor(Ort ortA, Ort ortB, String kennung) throws UngueltigerOrt {
+	public Korridor(Ort ortA, Ort ortB, String kennung, boolean endgueltig) throws UngueltigerOrt {
 		super();
 		this.ortA = ortA;
 		this.ortB = ortB;
@@ -55,12 +55,16 @@ public class Korridor {
 		ueberpruefeOrtart(ortA);
 		ueberpruefeOrtart(ortB);
 		ueberpruefeOrtUngleichheit(ortA, ortB);
-		ortA.getAngebundeneKorridore().add(this);
-		ortB.getAngebundeneKorridore().add(this);
+		if(endgueltig) aktiviere();
 	}
 
 	public double getLaenge() {
 		return laenge;
+	}
+	
+	public void aktiviere(){
+		ortA.addAngebundenenKorridor(this);
+		ortB.addAngebundenenKorridor(this);
 	}
 
 	public Ort getOrtA() {

@@ -146,7 +146,7 @@ public class Karte {
 					}
 					if (nichtVerbunden.size() > 1) {
 						Korridor naechstesStueck = new Korridor(partnerSucher,
-								winkelPartner, Korridor.KENNUNG_ENFC);
+								winkelPartner, Korridor.KENNUNG_ENFC, true);
 						eingerichteteKorridore.add(naechstesStueck);
 						ringKorridore.add(naechstesStueck);
 						schonVerbunden.add(partnerSucher);
@@ -156,7 +156,7 @@ public class Karte {
 				}
 				// Ring schliessen.
 				Korridor letztesStueck = new Korridor(nichtVerbunden.get(0),
-						ersterOrt, Korridor.KENNUNG_ENFC);
+						ersterOrt, Korridor.KENNUNG_ENFC, true);
 				eingerichteteKorridore.add(letztesStueck);
 				ringKorridore.add(letztesStueck);
 
@@ -178,13 +178,13 @@ public class Karte {
 				while (ringLaenge > Math.min(KARTE_GROESSE_X, KARTE_GROESSE_Y) * 2) {
 					Korridor hoechsterErsparniskorridor = new Korridor(
 							ringOrte.get(0), ringOrte.get(1),
-							Korridor.KENNUNG_ENFC);
+							Korridor.KENNUNG_ENFC, false);
 					double besteErsparnis = 0.0;
 					for (Ort ortA : ringOrte) {
 						for (Ort ortB : ringOrte) {
 							if (ortA != ortB) {
 								Korridor moeglicherQuerkorridor = new Korridor(
-										ortA, ortB, Korridor.KENNUNG_ENFC);
+										ortA, ortB, Korridor.KENNUNG_ENFC, false);
 								double ringZug = 0;
 								Ort schritt = ortA;
 								Ort letzterSchritt = null;
@@ -233,6 +233,7 @@ public class Karte {
 					}
 					if ((besteErsparnis / hoechsterErsparniskorridor
 							.getLaenge()) > SCHWELLFAKTOR_QUERVERBINDUNG) {
+						hoechsterErsparniskorridor.aktiviere();
 						eingerichteteKorridore.add(hoechsterErsparniskorridor);
 					} else {
 						break;
@@ -242,7 +243,7 @@ public class Karte {
 			} else if (ringOrte.size() == 2) {
 				// kein Ring moeglich, es entsteht ein Korridor
 				eingerichteteKorridore.add(new Korridor(ringOrte.get(0),
-						ringOrte.get(1), Korridor.KENNUNG_ENFC));
+						ringOrte.get(1), Korridor.KENNUNG_ENFC, true));
 			}
 		} catch (UngueltigerOrt e) {
 			JOptionPane
@@ -472,7 +473,7 @@ public class Karte {
 			for (Ort ortA : verbleibendeOrte) {
 				eingerichteteKorridore.add(new Korridor(ortA,
 						findeDichtestenOrtzuDiesem(ortA, ringOrte),
-						Korridor.KENNUNG_ENFC));
+						Korridor.KENNUNG_ENFC, true));
 			}
 		} catch (UngueltigerOrt e) {
 
@@ -494,7 +495,7 @@ public class Karte {
 			for (Ort ortA : liste) {
 				if (ortA != sternMitte) {
 					eingerichteteKorridore.add(new Korridor(sternMitte, ortA,
-							Korridor.KENNUNG_SICH));
+							Korridor.KENNUNG_SICH, true));
 				}
 			}
 		} catch (UngueltigerOrt e) {
@@ -584,7 +585,7 @@ public class Karte {
 					}
 				}
 				eingerichteteKorridore.add(new Korridor(ortASL, naechsterOrt,
-						Korridor.KENNUNG_SICH));
+						Korridor.KENNUNG_SICH, true));
 			}
 		} catch (UngueltigerOrt e) {
 		}

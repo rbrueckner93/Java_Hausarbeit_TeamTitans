@@ -83,8 +83,8 @@ public class Ort {
 		return angebundeneKorridore;
 	}
 
-	public void setAngebundeneKorridore(ArrayList<Korridor> angebundeneKorridore) {
-		this.angebundeneKorridore = angebundeneKorridore;
+	public void addAngebundenenKorridor(Korridor korridor){
+		this.angebundeneKorridore.add(korridor);
 	}
 	
 
