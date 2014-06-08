@@ -146,7 +146,7 @@ public class Karte {
 					}
 					if (nichtVerbunden.size() > 1) {
 						Korridor naechstesStueck = new Korridor(partnerSucher,
-								winkelPartner, Korridor.KENNUNG_ENFC, true);
+								winkelPartner, Korridor.KENNUNG_ENFC);
 						eingerichteteKorridore.add(naechstesStueck);
 						ringKorridore.add(naechstesStueck);
 						schonVerbunden.add(partnerSucher);
@@ -156,7 +156,7 @@ public class Karte {
 				}
 				// Ring schliessen.
 				Korridor letztesStueck = new Korridor(nichtVerbunden.get(0),
-						ersterOrt, Korridor.KENNUNG_ENFC, true);
+						ersterOrt, Korridor.KENNUNG_ENFC);
 				eingerichteteKorridore.add(letztesStueck);
 				ringKorridore.add(letztesStueck);
 
@@ -244,7 +244,7 @@ public class Karte {
 			} else if (ringOrte.size() == 2) {
 				// kein Ring moeglich, es entsteht ein Korridor
 				eingerichteteKorridore.add(new Korridor(ringOrte.get(0),
-						ringOrte.get(1), Korridor.KENNUNG_ENFC, true));
+						ringOrte.get(1), Korridor.KENNUNG_ENFC));
 			}
 		} catch (UngueltigerOrt e) {
 			JOptionPane
@@ -475,7 +475,7 @@ public class Karte {
 			for (Ort ortA : verbleibendeOrte) {
 				eingerichteteKorridore.add(new Korridor(ortA,
 						findeDichtestenOrtzuDiesem(ortA, ringOrte),
-						Korridor.KENNUNG_ENFC, true));
+						Korridor.KENNUNG_ENFC));
 			}
 		} catch (UngueltigerOrt e) {
 
@@ -497,7 +497,7 @@ public class Karte {
 			for (Ort ortA : liste) {
 				if (ortA != sternMitte) {
 					eingerichteteKorridore.add(new Korridor(sternMitte, ortA,
-							Korridor.KENNUNG_SICH, true));
+							Korridor.KENNUNG_SICH));
 				}
 			}
 		} catch (UngueltigerOrt e) {
@@ -587,7 +587,7 @@ public class Karte {
 					}
 				}
 				eingerichteteKorridore.add(new Korridor(ortASL, naechsterOrt,
-						Korridor.KENNUNG_SICH, true));
+						Korridor.KENNUNG_SICH));
 			}
 		} catch (UngueltigerOrt e) {
 		}
