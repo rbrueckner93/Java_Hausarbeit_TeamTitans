@@ -1,6 +1,5 @@
 package netz;
 
-
 import exceptions.UngueltigerOrt;
 import orte.Auslandsverbindung;
 import orte.Hauptort;
@@ -41,28 +40,57 @@ public class Korridor {
 	public static final String BESCHREIBUNG_STND = "Standardkorridor";
 
 	/**
-	 * Konstruktor für einen allgemeinen Korridor.
+	 * Konstruktor eines allgemeinen Korridors
 	 * 
-	 * @param ortA ein Ort des Korr.
-	 * @param ortB andere Ort des Korr. 
+	 * @param ortA
+	 * @param ortB
+	 * @param kennung
+	 * @param endgueltig
+	 *            falls false wird der Korridor noch nicht in
+	 *            ort.angebundeneKorridore geschrieben.
+	 * @throws UngueltigerOrt
 	 */
-	public Korridor(Ort ortA, Ort ortB, String kennung, boolean endgueltig) throws UngueltigerOrt {
+	public Korridor(Ort ortA, Ort ortB, String kennung, boolean endgueltig)
+			throws UngueltigerOrt {
 		super();
 		this.ortA = ortA;
 		this.ortB = ortB;
 		this.kennung = kennung;
+		ueberpruefeZulaessigkeit();
 		ermittleLaenge();
+		if (endgueltig)
+			aktiviere();
+	}
+
+	/**
+	 * Konstruktor eines endgueltigen Korridors.
+	 * 
+	 * @param ortA
+	 * @param ortB
+	 * @param kennung
+	 * @throws UngueltigerOrt
+	 */
+	public Korridor(Ort ortA, Ort ortB, String kennung) throws UngueltigerOrt {
+		super();
+		this.ortA = ortA;
+		this.ortB = ortB;
+		this.kennung = kennung;
+		ueberpruefeZulaessigkeit();
+		ermittleLaenge();
+		aktiviere();
+	}
+
+	private void ueberpruefeZulaessigkeit() throws UngueltigerOrt {
 		ueberpruefeOrtart(ortA);
 		ueberpruefeOrtart(ortB);
 		ueberpruefeOrtUngleichheit(ortA, ortB);
-		if(endgueltig) aktiviere();
 	}
 
 	public double getLaenge() {
 		return laenge;
 	}
-	
-	public void aktiviere(){
+
+	public void aktiviere() {
 		ortA.addAngebundenenKorridor(this);
 		ortB.addAngebundenenKorridor(this);
 	}
@@ -85,9 +113,10 @@ public class Korridor {
 
 	/**
 	 * Wird aus Karte aufgerufen.
+	 * 
 	 * @return die naechst hoehere Kennung eine Korridors
 	 */
-	
+
 	public String getNextKennung() {
 		switch (getKennung()) {
 		case Korridor.KENNUNG_HLST: {
@@ -107,14 +136,18 @@ public class Korridor {
 	}
 
 	/**
-	 * Kann fuer einen Korridor aufgerufen werden und bekommt einen Ort dazu. 
+	 * Kann fuer einen Korridor aufgerufen werden und bekommt einen Ort dazu.
 	 * Gibt dann den anderen Ort, der zu dem Korridor gehoert zurueck.
+	 * 
 	 * @param bekanntesEnde
 	 * @return den anderen Ort des Korridors
-	 * @throws IllegalArgumentException wird geworfen, wenn der uebergebene Ort gar nicht zu dem Korr. gehoert.
+	 * @throws IllegalArgumentException
+	 *             wird geworfen, wenn der uebergebene Ort gar nicht zu dem
+	 *             Korr. gehoert.
 	 */
-	
-	public Ort bestimmeAnderenOrt(Ort bekanntesEnde) throws IllegalArgumentException{
+
+	public Ort bestimmeAnderenOrt(Ort bekanntesEnde)
+			throws IllegalArgumentException {
 		if (ortA == bekanntesEnde) {
 			return ortB;
 		} else if (ortB == bekanntesEnde) {
@@ -124,10 +157,11 @@ public class Korridor {
 	}
 
 	/**
-	 * Fuer einen Korr. werden ueber die Kennung die Baukosten zurueckgegeben. 
+	 * Fuer einen Korr. werden ueber die Kennung die Baukosten zurueckgegeben.
+	 * 
 	 * @return die Baukosten des Korr.
 	 */
-	
+
 	public double getBaukosten() {
 		if (kennung.equals(KENNUNG_ENFC)) {
 			return BAUKOSTEN_ENFC;
@@ -143,10 +177,12 @@ public class Korridor {
 	}
 
 	/**
-	 *  Fuer einen Korr. werden ueber die Kennung die Nutzkosten pro km zurueckgegeben.
-	 * @return die Nutzkosten pro km 
+	 * Fuer einen Korr. werden ueber die Kennung die Nutzkosten pro km
+	 * zurueckgegeben.
+	 * 
+	 * @return die Nutzkosten pro km
 	 */
-	
+
 	public double getNutzungskostenProKm() {
 		if (kennung.equals(KENNUNG_ENFC)) {
 			return NUTZUNGSKOSTEN_ENFC;
@@ -162,8 +198,9 @@ public class Korridor {
 	}
 
 	/**
-	 *  Fuer einen Korr. wird ueber die Kennung die Beschreibung zurueckgegeben.
-	 * @return die Beschreibung 
+	 * Fuer einen Korr. wird ueber die Kennung die Beschreibung zurueckgegeben.
+	 * 
+	 * @return die Beschreibung
 	 */
 	public String getBeschreibung() {
 		if (kennung.equals(KENNUNG_ENFC)) {
@@ -180,9 +217,9 @@ public class Korridor {
 	}
 
 	/**
-	 * Methode nur von Konstruktor des Korridors aufgerufen. 
+	 * Methode nur von Konstruktor des Korridors aufgerufen.
 	 */
-	
+
 	private void ermittleLaenge() {
 		double laengeQuadrat = Math.pow(ortA.getKoordX() - ortB.getKoordX(), 2)
 				+ Math.pow(ortA.getKoordY() - ortB.getKoordY(), 2);
@@ -190,12 +227,15 @@ public class Korridor {
 	}
 
 	/**
-	 * Methode nur von Konstruktor des Korridors aufgerufen. 
+	 * Methode nur von Konstruktor des Korridors aufgerufen.
 	 * 
-	 * @param ortA Ort der an den Korr. angebunden werden soll.
-	 * @throws UngueltigerOrt wenn der Ort nicht an die gewaehlte Korridorart agebunden werden kann. 
+	 * @param ortA
+	 *            Ort der an den Korr. angebunden werden soll.
+	 * @throws UngueltigerOrt
+	 *             wenn der Ort nicht an die gewaehlte Korridorart agebunden
+	 *             werden kann.
 	 */
-	
+
 	private void ueberpruefeOrtart(Ort ortA) throws UngueltigerOrt {
 		if (kennung.equals(KENNUNG_ENFC)) {
 			if (ortA.getClass() == Hauptort.class
@@ -232,12 +272,16 @@ public class Korridor {
 
 	/**
 	 * Methode nur aus Konstruktor aufgerufen.
-	 * @param ortA ein Ort des Korr. der eingerichtet werden soll
-	 * @param ortB andere Ort des Korr. der eingerichtet werden soll
-	 * @throws UngueltigerOrt wird geworfen, wenn die beiden Orte der gleiche Ort sind 
+	 * 
+	 * @param ortA
+	 *            ein Ort des Korr. der eingerichtet werden soll
+	 * @param ortB
+	 *            andere Ort des Korr. der eingerichtet werden soll
+	 * @throws UngueltigerOrt
+	 *             wird geworfen, wenn die beiden Orte der gleiche Ort sind
 	 */
-	
-	private  void ueberpruefeOrtUngleichheit(Ort ortA, Ort ortB)
+
+	private void ueberpruefeOrtUngleichheit(Ort ortA, Ort ortB)
 			throws UngueltigerOrt {
 		if (ortA == ortB) {
 			throw new UngueltigerOrt(ortA, ortB, "OrtsGleichheit");
