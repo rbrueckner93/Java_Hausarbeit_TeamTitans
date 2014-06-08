@@ -12,8 +12,7 @@ import netz.Karte;
 import dateihandler.Datei;
 
 /**
- * @author FechnerL 
- * 		   Die Klasse Benutzerinterface ist fuer die Kommunikation des
+ * @author FechnerL Die Klasse Benutzerinterface ist fuer die Kommunikation des
  *         Programms mit dem Anwender zustaendig. Hierzu gehoert einerseits das
  *         Fragen nach Dateien oder bestimmten Informationen, deren
  *         Ueberpruefung und die Weitergabe. Andererseits sind auch die Methoden
@@ -22,7 +21,8 @@ import dateihandler.Datei;
 public class Benutzerinterface {
 
 	/**
-	 * Hier wird der Standardpfad gesetzt, um mit diesem später die Dateiauswahl durchzuführen.
+	 * Hier wird der Standardpfad gesetzt, um mit diesem später die Dateiauswahl
+	 * durchzuführen.
 	 */
 	public static final String STANDARDPFAD = System.getProperty("user.home")
 			+ "\\deerone";
@@ -60,7 +60,8 @@ public class Benutzerinterface {
 
 			if (status == JFileChooser.APPROVE_OPTION) {
 				kartenfile = chooser.getSelectedFile();
-				int dateiEndung = kartenfile.getName().indexOf(Datei.STANDARD_DATEITYP);
+				int dateiEndung = kartenfile.getName().indexOf(
+						Datei.STANDARD_DATEITYP);
 				if (dateiEndung == -1) {
 					JOptionPane.showMessageDialog(null,
 							"Falsche Dateiendung der Datei");
@@ -86,8 +87,8 @@ public class Benutzerinterface {
 	}
 
 	/**
-	 * Der Anwender wird nach dem zur Verfuegung stehenden Budget gefragt. nach der Eingabe wird geprueft, ob
-	 * dieses ganzzahlig und positiv ist.
+	 * Der Anwender wird nach dem zur Verfuegung stehenden Budget gefragt. nach
+	 * der Eingabe wird geprueft, ob dieses ganzzahlig und positiv ist.
 	 */
 	public double abfrageBudget() {
 		String budgetEingabe;
@@ -127,25 +128,30 @@ public class Benutzerinterface {
 	}
 
 	/**
-	 * Ermittelt die Baukosten des Netzes zur aktuellen Karte und zeigt dem Anwender diese.
-	 * Zusaetzlich wird dem Anwender eine Auflistung der gebauten Korridore,
-	 * gruppiert nach ihrer Art, ausgegeben.
+	 * Ermittelt die Baukosten des Netzes zur aktuellen Karte und zeigt dem
+	 * Anwender diese. Zusaetzlich wird dem Anwender eine Auflistung der
+	 * gebauten Korridore, gruppiert nach ihrer Art, ausgegeben.
 	 * 
 	 * @param aktuelleKarte
 	 */
 	public void zeigeBaukosten(Karte aktuelleKarte) {
 		double baukosten = aktuelleKarte.ermittleGesamteBaukosten();
-		
-		//Runden von baukosten auf 2 Nachkommastellen
+
+		// Runden von baukosten auf 2 Nachkommastellen
 		baukosten = baukosten * 100;
 		baukosten = Math.round(baukosten);
 		baukosten = baukosten / 100;
-		
+		if (baukosten - aktuelleKarte.getBudget() > 350000) {
+			JOptionPane.showMessageDialog(null,
+					"Das Budget war leider nicht ausreichend, "
+							+ "um ein wirtschaftsliches Netz zu erstellen!!");
+		}
 		JOptionPane
 				.showMessageDialog(
 						null,
 						"Die Baukosten betragen "
-								+ baukosten + " " 
+								+ baukosten
+								+ " "
 								+ WAEHRUNG
 								+ " . \nFolgende Korridore wurden gebaut: \nEinfache Korridore: "
 								+ aktuelleKarte.ermittleAnzahlENFCKorridore()
@@ -161,11 +167,11 @@ public class Benutzerinterface {
 	 * Nach der Erstellung des Netzes durch Korridore wird der Anwender gefragt,
 	 * ob das Netz gespeichert und das Programm beendet werden soll. Bei Ja wird
 	 * Karte gespeichert und das Programm geschlossen. Bei Nein fährt das
-	 * Programm fort und fragt nach einer Testdatei. 
+	 * Programm fort und fragt nach einer Testdatei.
 	 * 
 	 * @return
 	 */
-	//Ja uebergibt 0 und Nein 1
+	// Ja uebergibt 0 und Nein 1
 	public int abfrageNetzSpeichern() {
 		int entscheidung;
 
@@ -184,7 +190,7 @@ public class Benutzerinterface {
 				}
 
 			} else {
-				
+
 				return entscheidung;
 			}
 
@@ -211,7 +217,8 @@ public class Benutzerinterface {
 
 			if (status == JFileChooser.APPROVE_OPTION) {
 				testdateiFile = chooser.getSelectedFile();
-				int dateiEndung = testdateiFile.getName().indexOf(Datei.STANDARD_DATEITYP);
+				int dateiEndung = testdateiFile.getName().indexOf(
+						Datei.STANDARD_DATEITYP);
 				if (dateiEndung == -1) {
 					JOptionPane.showMessageDialog(null,
 							"Falsche Dateiendung der Datei");
@@ -256,7 +263,7 @@ public class Benutzerinterface {
 		kosten = kosten * 100;
 		kosten = Math.round(kosten);
 		kosten = kosten / 100;
-		
+
 		JOptionPane.showMessageDialog(null, "Die Nutzkosten betragen " + kosten
 				+ WAEHRUNG + ".");
 	}
@@ -265,8 +272,8 @@ public class Benutzerinterface {
 	 * Fragt den Anwender nach dem weiteren Vorgehen, wobei es drei
 	 * Moeglichkeiten gibt. Uebergibt: 0, Wenn die aktuelle Simulation als Datei
 	 * gespeichert werden soll. 1, um die aktuelle Simulation zu speichern und
-	 * zusaetzlich eine neue Simulation mit anderen Testparametern zu starten und
-	 * 2, um das Programm zu beenden.
+	 * zusaetzlich eine neue Simulation mit anderen Testparametern zu starten
+	 * und 2, um das Programm zu beenden.
 	 */
 	public int frageNachEndoption() {
 		int entscheidung;
