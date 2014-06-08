@@ -80,8 +80,7 @@ public class Karte {
 	private void erstelleTrigonRing(ArrayList<Ort> ringOrte) {
 		try {
 			if (ringOrte.size() > 2) {
-				int mitteX = berechneNetzMittelpunkt(ringOrte)[0];
-				int mitteY = berechneNetzMittelpunkt(ringOrte)[1];
+				Integer[] mitte = berechneNetzMittelpunkt(ringOrte);
 
 				// Ausgangspunkt der Ringbildung ist eine Liste aller ringOrte
 				ArrayList<Ort> nichtVerbunden = new ArrayList<Ort>();
@@ -114,31 +113,20 @@ public class Karte {
 								&& (!schonVerbunden.contains(moeglicherPartner))) {
 
 							/*
-							 * mehrere Bedingungen, um dem Bereich um die 360
-							 * bzw. 0 Grad herum gerecht zu werden
+							 * Dem Bereich um die 360 bzw. 0 Grad herum gerecht
+							 * werden
 							 */
-							neuesDelta = Math
-									.min(Math.abs(ermittleWinkel(mitteX,
-											mitteY, partnerSucher)
-											+ 360.0
-											- ermittleWinkel(mitteX, mitteY,
-													moeglicherPartner)),
-											Math.min(
-													Math.abs(ermittleWinkel(
-															mitteX, mitteY,
-															partnerSucher)
-															- ermittleWinkel(
-																	mitteX,
-																	mitteY,
-																	moeglicherPartner)
-															+ 360.0),
-													Math.abs(ermittleWinkel(
-															mitteX, mitteY,
-															partnerSucher)
-															- ermittleWinkel(
-																	mitteX,
-																	mitteY,
-																	moeglicherPartner))));
+
+							double partnerWinkel = ermittleWinkel(mitte[0],
+									mitte[1], moeglicherPartner);
+							double sucherWinkel = ermittleWinkel(mitte[0],
+									mitte[1], partnerSucher);
+							neuesDelta = Math.min(Math.abs(sucherWinkel + 360.0
+									- partnerWinkel), Math.min(
+									Math.abs(sucherWinkel - partnerWinkel
+											+ 360.0),
+									Math.abs(sucherWinkel - partnerWinkel)));
+
 							if (neuesDelta < winkelMin) {
 								winkelMin = neuesDelta;
 								winkelPartner = moeglicherPartner;
@@ -147,7 +135,7 @@ public class Karte {
 					}
 					if (nichtVerbunden.size() > 1) {
 						Korridor naechstesStueck = new Korridor(partnerSucher,
-								winkelPartner, Korridor.KENNUNG_ENFC,true);
+								winkelPartner, Korridor.KENNUNG_ENFC, true);
 						eingerichteteKorridore.add(naechstesStueck);
 						ringKorridore.add(naechstesStueck);
 						schonVerbunden.add(partnerSucher);
@@ -157,7 +145,7 @@ public class Karte {
 				}
 				// Ring schliessen.
 				Korridor letztesStueck = new Korridor(nichtVerbunden.get(0),
-						ersterOrt, Korridor.KENNUNG_ENFC,true);
+						ersterOrt, Korridor.KENNUNG_ENFC, true);
 				eingerichteteKorridore.add(letztesStueck);
 				ringKorridore.add(letztesStueck);
 
@@ -245,7 +233,7 @@ public class Karte {
 			} else if (ringOrte.size() == 2) {
 				// kein Ring moeglich, es entsteht ein Korridor
 				eingerichteteKorridore.add(new Korridor(ringOrte.get(0),
-						ringOrte.get(1), Korridor.KENNUNG_ENFC,true));
+						ringOrte.get(1), Korridor.KENNUNG_ENFC, true));
 			}
 		} catch (UngueltigerOrt e) {
 			JOptionPane
@@ -319,7 +307,7 @@ public class Karte {
 	 * Hauptmethode der Klasse Karte. Hier werden alle notwendigen Schritte zur
 	 * Netzerstellung ausgef√ºhrt.
 	 */
-	public void erstelleNetz() throws NetzBauFehler{
+	public void erstelleNetz() throws NetzBauFehler {
 		if (orte.size() == 1) {
 			/*
 			 * Wurde ein Ort eingelesen, wird der Benutzer informiert, dass eine
@@ -355,9 +343,9 @@ public class Karte {
 						END_FELDABTASTUNG, SCHRITTE_FELDABTASTUNG,
 						MIN_ORTE_IM_FELD),
 				entferneOrtTyp(Ort.KENNUNG_AUSLANDSVERBINDUNG, orte));
-		//Ausbau des Netzes
+		// Ausbau des Netzes
 		netzUpgrade();
-		//Pruefung des eingerichteten Netzes
+		// Pruefung des eingerichteten Netzes
 		pruefeNetzBau(eingerichteteKorridore);
 	}
 
@@ -388,7 +376,7 @@ public class Karte {
 
 		while (ermittleGesamteBaukosten() < budget) {
 
-			if (nochUpgradebareK.size() > 0) {
+			if (!nochUpgradebareK.isEmpty()) {
 				Korridor upgradeKandidat = nochUpgradebareK.get(0);
 				for (Korridor upgradebarerKorridor : nochUpgradebareK) {
 					if (getAbsKorridorRang(upgradebarerKorridor) > getAbsKorridorRang(upgradeKandidat)) {
@@ -442,7 +430,7 @@ public class Karte {
 		// Check der Relevanzfelder. Ist aus jedem Feld ein Ort enthalten. Sonst
 		// besten Ort adden.
 		ArrayList<Ort> hinzuzufuegendeOrte = new ArrayList<Ort>();
-		if (relevanzFelder.size() > 0) {
+		if (!relevanzFelder.isEmpty()) {
 			for (Feld aktuellesFeld : relevanzFelder) {
 				boolean enthalten = false;
 				for (Ort ort : aktuellesFeld.bestimmeOrteImFeld()) {
@@ -462,9 +450,7 @@ public class Karte {
 					hinzuzufuegendeOrte.add(besterOrt);
 				}
 			}
-			for (Ort add : hinzuzufuegendeOrte) {
-				ringOrte.add(add);
-			}
+			ringOrte.addAll(hinzuzufuegendeOrte);
 		}
 
 		// Erstellen des Ringes.
@@ -473,13 +459,11 @@ public class Karte {
 		try {
 			ArrayList<Ort> verbleibendeOrte = new ArrayList<Ort>();
 			verbleibendeOrte = ohneASLOrte;
-			for (Ort ortA : ringOrte) {
-				verbleibendeOrte.remove(ortA);
-			}
+			verbleibendeOrte.removeAll(ringOrte);
 			for (Ort ortA : verbleibendeOrte) {
 				eingerichteteKorridore.add(new Korridor(ortA,
 						findeDichtestenOrtzuDiesem(ortA, ringOrte),
-						Korridor.KENNUNG_ENFC,true));
+						Korridor.KENNUNG_ENFC, true));
 			}
 		} catch (UngueltigerOrt e) {
 
@@ -501,7 +485,7 @@ public class Karte {
 			for (Ort ortA : liste) {
 				if (ortA != sternMitte) {
 					eingerichteteKorridore.add(new Korridor(sternMitte, ortA,
-							Korridor.KENNUNG_SICH,true));
+							Korridor.KENNUNG_SICH, true));
 				}
 			}
 		} catch (UngueltigerOrt e) {
@@ -569,7 +553,8 @@ public class Karte {
 	 */
 	private void verbindeAuslandsorte() {
 		try {
-			//Erstellen einer Liste alle ASL Orte, die sich auf der Karte befinden
+			// Erstellen einer Liste alle ASL Orte, die sich auf der Karte
+			// befinden
 			ArrayList<Ort> aslOrte = new ArrayList<Ort>();
 			Ort naechsterOrt = null;
 			for (Ort ortA : orte) {
@@ -577,13 +562,13 @@ public class Karte {
 					aslOrte.add(ortA);
 				}
 			}
-			// Durchgehen der ASL Orte 
+			// Durchgehen der ASL Orte
 			for (Ort ortASL : aslOrte) {
-				//Finden des dichtesten Nicht ASL Ortes zu diesem Ort
+				// Finden des dichtesten Nicht ASL Ortes zu diesem Ort
 				double minDistanz = Double.MAX_VALUE;
-				//Durchlauf durch alle Orte der Karte.
+				// Durchlauf durch alle Orte der Karte.
 				for (Ort nichtASL_Ort : orte) {
-					//Check, ob der Ort auch kein ASL Ort ist
+					// Check, ob der Ort auch kein ASL Ort ist
 					if (nichtASL_Ort.getKennung().equals(
 							Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
 						continue;
@@ -595,9 +580,10 @@ public class Karte {
 						naechsterOrt = nichtASL_Ort;
 					}
 				}
-				//Bau eines Korridores zwischen dem aktuellen ASL Ort und seinem dichtesten Partner.
+				// Bau eines Korridores zwischen dem aktuellen ASL Ort und
+				// seinem dichtesten Partner.
 				eingerichteteKorridore.add(new Korridor(ortASL, naechsterOrt,
-						Korridor.KENNUNG_SICH,true));
+						Korridor.KENNUNG_SICH, true));
 			}
 		} catch (UngueltigerOrt e) {
 		}
@@ -721,7 +707,7 @@ public class Karte {
 			if (hoechster.getRelevanzGrad() == liste.get(i).getRelevanzGrad()
 					&& hoechster != liste.get(i)) {
 
-				Ort NullOrt = new Ort(100, 50, "NullOrt");
+				Ort NullOrt = new Ort(Math.round(KARTE_GROESSE_X/2), Math.round(KARTE_GROESSE_Y/2), "NullOrt");
 
 				double entfernung1 = ermittleOrtsdistanz(NullOrt, hoechster);
 				double entfernung2 = ermittleOrtsdistanz(NullOrt, orte.get(i));
@@ -934,7 +920,7 @@ public class Karte {
 		 * loesche alle Felder aus der Liste, die sich mit dem aktuell am
 		 * dichtesten besiedelten Feld Orte teilen
 		 */
-		while (felderListe.size() > 0) {
+		while (!felderListe.isEmpty()) {
 			int max = 0;
 			/*
 			 * Ermittlung desjenigen Feldes der felderListe, das am meisten Orte
@@ -975,25 +961,30 @@ public class Karte {
 		}
 		return unabhaengigeFelder;
 	}
-	
+
 	/**
-	 * Diese Methode prueft den abschlieﬂenden Netzbau.
-	 * Bei korrekter Prpgrammierung sollte kein Fehler auftauchen
-	 * @param aktuellesNetz Netz, dass ueberpreuft werden soll
-	 * @throws NetzBauFehler spezifischer Fehler bei nicht korrketer einrichtung
+	 * Diese Methode prueft den abschlieﬂenden Netzbau. Bei korrekter
+	 * Prpgrammierung sollte kein Fehler auftauchen
+	 * 
+	 * @param aktuellesNetz
+	 *            Netz, dass ueberpreuft werden soll
+	 * @throws NetzBauFehler
+	 *             spezifischer Fehler bei nicht korrketer einrichtung
 	 */
-	private void pruefeNetzBau(ArrayList<Korridor> aktuellesNetz) throws NetzBauFehler{
-		//Check, ob nur endgueltige Korridore eingerichtet wurden
-		for (Korridor k : eingerichteteKorridore){
-			if (!k.isEndgueltig()){
+	private void pruefeNetzBau(ArrayList<Korridor> aktuellesNetz)
+			throws NetzBauFehler {
+		// Check, ob nur endgueltige Korridore eingerichtet wurden
+		for (Korridor k : eingerichteteKorridore) {
+			if (!k.isEndgueltig()) {
 				throw new NetzBauFehler(k, 0);
 			}
 		}
-		//Check, ob in angebundenKorridoren von Orten nur endgueltige Korridore stehen.
-		for (Ort ortA : orte){
-			for (Korridor k : ortA.getAngebundeneKorridore()){
-				if (!eingerichteteKorridore.contains(k)){
-					throw new NetzBauFehler(k,1);
+		// Check, ob in angebundenKorridoren von Orten nur endgueltige Korridore
+		// stehen.
+		for (Ort ortA : orte) {
+			for (Korridor k : ortA.getAngebundeneKorridore()) {
+				if (!eingerichteteKorridore.contains(k)) {
+					throw new NetzBauFehler(k, 1);
 				}
 			}
 		}
