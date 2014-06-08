@@ -22,8 +22,8 @@ import dateihandler.Datei;
 public class Benutzerinterface {
 
 	/**
-	 * Hier wird der Standardpfad gesetzt, um mit diesem später die Dateiauswahl
-	 * durchzuführen.
+	 * Hier wird der Standardpfad gesetzt, um mit diesem spaeter die Dateiauswahl
+	 * durchzufuehren.
 	 */
 	public static final String STANDARDPFAD = System.getProperty("user.home")
 			+ "\\deerone";
@@ -145,7 +145,7 @@ public class Benutzerinterface {
 		if (baukosten - aktuelleKarte.getBudget() > 350000) {
 			JOptionPane.showMessageDialog(null,
 					"Das Budget war leider nicht ausreichend, "
-							+ "um ein wirtschaftsliches Netz zu erstellen!!");
+							+ "um ein wirtschaftsliches Netz zu erstellen!\nEs wurde ein minimal wirtschaftliches Netz erstellt");
 		}
 		JOptionPane
 				.showMessageDialog(
