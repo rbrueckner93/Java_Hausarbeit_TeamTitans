@@ -21,9 +21,15 @@ public class Karte {
 	// Wie oft muss eine Querverbindung ihre eigene Laenge einsparen, um
 	// eingerichtet zu werden?
 	public static double SCHWELLFAKTOR_QUERVERBINDUNG = 2.75;
+	// Mit welcher Kantenlaenge soll der Feldalgorithmus beginnen,
+	// Konzentrationsfelder zu suchen?
 	public static final int BEGINN_FELDABTASTUNG = 35;
+	// Ab welcher Kantenlaenge soll kein Feld mehr anerkannt werden?
 	public static final int END_FELDABTASTUNG = 75;
+	// Mit welcher Schrittgroesse soll die Kantenlaenge vergroessert werden?
 	public static final int SCHRITTE_FELDABTASTUNG = 5;
+	// Wie viele Orte muessen innerhalb des Quadrats befindlich sein, damit es
+	// als Feld erkannt wird?
 	public static final int MINORT_FELDABTASTUNG = 3;
 	private ArrayList<Ort> orte;
 	private ArrayList<Korridor> eingerichteteKorridore;
@@ -102,13 +108,16 @@ public class Karte {
 
 				// Der aktuell behandelte Ort, partnerSucher, gilt mit Start des
 				// Ablaufs als verbunden.
-				Ort partnerSucher = ringOrte.get(0);
 				schonVerbunden.add(ringOrte.get(0));
 				nichtVerbunden.remove(0);
+				// Ebenso wird er als erster partnerSucher gesetzt
+				Ort partnerSucher = ringOrte.get(0);
 
+				// Vergleichsobjekte / -variablen
 				Ort winkelPartner = null;
 				double winkelMin;
 				double neuesDelta;
+
 				// Aufsuchen einer minimalen Winkelabweichung
 				while (nichtVerbunden.size() > 1) {
 					winkelMin = Double.MAX_VALUE;
@@ -138,12 +147,19 @@ public class Karte {
 						}
 					}
 					if (nichtVerbunden.size() > 1) {
+						// Ort winkelPartner besitzt den kleinsten
+						// Winkelunterschied. Er wird als Partner im neuen
+						// Korridor verwendet.
 						Korridor naechstesStueck = new Korridor(partnerSucher,
 								winkelPartner, Korridor.KENNUNG_ENFC, true);
 						eingerichteteKorridore.add(naechstesStueck);
 						ringKorridore.add(naechstesStueck);
+
 						schonVerbunden.add(partnerSucher);
 						nichtVerbunden.remove(partnerSucher);
+
+						// Im naechsten Durchlauf soll winkelPartner seinen
+						// Partner suchen
 						partnerSucher = winkelPartner;
 					}
 				}
@@ -154,7 +170,8 @@ public class Karte {
 				ringKorridore.add(letztesStueck);
 
 				/*
-				 * Ueberpruefen, ob der Polygonzug sehr lang wurde: Sind
+				 * QUERVERBINDUNGEN
+				 * Ueberpruefen, ob der Polygonzug lang wurde: Sind
 				 * Querverbindungen notwendig, um ein sinnvolles Netz zu
 				 * erhalten?
 				 */
