@@ -53,7 +53,6 @@ public class Karte {
 	public ArrayList<Korridor> getEingerichteteKorridore() {
 		return eingerichteteKorridore;
 	}
-	
 
 	public ArrayList<Ort> getOrte() {
 		return orte;
@@ -63,7 +62,8 @@ public class Karte {
 		this.orte = orte;
 	}
 
-	public void setEingerichteteKorridore(ArrayList<Korridor> eingerichteteKorridore) {
+	public void setEingerichteteKorridore(
+			ArrayList<Korridor> eingerichteteKorridore) {
 		this.eingerichteteKorridore = eingerichteteKorridore;
 	}
 
@@ -184,7 +184,8 @@ public class Karte {
 						for (Ort ortB : ringOrte) {
 							if (ortA != ortB) {
 								Korridor moeglicherQuerkorridor = new Korridor(
-										ortA, ortB, Korridor.KENNUNG_ENFC, false);
+										ortA, ortB, Korridor.KENNUNG_ENFC,
+										false);
 								double ringZug = 0;
 								Ort schritt = ortA;
 								Ort letzterSchritt = null;
@@ -249,7 +250,8 @@ public class Karte {
 			JOptionPane
 					.showMessageDialog(
 							null,
-							"Es trat ein ungueltiger Ort bei der Erstellung von Korridoren auf. \n Bitte wenden Sie sich an die Herausgeber des Programmes.");
+							"Es trat ein ungueltiger Ort bei der Erstellung von Korridoren auf. \n Bitte wenden Sie sich an die Herausgeber des Programmes."
+									+ e.getMessage());
 			System.exit(0);
 		}
 	}
@@ -573,8 +575,8 @@ public class Karte {
 			for (Ort ortASL : aslOrte) {
 				double minDistanz = Double.MAX_VALUE;
 				for (Ort nichtASL_Ort : orte) {
-					if (nichtASL_Ort.getKennung()
-							.equals(Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
+					if (nichtASL_Ort.getKennung().equals(
+							Ort.KENNUNG_AUSLANDSVERBINDUNG)) {
 						continue;
 					}
 					double distanzEinOrt = ermittleOrtsdistanz(ortASL,
@@ -599,7 +601,8 @@ public class Karte {
 	private boolean isUpgradeable(Korridor k) {
 		String neueKorridorart = k.getNextKennung();
 		if (neueKorridorart != "")
-			return istEinrichtbarerKorridor(k.getOrtA(), k.getOrtB(), neueKorridorart);
+			return istEinrichtbarerKorridor(k.getOrtA(), k.getOrtB(),
+					neueKorridorart);
 		return false;
 	}
 
@@ -682,7 +685,8 @@ public class Karte {
 	 */
 
 	private double ermittleOrtsdistanz(Ort orteins, Ort ortzwei) {
-		double laengeQuadrat = Math.pow(orteins.getKoordX() - ortzwei.getKoordX(), 2)
+		double laengeQuadrat = Math.pow(
+				orteins.getKoordX() - ortzwei.getKoordX(), 2)
 				+ Math.pow(orteins.getKoordY() - ortzwei.getKoordY(), 2);
 		double laenge = (Math.sqrt(laengeQuadrat));
 		return laenge;
@@ -905,7 +909,13 @@ public class Karte {
 		for (int x = 0; (x + erstellerKantenlaenge) <= KARTE_GROESSE_X; x++) {
 			for (int y = 0; (y + erstellerKantenlaenge) <= KARTE_GROESSE_Y; y++) {
 				Feld neuesFeld = new Feld(this, x, y, erstellerKantenlaenge);
+				boolean nichtASLvorhanden = false;
 				if (neuesFeld.bestimmeOrteImFeld().size() >= MIN_ORTE_IM_FELD)
+					for (Ort ort : neuesFeld.bestimmeOrteImFeld()) {
+						if (ort.getKennung() != Ort.KENNUNG_AUSLANDSVERBINDUNG)
+							nichtASLvorhanden = true;
+					}
+				if (nichtASLvorhanden)
 					felderListe.add(neuesFeld);
 			}
 		}
