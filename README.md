@@ -13,7 +13,6 @@ ToDo:
 - Flussdiagramme
     - Main Patrick
     - Netzerstellung Ruben
-    - Dateieinlesen Nils
     - Flugrouten Patrick
 - Erweiterbarkeit
 - Docu durchlesen
