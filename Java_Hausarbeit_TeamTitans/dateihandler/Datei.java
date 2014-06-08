@@ -194,7 +194,7 @@ public class Datei {
 	 *             Fehler bei fehlendem oder defektem merkmal
 	 * @throws DateiSyntaxFehler
 	 */
-	public String getMerkmal(String wertBezeichner, String zeile)
+	public String ermittleMerkmal(String wertBezeichner, String zeile)
 			throws MerkmalMissing, DateiSyntaxFehler {
 		// Index des Merkmalbeginns. Check mit "[" vorran gestellt um
 		// Leerzeichen dazwischen auszuschliessen.

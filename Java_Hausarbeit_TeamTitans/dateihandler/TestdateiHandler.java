@@ -467,10 +467,10 @@ public class TestdateiHandler extends Datei {
 		}
 		//Auswerten der 3 Merkmale
 		try {
-			String nameOrtHerkunft = getMerkmal(BEZEICHNER_START, datensatz);
-			String nameOrtZiel = getMerkmal(BEZEICHNER_ZIEL, datensatz);
+			String nameOrtHerkunft = ermittleMerkmal(BEZEICHNER_START, datensatz);
+			String nameOrtZiel = ermittleMerkmal(BEZEICHNER_ZIEL, datensatz);
 			try {
-				int faktor = Integer.parseInt(getMerkmal(BEZEICHNER_FAKTOR,
+				int faktor = Integer.parseInt(ermittleMerkmal(BEZEICHNER_FAKTOR,
 						datensatz));
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktor);
 				ausgewerteteDatensaetze++;

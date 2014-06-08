@@ -491,9 +491,9 @@ public class KartendateiHandler extends Datei {
 		}
 		// Auswertung des Datensatzes
 		try {
-			int xkoord = Integer.parseInt(getMerkmal(BEZEICHNER_X_KOORDINATE,
+			int xkoord = Integer.parseInt(ermittleMerkmal(BEZEICHNER_X_KOORDINATE,
 					datensatz));
-			int ykoord = Integer.parseInt(getMerkmal(BEZEICHNER_Y_KOORDINATE,
+			int ykoord = Integer.parseInt(ermittleMerkmal(BEZEICHNER_Y_KOORDINATE,
 					datensatz));
 			// Ueberpruefen der Orte auf ihre Position.
 			koordinateCheckenX(xkoord);
@@ -505,7 +505,7 @@ public class KartendateiHandler extends Datei {
 				throw new DateiSyntaxFehler();
 			}
 			// Restliche Auswertung.
-			String name = getMerkmal(BEZEICHNER_NAME, datensatz);
+			String name = ermittleMerkmal(BEZEICHNER_NAME, datensatz);
 			// Check ob Name einzigartig ist.
 			boolean nameEinzigartig = true;
 			for (Ort ort : kartenInstanz.getOrte()) {
@@ -520,29 +520,29 @@ public class KartendateiHandler extends Datei {
 				throw new DateiSyntaxFehler();
 			}
 			// Auswertung der Kennung.
-			String kennung = getMerkmal(BEZEICHNER_KENNUNG, datensatz);
+			String kennung = ermittleMerkmal(BEZEICHNER_KENNUNG, datensatz);
 			// Je nach Kennung wird nun der Rest ausgewertet und dieser Ort
 			// erstellt.
 			switch (kennung) {
 			case Ort.KENNUNG_HAUPTORT:
-				int einwohnerZahl = Integer.parseInt(getMerkmal(
+				int einwohnerZahl = Integer.parseInt(ermittleMerkmal(
 						BEZEICHNER_EINWOHNERZAHL, datensatz));
 				erzeugeHauptort(xkoord, ykoord, name, einwohnerZahl);
 				break;
 			case Ort.KENNUNG_NEBENORT:
-				int einwohnerZahlnbn = Integer.parseInt(getMerkmal(
+				int einwohnerZahlnbn = Integer.parseInt(ermittleMerkmal(
 						BEZEICHNER_EINWOHNERZAHL, datensatz));
 				erzeugeNebenort(xkoord, ykoord, name, einwohnerZahlnbn);
 				break;
 			case Ort.KENNUNG_UMSCHLAGPUNKT:
-				double umschlagVolumen = Double.parseDouble(getMerkmal(
+				double umschlagVolumen = Double.parseDouble(ermittleMerkmal(
 						BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
 				erzeugeUmschlagpunkt(xkoord, ykoord, name, umschlagVolumen);
 				break;
 			case Ort.KENNUNG_AUSLANDSVERBINDUNG:
-				double umschlagVolumenASL = Double.parseDouble(getMerkmal(
+				double umschlagVolumenASL = Double.parseDouble(ermittleMerkmal(
 						BEZEICHNER_UMSCHLAGVOLUMEN, datensatz));
-				int passagierAufkommen = Integer.parseInt(getMerkmal(
+				int passagierAufkommen = Integer.parseInt(ermittleMerkmal(
 						BEZEICHNER_PASSAGIERAUFKOMMEN, datensatz));
 				erzeugeAuslandsverbindung(xkoord, ykoord, name,
 						umschlagVolumenASL, passagierAufkommen);
