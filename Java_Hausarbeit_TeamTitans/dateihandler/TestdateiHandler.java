@@ -102,7 +102,7 @@ public class TestdateiHandler extends Datei {
 				aktuelleZeile += 1;
 			}
 		}
-		JOptionPane.showMessageDialog(null, "Es wurde/en "
+		JOptionPane.showMessageDialog(null, "Es wurde/n "
 				+ ausgewerteteDatensaetze
 				+ " Datensatz/Datensaetze erfolgreich eingelesen. \n" + mitFaktorDefault
 				+ " davon mit Faktor 1");

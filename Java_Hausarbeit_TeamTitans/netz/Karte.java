@@ -986,14 +986,14 @@ public class Karte {
 		//Check, ob nur endgueltige Korridore eingerichtet wurden
 		for (Korridor k : eingerichteteKorridore){
 			if (!k.isEndgueltig()){
-				throw new NetzBauFehler(k);
+				throw new NetzBauFehler(k, 0);
 			}
 		}
 		//Check, ob in angebundenKorridoren von Orten nur endgueltige Korridore stehen.
 		for (Ort ortA : orte){
 			for (Korridor k : ortA.getAngebundeneKorridore()){
 				if (!eingerichteteKorridore.contains(k)){
-					throw new NetzBauFehler(k);
+					throw new NetzBauFehler(k,1);
 				}
 			}
 		}

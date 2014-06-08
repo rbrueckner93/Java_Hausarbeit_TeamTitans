@@ -18,7 +18,6 @@ public class UngueltigerOrt extends Exception {
 		this.ortA = ortA;
 		this.ortB = ortB;
 		this.korridorArt = korridorArt;
-		// TODO Auto-generated constructor stub
 	}
 	
 }

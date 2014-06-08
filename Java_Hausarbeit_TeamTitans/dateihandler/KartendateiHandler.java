@@ -124,7 +124,7 @@ public class KartendateiHandler extends Datei {
 		}
 		// Meldung an den User, wie viele Datensaetze erfolgreich ausgewertet
 		// wurden.
-		JOptionPane.showMessageDialog(null, "Es wurde/en "
+		JOptionPane.showMessageDialog(null, "Es wurde/n "
 				+ anzahlAusgewerteteDatensaetze
 				+ " Datensatz/Datensaetze erfolgreich eingelesen.");
 	}
