@@ -14,9 +14,13 @@ import orte.Ort;
 public class Karte {
 	public static double budget;
 	public static final int KARTE_GROESSE_X = 199;
-	public static final int MIN_ORTE_IM_FELD = 3;
 	public static final int KARTE_GROESSE_Y = 99;
-	public static double SCHWELLFAKTOR_QUERVERBINDUNG = 2.65;
+	// Wie viele Orte muessen mindestens in einem Feld sein, damit ein Feld als
+	// Feld gilt?
+	public static final int MIN_ORTE_IM_FELD = 3;
+	// Wie oft muss eine Querverbindung ihre eigene Laenge einsparen, um
+	// eingerichtet zu werden?
+	public static double SCHWELLFAKTOR_QUERVERBINDUNG = 2.75;
 	public static final int BEGINN_FELDABTASTUNG = 35;
 	public static final int END_FELDABTASTUNG = 75;
 	public static final int SCHRITTE_FELDABTASTUNG = 5;
@@ -707,7 +711,8 @@ public class Karte {
 			if (hoechster.getRelevanzGrad() == liste.get(i).getRelevanzGrad()
 					&& hoechster != liste.get(i)) {
 
-				Ort NullOrt = new Ort(Math.round(KARTE_GROESSE_X/2), Math.round(KARTE_GROESSE_Y/2), "NullOrt");
+				Ort NullOrt = new Ort(Math.round(KARTE_GROESSE_X / 2),
+						Math.round(KARTE_GROESSE_Y / 2), "NullOrt");
 
 				double entfernung1 = ermittleOrtsdistanz(NullOrt, hoechster);
 				double entfernung2 = ermittleOrtsdistanz(NullOrt, orte.get(i));
