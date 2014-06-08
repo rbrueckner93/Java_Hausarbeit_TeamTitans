@@ -10,7 +10,7 @@ public class NetzBauFehler extends Exception {
 
 	/**
 	 * Art des Fehler 0 = Ein nicht endgueltiger Korridor wurde entdeckt. 1 =
-	 * Angebundene Korridore eines Ortes enthalten unbeaknnten Korridor.
+	 * Angebundene Korridore eines Ortes enthalten unbekannten Korridor.
 	 */
 	private int fehlerTyp;
 
