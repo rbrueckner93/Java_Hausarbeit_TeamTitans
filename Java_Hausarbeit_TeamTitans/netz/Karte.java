@@ -24,7 +24,7 @@ public class Karte {
 	public static double SCHWELLFAKTOR_QUERVERBINDUNG = 2;
 	// Wie lang darf ein Ring max sein, um ohne Querverbindung auszukommen.
 	public static final double MAX_RINGLAENGE_OHNE_QUERVERBINDUNG = (KARTE_GROESSE_Y * 2);
-	// Schrittgröße bei der Verringerung des Abwertfaktors um geeignete Ringorte
+	// Schrittgroesse bei der Verringerung des Abwertfaktors um geeignete Ringorte
 	// zu finden.
 	public static final double SCHRITTWEITE_RING_ABWERTFAKTOR = 0.05;
 	// Wert der unterschritten werden muss, um keine weiteren Ringorte mehr
@@ -419,7 +419,7 @@ public class Karte {
 		}
 		// Erstellen einer Liste der vorhanden Ringorte.
 		head: while (ringOrte.size() < 4) {
-			for (double abwertFaktor = 1; abwertFaktor >= SCHWELLWERT_ABBRUCH_RINGORTE; abwertFaktor = (abwertFaktor - SCHRITTWEITE_RING_ABWERTFAKTOR)) {
+			for (double abwertFaktor = 1; abwertFaktor >= 0.1; abwertFaktor = (abwertFaktor - SCHRITTWEITE_RING_ABWERTFAKTOR)) {
 
 				for (Ort ort : ohneASLOrte) {
 					if (relevanzGradOrtmitASL(ort) >= (hoechsterRG * abwertFaktor)
