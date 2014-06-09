@@ -28,9 +28,9 @@ public class Flugroute {
 	 * Konstruktor der Klasse Flugroute. Parameter werden von TestdateiHanlder
 	 * uebergeben.
 	 * 
-	 * @param ziel
-	 * @param herkunft
-	 * @param faktor
+	 * @param ziel Ort des Ziels
+	 * @param herkunft Ort der Herkunft
+	 * @param faktor Haeufigkeit der Nutzung
 	 */
 	public Flugroute(Ort ziel, Ort herkunft, int faktor) {
 		super();
@@ -81,12 +81,12 @@ public class Flugroute {
 	 */
 
 	public void ermittleBesteRoute() {
-		/**
+		/*
 		 * flugroutenInArbeit speichert nur solange Elemente, wie sie nicht am
 		 * Ende der zu optimierenden Flugroute angekommen sind.
 		 */
 		ArrayList<Flugroute> flugroutenInArbeit = new ArrayList<Flugroute>();
-		/**
+		/*
 		 * moeglicheFlugrouten speichert diejenigen Routen ab, ueber die ohne
 		 * doppelt angeflogene Orte das ziel erreicht werden kann
 		 */
@@ -100,7 +100,6 @@ public class Flugroute {
 			Ort erstesZiel = herkunft.getAngebundeneKorridore().get(i)
 					.bestimmeAnderenOrt(herkunft);
 			Flugroute ersteRoute = new Flugroute(erstesZiel, herkunft, faktor);
-			// TODO dieses hinzufuegen scheint noch nicht zu klappen...
 			ersteRoute.reiseListe.add(herkunft.getAngebundeneKorridore().get(i));
 			if (erstesZiel == ziel) {
 				moeglicheFlugrouten.add(ersteRoute);
@@ -118,11 +117,11 @@ public class Flugroute {
 				Flugroute weg = flugroutenInArbeit.get(routen);
 				for (int i = 0; i < weg.ziel.getAngebundeneKorridore().size(); i++) {
 					Korridor verbindung = weg.ziel.getAngebundeneKorridore().get(i);
-					/**
+					/*
 					 * wenn ermittleAnderenOrt(verbindung, weg.ziel) nicht in
 					 * weg.erzeugeOrtsListe vorkommt und
 					 * ermittleAnderenOrt(verbindung, weg.ziel) nicht gleich
-					 * ziel ist, dann schreibe in flugroutenInArbeit.add()
+					 * Ziel ist, dann schreibe in flugroutenInArbeit.add()
 					 */
 					Ort neuesZiel = verbindung.bestimmeAnderenOrt(weg.ziel);
 					try {
@@ -150,7 +149,7 @@ public class Flugroute {
 						System.exit(0);
 					}
 
-					/**
+					/*
 					 * Wenn ermittleAnderenOrt(verbindung, weg.ziel nicht in
 					 * weg.erzeugeOrtsListe vorkommt und
 					 * ermittleAnderenOrt(verbindung, weg.ziel) gleich Ziel ist,
@@ -160,8 +159,6 @@ public class Flugroute {
 					 * Alsbald wird der zaehler um 1 verringert, um kein Elt. zu
 					 * ueberspringen.
 					 */
-					//
-
 				}
 				flugroutenInArbeit.remove(routen);
 				routen--;
@@ -169,10 +166,9 @@ public class Flugroute {
 			}
 		}
 
-		/**
+		/*
 		 * Nimm die guenstigste Flugroute und gib sie zurueck.
 		 */
-
 		while (moeglicheFlugrouten.size() > 1) {
 			for (int i = 0; i < moeglicheFlugrouten.size(); i++) {
 				if (moeglicheFlugrouten.get(0).ermittleRoutennutzkosten() < moeglicheFlugrouten
@@ -187,7 +183,6 @@ public class Flugroute {
 
 		if (moeglicheFlugrouten.size() == 1) {
 			reiseListe = moeglicheFlugrouten.get(0).reiseListe;
-			//TODO Hier war ein reiner Debug ausgabe der Flugroute Warum?
 		}
 	}
 
@@ -198,8 +193,9 @@ public class Flugroute {
 	 * Die einmaligen Nutzungskosten muessen nicht separat ermittelt werden, da
 	 * sowohl bei der Wahl der Korridore als auch der Ermittlung der
 	 * Gesamtkosten nur die Gesamtkosten der Nutzung einer Route von Bedeutung
-	 * sind. Dabei werden korridor.ermittleLaenge(); und korridor.NUTZUNGSKOSTEN
+	 * sind. Dabei werden korridor.ermittleLaenge(); und korridor.NutzungskostenProKm
 	 * herangezogen.
+	 * @return Kosten fuer alle Durchfluege
 	 */
 
 	public double ermittleRoutennutzkosten() {
@@ -236,12 +232,12 @@ public class Flugroute {
 	/**
 	 * Gibt eine ArrayList von Orten zurueck, die die Reihenfolge von Reise-Hops
 	 * ausgibt. Aus der ArrayList<Korridor> mit ortA und ortB muss also nach dem
-	 * Ort des ersten Korridors gesucht werden, der Herkunft entspricht. im
+	 * Ort des ersten Korridors gesucht werden, der Herkunft entspricht. Im
 	 * zweiten Korridor wird festgestellt, welcher Ort nicht dem zweiten Ort des
-	 * ersten Korridors entspricht usw., sodass der letzte Ort in der reiseliste
-	 * dem Ziel entspricht. eine Ueberpruefung muss natuerlich stattfinden. Sie
+	 * ersten Korridors entspricht usw., so dass der letzte Ort in der reiseliste
+	 * dem Ziel entspricht. Eine Ueberpruefung muss natuerlich stattfinden. Sie
 	 * ist eine direkte Ableitung aus reiseListe ArrayList<Korridor>
-	 * 
+	 * @return Liste aller Orte die Durchflogen wurden
 	 */
 	private ArrayList<Ort> erzeugeOrtsListe() throws OrtNichtVorhanden {
 		ArrayList<Ort> ortsListe = new ArrayList<Ort>();
