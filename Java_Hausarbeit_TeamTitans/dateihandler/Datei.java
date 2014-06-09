@@ -15,7 +15,7 @@ import exceptions.MerkmalMissing;
 import main.Benutzerinterface;
 
 /**
- * @author TolleN 
+ * @author TolleN
  */
 public class Datei {
 	public static final String KOMMENTARMARKER = "##";
@@ -26,20 +26,19 @@ public class Datei {
 	 * Dateiendung ohne Punkt.
 	 */
 	public static final String STANDARD_DATEITYP = "txt";
-	
+
 	protected int aktuelleZeile = 0;
 
 	/**
 	 * Methode, die eine gegebene Datei Zeilenweise ausliest und ein Array von
-	 * Strings aller Zeilen zurueck gibt. Datei muss von UI geprueft worden sein,
-	 * auf lesbarkeit und isFile().
+	 * Strings aller Zeilen zurueck gibt. Datei muss von UI geprueft worden
+	 * sein, auf lesbarkeit und isFile().
 	 * 
 	 * @param neueDatei
-	 *            ,Datei die eingelesen werden soll.
-	 * @return ArrayList<String> 
-	 * 		      ,pro Index eine Zeile.
+	 *            Datei die eingelesen werden soll.
+	 * @return ArrayList<String> Liste mit Strings, pro Index eine Zeile.
 	 */
-	
+
 	public static ArrayList<String> leseDatei(File aktuelleDatei) {
 		ArrayList<String> zeilen = new ArrayList<String>();
 		try {
@@ -47,8 +46,9 @@ public class Datei {
 			BufferedReader reader = new BufferedReader(fileReader);
 			while (reader.ready()) {
 				/*
-				 * Liesst die Datei und schreibt eine Zeile in ein Element der ArrayList. 
-				 * Dabei werden Leerzeichen vorne und hinten entfernt.
+				 * Liesst die Datei und schreibt eine Zeile in ein Element der
+				 * ArrayList. Dabei werden Leerzeichen vorne und hinten
+				 * entfernt.
 				 */
 				zeilen.add(reader.readLine().trim());
 			}
@@ -66,35 +66,35 @@ public class Datei {
 	 * Bekommt Dateinamen (inklusive Suffix!) und OutputStream als String.
 	 * 
 	 * @param zuSchreibenderText
-	 *            ,ArrayList von Strings mit allen Zeilen.
+	 *            ArrayList von Strings mit allen Zeilen.
 	 * @param neuerDateiname
-	 *            ,String des Namen + Suffix der Datei(kein ".txt") enthaelt.
-	 * @author Nils
+	 *            String des Namen + Suffix der Datei(kein ".txt") enthaelt.
+	 * @author TolleN
 	 */
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,
 			String neuerDateiname) {
-			File neuerOrdner = new File(Benutzerinterface.STANDARDPFAD + "\\");
-			//Checkt, ob der Ordner in den geschrieben werden soll existiert.
-			if (!neuerOrdner.exists()) {
-				int entscheidung = JOptionPane
-						.showConfirmDialog(
-								null,
-								"Achtung - Ordner \""
-										+ Benutzerinterface.STANDARDPFAD
-										+ "\" nicht vorhanden.\nSoll dieser erstellt werden?",
-								"Ornder erstellen?", JOptionPane.YES_NO_OPTION);
-				if (entscheidung == JOptionPane.YES_OPTION) {
-					//Erstellt den Ordner nach User-Entscheidung.
-					neuerOrdner.mkdir();
-				}
-				if (entscheidung == JOptionPane.NO_OPTION) {
-					//Abbruch der Methode.
-					return;
-				}
+		File neuerOrdner = new File(Benutzerinterface.STANDARDPFAD + "\\");
+		// Checkt, ob der Ordner in den geschrieben werden soll existiert.
+		if (!neuerOrdner.exists()) {
+			int entscheidung = JOptionPane
+					.showConfirmDialog(
+							null,
+							"Achtung - Ordner \""
+									+ Benutzerinterface.STANDARDPFAD
+									+ "\" nicht vorhanden.\nSoll dieser erstellt werden?",
+							"Ornder erstellen?", JOptionPane.YES_NO_OPTION);
+			if (entscheidung == JOptionPane.YES_OPTION) {
+				// Erstellt den Ordner nach User-Entscheidung.
+				neuerOrdner.mkdir();
 			}
+			if (entscheidung == JOptionPane.NO_OPTION) {
+				// Abbruch der Methode.
+				return;
+			}
+		}
 		File neueDatei = new File(Benutzerinterface.STANDARDPFAD + "\\"
-				+ neuerDateiname +"."+ STANDARD_DATEITYP);
-		//Prueft ob die Datei bereits existiert.
+				+ neuerDateiname + "." + STANDARD_DATEITYP);
+		// Prueft ob die Datei bereits existiert.
 		if (neueDatei.exists()) {
 			int entscheidung = JOptionPane
 					.showConfirmDialog(
@@ -103,21 +103,23 @@ public class Datei {
 									+ Benutzerinterface.STANDARDPFAD
 									+ "\\"
 									+ neuerDateiname
-									+ "."+STANDARD_DATEITYP
+									+ "."
+									+ STANDARD_DATEITYP
 									+ "\" existiert bereits.\nSoll sie ueberschrieben werden?",
 							"Datei speichern?", JOptionPane.YES_NO_OPTION);
 			if (entscheidung == JOptionPane.NO_OPTION) {
-				//Abbruch der Methode.
+				// Abbruch der Methode.
 				return;
 			}
 			if (entscheidung == JOptionPane.YES_OPTION) {
-				//Springt weiter zur Erstellung der Datei und anschliessenden Schreiben.
+				// Springt weiter zur Erstellung der Datei und anschliessenden
+				// Schreiben.
 			}
 		}
 		try {
 			neueDatei.createNewFile();
 			PrintStream writer = new PrintStream(neueDatei);
-			//Schreibt jede Zeile in die neue Datei.
+			// Schreibt jede Zeile in die neue Datei.
 			for (String zeile : zuSchreibenderText) {
 				writer.println(zeile);
 			}
@@ -130,12 +132,12 @@ public class Datei {
 			return;
 		}
 	}
-	
+
 	/**
 	 * Checkt, ob Zeile eine Kommentarzeile ist.
-	 * @param zeile 
-	 * @return true 
-	 * 			  ,bei Kommentarzeile, sonst false.
+	 * 
+	 * @param zeile
+	 * @return true bei Kommentarzeile, sonst false.
 	 */
 	public static boolean istKommentarZeile(String zeile) {
 		if (zeile.indexOf(KOMMENTARMARKER) == -1
@@ -144,13 +146,14 @@ public class Datei {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Checkt, ob nach dem DateiendeMarker noch Text steht.
-	 * @param zeile  
-	 * 			,des DateiendeMarker.
-	 * @param text  
-	 *          ,der ausgewertet werden soll.
+	 * 
+	 * @param zeile
+	 *            Zeile des DateiendeMarker.
+	 * @param text
+	 *             Text der ausgewertet werden soll.
 	 */
 	public void checkLeeresDateiende(int zeile, ArrayList<String> text) {
 		zeile++;
@@ -164,19 +167,18 @@ public class Datei {
 			return;
 		}
 	}
-	
+
 	/**
-	 * Die Methode erzeugt einen String des aktuellen Dateinamens von der momentan
-	 * ausgewerteten Datei. Prueft zusaetzlich, ob es sich um eine txt Datei
-	 * handelt.
+	 * Die Methode erzeugt einen String des aktuellen Dateinamens von der
+	 * momentan ausgewerteten Datei. Prueft zusaetzlich, ob es sich um eine txt
+	 * Datei handelt.
 	 * 
-	 * @param Datei
-	 *            , die gerade ausgewertet wird.
-	 * @return String 
-	 * 			  ,des Dateinamens ohne suffix.
+	 * @param datei
+	 *            Datei, die gerade ausgewertet wird.
+	 * @return String ,des Dateinamens ohne suffix.
 	 */
-	public String getDateiNamen(File datei) throws DateiSyntaxFehler{
-		int dateiEndung = datei.getName().indexOf("."+STANDARD_DATEITYP);
+	public String getDateiNamen(File datei) throws DateiSyntaxFehler {
+		int dateiEndung = datei.getName().indexOf("." + STANDARD_DATEITYP);
 		if (dateiEndung == -1) {
 			JOptionPane
 					.showMessageDialog(null, "Falsche Dateiendung der Datei");
@@ -185,19 +187,18 @@ public class Datei {
 		String dateiName = datei.getName().substring(0, dateiEndung);
 		return dateiName;
 	}
-	
+
 	/**
 	 * * Wertet ein Datensatz nach einem spez. Merkmal aus.
 	 * 
 	 * @param wertBezeichner
-	 *            ,spezifischer Bezeichner des Wertes.
+	 *            spezifischer Bezeichner des Wertes.
 	 * @param zeile
-	 *            ,String in dem Merkmal stehen muss. Muss der komplette
+	 *            String in dem Merkmal stehen muss. Muss der komplette
 	 *            Datensatz sein.
-	 * @return Wert 
-	 * 			  ,des gesuchten Merkmals als String.
+	 * @return Wert des gesuchten Merkmals als String.
 	 * @throws MerkmalMissing
-	 *            ,Fehler bei fehlendem oder defektem Merkmal.
+	 *             Fehler bei fehlendem oder defektem Merkmal.
 	 * @throws DateiSyntaxFehler
 	 */
 	public String ermittleMerkmal(String wertBezeichner, String zeile)

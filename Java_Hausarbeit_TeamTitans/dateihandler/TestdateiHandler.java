@@ -46,11 +46,11 @@ public class TestdateiHandler extends Datei {
 	 * File und ein Objekt der Klasse Simulator.
 	 * 
 	 * @param aktuelleTestdatei 
-	 *            ,Testdatei, die ausgewertet wird.
+	 *            Testdatei, die ausgewertet wird.
 	 * @param aktuelleSimulation 
-	 *            ,Simulation, die die Routen eingeschrieben bekommt.
+	 *            Simulation, die die Routen eingeschrieben bekommt.
 	 * @param aktuelleKarte 
-	 *            ,Karte, auf der die Simulation ausgefuehrt wird.
+	 *            Karte, auf der die Simulation ausgefuehrt wird.
 	 */
 
 	public TestdateiHandler(File aktuelleTestdatei,
@@ -235,7 +235,7 @@ public class TestdateiHandler extends Datei {
 	 * Chech, ob die Anzahl gestarteter und geschlossener Datensaetze identsich sind.
 	 * @param startZeile
 	 * @param text 
-	 * 		    ,Text, der ausgewertet werden soll.
+	 * 		    Text, der ausgewertet werden soll.
 	 * @return true oder false 
 	 */
 	private boolean datensatzMarkiererGleichwertig(int startZeile,
@@ -309,11 +309,11 @@ public class TestdateiHandler extends Datei {
 	/**
 	 * Findet die Zeile, mit einem Datensatzbeginnmarker. Beruecksichtigt moegliche Datensatzendemarker.
 	 * @param beginn 
-	 * 				,Zeile, ab der gesucht werden soll.
+	 * 				Zeile, ab der gesucht werden soll.
 	 * @param text 
-	 * 				,Text, der ausgewertet werden soll.
+	 * 				Text, der ausgewertet werden soll.
 	 * @return  
-	 * 				,Zeile mit Befund.
+	 * 				Zeile mit Befund.
 	 */
 	private int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size() - 1) {
@@ -342,11 +342,11 @@ public class TestdateiHandler extends Datei {
 	/**
 	 * Findet die Zeile, in der ein Datensatzendemarker steht. Beachtet auftretende Beginnmarker.
 	 * @param beginn 
-	 * 				,Zeile, ab der gesucht werden soll.
+	 * 				Zeile, ab der gesucht werden soll.
 	 * @param text 
-	 * 				,Text, der ausgewertet werden soll.
+	 * 				Text, der ausgewertet werden soll.
 	 * @return 
-	 * 				,Zeile mit Befund.
+	 * 				Zeile mit Befund.
 	 */
 	private int findeDatensatzEndeMarker(int beginn,
 			ArrayList<String> text) throws DateiSyntaxFehler {
@@ -425,11 +425,11 @@ public class TestdateiHandler extends Datei {
 	 * Erzeugt eine Flugroute.
 	 * Ueberprueft die Dabei, auf die Existenz der Orte und den Faktor.
 	 * @param nameHerkunft 
-	 * 				,Ort des Abflugs.
+	 * 				Ort des Abflugs.
 	 * @param nameZiel 
-	 * 				,Ort des Ziels.
+	 * 				Ort des Ziels.
 	 * @param faktor 
-	 * 				,Haeufigkeit der Nutzung.
+	 * 				Haeufigkeit der Nutzung.
 	 */
 	private void erzeugeFlugrouten(String nameHerkunft, String nameZiel,
 			int faktor) {
@@ -465,13 +465,13 @@ public class TestdateiHandler extends Datei {
 	/**
 	 * Wertet einen Datensatz nach allen Merkmalen aus und erstellt dann ein Objekt anhand der Daten.
 	 * @param beginnZeile 
-	 * 				,Beginn des Datensatzes.
+	 * 				Beginn des Datensatzes.
 	 * @param endeZeile 
-	 * 				,Ende des Datensatzes.
+	 * 				Ende des Datensatzes.
 	 * @param text 
-	 * 				,Text, in dem der Datensatz steht
+	 * 				Text, in dem der Datensatz steht
 	 * @throws DateiSyntaxFehler 
-	 * 				,Fehler der auftritt, wenn der Syntax verletzt wurde.
+	 * 				Fehler der auftritt, wenn der Syntax verletzt wurde.
 	 */
 	private void werteDatensatzAus(int beginnZeile, int endeZeile,
 			ArrayList<String> text) throws DateiSyntaxFehler {

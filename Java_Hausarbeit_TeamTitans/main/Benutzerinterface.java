@@ -72,7 +72,7 @@ public class Benutzerinterface {
 					return kartenfile;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"Sie sollten eine Kartendatei auswaehlen");
+							"Bitte waehlen Sie eine lesbare Kartendatei aus!");
 				}
 			} else {
 				int beenden;
@@ -229,7 +229,7 @@ public class Benutzerinterface {
 					return testdateiFile;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"Sie sollten eine Kartendatei auswaehlen");
+							"Bitte waehlen Sie eine lesbare Testdatei aus!");
 				}
 			} else {
 				int beenden;

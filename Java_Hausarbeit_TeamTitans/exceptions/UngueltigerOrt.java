@@ -6,7 +6,7 @@ import orte.Ort;
  * Diese Exceptions soll bei Orten geworfen werden, wenn ein unerlaubter Ort bei
  * einem Korridor genutzt wird.
  * 
- * @author Nils
+ * @author TolleN
  * 
  */
 public class UngueltigerOrt extends Exception {

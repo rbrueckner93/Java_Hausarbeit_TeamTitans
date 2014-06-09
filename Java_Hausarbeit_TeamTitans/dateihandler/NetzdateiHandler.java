@@ -77,8 +77,7 @@ public class NetzdateiHandler extends Datei {
 	 * Haengt an den Dateinamen den spezifischen Suffix dran. Nimmt den
 	 * Kartendatei Namen aus der aktuellen Karte.
 	 * 
-	 * @return String 
-	 * 				,Dateiname + Suffix.
+	 * @return Ein String aus Dateiname + Suffix.
 	 */
 	private String erstelleDateiNameNet() {
 		String dateiName = fertigesNetz.getNameKartendatei() + DATEI_SUFFIX;
