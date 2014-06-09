@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import exceptions.NetzBauFehler;
 import exceptions.UngueltigerOrt;
 import orte.Ort;
+import simulation.Flugroute;
 
 /**
  * @author handritschkp, tollen, bruecknerr, fechnerl
@@ -20,7 +21,7 @@ public class Karte {
 	public static final int MIN_ORTE_IM_FELD = 3;
 	// Wie oft muss eine Querverbindung ihre eigene Laenge einsparen, um
 	// eingerichtet zu werden?
-	public static double SCHWELLFAKTOR_QUERVERBINDUNG = 2.75;
+	public static double SCHWELLFAKTOR_QUERVERBINDUNG = 2;
 	// Mit welcher Kantenlaenge soll der Feldalgorithmus beginnen,
 	// Konzentrationsfelder zu suchen?
 	public static final int BEGINN_FELDABTASTUNG = 35;
@@ -170,9 +171,8 @@ public class Karte {
 				ringKorridore.add(letztesStueck);
 
 				/*
-				 * QUERVERBINDUNGEN
-				 * Ueberpruefen, ob der Polygonzug lang wurde: Sind
-				 * Querverbindungen notwendig, um ein sinnvolles Netz zu
+				 * QUERVERBINDUNGEN Ueberpruefen, ob der Polygonzug lang wurde:
+				 * Sind Querverbindungen notwendig, um ein sinnvolles Netz zu
 				 * erhalten?
 				 */
 				double ringLaenge = 0.0;
@@ -193,55 +193,48 @@ public class Karte {
 					for (Ort ortA : ringOrte) {
 						for (Ort ortB : ringOrte) {
 							if (ortA != ortB) {
-								Korridor moeglicherQuerkorridor = new Korridor(
-										ortA, ortB, Korridor.KENNUNG_ENFC,
-										false);
-								double ringZug = 0;
-								Ort schritt = ortA;
-								Ort letzterSchritt = null;
-								Korridor naechsterRingKorridor = null;
 								/*
 								 * Ermittlung der Wegstrecke zwischen ortA und
-								 * ortB auf dem Ring
+								 * ortB auf dem Ring und den bisher
+								 * eingerichteten Querverbindungen
 								 */
-								while (true) {
-									for (Korridor verbindung : schritt
-											.getAngebundeneKorridore()) {
-										/*
-										 * Naechsten Korridor im Ring bestimmen:
-										 * ASL ausschliesen, um auf dem Ring zu
-										 * bleiben
-										 */
-										if (verbindung.bestimmeAnderenOrt(
-												schritt).getKennung() != Ort.KENNUNG_AUSLANDSVERBINDUNG
-												&& verbindung
-														.bestimmeAnderenOrt(schritt) != letzterSchritt) {
-											naechsterRingKorridor = verbindung;
-											break;
-										}
-									}
-									ringZug += naechsterRingKorridor
-											.getLaenge();
-									letzterSchritt = schritt;
-									schritt = naechsterRingKorridor
-											.bestimmeAnderenOrt(schritt);
-									// Abbrechen, wenn ortB erreicht wurde.
-									if (schritt == ortB)
-										break;
+								double routenSum = 0;
+								/*
+								 * Erzeugen einer temporaeren Route, um vom
+								 * Routenfindungsalgorithmus Gebrauch machen zu
+								 * koennen
+								 */
+								Flugroute testRoute = new Flugroute(ortA, ortB,
+										1);
+								testRoute.ermittleBesteRoute();
+								for (Korridor k : testRoute.getReiseListe()) {
+									routenSum += k.getLaenge();
 								}
-								if (ringZug > 0.5 * ringLaenge)
-									ringZug = ringLaenge - ringZug;
-
-								double moeglicheErsparnis = ringZug
-										- moeglicherQuerkorridor.getLaenge();
-								if (moeglicheErsparnis > besteErsparnis
-										&& !korridorExistent(moeglicherQuerkorridor)) {
+								double distanz = ermittleOrtsdistanz(ortA, ortB);
+								double moeglicheErsparnis = routenSum - distanz;
+								/*
+								 * erzielt der Korridor eine gewuenschte
+								 * Ersparung gegenueber der Testroute ohne
+								 * diesen Korridor, die groesser als bisher
+								 * ermittle Einsparungen ist, wird er zu dem am
+								 * meisten einsparenden Korridor gekuert.
+								 */
+								if (moeglicheErsparnis > besteErsparnis) {
+									Korridor moeglicherQuerkorridor = new Korridor(
+											ortA, ortB, Korridor.KENNUNG_ENFC,
+											false);
 									besteErsparnis = moeglicheErsparnis;
 									hoechsterErsparniskorridor = moeglicherQuerkorridor;
 								}
 							}
 						}
 					}
+					/*
+					 * erzielt der zuletzt als am meisten einsparende Korridor
+					 * auch noch eine relative Einsparung wie oben festgelegt,
+					 * wird er "aktiviert", d.h. auch in die
+					 * angebundenenKorridore der beteiligten Orte geschrieben.
+					 */
 					if ((besteErsparnis / hoechsterErsparniskorridor
 							.getLaenge()) > SCHWELLFAKTOR_QUERVERBINDUNG) {
 						hoechsterErsparniskorridor.aktiviere();
@@ -264,24 +257,6 @@ public class Karte {
 									+ e.getMessage());
 			System.exit(0);
 		}
-	}
-
-	/**
-	 * 
-	 * @param k
-	 *            Korridor, von dem ueberprueft wird, ob es bereits einen
-	 *            Korridor zwischen den angegebenen Orten gibt.
-	 * @return Existenz eines geometrisch identischen Korridors als boolschen
-	 *         Wert
-	 */
-	private boolean korridorExistent(Korridor k) {
-		for (Korridor q : eingerichteteKorridore) {
-			if ((q.getOrtA() == k.getOrtA() && q.getOrtB() == k.getOrtB())
-					|| (q.getOrtA() == k.getOrtB() && q.getOrtB() == k
-							.getOrtA()))
-				return true;
-		}
-		return false;
 	}
 
 	/**
