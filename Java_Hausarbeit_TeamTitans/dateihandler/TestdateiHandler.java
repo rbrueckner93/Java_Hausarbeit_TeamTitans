@@ -87,7 +87,7 @@ public class TestdateiHandler extends Datei {
 			JOptionPane
 					.showMessageDialog(
 							null,
-							"Achtung! - Es fehlen Datensatzmarkierer zur korrekten Auswertung der Datei.\nOder es stehen 2 identsiche Marker in einer Zeile.");
+							"Achtung! - Es fehlen Datensatzmarkierer zur korrekten Auswertung der Datei.\nOder es stehen 2 identische Marker in einer Zeile.");
 		}
 		// Eigentliche Auswertung des gefundenen Datensatzes.
 		while (datensatzBeginnMarkerVorhanden(aktuelleZeile, geleseneDaten)

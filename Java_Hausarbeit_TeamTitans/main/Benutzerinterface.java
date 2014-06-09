@@ -154,7 +154,7 @@ public class Benutzerinterface {
 								+ baukosten
 								+ " "
 								+ WAEHRUNG
-								+ " . \nFolgende Korridore wurden gebaut: \nEinfache Korridore: "
+								+ " . \nFolgende Korridore wurden gebaut: \nEinfachekorridore: "
 								+ aktuelleKarte.ermittleAnzahlENFCKorridore()
 								+ "\nStandardkorridore: "
 								+ aktuelleKarte.ermittleAnzahlSTNDKorridore()

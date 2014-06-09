@@ -96,7 +96,7 @@ public class KartendateiHandler extends Datei {
 			JOptionPane
 					.showMessageDialog(
 							null,
-							"Achtung! - Es fehlen Datensatzmarkierer zur korrekten Auswertung der Datei.\nOder es stehen 2 identsiche Marker in einer Zeile.");
+							"Achtung! - Es fehlen Datensatzmarkierer zur korrekten Auswertung der Datei.\nOder es stehen 2 identische Marker in einer Zeile.");
 		}
 		/*
 		 * In dieser Schleife wird wiederholt nach Datensaetzen gesucht und
