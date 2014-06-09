@@ -42,9 +42,10 @@ public class SimulationsdateiHandler extends Datei {
 	}
 
 	/**
-	 * Methode erzeugt einen AusgabeStream der den Regeln folgt. Benoetigt
-	 * lediglich eine liste aller erstellten Flugrouten.
-	 * @return ArrayList<String> Jedes Eelement entspricht einer Zeile.
+	 * Methode erzeugt einen AusgabeStream, der den Regeln folgt. Benoetigt
+	 * lediglich eine Liste aller erstellten Flugrouten.
+	 * @return ArrayList<String> 
+	 *                   ,jedes Element entspricht einer Zeile.
 	 */
 	private ArrayList<String> erstelleOutputStreamSim() {
 		ArrayList<String> fertigerText = new ArrayList<String>();
@@ -75,8 +76,9 @@ public class SimulationsdateiHandler extends Datei {
 	}
 	
 	/**
-	 * Erstellt den fertigen Dateinamen für die Simulationsdatei.
-	 * @return String aus Dateinamen + Suffix
+	 * Erstellt den fertigen Dateinamen fuer die Simulationsdatei.
+	 * @return String 
+	 *             ,aus Dateinamen + Suffix.
 	 */
 	private String erstelleDateiNameSim() {
 		String dateiname = fertigeSimulation.getNameTestdatei() + DATEI_SUFFIX;

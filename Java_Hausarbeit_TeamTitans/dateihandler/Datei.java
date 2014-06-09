@@ -23,21 +23,21 @@ public class Datei {
 	public static final String MERKMAL_ENDE = "]";
 	public static final String BEZEICHNER_WERT_TRENNER = "|";
 	/**
-	 * Dateiendung ohne Punkt
+	 * Dateiendung ohne Punkt.
 	 */
 	public static final String STANDARD_DATEITYP = "txt";
 	
 	protected int aktuelleZeile = 0;
 
 	/**
-	 * Methode die eine gegebene Datei Zeilenweise ausliest und ein Array von
-	 * Strings aller Zeilen zurückgibt. Datei muss von UI geprueft worden sein
+	 * Methode, die eine gegebene Datei Zeilenweise ausliest und ein Array von
+	 * Strings aller Zeilen zurueck gibt. Datei muss von UI geprueft worden sein,
 	 * auf lesbarkeit und isFile().
 	 * 
 	 * @param neueDatei
-	 *            ,Datei die eingelsen werden soll.
+	 *            ,Datei die eingelesen werden soll.
 	 * @return ArrayList<String> 
-	 * 		      ,pro Index eine Zeile
+	 * 		      ,pro Index eine Zeile.
 	 */
 	
 	public static ArrayList<String> leseDatei(File aktuelleDatei) {
@@ -68,7 +68,7 @@ public class Datei {
 	 * @param zuSchreibenderText
 	 *            ,ArrayList von Strings mit allen Zeilen.
 	 * @param neuerDateiname
-	 *            ,String des Namen + Suffix der Datei(kein ".txt") enthält.
+	 *            ,String des Namen + Suffix der Datei(kein ".txt") enthaelt.
 	 * @author Nils
 	 */
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,
@@ -230,7 +230,7 @@ public class Datei {
 		if (merkmalsplit[1].isEmpty()) {
 			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
-		// Check auf Korrektes Merkmal und anschließende Rückgabe.
+		// Check auf Korrektes Merkmal und anschliessende Rueckgabe.
 		if (merkmalsplit[0].equals(MERKMAL_BEGINN + wertBezeichner)) {
 			return merkmalsplit[1].trim();
 		} else {

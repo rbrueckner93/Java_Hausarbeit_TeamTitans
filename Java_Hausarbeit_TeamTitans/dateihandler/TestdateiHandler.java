@@ -14,9 +14,9 @@ import simulation.Simulator;
 
 /**
  *Erhaelt eine Datei (die Informationen ueber
- *Flugrouten enthaelt), erhaelt ein Objekt vom Typ Simulator. schreibt
+ *Flugrouten enthaelt) und ein Objekt vom Typ Simulator. Schreibt
  *die in der Datei befindlichen Informationen nach einer Pruefung durch
- *eine methode pruefeDatei von TestdateiHandler in die ArrayList routen
+ *eine Methode, pruefeDatei, von TestdateiHandler, in die ArrayList routen,
  *des uebergebenen Simulator-Objektes.
  *@author TolleN
  */
@@ -42,12 +42,15 @@ public class TestdateiHandler extends Datei {
 	private int mitFaktorDefault = 0;
 
 	/**
-	 * Konstruktor. Bekommt von der Mainmethode eine lesbare Testdatei vom typ
+	 * Konstruktor. Bekommt von der Mainmethode eine lesbare Testdatei vom Typ
 	 * File und ein Objekt der Klasse Simulator.
 	 * 
-	 * @param aktuelleTestdatei Testdatei die ausgewertet wird
-	 * @param aktuelleSimulation Simulation, die Routen eingeschrieben bekommt.
-	 * @param aktuelleKarte Karte, auf der die Simulation ausgefuehrt wird.
+	 * @param aktuelleTestdatei 
+	 *            ,Testdatei, die ausgewertet wird.
+	 * @param aktuelleSimulation 
+	 *            ,Simulation, die die Routen eingeschrieben bekommt.
+	 * @param aktuelleKarte 
+	 *            ,Karte, auf der die Simulation ausgefuehrt wird.
 	 */
 
 	public TestdateiHandler(File aktuelleTestdatei,
@@ -65,7 +68,7 @@ public class TestdateiHandler extends Datei {
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleTestdatei);
 		aktuelleZeile = 0;
 		aktuelleSimulation.setNameTestdatei(getDateiNamen(aktuelleTestdatei));
-		// Checken ob Marker vorhanden.
+		// Check, ob Marker vorhanden.
 		int dateiAnfang = findeDateiBeginnMarker(aktuelleZeile, geleseneDaten);
 		if (dateiAnfang == -1) {
 			JOptionPane
@@ -144,7 +147,7 @@ public class TestdateiHandler extends Datei {
 	}
 
 	/**
-	 * Sucht nach einbem Datei ende Marker
+	 * Sucht nach einem DateiEnde Marker.
 	 * 
 	 * @param beginn
 	 * @param text
@@ -229,9 +232,10 @@ public class TestdateiHandler extends Datei {
 	}
 	
 	/**
-	 * Guckt, ob die Anzahl gestarteter und geschlossener Datensaetze identsich ist.
+	 * Chech, ob die Anzahl gestarteter und geschlossener Datensaetze identsich sind.
 	 * @param startZeile
-	 * @param text Text der ausgewertet werden soll
+	 * @param text 
+	 * 		    ,Text, der ausgewertet werden soll.
 	 * @return true oder false 
 	 */
 	private boolean datensatzMarkiererGleichwertig(int startZeile,
@@ -272,7 +276,7 @@ public class TestdateiHandler extends Datei {
 	}
 
 	/**
-	 * Liefert true zurück wenn noch ein auswertbarer Datensatz vorhanden ist.
+	 * Liefert true zurueck, wenn noch ein auswertbarer Datensatz vorhanden ist.
 	 * 
 	 * @param beginn
 	 * @param text
@@ -303,10 +307,13 @@ public class TestdateiHandler extends Datei {
 	}
 
 	/**
-	 * Findet die Zeile mit einem Datensatzbeginnmarker. Beruecksichtigt moegliche Datensatzendemarker.
-	 * @param beginn Zeile, ab der gesucht werden soll.
-	 * @param text Text, der ausgewertet werden soll.
-	 * @return Zeile mit Fund.
+	 * Findet die Zeile, mit einem Datensatzbeginnmarker. Beruecksichtigt moegliche Datensatzendemarker.
+	 * @param beginn 
+	 * 				,Zeile, ab der gesucht werden soll.
+	 * @param text 
+	 * 				,Text, der ausgewertet werden soll.
+	 * @return  
+	 * 				,Zeile mit Befund.
 	 */
 	private int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size() - 1) {
@@ -334,9 +341,12 @@ public class TestdateiHandler extends Datei {
 
 	/**
 	 * Findet die Zeile, in der ein Datensatzendemarker steht. Beachtet auftretende Beginnmarker.
-	 * @param beginn Zeile, ab der gesucht werden soll.
-	 * @param text Text, der ausgewertet werden soll.
-	 * @return Zeile mit Befund.
+	 * @param beginn 
+	 * 				,Zeile, ab der gesucht werden soll.
+	 * @param text 
+	 * 				,Text, der ausgewertet werden soll.
+	 * @return 
+	 * 				,Zeile mit Befund.
 	 */
 	private int findeDatensatzEndeMarker(int beginn,
 			ArrayList<String> text) throws DateiSyntaxFehler {
@@ -345,7 +355,7 @@ public class TestdateiHandler extends Datei {
 		int endeDateiBeginnMarker = text.get(beginn).indexOf(
 				DATENSATZ_BEGINN_MARKER)
 				+ DATENSATZ_BEGINN_MARKER.length();
-		// Beginn der Suche nach DateiBeginnMarker.
+		// Beginn der Suche, nach DateiBeginnMarker.
 		int anfangZeile1 = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER,
 				endeDateiBeginnMarker);
 		if (anfangZeile1 != -1) {
@@ -413,17 +423,20 @@ public class TestdateiHandler extends Datei {
 
 	/**
 	 * Erzeugt eine Flugroute.
-	 * Ueberprueft dabei die existenz der Orte und den Faktor.
-	 * @param nameHerkunft Ort des Abflugs
-	 * @param nameZiel Ort des Ziels
-	 * @param faktor Haeufigkeit der Nutzung
+	 * Ueberprueft die Dabei, auf die Existenz der Orte und den Faktor.
+	 * @param nameHerkunft 
+	 * 				,Ort des Abflugs.
+	 * @param nameZiel 
+	 * 				,Ort des Ziels.
+	 * @param faktor 
+	 * 				,Haeufigkeit der Nutzung.
 	 */
 	private void erzeugeFlugrouten(String nameHerkunft, String nameZiel,
 			int faktor) {
 		ArrayList<Ort> erstellteOrte = aktuelleKarte.getListeAllerOrte();
 		Ort ortHerkunft = null;
 		Ort ortZiel = null;
-		//Auswahl welche Ort Ziel welcher Ort Start ist.
+		//Auswahl, welche Ort Ziel und welcher Ort Start ist.
 		for (Ort gewaelterOrt : erstellteOrte) {
 			if (gewaelterOrt.getName().equals(nameHerkunft)) {
 				ortHerkunft = gewaelterOrt;
@@ -433,7 +446,7 @@ public class TestdateiHandler extends Datei {
 				ortZiel = gewaelterOrt;
 			}
 		}
-		//Check, ob Orte der zuerstellenden Flugroute auf Karte vorhanden sind.
+		//Check, ob Orte der zu erstellenden Flugroute auf Karte vorhanden sind.
 		if (ortHerkunft == null) {
 			JOptionPane.showMessageDialog(null, "Flugroute von " + nameHerkunft
 					+ " nach " + nameZiel + " nicht erzeugbar - "
@@ -443,7 +456,7 @@ public class TestdateiHandler extends Datei {
 					+ " nach " + nameZiel + " nicht erzeugbar - " + nameZiel
 					+ " nicht auf Karte");
 		} else {
-			//Erstellung der Flugroute und adden zur Liste im aktuellen Simulator.
+			//Erstellung der Flugroute und hinzufuegen zur Liste im aktuellen Simulator.
 			aktuelleSimulation.getRouten().add(new Flugroute(ortZiel, ortHerkunft,
 					faktor));
 		}
@@ -451,14 +464,18 @@ public class TestdateiHandler extends Datei {
 
 	/**
 	 * Wertet einen Datensatz nach allen Merkmalen aus und erstellt dann ein Objekt anhand der Daten.
-	 * @param beginnZeile Beginn des Datensatzes
-	 * @param endeZeile Ende des Datensatzes
-	 * @param text Text in dem der Datensatz steht
-	 * @throws DateiSyntaxFehler Fehler der auftritt, wenn der Syntax verletzt wurde.
+	 * @param beginnZeile 
+	 * 				,Beginn des Datensatzes.
+	 * @param endeZeile 
+	 * 				,Ende des Datensatzes.
+	 * @param text 
+	 * 				,Text, in dem der Datensatz steht
+	 * @throws DateiSyntaxFehler 
+	 * 				,Fehler der auftritt, wenn der Syntax verletzt wurde.
 	 */
 	private void werteDatensatzAus(int beginnZeile, int endeZeile,
 			ArrayList<String> text) throws DateiSyntaxFehler {
-		// Erstellt einen zusammenhängenden String des gesamten Datensatzes.
+		// Erstellt einen zusammenhaengenden String des gesamten Datensatzes.
 		String datensatz = "";
 		for (int i = beginnZeile; i <= endeZeile; i++) {
 			if (istKommentarZeile(text.get(i))) {
@@ -466,7 +483,7 @@ public class TestdateiHandler extends Datei {
 			}
 			datensatz += text.get(i);
 		}
-		//Auswerten der 3 Merkmale
+		//Auswerten der 3 Merkmale.
 		try {
 			String nameOrtHerkunft = ermittleMerkmal(BEZEICHNER_START, datensatz);
 			String nameOrtZiel = ermittleMerkmal(BEZEICHNER_ZIEL, datensatz);
@@ -476,15 +493,15 @@ public class TestdateiHandler extends Datei {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktor);
 				ausgewerteteDatensaetze++;
 			} catch (MerkmalMissing e) {
-				//Hier wird die Flugroute mit dem Daefault Faktor erstellt, weil kein gueltiger Faktor gefunden wurde.
+				//Hier wird die Flugroute mit dem Daefault Faktor erstellt, wenn kein gueltiger Faktor gefunden wurde.
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, DEFAULT_FAKTOR);
 				//Hochzaehlen, um den User Info zu geben.
 				mitFaktorDefault++;
 			}
-			//Fehler bei Merkmalauswertung
+			//Fehler bei Merkmalauswertung.
 		} catch (MerkmalMissing e) {
 			e.erzeugeMeldung();
-			//Fehler bei Umwandlung der Zahlen
+			//Fehler bei Umwandlung der Zahlen.
 		} catch (NumberFormatException f) {
 			JOptionPane.showMessageDialog(null,
 					"Merkmale enthalten keine Zahlen. Im Datensatz ab "
