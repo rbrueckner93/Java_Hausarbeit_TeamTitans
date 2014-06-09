@@ -22,11 +22,13 @@ public class Karte {
 	// Wie oft muss eine Querverbindung ihre eigene Laenge einsparen, um
 	// eingerichtet zu werden?
 	public static double SCHWELLFAKTOR_QUERVERBINDUNG = 2;
-	//Wie lang darf ein Ring max sein, um ohne Querverbindung auszukommen.
-	public static final double MAX_RINGLAENGE_OHNE_QUERVERBINDUNG = (KARTE_GROESSE_Y*2);
-	//Schrittgrˆﬂe bei der Verringerung des Abwertfaktors um geeignete Ringorte zu finden.
+	// Wie lang darf ein Ring max sein, um ohne Querverbindung auszukommen.
+	public static final double MAX_RINGLAENGE_OHNE_QUERVERBINDUNG = (KARTE_GROESSE_Y * 2);
+	// Schrittgrˆﬂe bei der Verringerung des Abwertfaktors um geeignete Ringorte
+	// zu finden.
 	public static final double SCHRITTWEITE_RING_ABWERTFAKTOR = 0.05;
-	//Wert der unterschritten werden muss, um keine weiteren Ringorte mehr aufzunehmen. (Achtung Rundungsprobleme)
+	// Wert der unterschritten werden muss, um keine weiteren Ringorte mehr
+	// aufzunehmen. (Achtung Rundungsprobleme)
 	public static final double SCHWELLWERT_ABBRUCH_RINGORTE = 0.15;
 	// Mit welcher Kantenlaenge soll der Feldalgorithmus beginnen,
 	// Konzentrationsfelder zu suchen?
@@ -122,12 +124,11 @@ public class Karte {
 
 				// Vergleichsobjekte / -variablen
 				Ort winkelPartner = null;
-				double winkelMin;
 				double neuesDelta;
 
 				// Aufsuchen einer minimalen Winkelabweichung
-				while (nichtVerbunden.size() > 1) {
-					winkelMin = Double.MAX_VALUE;
+				while (!nichtVerbunden.isEmpty()) {
+					double winkelMin = Double.MAX_VALUE;
 					for (Ort moeglicherPartner : ringOrte) {
 						if ((moeglicherPartner != partnerSucher)
 								&& (!schonVerbunden.contains(moeglicherPartner))) {
@@ -154,9 +155,11 @@ public class Karte {
 						}
 					}
 					if (nichtVerbunden.size() > 1) {
-						// Ort winkelPartner besitzt den kleinsten
-						// Winkelunterschied. Er wird als Partner im neuen
-						// Korridor verwendet.
+						/*
+						 * Ort winkelPartner besitzt den kleinsten
+						 * Winkelunterschied. Er wird als Partner im neuen
+						 * Korridor verwendet.
+						 */
 						Korridor naechstesStueck = new Korridor(partnerSucher,
 								winkelPartner, Korridor.KENNUNG_ENFC, true);
 						eingerichteteKorridore.add(naechstesStueck);
@@ -168,13 +171,16 @@ public class Karte {
 						// Im naechsten Durchlauf soll winkelPartner seinen
 						// Partner suchen
 						partnerSucher = winkelPartner;
+					} else {
+						// Ring schliessen.
+						Korridor letztesStueck = new Korridor(
+								nichtVerbunden.get(0), ersterOrt,
+								Korridor.KENNUNG_ENFC, true);
+						eingerichteteKorridore.add(letztesStueck);
+						ringKorridore.add(letztesStueck);
+						nichtVerbunden.remove(0);
 					}
 				}
-				// Ring schliessen.
-				Korridor letztesStueck = new Korridor(nichtVerbunden.get(0),
-						ersterOrt, Korridor.KENNUNG_ENFC, true);
-				eingerichteteKorridore.add(letztesStueck);
-				ringKorridore.add(letztesStueck);
 
 				/*
 				 * QUERVERBINDUNGEN Ueberpruefen, ob der Polygonzug lang wurde:
@@ -307,13 +313,13 @@ public class Karte {
 
 	/**
 	 * Hauptmethode der Klasse Karte. Hier werden alle notwendigen Schritte zur
-	 * Netzerstellung ausgef√ºhrt.
+	 * Netzerstellung ausgefuehrt.
 	 */
 	public void erstelleNetz() throws NetzBauFehler {
 		if (orte.size() == 1) {
 			/*
 			 * Wurde ein Ort eingelesen, wird der Benutzer informiert, dass eine
-			 * Netzerstellung keinen Sinn macht. Der Programm
+			 * Netzerstellung keinen Sinn macht. Das Programm wird beendet.
 			 */
 			JOptionPane
 					.showMessageDialog(
@@ -396,9 +402,9 @@ public class Karte {
 	}
 
 	/**
-	 * Methode zum erstellen eines Ringes im Netz. Weitere Optimierung folgt.
 	 * 
-	 * @param ohneASL
+	 * @param relevanzFelder
+	 * @param ohneASLOrte
 	 */
 	private void erstelleRingStruktur(ArrayList<Feld> relevanzFelder,
 			ArrayList<Ort> ohneASLOrte) {
@@ -413,14 +419,15 @@ public class Karte {
 		}
 		// Erstellen einer Liste der vorhanden Ringorte.
 		head: while (ringOrte.size() < 4) {
-			for (double abwertFaktor = 1; abwertFaktor >= 0.1; abwertFaktor = (abwertFaktor - SCHRITTWEITE_RING_ABWERTFAKTOR)) {
+			for (double abwertFaktor = 1; abwertFaktor >= SCHWELLWERT_ABBRUCH_RINGORTE; abwertFaktor = (abwertFaktor - SCHRITTWEITE_RING_ABWERTFAKTOR)) {
 
 				for (Ort ort : ohneASLOrte) {
 					if (relevanzGradOrtmitASL(ort) >= (hoechsterRG * abwertFaktor)
 							&& !ringOrte.contains(ort)) {
 						ringOrte.add(ort);
 					}
-					if (abwertFaktor < SCHWELLWERT_ABBRUCH_RINGORTE || ringOrte.size() == orte.size()) {
+					if (abwertFaktor < SCHWELLWERT_ABBRUCH_RINGORTE
+							|| ringOrte.size() == orte.size()) {
 						break head;
 					}
 				}
