@@ -974,7 +974,7 @@ public class Karte {
 
 	/**
 	 * Diese Methode prueft den abschliessenden Netzbau. Bei korrekter
-	 * Prpgrammierung sollte kein Fehler auftauchen
+	 * Programmierung sollte kein Fehler auftauchen
 	 * 
 	 * @param aktuellesNetz
 	 *            Netz, dass ueberpreuft werden soll
