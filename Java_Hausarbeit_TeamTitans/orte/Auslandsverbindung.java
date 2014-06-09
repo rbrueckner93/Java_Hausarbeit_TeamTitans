@@ -6,7 +6,7 @@ public class Auslandsverbindung extends Ort {
 	public static final String BESCHREIBUNG = "Auslandsverbindung";
 
 	/**
-	 * Dient lediglich der Ermittlung des Relevanzgrades und erbt hauptsächlich
+	 * Dient lediglich der Ermittlung des Relevanzgrades und erbt hauptsaechlich
 	 * von Klasse Ort.
 	 * 
 	 * @author TolleN, HandritschkP
