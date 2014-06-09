@@ -63,7 +63,7 @@ public class KartendateiHandler extends Datei {
 	 */
 	public void verarbeiteKartendatei() throws DateiSyntaxFehler {
 		anzahlAusgewerteteDatensaetze = 0;
-		// Erstellt eine ArrayList mit dem Zeileninhalt der Datei.
+		// Erstellt eine ArrayList mit den Zeileninhalten der Datei.
 		ArrayList<String> geleseneDaten = Datei.leseDatei(aktuelleKartendatei);
 		aktuelleZeile = 0;
 		// Schreibt den Dateinamen in die aktuelle Kartendatei.
@@ -96,7 +96,7 @@ public class KartendateiHandler extends Datei {
 							"Achtung! - Es fehlen Datensatzmarkierer zur korrekten Auswertung der Datei.\nOder es stehen 2 identische Marker in einer Zeile.");
 		}
 		/*
-		 * In dieser Schleife, wird wiederholt nach Datensaetzen gesucht und
+		 * In dieser Schleife wird wiederholt nach Datensaetzen gesucht und
 		 * diese dann ausgewertet. Dies passiert so lange, bis keine Datensaetze
 		 * mehr vorhanden sind oder der DateiendeMarker erreicht wurde.
 		 */
@@ -199,7 +199,7 @@ public class KartendateiHandler extends Datei {
 				throw new DateiSyntaxFehler();
 			}
 		}
-		// Check der momentanen Zeile auf einen DateiendeMarker.
+		// Ueberpruefung der momentanen Zeile auf einen DateiendeMarker.
 		int anfangZeile11 = text.get(beginn).indexOf(DATEI_ENDE_MARKER);
 		if (anfangZeile11 != -1) {
 			int endeZeile11 = anfangZeile11 + DATEI_ENDE_MARKER.length();
@@ -220,7 +220,7 @@ public class KartendateiHandler extends Datei {
 				beginn++;
 				continue;
 			}
-			// Check, ob nicht ein 2. Dateibeginn Marker gefunden wird.
+			// Ueberpruefung, ob nicht ein 2. Dateibeginn Marker gefunden wird.
 			int anfangAktuelleZeile = text.get(beginn).indexOf(
 					DATEI_BEGINN_MARKER);
 			if (anfangAktuelleZeile != -1) {
@@ -403,7 +403,7 @@ public class KartendateiHandler extends Datei {
 		// Beginn der Suche nach DateiBeginnMarker.
 		int anfangZeile1 = text.get(beginn).indexOf(DATENSATZ_BEGINN_MARKER,
 				endeDateiBeginnMarker);
-		// Check, ob in Zeile ein Marker gefunden wurde.
+		// Ueberpruefung, ob in Zeile ein Marker gefunden wurde.
 		if (anfangZeile1 != -1) {
 			int endeZeile1 = anfangZeile1 + DATENSATZ_BEGINN_MARKER.length();
 			String zutesten = text.get(beginn).substring(anfangZeile1,
@@ -417,7 +417,7 @@ public class KartendateiHandler extends Datei {
 				throw new DateiSyntaxFehler();
 			}
 		}
-		// Check, ob in der Zeile ein Dateiende Marker steht. Rueckgabe der Zeile
+		// Ueberpruefung, ob in der Zeile ein Dateiende Marker steht. Rueckgabe der Zeile
 		// bei Fund.
 		int anfangZeile11 = text.get(beginn).indexOf(DATENSATZ_ENDE_MARKER);
 		if (anfangZeile11 != -1) {
@@ -508,7 +508,7 @@ public class KartendateiHandler extends Datei {
 			}
 			// Restliche Auswertung.
 			String name = ermittleMerkmal(BEZEICHNER_NAME, datensatz);
-			// Check ob Name einzigartig ist.
+			// Ueberpruefung ob Name einzigartig ist.
 			boolean nameEinzigartig = true;
 			for (Ort ort : kartenInstanz.getOrte()) {
 				if (name.equals(ort.getName())) {
