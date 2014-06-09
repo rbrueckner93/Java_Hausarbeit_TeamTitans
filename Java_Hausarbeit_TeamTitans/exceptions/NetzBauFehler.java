@@ -9,19 +9,20 @@ public class NetzBauFehler extends Exception {
 	private Korridor fehlerhafteVerbindung;
 
 	/**
-	 * Art des Fehler 0 = Ein nicht endgueltiger Korridor wurde entdeckt. 1 =
+	 * Art des Fehlers 0 = Ein nicht endgueltiger Korridor wurde entdeckt. 1 =
 	 * Angebundene Korridore eines Ortes enthalten unbekannten Korridor.
 	 */
 	private int fehlerTyp;
 
 	/**
 	 * Fehler, der bei inkorrektem Netzbau geworfen wird. Erwartet den Korridor
-	 * mit spez Fehlercode.
+	 * mit spez. Fehlercode.
 	 * 
 	 * @param fehlerhafteVerbindung
 	 *            Korridor mit Fehler
 	 * @param fehlerTyp
 	 *            Art des Fehlers
+	 * @author TolleN
 	 */
 	public NetzBauFehler(Korridor fehlerhafteVerbindung, int fehlerTyp) {
 		super("Fehler im Netzbau entdeckt");

@@ -3,7 +3,7 @@ package exceptions;
 import javax.swing.JOptionPane;
 
 /**
- * Exception die ein Fehlendes Merkmal meldet. Benötigt zur korrekten erzeugung
+ * Exception die ein Fehlendes Merkmal meldet. Benoetigt zur korrekten Erzeugung
  * einer Fehlermeldung die Merkmalbezeichnung und das aktuelle Element der
  * ArrayList.
  * 

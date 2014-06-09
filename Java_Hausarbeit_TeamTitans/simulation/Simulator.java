@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Simulator {
 	// Alle angelegten Routen werden in einer Liste gespeichert
 	private ArrayList<Flugroute> routen;
+	//Name der Testdatei, die gerade fuer die Simulation benutzt wird.
 	private String nameTestdatei;
 
 	public Simulator() {
@@ -35,7 +36,7 @@ public class Simulator {
 	}
 
 	/**
-	 * fuehrt auf jeder Route, sich in der Liste routen der Instanz befindet,
+	 * Fuehrt auf jeder Route, die sich in der Liste routen der Instanz befindet,
 	 * route.ermittleBesteRoute() aus.
 	 */
 	public void simuliere() {
@@ -45,6 +46,7 @@ public class Simulator {
 	}
 
 	/**
+	 * Summiert alle Nutzkosten der einzelnen Flugrouten auf.
 	 * @return Summe aller Routennutzungskostenkosten
 	 */
 	public double ermittleNutzkosten() {

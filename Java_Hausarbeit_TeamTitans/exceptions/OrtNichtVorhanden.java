@@ -1,10 +1,9 @@
 package exceptions;
 
 /**
- * @author BruecknerR
- * 
  * Fehler wird geworfen, wenn eine Ortsliste aus nicht zusammenhaengenden
  * Korridoren einer ReiseListe erzeugt werden soll.
+ * @author BruecknerR
 */
 
 public class OrtNichtVorhanden extends Exception {
