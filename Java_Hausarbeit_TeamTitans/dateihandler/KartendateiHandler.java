@@ -36,8 +36,6 @@ public class KartendateiHandler extends Datei {
 	public static final int MIN_KOORD_Y = 0;
 	public static final int MAX_KOORD_Y = 99;
 
-	//private int aktuelleZeile = 0;
-
 	private int anzahlAusgewerteteDatensaetze = 0;
 
 	private Karte kartenInstanz;
@@ -491,10 +489,10 @@ public class KartendateiHandler extends Datei {
 		}
 		// Auswertung des Datensatzes
 		try {
-			int xkoord = Integer.parseInt(ermittleMerkmal(BEZEICHNER_X_KOORDINATE,
-					datensatz));
-			int ykoord = Integer.parseInt(ermittleMerkmal(BEZEICHNER_Y_KOORDINATE,
-					datensatz));
+			int xkoord = Integer.parseInt(ermittleMerkmal(
+					BEZEICHNER_X_KOORDINATE, datensatz));
+			int ykoord = Integer.parseInt(ermittleMerkmal(
+					BEZEICHNER_Y_KOORDINATE, datensatz));
 			// Ueberpruefen der Orte auf ihre Position.
 			koordinateCheckenX(xkoord);
 			koordinateCheckenY(ykoord);
@@ -555,7 +553,7 @@ public class KartendateiHandler extends Datei {
 				throw new DateiSyntaxFehler();
 			}
 			anzahlAusgewerteteDatensaetze++;
-			//Fehler bei Auswertung der Merkmale.
+			// Fehler bei Auswertung der Merkmale.
 		} catch (MerkmalMissing e) {
 			e.erzeugeMeldung();
 			// Diese exception faengt ungueltige Werte bei x und y Koordinaten
@@ -655,7 +653,5 @@ public class KartendateiHandler extends Datei {
 				new Auslandsverbindung(koordX, koordY, name,
 						passagierAufkommen, umschlagVolumen));
 	}
-
-
 
 }

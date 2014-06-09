@@ -22,6 +22,12 @@ public class Karte {
 	// Wie oft muss eine Querverbindung ihre eigene Laenge einsparen, um
 	// eingerichtet zu werden?
 	public static double SCHWELLFAKTOR_QUERVERBINDUNG = 2;
+	//Wie lang darf ein Ring max sein, um ohne Querverbindung auszukommen.
+	public static final double MAX_RINGLAENGE_OHNE_QUERVERBINDUNG = (KARTE_GROESSE_Y*2);
+	//Schrittgröße bei der Verringerung des Abwertfaktors um geeignete Ringorte zu finden.
+	public static final double SCHRITTWEITE_RING_ABWERTFAKTOR = 0.05;
+	//Wert der unterschritten werden muss, um keine weiteren Ringorte mehr aufzunehmen. (Achtung Rundungsprobleme)
+	public static final double SCHWELLWERT_ABBRUCH_RINGORTE = 0.15;
 	// Mit welcher Kantenlaenge soll der Feldalgorithmus beginnen,
 	// Konzentrationsfelder zu suchen?
 	public static final int BEGINN_FELDABTASTUNG = 35;
@@ -185,7 +191,7 @@ public class Karte {
 				 * Wegersparnis ausgerechnet, die mit dem hinzufuegen eines
 				 * zusaetzlichen Korridores erzielt werden kann.
 				 */
-				while (ringLaenge > Math.min(KARTE_GROESSE_X, KARTE_GROESSE_Y) * 2) {
+				while (ringLaenge > MAX_RINGLAENGE_OHNE_QUERVERBINDUNG) {
 					Korridor hoechsterErsparniskorridor = new Korridor(
 							ringOrte.get(0), ringOrte.get(1),
 							Korridor.KENNUNG_ENFC, false);
@@ -407,14 +413,14 @@ public class Karte {
 		}
 		// Erstellen einer Liste der vorhanden Ringorte.
 		head: while (ringOrte.size() < 4) {
-			for (double abwertFaktor = 1; abwertFaktor >= 0.1; abwertFaktor = (abwertFaktor - 0.05)) {
+			for (double abwertFaktor = 1; abwertFaktor >= 0.1; abwertFaktor = (abwertFaktor - SCHRITTWEITE_RING_ABWERTFAKTOR)) {
 
 				for (Ort ort : ohneASLOrte) {
 					if (relevanzGradOrtmitASL(ort) >= (hoechsterRG * abwertFaktor)
 							&& !ringOrte.contains(ort)) {
 						ringOrte.add(ort);
 					}
-					if (abwertFaktor < 0.15 || ringOrte.size() == orte.size()) {
+					if (abwertFaktor < SCHWELLWERT_ABBRUCH_RINGORTE || ringOrte.size() == orte.size()) {
 						break head;
 					}
 				}
