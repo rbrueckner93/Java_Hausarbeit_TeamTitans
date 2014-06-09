@@ -476,7 +476,7 @@ public class TestdateiHandler extends Datei {
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, faktor);
 				ausgewerteteDatensaetze++;
 			} catch (MerkmalMissing e) {
-				//Hier wird die Flugroute mit dem Daefault Faktoe erstellt, weil kein gueltiger Faktor gefunden wurde.
+				//Hier wird die Flugroute mit dem Daefault Faktor erstellt, weil kein gueltiger Faktor gefunden wurde.
 				erzeugeFlugrouten(nameOrtHerkunft, nameOrtZiel, DEFAULT_FAKTOR);
 				//Hochzaehlen, um den User Info zu geben.
 				mitFaktorDefault++;
