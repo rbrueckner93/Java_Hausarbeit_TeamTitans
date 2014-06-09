@@ -46,10 +46,10 @@ public class KartendateiHandler extends Datei {
 	 * Konstruktor, der eine Datei und ein Objekt der Karte benoetigt.
 	 * 
 	 * @param kartenInstanz
-	 *            ,Zulesende Datei.
+	 *            Zulesende Datei.
 	 * @param aktuelleKartendatei
-	 *            ,Kartenobjekt, das gefuellt wird.
-	 * @author Nils
+	 *            Kartenobjekt, das gefuellt wird.
+	 * @author TolleN
 	 */
 	public KartendateiHandler(Karte kartenInstanz, File aktuelleKartendatei) {
 		super();
@@ -130,11 +130,11 @@ public class KartendateiHandler extends Datei {
 	 * Sucht einen DateibeginnMarker.
 	 * 
 	 * @param beginn
-	 *            ,Zeile ab der Gesucht werden soll.
+	 *            Zeile ab der Gesucht werden soll.
 	 * @param text
-	 *            ,ArrayList von Strings, in der gesucht werden soll.
+	 *            ArrayList von Strings, in der gesucht werden soll.
 	 * @return 
-	 * 		 	  ,Integer der Zeile mit Befund, sonst -1.
+	 * 		 	  Integer der Zeile mit Befund, sonst -1.
 	 */
 	private static int findeDateiBeginnMarker(int beginn, ArrayList<String> text) {
 		while (beginn < text.size()) {
@@ -171,11 +171,11 @@ public class KartendateiHandler extends Datei {
 	 * Datei Beginn Marker auftauchen koennen.
 	 * 
 	 * @param beginn
-	 *            ,Zeile ab der gesucht werden soll.
+	 *            Zeile ab der gesucht werden soll.
 	 * @param text
-	 *            ,ArrayList in der gesucht werden soll.
+	 *            ArrayList in der gesucht werden soll.
 	 * @return Integer 
-	 *            ,der Zeile mit Befund, sonst -1.
+	 *            der Zeile mit Befund, sonst -1.
 	 */
 	private static int findeDateiEndeMarker(int beginn, ArrayList<String> text)
 			throws DateiSyntaxFehler {
@@ -263,7 +263,7 @@ public class KartendateiHandler extends Datei {
 	 * 
 	 * @param startZeile
 	 * @param text
-	 *            ,Text der ausgewertet werden soll.
+	 *            Text der ausgewertet werden soll.
 	 * @return true oder false
 	 */
 	private boolean datensatzMarkiererGleichwertig(int startZeile,
@@ -310,11 +310,11 @@ public class KartendateiHandler extends Datei {
 	 * Sucht nach vorhandenem Datensatzbeginn. Kriterium um weiter auszuwerten.
 	 * 
 	 * @param beginn
-	 *            ,Zeile ab der gesucht werden soll.
+	 *            Zeile ab der gesucht werden soll.
 	 * @param text
-	 *            ,ArrayList String, in denen gesucht wird.
+	 *            ArrayList String, in denen gesucht wird.
 	 * @return true 
-	 *            ,bei Fund sonst false.
+	 *            bei Fund sonst false.
 	 */
 	private boolean datensatzBeginnMarkerVorhanden(int beginn,
 			ArrayList<String> text) {
@@ -349,11 +349,11 @@ public class KartendateiHandler extends Datei {
 	 * Findet DatensatzBeginn Marker im Text.
 	 * 
 	 * @param beginn
-	 *            ,Zeile, ab der gesucht werden soll.
+	 *            Zeile, ab der gesucht werden soll.
 	 * @param text
-	 *            ,List von Strings, in denen gesucht werden soll.
+	 *            List von Strings, in denen gesucht werden soll.
 	 * @return 
-	 * 			  ,Integer der Zeile, sonst -1.
+	 * 			  Integer der Zeile, sonst -1.
 	 */
 	private int findeDatensatzBeginnMarker(int beginn, ArrayList<String> text) {
 		/*
@@ -387,11 +387,11 @@ public class KartendateiHandler extends Datei {
 	 * DatensatzBeginnMarker.
 	 * 
 	 * @param beginn
-	 *            ,Zeile, in der begonnen werden soll.
+	 *            Zeile, in der begonnen werden soll.
 	 * @param text
-	 *            ,List von Strings, in denen gesucht werden soll.
+	 *            List von Strings, in denen gesucht werden soll.
 	 * @return 
-	 *            ,Integer der Zeile mit Befund, sonst beginn Zeile.
+	 *            Integer der Zeile mit Befund, sonst beginn Zeile.
 	 */
 	private static int findeDatensatzEndeMarker(int beginn,
 			ArrayList<String> text) throws DateiSyntaxFehler {
@@ -473,11 +473,11 @@ public class KartendateiHandler extends Datei {
 	 * * Wertet einen Datensatz aus und erstellt moegliches Objekt.
 	 * 
 	 * @param beginnZeile
-	 *            ,Startzeile des Datensatzes.
+	 *            Startzeile des Datensatzes.
 	 * @param endeZeile
-	 *            ,Endzeile des Datensatzes.
+	 *            Endzeile des Datensatzes.
 	 * @param text
-	 *            ,Liste aus Strings, in dem der Datensatz steht.
+	 *            Liste aus Strings, in dem der Datensatz steht.
 	 * @throws DateiSyntaxFehler
 	 */
 	private void werteDatensatzAus(int beginnZeile, int endeZeile,
@@ -575,9 +575,9 @@ public class KartendateiHandler extends Datei {
 	 * haben.
 	 * 
 	 * @param x
-	 *            ,Koordinate.
+	 *            X-Koordinate.
 	 * @param y
-	 *            ,Koordinate.
+	 *            Y-Koordinate.
 	 * @return true
 	 * 		      ,sonst false.
 	 */
@@ -601,7 +601,7 @@ public class KartendateiHandler extends Datei {
 	 * Ueberorueft,ob X-Koordinate im Bereich der Karte liegt.
 	 * 
 	 * @param koord
-	 *            ,Integer der Koordinate.
+	 *            Integer der Koordinate.
 	 */
 	private void koordinateCheckenX(int koord) throws DateiSyntaxFehler {
 		if (koord > MAX_KOORD_X || koord < MIN_KOORD_X) {
@@ -618,7 +618,7 @@ public class KartendateiHandler extends Datei {
 	 * Ueberorueft, ob Y-Koordinate im Bereich der Karte liegt.
 	 * 
 	 * @param koord
-	 *            ,Integer der Koordinate.
+	 *            Integer der Koordinate.
 	 */
 	private void koordinateCheckenY(int koord) throws DateiSyntaxFehler {
 		if (koord > MAX_KOORD_Y || koord < MIN_KOORD_Y) {
