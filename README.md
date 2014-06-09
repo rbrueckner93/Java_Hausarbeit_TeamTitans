@@ -2,7 +2,7 @@ Java_Hausarbeit_TeamTitans
 ==========================
 Rep für unsere Hausarbeit.
 Team Titans.
-Progress: 75%
+Progress: 0.91325
 ==========================
 ToDo:
 
