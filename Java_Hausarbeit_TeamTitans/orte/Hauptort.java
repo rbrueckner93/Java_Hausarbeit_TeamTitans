@@ -1,18 +1,15 @@
 package orte;
 
 public class Hauptort extends Ort {
-	/* {author=TolleN, HandritschkP} */
-
 	private int anzahlEinwohner;
-
 	public static final String BESCHREIBUNG = "Hauptort";
-	
-	/**
-	 * anzahlEinwohner wird aus Datei uebergeben relevanzGrad wird mit
-	 * berechneRelevanzGrad berechnet 
-	 * KENNUNG ist fuer Hauptort: HPT
-	 */
 
+	/**
+	 * Dient lediglich der Ermittlung des Relevanzgrades und erbt haupts‰chlich
+	 * von Klasse Ort.
+	 * 
+	 * @author TolleN, HandritschkP
+	 */
 	public Hauptort(int koordX, int koordY, String name, int anzahlEinwohner) {
 		super(koordX, koordY, name);
 		this.anzahlEinwohner = anzahlEinwohner;
@@ -21,9 +18,12 @@ public class Hauptort extends Ort {
 	}
 
 	/**
-	 * Relevanzgrad f√ºr HPT: teilt die Einwohner durch 15000
+	 * Ermittelt den Relevanzgrad auf Basis der in der Aufgabenstellung
+	 * vorgegebenen Rechenvorschrift und schreibt den Relevanzgrad in das
+	 * Attribut der uebergeordneten Klasse Ort.
+	 * 
+	 * Der Relevanzgrad ist definiert durch Einwohner geteilt durch 15000.
 	 */
-	
 	private void berechneRelevanzGrad() {
 		setRelevanzGrad((anzahlEinwohner / 15000));
 	}

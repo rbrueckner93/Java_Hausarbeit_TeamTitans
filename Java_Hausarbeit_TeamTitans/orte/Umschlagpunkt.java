@@ -1,16 +1,14 @@
 package orte;
 
 public class Umschlagpunkt extends Ort {
-	/* {author=TolleN, HandritschkP} */
-
 	public double umschlagVolumen;
-
 	public static final String BESCHREIBUNG = "Umschlagpunkt";
-	
+
 	/**
-	 * umschlagVolumen wird aus Datei uebergeben relevanzGrad wird mit
-	 * berechneRelevanzGrad berechnet 
-	 * KENNUNG ist fuer Nebenort: UMS
+	 * Dient lediglich der Ermittlung des Relevanzgrades und erbt hauptsächlich
+	 * von Klasse Ort.
+	 * 
+	 * @author TolleN, HandritschkP
 	 */
 	public Umschlagpunkt(int koordX, int koordY, String name,
 			double umschlagVolumen) {
@@ -21,7 +19,9 @@ public class Umschlagpunkt extends Ort {
 	}
 
 	/**
-	 * teilt Umschlagvolumen durch 200000
+	 * Ermittelt den Relevanzgrad auf Basis der in der Aufgabenstellung
+	 * vorgegebenen Rechenvorschrift Umschlagvolumen / 200000 und schreibt den
+	 * Relevanzgrad in das Attribut der uebergeordneten Klasse Ort.
 	 */
 	private void berechneRelevanzGrad() {
 		setRelevanzGrad((umschlagVolumen / 200000));

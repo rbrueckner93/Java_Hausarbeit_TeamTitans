@@ -5,32 +5,35 @@ import java.util.ArrayList;
 import netz.Korridor;
 
 public class Ort {
-	/* {author=TolleN, HandritschkP} */
-	
 	public static final String KENNUNG_HAUPTORT = "HPT";
 	public static final String KENNUNG_NEBENORT = "NBN";
 	public static final String KENNUNG_UMSCHLAGPUNKT = "UMS";
 	public static final String KENNUNG_AUSLANDSVERBINDUNG = "ASL";
 
 	private int koordX;
-
 	private int koordY;
-
 	private String name;
-
 	private String kennung;
-	
 	private double relevanzGrad;
-	
+
 	/**
-	 * ein erstellter Korridor wird in den beiden beteiligten Orten in ihrer
-	 * Liste angebundeneKorridore referenziert. in dieser Liste befinden sich
-	 * alle an den Ort angebundenen Korridore, sobald diese erstellt sind (
-	 * sie sind referenziert, nicht mit new Korridor() definiert!
+	 * Ein erstellter Korridor wird in den beiden beteiligten Orten in ihrer
+	 * Liste angebundeneKorridore referenziert. In dieser Liste befinden sich
+	 * Verweise auf alle an den Ort angebundenen Korridore, sofern diese mit
+	 * endgueltig = true erstellt oder im Nachhinein aktiviert() wurden.
 	 */
-	
 	private ArrayList<Korridor> angebundeneKorridore;
 
+	/**
+	 * Die Klasse Ort stellt in erster Linie eine Datenhaltung in der
+	 * Programmstruktur dar und dient mit Bereitstellung von Ortskennungen,
+	 * Koordinaten und angebundenenKorridoren.
+	 * 
+	 * @param koordX
+	 * @param koordY
+	 * @param name
+	 * @author TolleN, HandritschkP
+	 */
 	public Ort(int koordX, int koordY, String name) {
 		super();
 		this.koordX = koordX;
@@ -43,16 +46,8 @@ public class Ort {
 		return koordX;
 	}
 
-	public void setKoordX(int koordX) {
-		this.koordX = koordX;
-	}
-
 	public int getKoordY() {
 		return koordY;
-	}
-
-	public void setKoordY(int koordY) {
-		this.koordY = koordY;
 	}
 
 	public String getName() {
@@ -83,10 +78,7 @@ public class Ort {
 		return angebundeneKorridore;
 	}
 
-	public void addAngebundenenKorridor(Korridor korridor){
+	public void addAngebundenenKorridor(Korridor korridor) {
 		this.angebundeneKorridore.add(korridor);
 	}
-	
-
-
 }
