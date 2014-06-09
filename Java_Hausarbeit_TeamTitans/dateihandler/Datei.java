@@ -15,8 +15,7 @@ import exceptions.MerkmalMissing;
 import main.Benutzerinterface;
 
 /**
- * @author TolleN
- * 
+ * @author TolleN 
  */
 public class Datei {
 	public static final String KOMMENTARMARKER = "##";
@@ -24,21 +23,23 @@ public class Datei {
 	public static final String MERKMAL_ENDE = "]";
 	public static final String BEZEICHNER_WERT_TRENNER = "|";
 	/**
-	 * Dateieindung ohne Punkt
+	 * Dateiendung ohne Punkt.
 	 */
 	public static final String STANDARD_DATEITYP = "txt";
 	
 	protected int aktuelleZeile = 0;
 
 	/**
-	 * Methode die eine gegebene Datei Zeilenweise ausliest und ein Array von
-	 * Strings aller Zeilen zurückgibt. Datei muss von UI geprüft worden sein
+	 * Methode, die eine gegebene Datei Zeilenweise ausliest und ein Array von
+	 * Strings aller Zeilen zurueck gibt. Datei muss von UI geprueft worden sein,
 	 * auf lesbarkeit und isFile().
 	 * 
 	 * @param neueDatei
-	 *            Datei die eingelsen werden soll.
-	 * @return ArrayList<String> pro Index eine Zeile.
+	 *            ,Datei die eingelesen werden soll.
+	 * @return ArrayList<String> 
+	 * 		      ,pro Index eine Zeile.
 	 */
+	
 	public static ArrayList<String> leseDatei(File aktuelleDatei) {
 		ArrayList<String> zeilen = new ArrayList<String>();
 		try {
@@ -62,18 +63,18 @@ public class Datei {
 
 	/**
 	 * Schreibt einen Liste von Strings. Jedes Objekt ist eine neue Zeile.
-	 * Bekommt Dateinamen[inklusive Suffix!] und OutputStream als String
+	 * Bekommt Dateinamen (inklusive Suffix!) und OutputStream als String.
 	 * 
 	 * @param zuSchreibenderText
-	 *            ArrayList von Strings mit allen Zeilen.
+	 *            ,ArrayList von Strings mit allen Zeilen.
 	 * @param neuerDateiname
-	 *            String des Namen+Suffix der Datei(kein ".txt") enthält.
+	 *            ,String des Namen + Suffix der Datei(kein ".txt") enthaelt.
 	 * @author Nils
 	 */
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,
 			String neuerDateiname) {
 			File neuerOrdner = new File(Benutzerinterface.STANDARDPFAD + "\\");
-			//Check, ob der Ordner in den geschrieben werden soll existiert
+			//Checkt, ob der Ordner in den geschrieben werden soll existiert.
 			if (!neuerOrdner.exists()) {
 				int entscheidung = JOptionPane
 						.showConfirmDialog(
@@ -83,17 +84,17 @@ public class Datei {
 										+ "\" nicht vorhanden.\nSoll dieser erstellt werden?",
 								"Ornder erstellen?", JOptionPane.YES_NO_OPTION);
 				if (entscheidung == JOptionPane.YES_OPTION) {
-					//Erstellt den Ordner nach User-Entscheidung
+					//Erstellt den Ordner nach User-Entscheidung.
 					neuerOrdner.mkdir();
 				}
 				if (entscheidung == JOptionPane.NO_OPTION) {
-					//Abbruch der Methode
+					//Abbruch der Methode.
 					return;
 				}
 			}
 		File neueDatei = new File(Benutzerinterface.STANDARDPFAD + "\\"
 				+ neuerDateiname +"."+ STANDARD_DATEITYP);
-		//Prueft ob die Datei bereits existiert
+		//Prueft ob die Datei bereits existiert.
 		if (neueDatei.exists()) {
 			int entscheidung = JOptionPane
 					.showConfirmDialog(
@@ -106,11 +107,11 @@ public class Datei {
 									+ "\" existiert bereits.\nSoll sie ueberschrieben werden?",
 							"Datei speichern?", JOptionPane.YES_NO_OPTION);
 			if (entscheidung == JOptionPane.NO_OPTION) {
-				//Abbruch der Methode
+				//Abbruch der Methode.
 				return;
 			}
 			if (entscheidung == JOptionPane.YES_OPTION) {
-				//Springt weiter zur erstellung der Datei und anschliessenden Schreiben.
+				//Springt weiter zur Erstellung der Datei und anschliessenden Schreiben.
 			}
 		}
 		try {
@@ -131,9 +132,10 @@ public class Datei {
 	}
 	
 	/**
-	 * Check ob Zeile eine Kommentarzeile ist.
+	 * Checkt, ob Zeile eine Kommentarzeile ist.
 	 * @param zeile 
-	 * @return true bei Kommentarzeile, sonst false.
+	 * @return true 
+	 * 			  ,bei Kommentarzeile, sonst false.
 	 */
 	public static boolean istKommentarZeile(String zeile) {
 		if (zeile.indexOf(KOMMENTARMARKER) == -1
@@ -144,9 +146,11 @@ public class Datei {
 	}
 	
 	/**
-	 * Guckt, ob nach dem DateiendeMarker noch Text steht.
-	 * @param zeile Zeile des DateiendeMarker
-	 * @param text Text; der ausgewertet werden soll.
+	 * Checkt, ob nach dem DateiendeMarker noch Text steht.
+	 * @param zeile  
+	 * 			,des DateiendeMarker.
+	 * @param text  
+	 *          ,der ausgewertet werden soll.
 	 */
 	public void checkLeeresDateiende(int zeile, ArrayList<String> text) {
 		zeile++;
@@ -162,13 +166,14 @@ public class Datei {
 	}
 	
 	/**
-	 * Methode erzeugt einen String des aktuellen Dateinamens von der momentan
+	 * Die Methode erzeugt einen String des aktuellen Dateinamens von der momentan
 	 * ausgewerteten Datei. Prueft zusaetzlich, ob es sich um eine txt Datei
 	 * handelt.
 	 * 
 	 * @param Datei
 	 *            , die gerade ausgewertet wird.
-	 * @return String des Dateinamens ohne suffix.
+	 * @return String 
+	 * 			  ,des Dateinamens ohne suffix.
 	 */
 	public String getDateiNamen(File datei) throws DateiSyntaxFehler{
 		int dateiEndung = datei.getName().indexOf("."+STANDARD_DATEITYP);
@@ -185,46 +190,47 @@ public class Datei {
 	 * * Wertet ein Datensatz nach einem spez. Merkmal aus.
 	 * 
 	 * @param wertBezeichner
-	 *            Spezifischer Bezeichner des Wertes.
+	 *            ,spezifischer Bezeichner des Wertes.
 	 * @param zeile
-	 *            String in dem Merkmal stehen muss. Muss der komplette
+	 *            ,String in dem Merkmal stehen muss. Muss der komplette
 	 *            Datensatz sein.
-	 * @return Wert des gesuchten Merkmals als String
+	 * @return Wert 
+	 * 			  ,des gesuchten Merkmals als String.
 	 * @throws MerkmalMissing
-	 *             Fehler bei fehlendem oder defektem merkmal
+	 *            ,Fehler bei fehlendem oder defektem Merkmal.
 	 * @throws DateiSyntaxFehler
 	 */
 	public String ermittleMerkmal(String wertBezeichner, String zeile)
 			throws MerkmalMissing, DateiSyntaxFehler {
-		// Index des Merkmalbeginns. Check mit "[" vorran gestellt um
+		// Index des Merkmalbeginns. Check mit "[" vorran gestellt, um
 		// Leerzeichen dazwischen auszuschliessen.
 		int anfang = zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, 0);
 		// Check ob Merkmal gefunden wurde.
 		if (anfang == -1) {
 			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
-		// Index des Ende des Merkmals
+		// Index des Ende des Merkmals.
 		int ende = zeile.indexOf(MERKMAL_ENDE, anfang);
-		// Check, ob das Merkmal einzigartig im Datensatz ist
+		// Check, ob das Merkmal einzigartig im Datensatz ist.
 		if (zeile.indexOf(MERKMAL_BEGINN + wertBezeichner, ende) != -1) {
 			JOptionPane.showMessageDialog(null, "Merkmal \"" + wertBezeichner
 					+ "\" mehrfach im Datensatz ab Zeile "
 					+ (aktuelleZeile + 1) + " vorhanden.");
 			throw new DateiSyntaxFehler();
 		}
-		// Extrahieren des spezifischen Merkmals
+		// Extrahieren des spezifischen Merkmals.
 		String inhaltMerkmal = zeile.substring(anfang, ende);
-		// Ausplitten des Merkmals in Bezeichner und Wert
+		// Ausplitten des Merkmals in Bezeichner und Wert.
 		String[] merkmalsplit = inhaltMerkmal.split("\\"
 				+ BEZEICHNER_WERT_TRENNER);
-		// Check ob Merkmal Inhalt besitzt
+		// Check, ob Merkmal Inhalt besitzt.
 		if (merkmalsplit.length == 1) {
 			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
 		if (merkmalsplit[1].isEmpty()) {
 			throw new MerkmalMissing(wertBezeichner, aktuelleZeile);
 		}
-		// Check auf Korrektes Merkmal und anschließende Rückgabe.
+		// Check auf Korrektes Merkmal und anschliessende Rueckgabe.
 		if (merkmalsplit[0].equals(MERKMAL_BEGINN + wertBezeichner)) {
 			return merkmalsplit[1].trim();
 		} else {
