@@ -9,6 +9,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import simulation.Simulator;
 import netz.Karte;
+import netz.Korridor;
 import dateihandler.Datei;
 
 /**
@@ -154,13 +155,13 @@ public class Benutzerinterface {
 								+ baukosten
 								+ " "
 								+ WAEHRUNG
-								+ " . \nFolgende Korridore wurden gebaut: \nEinfachekorridore: "
+								+ " . \nFolgende Korridore wurden gebaut: \n"+Korridor.BESCHREIBUNG_ENFC+": "
 								+ aktuelleKarte.ermittleAnzahlENFCKorridore()
-								+ "\nStandardkorridore: "
+								+ "\n"+": "+ Korridor.BESCHREIBUNG_STND
 								+ aktuelleKarte.ermittleAnzahlSTNDKorridore()
-								+ "\nHochleistungskorridore: "
+								+ "\n"+Korridor.BESCHREIBUNG_HLST+": "
 								+ aktuelleKarte.ermittleAnzahlHLSTKorridore()
-								+ "\nSicherheitskorridore: "
+								+ "\n"+Korridor.BESCHREIBUNG_SICH+": "
 								+ aktuelleKarte.ermittleAnzahlSICHKorridore());
 	}
 

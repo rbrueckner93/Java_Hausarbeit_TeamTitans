@@ -4,10 +4,7 @@ import javax.swing.JOptionPane;
 import netz.Korridor;
 
 public class NetzBauFehler extends Exception {
-	/* {author TolleN} */
-
 	private Korridor fehlerhafteVerbindung;
-
 	/**
 	 * Art des Fehlers 0 = Ein nicht endgueltiger Korridor wurde entdeckt. 1 =
 	 * Angebundene Korridore eines Ortes enthalten unbekannten Korridor.
@@ -28,7 +25,6 @@ public class NetzBauFehler extends Exception {
 		super("Fehler im Netzbau entdeckt");
 		this.fehlerhafteVerbindung = fehlerhafteVerbindung;
 		this.fehlerTyp = fehlerTyp;
-		// TODO Auto-generated constructor stub
 	}
 
 	public void zeigeFehlernachrichtVerbindungsProblem() {
