@@ -562,7 +562,7 @@ public class Karte {
 	 */
 	private void verbindeAuslandsorte() {
 		try {
-			// Erstellen einer Liste alle ASL Orte, die sich auf der Karte
+			// Erstellen einer Liste aller ASL Orte, die sich auf der Karte
 			// befinden
 			ArrayList<Ort> aslOrte = new ArrayList<Ort>();
 			Ort naechsterOrt = null;
@@ -601,7 +601,7 @@ public class Karte {
 	/**
 	 * @param k
 	 *            zu Korridor
-	 * @return
+	 * 
 	 */
 	private boolean isUpgradeable(Korridor k) {
 		String neueKorridorart = k.getNextKennung();
@@ -973,8 +973,8 @@ public class Karte {
 	}
 
 	/**
-	 * Diese Methode prueft den abschlieﬂenden Netzbau. Bei korrekter
-	 * Prpgrammierung sollte kein Fehler auftauchen
+	 * Diese Methode prueft den abschliessenden Netzbau. Bei korrekter
+	 * Programmierung sollte kein Fehler auftauchen
 	 * 
 	 * @param aktuellesNetz
 	 *            Netz, dass ueberpreuft werden soll

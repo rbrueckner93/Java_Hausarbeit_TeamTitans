@@ -8,14 +8,16 @@ import orte.Ort;
 import orte.Umschlagpunkt;
 
 /**
- * Die den Unterklasse zugeordnete Methode ueberpruefeOrtart ueberprueft, ob die
+ * Die den Unterklassen zugeordnete Methode ueberpruefeOrtart ueberprueft, ob die
  * Orte A und B fuer die jeweiligen Orte zulaessig ist, wenn nicht, gibt die
  * Methode ein false zurueck. Wird aufgerufen durch die Initialisierung eines
  * jeden Korridors.
+ *   @author TolleN
+ *
  */
 
 public class Korridor {
-	/* {author=TolleN} */
+
 
 	private Ort ortA;
 	private Ort ortB;
@@ -47,7 +49,7 @@ public class Korridor {
 	 * @param ortB
 	 * @param kennung
 	 * @param endgueltig
-	 *            falls false wird der Korridor noch nicht in
+	 *            falls false, wird der Korridor noch nicht in
 	 *            ort.angebundeneKorridore geschrieben.
 	 * @throws UngueltigerOrt
 	 */
@@ -132,7 +134,7 @@ public class Korridor {
 	 * @return den anderen Ort des Korridors
 	 * @throws IllegalArgumentException
 	 *             wird geworfen, wenn der uebergebene Ort gar nicht zu dem
-	 *             Korr. gehoert.
+	 *             Korridor gehoert.
 	 */
 
 	public Ort bestimmeAnderenOrt(Ort bekanntesEnde)
