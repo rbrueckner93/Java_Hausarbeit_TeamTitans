@@ -62,7 +62,7 @@ public class Main {
 			} while (!dateiLesenErfolgreich);
 			// Erstellung eines Netzes anhand der Karte und Budget.
 			karte.erstelleNetz();
-			// Meldung über die zu erwartenden Baukosten.
+			// Meldung ueber die zu erwartenden Baukosten.
 			gui.zeigeBaukosten(karte);
 			// Abfrage ob nur das Netz gespeichert werden soll.
 			int entscheidungNetzspeichern = gui.abfrageNetzSpeichern();

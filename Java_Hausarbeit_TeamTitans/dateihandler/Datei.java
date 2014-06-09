@@ -30,8 +30,8 @@ public class Datei {
 	protected int aktuelleZeile = 0;
 
 	/**
-	 * Methode, die eine gegebene Datei Zeilenweise ausliest und ein Array von
-	 * Strings aller Zeilen zurueck gibt. Datei muss von UI geprueft worden
+	 * Methode, die eine gegebene Datei zeilenweise ausliest und ein Array von
+	 * Strings aller Zeilen zurueckgibt. Datei muss von UI geprueft worden
 	 * sein, auf lesbarkeit und isFile().
 	 * 
 	 * @param neueDatei
@@ -74,7 +74,7 @@ public class Datei {
 	public static void schreibeDatei(ArrayList<String> zuSchreibenderText,
 			String neuerDateiname) {
 		File neuerOrdner = new File(Benutzerinterface.STANDARDPFAD + "\\");
-		// Checkt, ob der Ordner in den geschrieben werden soll existiert.
+		// Ueberprueft, ob der Ordner in den geschrieben werden soll existiert.
 		if (!neuerOrdner.exists()) {
 			int entscheidung = JOptionPane
 					.showConfirmDialog(
