@@ -8,16 +8,16 @@ import orte.Ort;
 import orte.Umschlagpunkt;
 
 /**
- * Die den Unterklassen zugeordnete Methode ueberpruefeOrtart ueberprueft, ob die
- * Orte A und B fuer die jeweiligen Orte zulaessig ist, wenn nicht, gibt die
+ * Die den Unterklassen zugeordnete Methode ueberpruefeOrtart ueberprueft, ob
+ * die Orte A und B fuer die jeweiligen Orte zulaessig ist, wenn nicht, gibt die
  * Methode ein false zurueck. Wird aufgerufen durch die Initialisierung eines
  * jeden Korridors.
- *   @author TolleN
- *
+ * 
+ * @author TolleN
+ * 
  */
 
 public class Korridor {
-
 
 	private Ort ortA;
 	private Ort ortB;
@@ -75,7 +75,7 @@ public class Korridor {
 	public double getLaenge() {
 		return laenge;
 	}
-	
+
 	public boolean isEndgueltig() {
 		return endgueltig;
 	}
@@ -98,8 +98,11 @@ public class Korridor {
 		return kennung;
 	}
 
-	public void setKennung(String kennung) {
+	public void setKennung(String kennung) throws UngueltigerOrt {
 		this.kennung = kennung;
+		// Ueberprueft nach einem Upgrade die Zulaessigkeit. Soll das Einrichten
+		// falscher Korridore beim Programmieren verhindern.
+		ueberpruefeZulaessigkeit();
 	}
 
 	/**
