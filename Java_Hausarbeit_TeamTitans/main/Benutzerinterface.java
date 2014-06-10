@@ -73,7 +73,7 @@ public class Benutzerinterface {
 					return kartenfile;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"Bitte waehlen Sie eine lesbare Kartendatei aus!");
+							"Die ausgewaehlte Datei ist nicht lesbar.\nBitte waehlen Sie eine lesbare Kartendatei aus!");
 				}
 			} else {
 				int beenden;
@@ -120,11 +120,11 @@ public class Benutzerinterface {
 					return budget;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"Das Budget sollte besser positiv sein!");
+							"Das Budget muss positiv sein!");
 				}
 			} catch (NumberFormatException ex) {
 				JOptionPane.showMessageDialog(null,
-						"Das Budget sollte eine natuerliche Zahl sein.");
+						"Das Budget muss eine natuerliche Zahl sein.");
 			}
 		}
 	}
@@ -230,7 +230,7 @@ public class Benutzerinterface {
 					return testdateiFile;
 				} else {
 					JOptionPane.showMessageDialog(null,
-							"Bitte waehlen Sie eine lesbare Testdatei aus!");
+							"Die ausgewaehlte Datei ist nicht lesbar.\nBitte waehlen Sie eine lesbare Testdatei aus!");
 				}
 			} else {
 				int beenden;
