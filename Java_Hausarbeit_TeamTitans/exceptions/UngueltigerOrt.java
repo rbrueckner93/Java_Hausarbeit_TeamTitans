@@ -1,5 +1,7 @@
 package exceptions;
 
+import javax.swing.JOptionPane;
+
 import orte.Ort;
 
 /**
@@ -23,4 +25,11 @@ public class UngueltigerOrt extends Exception {
 		this.korridorArt = korridorArt;
 	}
 
+	public void zeigeFehlernachricht() {
+		JOptionPane.showMessageDialog(
+				null,
+				"FalscherOrt_benutzt:" + ortA.getKennung() + ", "
+						+ ortB.getKennung() + " sollten fuer einen "
+						+ korridorArt + " genutzt werden.");
+	}
 }

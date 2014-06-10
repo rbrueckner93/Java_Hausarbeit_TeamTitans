@@ -306,7 +306,7 @@ public class Karte {
 	 * Hauptmethode der Klasse Karte. Hier werden alle notwendigen Schritte zur
 	 * Netzerstellung ausgefuehrt.
 	 */
-	public void erstelleNetz() throws NetzBauFehler {
+	public void erstelleNetz() throws NetzBauFehler, UngueltigerOrt{
 		if (orte.size() == 1) {
 			/*
 			 * Wurde ein Ort eingelesen, wird der Benutzer informiert, dass eine
@@ -364,7 +364,7 @@ public class Karte {
 	 * 
 	 * @author bruecknerr
 	 */
-	private void netzUpgrade() {
+	private void netzUpgrade() throws UngueltigerOrt{
 		ArrayList<Korridor> nochUpgradebareK = new ArrayList<Korridor>();
 		for (Korridor k : eingerichteteKorridore) {
 			if (isUpgradeable(k)) {

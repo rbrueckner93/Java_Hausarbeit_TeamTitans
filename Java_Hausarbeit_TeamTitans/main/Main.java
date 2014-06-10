@@ -10,6 +10,7 @@ import dateihandler.SimulationsdateiHandler;
 import dateihandler.TestdateiHandler;
 import exceptions.DateiSyntaxFehler;
 import exceptions.NetzBauFehler;
+import exceptions.UngueltigerOrt;
 
 /**
  * Diese Klasse beinhaltet den Gesamtablauf des Simulators inklusive aller
@@ -151,6 +152,9 @@ public class Main {
 			}
 		} catch (NetzBauFehler e) {
 			e.zeigeFehlernachrichtVerbindungsProblem();
+			System.exit(0);
+		} catch (UngueltigerOrt e){
+			e.zeigeFehlernachricht();
 			System.exit(0);
 		}
 	}
