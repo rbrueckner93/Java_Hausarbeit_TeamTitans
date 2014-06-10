@@ -78,15 +78,6 @@ public class Karte {
 		return orte;
 	}
 
-	public void setOrte(ArrayList<Ort> orte) {
-		this.orte = orte;
-	}
-
-	public void setEingerichteteKorridore(
-			ArrayList<Korridor> eingerichteteKorridore) {
-		this.eingerichteteKorridore = eingerichteteKorridore;
-	}
-
 	/**
 	 * Erstellt einen Ring auf Basis der Informationen mitgegebener Orte: Mit
 	 * dem Mittelpunkt der Ortsmenge werden Steigungsdreiecke gebildet.
@@ -340,7 +331,7 @@ public class Karte {
 		}
 		if (nur_ASL_Vorhanden) {
 			erstelleSternSICH(orte);
-			netzUpgrade();
+			pruefeNetzBau(eingerichteteKorridore);
 			return;
 		}
 

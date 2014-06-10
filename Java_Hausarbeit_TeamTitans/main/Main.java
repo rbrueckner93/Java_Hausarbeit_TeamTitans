@@ -139,7 +139,6 @@ public class Main {
 				endOption = gui.frageNachEndoption();
 				if (endOption == 0) {
 					simSchreiber.schreibeSimulationsDatei();
-					sim.getRouten().clear();
 					System.exit(0);
 				}
 				if (endOption == 1) {

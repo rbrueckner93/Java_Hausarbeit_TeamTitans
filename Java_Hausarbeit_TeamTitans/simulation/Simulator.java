@@ -30,11 +30,7 @@ public class Simulator {
 	public ArrayList<Flugroute> getRouten() {
 		return routen;
 	}
-
-	public void setRouten(ArrayList<Flugroute> routen) {
-		this.routen = routen;
-	}
-
+	
 	/**
 	 * Fuehrt auf jeder Route, die sich in der Liste routen der Instanz befindet,
 	 * route.ermittleBesteRoute() aus.
