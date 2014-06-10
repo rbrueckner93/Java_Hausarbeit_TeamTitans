@@ -13,18 +13,19 @@ import netz.Korridor;
 import dateihandler.Datei;
 
 /**
- *  	   Die Klasse Benutzerinterface ist fuer die Kommunikation des
- *         Programms mit dem Anwender zustaendig. Hierzu gehoert einerseits das
- *         Fragen nach Dateien oder bestimmten Informationen, deren
- *         Ueberpruefung und die Weitergabe. Andererseits sind auch die Methoden
- *         fuer die Ausgabe an den Anwender beinhaltet.
- *         @author FechnerL
+ * Die Klasse Benutzerinterface ist fuer die Kommunikation des Programms mit dem
+ * Anwender zustaendig. Hierzu gehoert einerseits das Fragen nach Dateien oder
+ * bestimmten Informationen, deren Ueberpruefung und die Weitergabe.
+ * Andererseits sind auch die Methoden fuer die Ausgabe an den Anwender
+ * beinhaltet.
+ * 
+ * @author FechnerL
  */
 public class Benutzerinterface {
 
 	/**
-	 * Hier wird der Standardpfad gesetzt, um mit diesem spaeter die Dateiauswahl
-	 * durchzufuehren.
+	 * Hier wird der Standardpfad gesetzt, um mit diesem spaeter die
+	 * Dateiauswahl durchzufuehren.
 	 */
 	public static final String STANDARDPFAD = System.getProperty("user.home")
 			+ "\\deerone";
@@ -72,8 +73,10 @@ public class Benutzerinterface {
 				if (kartenfile.isFile() && kartenfile.canRead()) {
 					return kartenfile;
 				} else {
-					JOptionPane.showMessageDialog(null,
-							"Die ausgewaehlte Datei ist nicht lesbar.\nBitte waehlen Sie eine lesbare Kartendatei aus!");
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Die ausgewaehlte Datei ist nicht lesbar.\nBitte waehlen Sie eine lesbare Kartendatei aus!");
 				}
 			} else {
 				int beenden;
@@ -144,25 +147,24 @@ public class Benutzerinterface {
 		baukosten = Math.round(baukosten);
 		baukosten = baukosten / 100;
 		if (baukosten - aktuelleKarte.getBudget() > 350000) {
-			JOptionPane.showMessageDialog(null,
-					"Das Budget war leider nicht ausreichend, "
-							+ "um ein wirtschaftsliches Netz zu erstellen!\nEs wurde ein minimal wirtschaftliches Netz erstellt.");
+			JOptionPane
+					.showMessageDialog(
+							null,
+							"Das Budget war leider nicht ausreichend, "
+									+ "um ein wirtschaftsliches Netz zu erstellen!\nEs wurde ein minimal wirtschaftliches Netz erstellt.");
 		}
-		JOptionPane
-				.showMessageDialog(
-						null,
-						"Die Baukosten betragen "
-								+ baukosten
-								+ " "
-								+ WAEHRUNG
-								+ " . \nFolgende Korridore wurden gebaut: \n"+Korridor.BESCHREIBUNG_ENFC+": "
-								+ aktuelleKarte.ermittleAnzahlENFCKorridore()
-								+ "\n"+": "+ Korridor.BESCHREIBUNG_STND
-								+ aktuelleKarte.ermittleAnzahlSTNDKorridore()
-								+ "\n"+Korridor.BESCHREIBUNG_HLST+": "
-								+ aktuelleKarte.ermittleAnzahlHLSTKorridore()
-								+ "\n"+Korridor.BESCHREIBUNG_SICH+": "
-								+ aktuelleKarte.ermittleAnzahlSICHKorridore());
+		JOptionPane.showMessageDialog(
+				null,
+				"Die Baukosten betragen " + baukosten + " " + WAEHRUNG
+						+ " . \nFolgende Korridore wurden gebaut: \n" + "  - "
+						+ Korridor.BESCHREIBUNG_ENFC + ": "
+						+ aktuelleKarte.ermittleAnzahlENFCKorridore() + "\n"
+						+ "  - " + Korridor.BESCHREIBUNG_STND + ": "
+						+ aktuelleKarte.ermittleAnzahlSTNDKorridore() + "\n"
+						+ "  - " + Korridor.BESCHREIBUNG_HLST + ": "
+						+ aktuelleKarte.ermittleAnzahlHLSTKorridore() + "\n"
+						+ "  - " + Korridor.BESCHREIBUNG_SICH + ": "
+						+ aktuelleKarte.ermittleAnzahlSICHKorridore());
 	}
 
 	/**
@@ -229,8 +231,10 @@ public class Benutzerinterface {
 				if (testdateiFile.isFile() && testdateiFile.canRead()) {
 					return testdateiFile;
 				} else {
-					JOptionPane.showMessageDialog(null,
-							"Die ausgewaehlte Datei ist nicht lesbar.\nBitte waehlen Sie eine lesbare Testdatei aus!");
+					JOptionPane
+							.showMessageDialog(
+									null,
+									"Die ausgewaehlte Datei ist nicht lesbar.\nBitte waehlen Sie eine lesbare Testdatei aus!");
 				}
 			} else {
 				int beenden;
